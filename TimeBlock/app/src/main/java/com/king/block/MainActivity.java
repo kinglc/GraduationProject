@@ -3,6 +3,8 @@ package com.king.block;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +14,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button login = (Button)findViewById(R.id.login);
+
+        login.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
     }
 }
 
