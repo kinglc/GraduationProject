@@ -22,10 +22,11 @@
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="使用微信登录"
-            android:background="#1AAD19"
+            android:text="使用支付宝账号登录"
+            android:background="#0086f1"
             android:layout_marginTop="100dp"
             android:textColor="#fff"
+            android:textSize="18dp"
             android:layout_gravity="center"
             android:id="@+id/login"
             />
