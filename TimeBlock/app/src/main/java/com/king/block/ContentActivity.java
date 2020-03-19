@@ -20,9 +20,6 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
 
-
-
-
 //        String name = intent.getStringExtra("name");//////////////////////////////////////////////
 //        int age = intent.getIntExtra("age");
 
@@ -34,7 +31,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     };
 
     //初始化导航栏组件
-    protected void initNavi(){
+    private void initNavi(){
         note = (LinearLayout)findViewById(R.id.note);
         list = (LinearLayout)findViewById(R.id.list);
         plan = (LinearLayout)findViewById(R.id.plan);
@@ -104,8 +101,5 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
             default:break;
         }
     }
-
-
-
 
 }
