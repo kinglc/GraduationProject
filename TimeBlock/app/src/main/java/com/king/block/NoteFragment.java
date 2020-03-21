@@ -1,4 +1,6 @@
 package com.king.block;
 
-public class NoteFragment {
+import androidx.fragment.app.Fragment;
+
+public class NoteFragment extends Fragment {
 }

@@ -1,4 +1,6 @@
 package com.king.block;
 
-public class FriendFragment {
+import androidx.fragment.app.Fragment;
+
+public class FriendFragment extends Fragment {
 }

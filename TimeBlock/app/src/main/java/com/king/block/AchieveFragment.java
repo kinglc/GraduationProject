@@ -1,4 +1,7 @@
 package com.king.block;
 
-public class AchieveFragment {
+import androidx.fragment.app.Fragment;
+
+public class AchieveFragment extends Fragment {
+
 }

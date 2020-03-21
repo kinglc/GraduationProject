@@ -1,4 +1,6 @@
 package com.king.block;
 
-public class ListFragment {
+import androidx.fragment.app.Fragment;
+
+public class ListFragment extends Fragment{
 }

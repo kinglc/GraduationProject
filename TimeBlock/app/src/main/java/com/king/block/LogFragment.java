@@ -1,4 +1,6 @@
 package com.king.block;
 
-public class LogFragment {
+import androidx.fragment.app.Fragment;
+
+public class LogFragment extends Fragment {
 }
