@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
+    android:outlineAmbientShadowColor="#FFCA3C"
     tools:context=".ContentActivity">
 <!--    正文-->
     <LinearLayout
@@ -22,12 +23,137 @@
 
 <!--    侧边菜单-->
     <LinearLayout
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="match_parent"
-        android:layout_gravity="right"
         android:orientation="vertical"
-        android:background="#86BCEF"
+        android:background="#EBE9E9"
         android:clickable="true">
 
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="15dp"
+            android:background="#fff">
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:id="@+id/avatar"
+            android:src="@drawable/avatar"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="9dp"
+                android:layout_gravity="bottom"
+                android:id="@+id/name"
+                android:textSize="20dp"
+                android:textColor="#000"
+                android:text="用户户户户呼呼呼呼呼呼"
+                android:maxLines="1"
+                android:ellipsize="end"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="3dp"
+            android:id="@+id/friend"
+            android:orientation="horizontal"
+            android:background="#fff">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/friend"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="好友"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000"
+                android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="3dp"
+            android:id="@+id/history"
+            android:orientation="horizontal"
+            android:background="#fff">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/history"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="历史记录"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000"
+                android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="3dp"
+            android:id="@+id/log"
+            android:orientation="horizontal"
+            android:background="#fff">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/log"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="时间历程"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000"
+                android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="3dp"
+            android:id="@+id/achieve"
+            android:orientation="horizontal"
+            android:background="#fff">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/achieve"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="成就勋章"
+                android:textSize="16dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000"
+                android:gravity="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:text="by 金晨"/>
+        </LinearLayout>
     </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

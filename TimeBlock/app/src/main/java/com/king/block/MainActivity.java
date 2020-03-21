@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 //                it.putExtra("name","xiazdong");///////////////////////////////////////////////////////////////
 //                it.putExtra("age",20);
                 startActivity(it);
+                MainActivity.this.finish();
             }
         });
     }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -28,7 +29,10 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     private ImageView note_pic,list_pic,plan_pic;
     private TextView note_txt,list_txt,plan_txt;
 
-//    private int index;//0-待办，1-计划，2-备忘录
+    //侧边
+    private LinearLayout friend,history,log,achieve;
+
+    private int index;//0-待办，1-计划，2-备忘录
 
 
     @Override
@@ -54,10 +58,12 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 
     //初始化组件
     private void initComp(){
+        //顶部
         date = (TextView) findViewById(R.id.date);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         menu = (ImageView)findViewById(R.id.menu);
 
+        //底部
         note = (LinearLayout)findViewById(R.id.note);
         list = (LinearLayout)findViewById(R.id.list);
         plan = (LinearLayout)findViewById(R.id.plan);
@@ -69,6 +75,12 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         note_txt=(TextView)findViewById(R.id.note_txt);
         list_txt=(TextView)findViewById(R.id.list_txt);
         plan_txt=(TextView)findViewById(R.id.plan_txt);
+
+        //侧边
+        friend = (LinearLayout)findViewById(R.id.friend);
+        history = (LinearLayout)findViewById(R.id.history);
+        log = (LinearLayout)findViewById(R.id.log);
+        achieve = (LinearLayout)findViewById(R.id.achieve);
     }
 
     //初始化事件
@@ -76,6 +88,11 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         note.setOnClickListener(this);
         list.setOnClickListener(this);
         plan.setOnClickListener(this);
+
+        friend.setOnClickListener(this);
+        history.setOnClickListener(this);
+        log.setOnClickListener(this);
+        achieve.setOnClickListener(this);
 
         //选择日期
         date.setOnClickListener(new View.OnClickListener() {
@@ -116,30 +133,49 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         date.setText(year + "-" + month + "-" + day+ "  ▼");
     }
 
-    //修改导航栏样式，切换fragment
+//    修改导航栏样式，切换fragment
+//    或跳转页面
     @Override
     public void onClick(View v) {
+        Intent it;
         switch (v.getId()){
             case R.id.list:
-//                index=0;
+                index=0;
                 initStyle();
                 list_pic.setImageResource(R.drawable.list_selected);
                 list_txt.setTextColor(Color.parseColor("#3FC1EB"));
                 initFrag();
                 break;
             case R.id.plan:
-//                index=1;
+                index=1;
                 initStyle();
                 plan_pic.setImageResource(R.drawable.plan_selected);
                 plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
                 initFrag();
                 break;
             case R.id.note:
-//                index=2;
+                index=2;
                 initStyle();
                 note_pic.setImageResource(R.drawable.note_selected);
                 note_txt.setTextColor(Color.parseColor("#3FC1EB"));
                 initFrag();
+                break;
+            case R.id.friend:
+                it = new Intent(ContentActivity.this, FriendActivity.class);
+                startActivity(it);
+                break;
+            case R.id.history:
+                it = new Intent(ContentActivity.this, HistoryActivity.class);
+                it.putExtra("index",index);
+                startActivity(it);
+                break;
+            case R.id.log:
+                it = new Intent(ContentActivity.this, LogActivity.class);
+                startActivity(it);
+                break;
+            case R.id.achieve:
+                it = new Intent(ContentActivity.this, AchieveActivity.class);
+                startActivity(it);
                 break;
             default:break;
         }
