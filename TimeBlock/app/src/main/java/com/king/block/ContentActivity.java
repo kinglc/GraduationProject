@@ -13,6 +13,7 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -33,16 +34,16 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     private LinearLayout friend,history,log,achieve;
 
     private int index;//0-待办，1-计划，2-备忘录
+//    private int user_index;//0-好友，1-历史，2-时间日志，3-成就
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
-
-//        String name = intent.getStringExtra("name");//////////////////////////////////////////////
-//        int age = intent.getIntExtra("age");
-
+//        String name = getIntent().getStringExtra("name");///////////////////////////////////
+//        String a = getIntent().getStringExtra("a");///////////////////////////////////
+//        Toast.makeText(ContentActivity.this,name+a,Toast.LENGTH_SHORT).show();
         initComp();
         initEvent();
         initStyle();
@@ -52,7 +53,6 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 //        index=1;
         plan_pic.setImageResource(R.drawable.plan_selected);
         plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
-
 
     };
 
@@ -137,7 +137,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 //    或跳转页面
     @Override
     public void onClick(View v) {
-        Intent it;
+        Intent it = new Intent(ContentActivity.this, UserActivity.class);
         switch (v.getId()){
             case R.id.list:
                 index=0;
@@ -161,20 +161,23 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 initFrag();
                 break;
             case R.id.friend:
-                it = new Intent(ContentActivity.this, FriendActivity.class);
+                it = new Intent(ContentActivity.this, UserActivity.class);
+                it.putExtra("user_index",0);
                 startActivity(it);
                 break;
             case R.id.history:
-                it = new Intent(ContentActivity.this, HistoryActivity.class);
-                it.putExtra("index",index);
+                it = new Intent(ContentActivity.this, UserActivity.class);
+                it.putExtra("content_index",index);
+                it.putExtra("user_index",1);
                 startActivity(it);
                 break;
             case R.id.log:
-                it = new Intent(ContentActivity.this, LogActivity.class);
                 startActivity(it);
+                it.putExtra("user_index",2);
                 break;
             case R.id.achieve:
-                it = new Intent(ContentActivity.this, AchieveActivity.class);
+                it = new Intent(ContentActivity.this, UserActivity.class);
+                it.putExtra("user_index",3);
                 startActivity(it);
                 break;
             default:break;
