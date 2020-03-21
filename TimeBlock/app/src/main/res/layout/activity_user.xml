@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".UserActivity">
 
+    <include layout="@layout/top_user"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

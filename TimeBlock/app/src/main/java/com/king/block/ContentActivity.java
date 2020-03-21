@@ -34,7 +34,6 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     private LinearLayout friend,history,log,achieve;
 
     private int index;//0-待办，1-计划，2-备忘录
-//    private int user_index;//0-好友，1-历史，2-时间日志，3-成就
 
 
     @Override
@@ -134,10 +133,10 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 //    修改导航栏样式，切换fragment
-//    或跳转页面
+//    或跳转user页面
     @Override
     public void onClick(View v) {
-        Intent it = new Intent(ContentActivity.this, UserActivity.class);
+        Intent it = new Intent();
         switch (v.getId()){
             case R.id.list:
                 index=0;
@@ -161,22 +160,23 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 initFrag();
                 break;
             case R.id.friend:
-                it = new Intent(ContentActivity.this, UserActivity.class);
+                it.setClass(ContentActivity.this, UserActivity.class);
                 it.putExtra("user_index",0);
                 startActivity(it);
                 break;
             case R.id.history:
-                it = new Intent(ContentActivity.this, UserActivity.class);
+                it.setClass(ContentActivity.this, UserActivity.class);
                 it.putExtra("content_index",index);
                 it.putExtra("user_index",1);
                 startActivity(it);
                 break;
             case R.id.log:
-                startActivity(it);
+                it.setClass(ContentActivity.this, UserActivity.class);
                 it.putExtra("user_index",2);
+                startActivity(it);
                 break;
             case R.id.achieve:
-                it = new Intent(ContentActivity.this, UserActivity.class);
+                it.setClass(ContentActivity.this, UserActivity.class);
                 it.putExtra("user_index",3);
                 startActivity(it);
                 break;

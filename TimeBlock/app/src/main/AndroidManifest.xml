@@ -13,10 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".UserActivity"></activity>
-        <activity android:name=".LogActivity" />
-        <activity android:name=".HistoryActivity" />
-        <activity android:name=".FriendActivity" />
+        <activity android:name=".UserActivity" />
         <activity android:name=".ContentActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
