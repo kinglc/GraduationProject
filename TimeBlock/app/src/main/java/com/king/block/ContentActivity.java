@@ -1,10 +1,12 @@
 package com.king.block;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -15,14 +17,19 @@ import java.util.Calendar;
 
 public class ContentActivity extends AppCompatActivity implements View.OnClickListener{
 
+    //顶部
+    private TextView date;
+    private int year,month,day;
+    private ImageView menu;
+    private DrawerLayout drawerLayout;
+
+    //底部
     private LinearLayout note,list,plan;
     private ImageView note_pic,list_pic,plan_pic;
     private TextView note_txt,list_txt,plan_txt;
 
-    private TextView date;
-    private int year,month,day;
+//    private int index;//0-待办，1-计划，2-备忘录
 
-    private int index;//0-今日待办，1-计划系统，2-备忘录
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +45,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         initFrag();
 
         //初始计划页面
-        index=1;
+//        index=1;
         plan_pic.setImageResource(R.drawable.plan_selected);
         plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
 
@@ -47,6 +54,10 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 
     //初始化组件
     private void initComp(){
+        date = (TextView) findViewById(R.id.date);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        menu = (ImageView)findViewById(R.id.menu);
+
         note = (LinearLayout)findViewById(R.id.note);
         list = (LinearLayout)findViewById(R.id.list);
         plan = (LinearLayout)findViewById(R.id.plan);
@@ -58,8 +69,6 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         note_txt=(TextView)findViewById(R.id.note_txt);
         list_txt=(TextView)findViewById(R.id.list_txt);
         plan_txt=(TextView)findViewById(R.id.plan_txt);
-
-        date = (TextView) findViewById(R.id.date);
     }
 
     //初始化事件
@@ -68,6 +77,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         list.setOnClickListener(this);
         plan.setOnClickListener(this);
 
+        //选择日期
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,11 +85,17 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         //  这个方法是得到选择后的 年，月，日，分别对应着三个参数 — year、month、dayOfMonth
-                        String s = year + "-" + month;
-                        if(index==1) s+="-" + dayOfMonth;
-                        date.setText(s+ "  ▼");
+                        date.setText(year + "-" + month + "-" + dayOfMonth+ "  ▼");
                     }
                 }, year, month, day).show();   //  弹出日历对话框时，默认显示 年，月，日
+            }
+        });
+
+        //弹出侧边栏
+        menu.setOnClickListener(new View.OnClickListener() {/*重点，点击监听*/
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(Gravity.RIGHT);/*重点，LEFT是xml布局文件中侧边栏布局所设置的方向*/
             }
         });
     }
@@ -97,9 +113,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         year = mcalendar.get(Calendar.YEAR);         //  得到当前年
         month = mcalendar.get(Calendar.MONTH);       //  得到当前月
         day = mcalendar.get(Calendar.DAY_OF_MONTH);  //  得到当前日
-        String s = year + "-" + month;
-        if(index==1) s+="-" + day;
-        date.setText(s+ "  ▼");
+        date.setText(year + "-" + month + "-" + day+ "  ▼");
     }
 
     //修改导航栏样式，切换fragment
@@ -107,21 +121,21 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.list:
-                index=0;
+//                index=0;
                 initStyle();
                 list_pic.setImageResource(R.drawable.list_selected);
                 list_txt.setTextColor(Color.parseColor("#3FC1EB"));
                 initFrag();
                 break;
             case R.id.plan:
-                index=1;
+//                index=1;
                 initStyle();
                 plan_pic.setImageResource(R.drawable.plan_selected);
                 plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
                 initFrag();
                 break;
             case R.id.note:
-                index=2;
+//                index=2;
                 initStyle();
                 note_pic.setImageResource(R.drawable.note_selected);
                 note_txt.setTextColor(Color.parseColor("#3FC1EB"));
