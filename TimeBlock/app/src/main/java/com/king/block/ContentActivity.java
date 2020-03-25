@@ -25,21 +25,21 @@ import com.king.block.content.TodoFragment;
 
 import java.util.Calendar;
 
-public class ContentActivity extends AppCompatActivity implements View.OnClickListener{
+public class ContentActivity extends AppCompatActivity implements View.OnClickListener {
 
     //顶部
     private TextView date;
-    private int year,month,day;
+    private int year, month, day;
     private ImageView menu;
     private DrawerLayout drawerLayout;
 
     //底部
-    private LinearLayout note,todo,plan;
-    private ImageView note_pic,todo_pic,plan_pic;
-    private TextView note_txt,todo_txt,plan_txt;
+    private LinearLayout note, todo, plan;
+    private ImageView note_pic, todo_pic, plan_pic;
+    private TextView note_txt, todo_txt, plan_txt;
 
     //侧边
-    private LinearLayout friend,history,log,achieve;
+    private LinearLayout friend, history, log, achieve;
 
     //正文
     private TodoFragment frag_todo;
@@ -55,47 +55,47 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 //        String name = getIntent().getStringExtra("name");///////////////////////////////////
 //        String a = getIntent().getStringExtra("a");///////////////////////////////////
 //        Toast.makeText(ContentActivity.this,name+a,Toast.LENGTH_SHORT).show();
+        index = 1;
         initComp();
         initEvent();
         initStyle();
         initFrag();
 
         //初始计划页面
-//        index=1;
         plan_pic.setImageResource(R.drawable.plan_selected);
         plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
 
-    };
+    }
 
     //初始化组件
-    private void initComp(){
+    private void initComp() {
         //顶部
         date = (TextView) findViewById(R.id.date);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        menu = (ImageView)findViewById(R.id.menu);
+        menu = (ImageView) findViewById(R.id.menu);
 
         //底部
-        note = (LinearLayout)findViewById(R.id.note);
-        todo = (LinearLayout)findViewById(R.id.todo);
-        plan = (LinearLayout)findViewById(R.id.plan);
+        note = (LinearLayout) findViewById(R.id.note);
+        todo = (LinearLayout) findViewById(R.id.todo);
+        plan = (LinearLayout) findViewById(R.id.plan);
 
-        note_pic = (ImageView)findViewById(R.id.note_pic);
-        todo_pic = (ImageView)findViewById(R.id.todo_pic);
-        plan_pic = (ImageView)findViewById(R.id.plan_pic);
+        note_pic = (ImageView) findViewById(R.id.note_pic);
+        todo_pic = (ImageView) findViewById(R.id.todo_pic);
+        plan_pic = (ImageView) findViewById(R.id.plan_pic);
 
-        note_txt=(TextView)findViewById(R.id.note_txt);
-        todo_txt=(TextView)findViewById(R.id.todo_txt);
-        plan_txt=(TextView)findViewById(R.id.plan_txt);
+        note_txt = (TextView) findViewById(R.id.note_txt);
+        todo_txt = (TextView) findViewById(R.id.todo_txt);
+        plan_txt = (TextView) findViewById(R.id.plan_txt);
 
         //侧边
-        friend = (LinearLayout)findViewById(R.id.friend);
-        history = (LinearLayout)findViewById(R.id.history);
-        log = (LinearLayout)findViewById(R.id.log);
-        achieve = (LinearLayout)findViewById(R.id.achieve);
+        friend = (LinearLayout) findViewById(R.id.friend);
+        history = (LinearLayout) findViewById(R.id.history);
+        log = (LinearLayout) findViewById(R.id.log);
+        achieve = (LinearLayout) findViewById(R.id.achieve);
     }
 
     //初始化事件
-    private void initEvent(){
+    private void initEvent() {
         note.setOnClickListener(this);
         todo.setOnClickListener(this);
         plan.setOnClickListener(this);
@@ -113,7 +113,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         //  这个方法是得到选择后的 年，月，日，分别对应着三个参数 — year、month、dayOfMonth
-                        date.setText(year + "-" + month + "-" + dayOfMonth+ "  ▼");
+                        date.setText(year + "-" + month + "-" + dayOfMonth + "  ▼");
                     }
                 }, year, month, day).show();   //  弹出日历对话框时，默认显示 年，月，日
             }
@@ -129,7 +129,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     //重置初始化样式
-    private void initStyle(){
+    private void initStyle() {
         note_pic.setImageResource(R.drawable.note);
         note_txt.setTextColor(Color.parseColor("#bfbfbf"));
         todo_pic.setImageResource(R.drawable.todo);
@@ -141,31 +141,31 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         year = mcalendar.get(Calendar.YEAR);         //  得到当前年
         month = mcalendar.get(Calendar.MONTH);       //  得到当前月
         day = mcalendar.get(Calendar.DAY_OF_MONTH);  //  得到当前日
-        date.setText(year + "-" + month + "-" + day+ "  ▼");
+        date.setText(year + "-" + month + "-" + day + "  ▼");
     }
 
-//    修改导航栏样式，切换fragment
-//    或跳转user页面
+    //    修改导航栏样式，切换fragment
+    //    或跳转user页面
     @Override
     public void onClick(View v) {
         Intent it = new Intent();
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.todo:
-                index=0;
+                index = 0;
                 initStyle();
                 todo_pic.setImageResource(R.drawable.todo_selected);
                 todo_txt.setTextColor(Color.parseColor("#3FC1EB"));
                 initFrag();
                 break;
             case R.id.plan:
-                index=1;
+                index = 1;
                 initStyle();
                 plan_pic.setImageResource(R.drawable.plan_selected);
                 plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
                 initFrag();
                 break;
             case R.id.note:
-                index=2;
+                index = 2;
                 initStyle();
                 note_pic.setImageResource(R.drawable.note_selected);
                 note_txt.setTextColor(Color.parseColor("#3FC1EB"));
@@ -174,80 +174,80 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.friend:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
                 it.setClass(ContentActivity.this, UserActivity.class);
-                it.putExtra("user_index",0);
+                it.putExtra("user_index", 0);
                 startActivity(it);
                 break;
             case R.id.history:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
                 it.setClass(ContentActivity.this, UserActivity.class);
-                it.putExtra("content_index",index);
-                it.putExtra("user_index",1);
+                it.putExtra("content_index", index);
+                it.putExtra("user_index", 1);
                 startActivity(it);
                 break;
             case R.id.log:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
                 it.setClass(ContentActivity.this, UserActivity.class);
-                it.putExtra("user_index",2);
+                it.putExtra("user_index", 2);
                 startActivity(it);
                 break;
             case R.id.achieve:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
                 it.setClass(ContentActivity.this, UserActivity.class);
-                it.putExtra("user_index",3);
+                it.putExtra("user_index", 3);
                 startActivity(it);
                 break;
-            default:break;
+            default:
+                break;
         }
     }
 
     //初始化fragment
     private void initFrag() {
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentTransaction transaction = fragmentManager.beginTransaction();
-            hideFragment(transaction);
-            switch (index) {
-                case 0:
-                    if (frag_todo == null) {
-                        frag_todo = new TodoFragment();
-                        transaction.add(R.id.frameLayout, frag_todo);
-                    } else {
-                        transaction.show(frag_todo);
-                    }
-                    break;
-                case 1:
-                    if (frag_plan == null) {
-                        frag_plan = new PlanFragment();
-                        transaction.add(R.id.frameLayout, frag_plan);
-                    } else {
-                        transaction.show(frag_plan);
-                    }
-                    break;
-                case 2:
-                    if (frag_note == null) {
-                        frag_note = new NoteFragment();
-                        transaction.add(R.id.frameLayout, frag_note);
-                    } else {
-                        transaction.show(frag_note);
-                    }
-                    break;
-                default:break;
-            }
-
-            transaction.commit();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        hideFragment(transaction);
+        switch (index) {
+            case 0:
+                if (frag_todo == null) {
+                    frag_todo = new TodoFragment();
+                    transaction.add(R.id.contentfrag, frag_todo);
+                } else {
+                    transaction.show(frag_todo);
+                }
+                break;
+            case 1:
+                if (frag_plan == null) {
+                    frag_plan = new PlanFragment();
+                    transaction.add(R.id.contentfrag, frag_plan);
+                } else {
+                    transaction.show(frag_plan);
+                }
+                break;
+            case 2:
+                if (frag_note == null) {
+                    frag_note = new NoteFragment();
+                    transaction.add(R.id.contentfrag, frag_note);
+                } else {
+                    transaction.show(frag_note);
+                }
+                break;
+            default:
+                break;
         }
+        transaction.commit();
+    }
 
-        //隐藏Fragment
-        private void hideFragment (android.app.FragmentTransaction transaction){
-            if (frag_todo != null) {
-                transaction.hide(frag_todo);
-            }
-            if (frag_plan != null) {
-                transaction.hide(frag_plan);
-            }
-            if (frag_note != null) {
-                transaction.hide(frag_note);
-            }
+    //隐藏Fragment
+    private void hideFragment(android.app.FragmentTransaction transaction) {
+        if (frag_todo != null) {
+            transaction.hide(frag_todo);
         }
-
+        if (frag_plan != null) {
+            transaction.hide(frag_plan);
+        }
+        if (frag_note != null) {
+            transaction.hide(frag_note);
+        }
+    }
 
 }

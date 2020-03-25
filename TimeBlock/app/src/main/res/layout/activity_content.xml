@@ -14,7 +14,7 @@
         android:orientation="vertical">
         <include layout="@layout/top_content"/>
         <FrameLayout
-            android:id="@+id/frameLayout"
+            android:id="@+id/contentfrag"
             android:layout_width="match_parent"
             android:background="#ffffff"
             android:layout_height="0dp"

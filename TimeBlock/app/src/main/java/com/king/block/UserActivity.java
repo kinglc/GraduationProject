@@ -1,13 +1,25 @@
 package com.king.block;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.king.block.content.NoteFragment;
+import com.king.block.content.PlanFragment;
+import com.king.block.content.TodoFragment;
+import com.king.block.user.AchieveFragment;
+import com.king.block.user.FriendFragment;
+import com.king.block.user.HistoryFragment;
+import com.king.block.user.LogFragment;
 
 public class UserActivity extends AppCompatActivity {
 
@@ -55,5 +67,7 @@ public class UserActivity extends AppCompatActivity {
         title = (TextView)findViewById(R.id.title);
         title.setText(titles[index]);
     }
+
+
 
 }
