@@ -28,9 +28,6 @@ public class UserActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = new Intent();
-                it.setClass(UserActivity.this,ContentActivity.class);
-                startActivity(it);
                 UserActivity.this.finish();
             }
         });

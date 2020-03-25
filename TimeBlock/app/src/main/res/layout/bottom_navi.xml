@@ -10,7 +10,7 @@
     >
 
     <LinearLayout
-        android:id="@+id/list"
+        android:id="@+id/todo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -21,11 +21,11 @@
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:id="@+id/list_pic"
-            android:src="@drawable/list"/>
+            android:id="@+id/todo_pic"
+            android:src="@drawable/todo"/>
 
         <TextView
-            android:id="@+id/list_txt"
+            android:id="@+id/todo_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
