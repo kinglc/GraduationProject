@@ -16,10 +16,6 @@ import android.widget.TextView;
 import com.king.block.content.NoteFragment;
 import com.king.block.content.PlanFragment;
 import com.king.block.content.TodoFragment;
-import com.king.block.user.AchieveFragment;
-import com.king.block.user.FriendFragment;
-import com.king.block.user.HistoryFragment;
-import com.king.block.user.LogFragment;
 
 public class UserActivity extends AppCompatActivity {
 

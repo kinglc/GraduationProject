@@ -40,6 +40,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 
     //侧边
     private LinearLayout friend, history, log, achieve;
+    private String txts[]={"待办","计划","备忘录"};
 
     //正文
     private TodoFragment frag_todo;
@@ -179,6 +180,8 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.history:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
+                TextView history_txt = (TextView)findViewById(R.id.history_txt);
+                history_txt.setText("历史"+txts[index]);
                 it.setClass(ContentActivity.this, UserActivity.class);
                 it.putExtra("content_index", index);
                 it.putExtra("user_index", 1);
