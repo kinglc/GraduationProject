@@ -10,6 +10,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.DatePicker;
@@ -22,6 +23,10 @@ import android.widget.Toast;
 import com.king.block.content.NoteFragment;
 import com.king.block.content.PlanFragment;
 import com.king.block.content.TodoFragment;
+import com.king.block.user.AchieveActivity;
+import com.king.block.user.FriendActivity;
+import com.king.block.user.HistoryActivity;
+import com.king.block.user.LogActivity;
 
 import java.util.Calendar;
 
@@ -40,7 +45,8 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 
     //侧边
     private LinearLayout friend, history, log, achieve;
-    private String txts[]={"待办","计划","备忘录"};
+    private TextView history_txt;
+    private String txts[]={"待办","计划","备忘"};
 
     //正文
     private TodoFragment frag_todo;
@@ -93,6 +99,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         history = (LinearLayout) findViewById(R.id.history);
         log = (LinearLayout) findViewById(R.id.log);
         achieve = (LinearLayout) findViewById(R.id.achieve);
+        history_txt = (TextView)findViewById(R.id.history_txt);
     }
 
     //初始化事件
@@ -143,6 +150,8 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         month = mcalendar.get(Calendar.MONTH);       //  得到当前月
         day = mcalendar.get(Calendar.DAY_OF_MONTH);  //  得到当前日
         date.setText(year + "-" + month + "-" + day + "  ▼");
+
+        history_txt.setText("历史"+txts[index]);
     }
 
     //    修改导航栏样式，切换fragment
@@ -174,29 +183,23 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.friend:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
-                it.setClass(ContentActivity.this, UserActivity.class);
-                it.putExtra("user_index", 0);
+                it.setClass(ContentActivity.this, FriendActivity.class);
                 startActivity(it);
                 break;
             case R.id.history:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
-                TextView history_txt = (TextView)findViewById(R.id.history_txt);
-                history_txt.setText("历史"+txts[index]);
-                it.setClass(ContentActivity.this, UserActivity.class);
-                it.putExtra("content_index", index);
-                it.putExtra("user_index", 1);
+                it.setClass(ContentActivity.this, HistoryActivity.class);
+                it.putExtra("index", index);
                 startActivity(it);
                 break;
             case R.id.log:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
-                it.setClass(ContentActivity.this, UserActivity.class);
-                it.putExtra("user_index", 2);
+                it.setClass(ContentActivity.this, LogActivity.class);
                 startActivity(it);
                 break;
             case R.id.achieve:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
-                it.setClass(ContentActivity.this, UserActivity.class);
-                it.putExtra("user_index", 3);
+                it.setClass(ContentActivity.this, AchieveActivity.class);
                 startActivity(it);
                 break;
             default:
