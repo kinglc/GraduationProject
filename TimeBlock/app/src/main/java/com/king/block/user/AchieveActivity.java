@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.king.block.R;
-import com.king.block.UserActivity;
 
 public class AchieveActivity extends AppCompatActivity {
 

@@ -17,7 +17,6 @@
         <activity android:name=".user.FriendActivity" />
         <activity android:name=".user.HistoryActivity" />
         <activity android:name=".user.LogActivity" />
-        <activity android:name=".UserActivity" />
         <activity android:name=".ContentActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
