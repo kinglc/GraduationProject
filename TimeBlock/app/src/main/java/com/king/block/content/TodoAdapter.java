@@ -26,7 +26,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
     private int resourceId;
     public int now_index=-1;
     private int newResourceId;
-//    private ListView mListView;
+    private ListView mListView;
 
 
     public TodoAdapter(Context context, int resourceId, List<Todo> todo_list){
@@ -44,16 +44,16 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
         if(convertView==null){
             view = LayoutInflater.from(getContext()).inflate(newResourceId, parent, false);
             viewHolder = new ViewHolder();
-            viewHolder.todo_title = (TextView) view.findViewById(R.id.todo_title);
-            viewHolder.todo_checked = (CheckBox) view.findViewById(R.id.todo_checked);
-            viewHolder.edit = (ImageView)view.findViewById(R.id.edit);
-            viewHolder.edit.setOnClickListener(new View.OnClickListener() {
+            initHolder(view,viewHolder);
+//            viewHolder.todo_edit = (ImageView)view.findViewById(R.id.todo_edit);
+//            viewHolder.todo_title = (TextView) view.findViewById(R.id.todo_title);
+//            viewHolder.todo_checked = (CheckBox) view.findViewById(R.id.todo_checked);
+//            viewHolder.todo_input = (EditText) view.findViewById(R.id.todo_input);
+//            viewHolder.todo_update = (ImageView)view.findViewById(R.id.todo_update);
+            viewHolder.todo_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getContext(),"edit",Toast.LENGTH_SHORT).show();
-
-//                View view = mListView.getChildAt(position - mListView.getFirstVisiblePosition());
-//                    mListView.removeViewAt(position);
+                    turnInEdit(position);
                 }
             });
 //            viewHolder.todo_checked.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -84,6 +84,27 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
         viewHolder.todo_checked.setChecked(todo.isChecked());
         return view;
     }
+    private void turnInEdit(int position){
+        View view = mListView.getChildAt(position - mListView.getFirstVisiblePosition());
+        ViewHolder holder = (ViewHolder) view.getTag();
+        initHolder(view,holder);
+        holder.todo_edit.setVisibility(View.INVISIBLE);
+        holder.todo_title.setVisibility(View.GONE);
+        holder.todo_checked.setVisibility(View.GONE);
+        holder.todo_input.setVisibility(View.VISIBLE);
+        holder.todo_update.setVisibility(View.VISIBLE);
+    }
+    private void turnOutEdit(){
+
+    }
+
+    private void initHolder(View v, ViewHolder vh){
+        vh.todo_edit = (ImageView)v.findViewById(R.id.todo_edit);
+        vh.todo_title = (TextView) v.findViewById(R.id.todo_title);
+        vh.todo_checked = (CheckBox) v.findViewById(R.id.todo_checked);
+        vh.todo_input = (EditText) v.findViewById(R.id.todo_input);
+        vh.todo_update = (ImageView)v.findViewById(R.id.todo_update);
+    }
 
     private void changeStyle(){
         Toast.makeText(getContext(),viewHolder.todo_title.toString(),Toast.LENGTH_SHORT).show();
@@ -104,18 +125,20 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
         holder.todo_title = (TextView) view.findViewById(R.id.todo_title);
         holder.todo_checked = (CheckBox) view.findViewById(R.id.todo_checked);
     }
-//
-//    public ListView getmListView() {
-//        return mListView;
-//    }
-//
-//    public void setmListView(ListView mListView) {
-//        this.mListView = mListView;
-//    }
+
+    public ListView getListView() {
+        return mListView;
+    }
+
+    public void setListView(ListView mListView) {
+        this.mListView = mListView;
+    }
 
     class ViewHolder{
+        ImageView todo_edit;
         TextView todo_title;
         CheckBox todo_checked;
-        ImageView edit;
+        EditText todo_input;
+        ImageView todo_update;
     }
 }

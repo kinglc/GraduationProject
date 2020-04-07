@@ -5,11 +5,13 @@ import android.app.Dialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -49,6 +51,7 @@ public class TodoFragment extends Fragment {
         todoAdapter = new TodoAdapter(getActivity(), R.layout.item_todo, todo_list);
         todo_lv =(ListView) view.findViewById(R.id.todo_lv);
         todo_lv.setAdapter(todoAdapter);
+        todoAdapter.setListView(todo_lv);
 //        todo_lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //            @Override
 //            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -64,10 +67,10 @@ public class TodoFragment extends Fragment {
         todo_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                new AlertDialog.Builder(getContext())
+                AlertDialog dialog = new AlertDialog.Builder(getContext())
                         .setTitle("提示")
                         .setMessage("确定删除此待办项？")
-                        .setNegativeButton("确认",new DialogInterface.OnClickListener() {
+                        .setPositiveButton("确认",new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 int del_id = todo_list.get(position).getId();
@@ -82,6 +85,10 @@ public class TodoFragment extends Fragment {
                             public void onClick(DialogInterface dialog, int which) {
                             }
                         }).show();
+                Button pButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+                Button nButton = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                pButton.setTextColor(Color.rgb(240,60,80));
+                nButton.setTextColor(Color.GRAY);
             }
         });
     }
