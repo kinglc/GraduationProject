@@ -1,6 +1,7 @@
 package com.king.block.content;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -48,26 +49,39 @@ public class TodoFragment extends Fragment {
         todoAdapter = new TodoAdapter(getActivity(), R.layout.item_todo, todo_list);
         todo_lv =(ListView) view.findViewById(R.id.todo_lv);
         todo_lv.setAdapter(todoAdapter);
-        todo_lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(),position+"",Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getContext(),"nothing",Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//        todo_lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(getContext(),position+"",Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                Toast.makeText(getContext(),"nothing",Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
         todo_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                int del_id = todo_list.get(position).getId();
-                todo_list.remove(position);
-                todoAdapter = new TodoAdapter(getActivity(), R.layout.item_todo, todo_list);
-                todo_lv.setAdapter(todoAdapter);
+                new AlertDialog.Builder(getContext())
+                        .setTitle("提示")
+                        .setMessage("确定删除此待办项？")
+                        .setNegativeButton("确认",new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                int del_id = todo_list.get(position).getId();
+                                todo_list.remove(position);
+                                todoAdapter = new TodoAdapter(getActivity(), R.layout.item_todo, todo_list);
+                                todo_lv.setAdapter(todoAdapter);
 //                                int delete = DataSupport.deleteAll(Ddl.class, "task = ? and content = ?", del1, del2);
+                            }
+                        })
+                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        }).show();
             }
         });
     }

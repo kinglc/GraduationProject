@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -20,10 +22,13 @@ import com.king.block.R;
 import java.util.List;
 
 
-public class TodoAdapter extends ArrayAdapter<Todo> {
+public class TodoAdapter extends ArrayAdapter<Todo>{
     private int resourceId;
     public int now_index=-1;
     private int newResourceId;
+//    private ListView mListView;
+
+
     public TodoAdapter(Context context, int resourceId, List<Todo> todo_list){
         super(context, resourceId, todo_list);
         newResourceId = resourceId;
@@ -41,6 +46,16 @@ public class TodoAdapter extends ArrayAdapter<Todo> {
             viewHolder = new ViewHolder();
             viewHolder.todo_title = (TextView) view.findViewById(R.id.todo_title);
             viewHolder.todo_checked = (CheckBox) view.findViewById(R.id.todo_checked);
+            viewHolder.edit = (ImageView)view.findViewById(R.id.edit);
+            viewHolder.edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getContext(),"edit",Toast.LENGTH_SHORT).show();
+
+//                View view = mListView.getChildAt(position - mListView.getFirstVisiblePosition());
+//                    mListView.removeViewAt(position);
+                }
+            });
 //            viewHolder.todo_checked.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //                @Override
 //                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -65,8 +80,6 @@ public class TodoAdapter extends ArrayAdapter<Todo> {
 //            }
 
 
-
-
         viewHolder.todo_title.setText(todo.getTitle());
         viewHolder.todo_checked.setChecked(todo.isChecked());
         return view;
@@ -88,13 +101,21 @@ public class TodoAdapter extends ArrayAdapter<Todo> {
         //获取对应item的View对象
         View view = lv.getChildAt(position - firstVisiblePosition);
         ViewHolder holder = (ViewHolder) view.getTag();
-//        holder.todo_title = (TextView) view.findViewById(R.id.todo_title);
+        holder.todo_title = (TextView) view.findViewById(R.id.todo_title);
         holder.todo_checked = (CheckBox) view.findViewById(R.id.todo_checked);
     }
-
+//
+//    public ListView getmListView() {
+//        return mListView;
+//    }
+//
+//    public void setmListView(ListView mListView) {
+//        this.mListView = mListView;
+//    }
 
     class ViewHolder{
         TextView todo_title;
         CheckBox todo_checked;
+        ImageView edit;
     }
 }
