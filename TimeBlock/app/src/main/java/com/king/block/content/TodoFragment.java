@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -34,13 +36,14 @@ public class TodoFragment extends Fragment {
 
         initData();
         initLv();
-
+        initEvent();
 
 
         return view;
     }
 
     private void initData(){
+        //未完成 获取数据
         for(int i=0;i<10;i++) {
             Todo todo = new Todo(i,i+""+i+i+i+i, i%2==0);
             todo_list.add(todo);
@@ -52,18 +55,6 @@ public class TodoFragment extends Fragment {
         todo_lv =(ListView) view.findViewById(R.id.todo_lv);
         todo_lv.setAdapter(todoAdapter);
         todoAdapter.setListView(todo_lv);
-//        todo_lv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getContext(),position+"",Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//                Toast.makeText(getContext(),"nothing",Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
         todo_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -75,8 +66,11 @@ public class TodoFragment extends Fragment {
                             public void onClick(DialogInterface dialog, int which) {
                                 int del_id = todo_list.get(position).getId();
                                 todo_list.remove(position);
+//                                todoAdapter.setListView(todo_lv);
+                                todoAdapter.turnOutEdit();
                                 todoAdapter = new TodoAdapter(getActivity(), R.layout.item_todo, todo_list);
                                 todo_lv.setAdapter(todoAdapter);
+//                               未完成-删除数据库
 //                                int delete = DataSupport.deleteAll(Ddl.class, "task = ? and content = ?", del1, del2);
                             }
                         })
@@ -89,6 +83,38 @@ public class TodoFragment extends Fragment {
                 Button nButton = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
                 pButton.setTextColor(Color.rgb(240,60,80));
                 nButton.setTextColor(Color.GRAY);
+            }
+        });
+    }
+
+
+    private void initEvent(){
+        ImageView repeat = (ImageView)view.findViewById(R.id.todo_repeat);
+        ImageView share = (ImageView)view.findViewById(R.id.todo_share);
+        ImageView insert = (ImageView)view.findViewById(R.id.todo_insert);
+
+
+        repeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//  未完成-重复当日
+            }
+        });
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//  未完成-图片形式分享
+            }
+        });
+
+        insert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView title = (TextView)view.findViewById(R.id.todo_addinput);
+//  未完成-提交数据
             }
         });
     }

@@ -5,10 +5,75 @@
     android:layout_height="match_parent"
     tools:context=".content.TodoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/todo_lv"/>
-
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:background="#ffffff">
+    <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="2dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="今日待办"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:textSize="25dp"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom"
+                android:id="@+id/todo_repeat"
+                android:src="@drawable/todo_share"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom"
+                android:id="@+id/todo_share"
+                android:src="@drawable/todo_repeat"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#BFBFBF"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center"
+                android:src="@drawable/todo_add"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:id="@+id/todo_addinput"
+                android:text="......"
+                android:textSize="16dp"
+                android:textColor="#000000"
+                android:layout_marginLeft="10dp" />
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:focusable="false"
+                android:checked="true"
+                android:id="@+id/todo_insert"
+                android:src="@drawable/save"
+                android:layout_marginRight="20dp"/>
+        </LinearLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/todo_lv"/>
+    </LinearLayout>
 </FrameLayout>

@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(MainActivity.this, ContentActivity.class);
+                //未完成-登录
 //                it.putExtra("name","xiazdong");///////////////////////////////////////////////////////////////
 //                it.putExtra("age",20);
                 startActivity(it);

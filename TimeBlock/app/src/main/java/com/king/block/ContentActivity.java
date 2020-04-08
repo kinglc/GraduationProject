@@ -124,6 +124,8 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                         date.setText(year + "-" + month + "-" + dayOfMonth + "  ▼");
                     }
                 }, year, month, day).show();   //  弹出日历对话框时，默认显示 年，月，日
+                //未完成-通过日期获取数据
+//                getData();
             }
         });
 
