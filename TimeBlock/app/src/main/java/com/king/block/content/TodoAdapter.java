@@ -52,57 +52,59 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     if(lastEdit>-1){
                         turnOutEdit();
                     }
-                    if(!viewHolder.todo_checked.isChecked()) {
-                        turnInEdit(position);
-                        lastEdit = position;
-                    }
+                    turnInEdit(position);
                 }
             });
             viewHolder.todo_save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     turnOutEdit();
-                    //未完成-更新数据
+                    //未完成-更新数据库
 //                    updateTodo(position);
                 }
             });
             viewHolder.todo_checked.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
-                    if(viewHolder.todo_checked.isChecked()){
-                        Toast.makeText(getContext(),"checked",Toast.LENGTH_SHORT).show();
-                    }else{
-
-                        Toast.makeText(getContext(),"not checked",Toast.LENGTH_SHORT).show();
-                    }
+                    View view = mListView.getChildAt(position - mListView.getFirstVisiblePosition());
+                    ViewHolder holder = (ViewHolder) view.getTag();
+                    initHolder(view,holder);
+                    changeStyle(holder,holder.todo_checked.isChecked());
                 }
             });
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        if(todo.isChecked()){
-            viewHolder.todo_title.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-            viewHolder.todo_title.setTextColor(Color.parseColor("#bfbfbf"));
-        }else{
-            viewHolder.todo_title.setPaintFlags(viewHolder.todo_title.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
-            viewHolder.todo_title.setTextColor(Color.parseColor("#000000"));
-        }
+        changeStyle(viewHolder,todo.isChecked());
         viewHolder.todo_title.setText(todo.getTitle());
         viewHolder.todo_checked.setChecked(todo.isChecked());
         return convertView;
+    }
+
+    private void changeStyle(ViewHolder vh, boolean isChecked){
+        if(isChecked){
+            vh.todo_title.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            vh.todo_title.setTextColor(Color.parseColor("#bfbfbf"));
+        }else{
+            vh.todo_title.setPaintFlags(viewHolder.todo_title.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
+            vh.todo_title.setTextColor(Color.parseColor("#000000"));
+        }
     }
 
     private void turnInEdit(int position){
         View view = mListView.getChildAt(position - mListView.getFirstVisiblePosition());
         ViewHolder holder = (ViewHolder) view.getTag();
         initHolder(view,holder);
-        holder.todo_input.setText(holder.todo_title.getText());
-        holder.todo_edit.setVisibility(View.INVISIBLE);
-        holder.todo_title.setVisibility(View.GONE);
-        holder.todo_checked.setVisibility(View.GONE);
-        holder.todo_input.setVisibility(View.VISIBLE);
-        holder.todo_save.setVisibility(View.VISIBLE);
+        if(!holder.todo_checked.isChecked()) {
+            holder.todo_input.setText(holder.todo_title.getText());
+            holder.todo_edit.setVisibility(View.INVISIBLE);
+            holder.todo_title.setVisibility(View.GONE);
+            holder.todo_checked.setVisibility(View.GONE);
+            holder.todo_input.setVisibility(View.VISIBLE);
+            holder.todo_save.setVisibility(View.VISIBLE);
+            lastEdit = position;
+        }
     }
 
     public void turnOutEdit(){
@@ -110,8 +112,6 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
         ViewHolder holder = (ViewHolder) view.getTag();
         initHolder(view,holder);
         holder.todo_title.setText(holder.todo_input.getText());
-//        updateView(view,lastEdit,holder.todo_title.getText().toString(),holder.todo_checked.isChecked());
-//        todo.setTitle(holder.todo_title.getText().toString());
         holder.todo_edit.setVisibility(View.VISIBLE);
         holder.todo_title.setVisibility(View.VISIBLE);
         holder.todo_checked.setVisibility(View.VISIBLE);
@@ -128,17 +128,6 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
         vh.todo_input = (EditText) v.findViewById(R.id.todo_input);
         vh.todo_save = (ImageView)v.findViewById(R.id.todo_save);
     }
-
-//    public void updateView(View view, int itemIndex,String title,boolean checked) {
-//        if (view == null) {
-//            return;
-//        }
-//        //从view中取得holder
-//        ViewHolder holder = (ViewHolder) view.getTag();
-//        initHolder(view,holder);
-//        holder.todo_title.setText(title);
-//        holder.todo_checked.setChecked(checked);
-//    }
 
     public ListView getListView() {
         return mListView;

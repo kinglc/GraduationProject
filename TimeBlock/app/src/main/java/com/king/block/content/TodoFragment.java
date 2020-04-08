@@ -114,6 +114,8 @@ public class TodoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 TextView title = (TextView)view.findViewById(R.id.todo_addinput);
+                Todo todo = new Todo(111,title.getText().toString(),false);
+                todo_list.add(todo);
 //  未完成-提交数据
             }
         });
