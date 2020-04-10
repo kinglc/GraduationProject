@@ -17,6 +17,7 @@
             android:layout_height="50dp"
             android:layout_marginBottom="2dp">
             <TextView
+                android:layout_marginLeft="60dp"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
@@ -25,14 +26,14 @@
                 android:paddingBottom="2dp"
                 android:textSize="25dp"/>
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/todo_repeat"
                 android:src="@drawable/todo_share"/>
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/todo_share"
                 android:src="@drawable/todo_repeat"/>
@@ -61,15 +62,16 @@
                 android:textSize="16dp"
                 android:textColor="#000000"
                 android:layout_marginLeft="10dp" />
+
             <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_gravity="center"
-                android:focusable="false"
-                android:checked="true"
                 android:id="@+id/todo_insert"
-                android:src="@drawable/save"
-                android:layout_marginRight="20dp"/>
+                android:layout_width="30dp"
+                android:layout_height="29dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="20dp"
+                android:checked="true"
+                android:focusable="false"
+                android:src="@drawable/save" />
         </LinearLayout>
         <ListView
             android:layout_width="match_parent"
