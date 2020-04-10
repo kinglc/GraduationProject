@@ -71,7 +71,7 @@
                 android:layout_marginRight="20dp"
                 android:checked="true"
                 android:focusable="false"
-                android:src="@drawable/save" />
+                android:src="@drawable/save_gray" />
         </LinearLayout>
         <ListView
             android:layout_width="match_parent"

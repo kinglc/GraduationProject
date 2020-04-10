@@ -16,7 +16,7 @@
             android:layout_marginLeft="5dp"
             android:layout_gravity="center"
             android:id="@+id/back"
-            android:src="@drawable/back"/>
+            android:src="@drawable/back_white"/>
 
         <TextView
             android:id="@+id/title"

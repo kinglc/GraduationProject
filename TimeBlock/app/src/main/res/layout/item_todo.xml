@@ -57,6 +57,6 @@
             android:focusable="false"
             android:checked="true"
             android:id="@+id/todo_save"
-            android:src="@drawable/save"
+            android:src="@drawable/save_gray"
             android:layout_marginRight="20dp"/>
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.king.block.content;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 
+import com.king.block.ContentActivity;
+import com.king.block.MainActivity;
 import com.king.block.R;
 
 import java.util.ArrayList;
@@ -42,7 +45,8 @@ public class NoteFragment extends Fragment {
         note_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-              
+                Intent it = new Intent(getContext(), NoteActivity.class);
+                startActivity(it);
             }
         });
     }
