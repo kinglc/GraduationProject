@@ -49,9 +49,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
             viewHolder.todo_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(lastEdit>-1){
-                        turnOutEdit();
-                    }
+                    turnOutEdit();
                     turnInEdit(position);
                 }
             });
@@ -108,6 +106,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
     }
 
     public void turnOutEdit(){
+        if(lastEdit==-1) return;
         View view = mListView.getChildAt(lastEdit - mListView.getFirstVisiblePosition());
         ViewHolder holder = (ViewHolder) view.getTag();
         initHolder(view,holder);

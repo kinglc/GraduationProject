@@ -29,11 +29,83 @@
             android:layout_height="25dp"
             android:layout_gravity="center"
             android:layout_marginRight="5dp"
+            android:id="@+id/note_save"
             android:src="@drawable/save_black"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
-
+    <TextView
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="主题"
+        android:gravity="center"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginRight="50dp"
+            android:maxLines="1"
+            android:id="@+id/note_title"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="内容"
+            android:gravity="center"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="50dp"
+            android:maxLines="2"
+            android:id="@+id/note_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="地点"
+            android:gravity="center"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginRight="50dp"
+            android:maxLines="1"
+            android:id="@+id/note_place"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="时间"
+            android:gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="6月20日"
+                android:gravity="center"
+                android:id="@+id/note_date"
+                />
+            <TimePicker
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:timePickerMode = "spinner"
+                android:id="@+id/note_time"
+                />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
