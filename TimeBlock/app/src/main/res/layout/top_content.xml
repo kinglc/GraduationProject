@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="#1B88EE">
+    android:background="#3FC1EB">
 
     <TextView
         android:id="@+id/date"
@@ -10,8 +10,8 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
-        android:text="本周"
         android:textColor="#fff"
+        android:text="本周"
         android:textSize="20dp"/>
     <TextView
         android:layout_width="0dp"
