@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".content.NoteActivity"></activity>
+        <activity android:name=".content.PlanActivity"></activity>
+        <activity android:name=".content.NoteActivity" />
         <activity android:name=".user.AchieveActivity" />
         <activity android:name=".user.FriendActivity" />
         <activity android:name=".user.HistoryActivity" />

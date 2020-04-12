@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.king.block.R;
 
@@ -27,8 +25,8 @@ public class NoteActivity extends AppCompatActivity {
     TimePicker note_time;
 
     Calendar calendar;
-    int hour;
-    int minu;
+    int nHour;
+    int nMinute;
     int id;//-1为新建，其余为更新
 
     @Override
@@ -53,8 +51,8 @@ public class NoteActivity extends AppCompatActivity {
         note_time.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
-                hour = hourOfDay;
-                minu = minute;
+                nHour = hourOfDay;
+                nMinute = minute;
             }
         });
 
@@ -84,15 +82,15 @@ public class NoteActivity extends AppCompatActivity {
             note_content.setText(getIntent().getStringExtra("note_content"));
             note_date.setText(getIntent().getStringExtra("note_date"));
             String time = getIntent().getStringExtra("note_time");
-            hour = Integer.parseInt(time.split(":")[0]);
-            minu = Integer.parseInt(time.split(":")[1]);
+            nHour = Integer.parseInt(time.split(":")[0]);
+            nMinute = Integer.parseInt(time.split(":")[1]);
             note_place.setText(getIntent().getStringExtra("note_place"));
         } else {
             calendar = Calendar.getInstance();
-            hour = calendar.get(Calendar.HOUR_OF_DAY);
-            minu = calendar.get(Calendar.MINUTE);
+            nHour = calendar.get(Calendar.HOUR_OF_DAY);
+            nMinute = calendar.get(Calendar.MINUTE);
         }
-        note_time.setHour(hour);
-        note_time.setMinute(minu);
+        note_time.setHour(nHour);
+        note_time.setMinute(nMinute);
     }
 }
