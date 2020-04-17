@@ -28,8 +28,7 @@ public class PlanFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container, false);
-        Intent it = new Intent(getContext(),PlanActivity.class);
-        startActivity(it);
+
 
         return view;
     }

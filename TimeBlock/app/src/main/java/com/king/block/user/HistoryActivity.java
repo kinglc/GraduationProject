@@ -23,10 +23,6 @@ public class HistoryActivity extends AppCompatActivity {
 
     private void initTop(){
         ImageView back = (ImageView)findViewById(R.id.back);
-        TextView title = (TextView)findViewById(R.id.title);
-
-        index = getIntent().getIntExtra("index",-1);
-        title.setText("历史"+txts[index]);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
