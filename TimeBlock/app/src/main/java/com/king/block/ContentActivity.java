@@ -144,11 +144,11 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     //重置初始化样式
     private void initStyle() {
         note_pic.setImageResource(R.drawable.note);
-        note_txt.setTextColor(Color.parseColor("#bfbfbf"));
+        note_txt.setTextColor(getResources().getColor(R.color.fontBlack));
         todo_pic.setImageResource(R.drawable.todo);
-        todo_txt.setTextColor(Color.parseColor("#bfbfbf"));
+        todo_txt.setTextColor(getResources().getColor(R.color.fontBlack));
         plan_pic.setImageResource(R.drawable.plan);
-        plan_txt.setTextColor(Color.parseColor("#bfbfbf"));
+        plan_txt.setTextColor(getResources().getColor(R.color.fontBlack));
 
         Calendar mcalendar = Calendar.getInstance();     //  获取当前时间    —   年、月、日
         year = mcalendar.get(Calendar.YEAR);         //  得到当前年
@@ -169,21 +169,21 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 index = 0;
                 initStyle();
                 todo_pic.setImageResource(R.drawable.todo_selected);
-                todo_txt.setTextColor(Color.parseColor("#3FC1EB"));
+                todo_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 initFrag();
                 break;
             case R.id.plan:
                 index = 1;
                 initStyle();
                 plan_pic.setImageResource(R.drawable.plan_selected);
-                plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
+                plan_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 initFrag();
                 break;
             case R.id.note:
                 index = 2;
                 initStyle();
                 note_pic.setImageResource(R.drawable.note_selected);
-                note_txt.setTextColor(Color.parseColor("#3FC1EB"));
+                note_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 initFrag();
                 break;
             case R.id.friend:

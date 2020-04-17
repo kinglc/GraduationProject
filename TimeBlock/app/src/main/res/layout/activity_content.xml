@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
-    android:outlineAmbientShadowColor="#FFCA3C"
     tools:context=".ContentActivity">
 <!--    正文-->
     <LinearLayout
@@ -29,7 +28,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_gravity="right"
-        android:background="#EBE9E9"
+        android:background="@color/backGray"
         android:clickable="true">
 
         <LinearLayout

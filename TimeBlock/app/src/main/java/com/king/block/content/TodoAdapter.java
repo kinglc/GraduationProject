@@ -83,7 +83,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
     private void changeStyle(ViewHolder vh, boolean isChecked){
         if(isChecked){
             vh.todo_title.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-            vh.todo_title.setTextColor(Color.parseColor("#bfbfbf"));
+            vh.todo_title.setTextColor(getContext().getResources().getColor(R.color.lightFontGray));
         }else{
             vh.todo_title.setPaintFlags(viewHolder.todo_title.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
             vh.todo_title.setTextColor(Color.parseColor("#000000"));

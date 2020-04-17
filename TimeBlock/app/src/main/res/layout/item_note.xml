@@ -28,13 +28,14 @@
             android:id="@+id/note_title"
             android:text="主题"
             android:maxLines="1"
-            android:ellipsize="end"/>
+            android:ellipsize="end"
+            android:textColor="@color/fontBlack"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:textSize="15dp"
             android:text="内容"
-            android:textColor="#bfbfbf"
+            android:textColor="@color/lightFontGray"
             android:maxLines="2"
             android:ellipsize="end"
             android:id="@+id/note_content"/>
@@ -47,14 +48,16 @@
                 android:layout_height="20dp"
                 android:textSize="14dp"
                 android:id="@+id/note_date"
-                android:text="1998-10-15"/>
+                android:text="1998-10-15"
+                android:textColor="@color/fontBlack"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:textSize="14dp"
                 android:id="@+id/note_time"
                 android:layout_marginRight="5dp"
-                android:text="11:00"/>
+                android:text="11:00"
+                android:textColor="@color/fontBlack"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="20dp"
@@ -62,7 +65,8 @@
                 android:textSize="14dp"
                 android:id="@+id/note_place"
                 android:maxLines="1"
-                android:ellipsize="end"/>
+                android:ellipsize="end"
+                android:textColor="@color/fontBlack"/>
         </LinearLayout>
     </LinearLayout>
 
