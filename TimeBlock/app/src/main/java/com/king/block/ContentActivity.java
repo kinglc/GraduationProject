@@ -27,7 +27,7 @@ import com.king.block.content.PlanFragment;
 import com.king.block.content.TodoFragment;
 import com.king.block.user.AchieveActivity;
 import com.king.block.user.FriendActivity;
-import com.king.block.user.HistoryActivity;
+//import com.king.block.user.HistoryActivity;
 import com.king.block.user.LogActivity;
 
 import java.util.Calendar;
@@ -46,9 +46,9 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     private TextView note_txt, todo_txt, plan_txt;
 
     //侧边
-    private LinearLayout friend, history, log, achieve;
-    private TextView history_txt;
-    private String txts[]={"待办","计划","备忘"};
+    private LinearLayout friend, log, achieve;
+//    private TextView history_txt;
+//    private String txts[]={"待办","计划","备忘"};
 
     //正文
     private TodoFragment frag_todo;
@@ -99,10 +99,10 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 
         //侧边
         friend = (LinearLayout) findViewById(R.id.friend);
-        history = (LinearLayout) findViewById(R.id.history);
+//        history = (LinearLayout) findViewById(R.id.history);
         log = (LinearLayout) findViewById(R.id.log);
         achieve = (LinearLayout) findViewById(R.id.achieve);
-        history_txt = (TextView)findViewById(R.id.history_txt);
+//        history_txt = (TextView)findViewById(R.id.history_txt);
     }
 
     //初始化事件
@@ -112,7 +112,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         plan.setOnClickListener(this);
 
         friend.setOnClickListener(this);
-        history.setOnClickListener(this);
+//        history.setOnClickListener(this);
         log.setOnClickListener(this);
         achieve.setOnClickListener(this);
 
@@ -156,7 +156,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         day = mcalendar.get(Calendar.DAY_OF_MONTH);  //  得到当前日
         date.setText(year + "-" + month + "-" + day + "  ▼");
 
-        history_txt.setText("历史"+txts[index]);
+//        history_txt.setText("历史"+txts[index]);
     }
 
     //    修改导航栏样式，切换fragment
@@ -191,12 +191,12 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 it.setClass(ContentActivity.this, FriendActivity.class);
                 startActivity(it);
                 break;
-            case R.id.history:
-                drawerLayout.closeDrawer(Gravity.RIGHT);
-                it.setClass(ContentActivity.this, HistoryActivity.class);
-                it.putExtra("index", index);
-                startActivity(it);
-                break;
+//            case R.id.history:
+//                drawerLayout.closeDrawer(Gravity.RIGHT);
+//                it.setClass(ContentActivity.this, HistoryActivity.class);
+//                it.putExtra("index", index);
+//                startActivity(it);
+//                break;
             case R.id.log:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
                 it.setClass(ContentActivity.this, LogActivity.class);
