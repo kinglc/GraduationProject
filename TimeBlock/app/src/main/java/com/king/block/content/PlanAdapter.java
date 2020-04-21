@@ -1,6 +1,9 @@
 package com.king.block.content;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,17 +46,40 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         } else {
             viewHolder = (PlanAdapter.ViewHolder) convertView.getTag();
         }
-//        viewHolder.plan_title.setText(plan.getTitle());
-//        viewHolder.plan_checked.setChecked(plan.isChecked());
+        viewHolder.plan_title.setText(plan.getTitle());
+        viewHolder.plan_content.setText(plan.getContent());
+        viewHolder.plan_ddl.setText(plan.getDate()+" "+plan.getTime());
+        changeColor(viewHolder,plan.getUrgency());
         return convertView;
     }
 
+    private void changeColor(ViewHolder vh,int urgency){
+        switch (urgency){
+            case 0:
+                vh.urgency.setBackgroundColor(getContext().getResources().getColor(R.color.red));
+                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.red));
+                break;
+            case 1:
+                vh.urgency.setBackgroundColor(getContext().getResources().getColor(R.color.yellow));
+                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.yellow));
+                break;
+            case 2:
+                vh.urgency.setBackgroundColor(getContext().getResources().getColor(R.color.green));
+                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.green));
+                break;
+            case 3:
+                vh.urgency.setBackgroundColor(getContext().getResources().getColor(R.color.blue));
+                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.blue));
+                break;
+                default:break;
+        }
+    }
+
     private void initHolder(View v, PlanAdapter.ViewHolder vh) {
-        vh.todo_edit = (ImageView) v.findViewById(R.id.todo_edit);
-        vh.todo_title = (TextView) v.findViewById(R.id.todo_title);
-        vh.todo_checked = (CheckBox) v.findViewById(R.id.todo_checked);
-        vh.todo_input = (EditText) v.findViewById(R.id.todo_input);
-        vh.todo_save = (ImageView) v.findViewById(R.id.todo_save);
+        vh.urgency = (TextView) v.findViewById(R.id.urgency);
+        vh.plan_title = (TextView) v.findViewById(R.id.plan_title);
+        vh.plan_content = (TextView) v.findViewById(R.id.plan_content);
+        vh.plan_ddl = (TextView) v.findViewById(R.id.plan_ddl);
     }
 
     public ListView getListView() {
@@ -65,10 +91,9 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
     }
 
     class ViewHolder {
-        ImageView todo_edit;
-        TextView todo_title;
-        CheckBox todo_checked;
-        EditText todo_input;
-        ImageView todo_save;
+        TextView urgency;
+        TextView plan_title;
+        TextView plan_content;
+        TextView plan_ddl;
     }
 }

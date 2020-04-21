@@ -90,6 +90,7 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
 //                note_time.
 //                 date = ;
 //                Note note = new Note(0,note_title.getText(),note_content.getText(),note_time.get)
+                PlanActivity.this.finish();
             }
         });
     }

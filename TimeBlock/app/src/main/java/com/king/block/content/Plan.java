@@ -2,21 +2,23 @@ package com.king.block.content;
 
 public class Plan {
     int id;
-    String plan_title;
-    String plan_content;
-    int urgency;
-    String plan_date;
-    String plan_ddl;
-    String plan_time;
+    String title;
+    String content;
+    int urgency;//紧急度 0,1,2,3
+    String pass;//进行时间
+    String finish;//完成时间
+    String date;
+    String time;
 
-    public Plan(int id, String plan_title, String plan_content, int urgency, String plan_date, String plan_ddl, String plan_time) {
+    public Plan(int id, String title, String content, int urgency, String pass, String finish, String date, String time) {
         this.id = id;
-        this.plan_title = plan_title;
-        this.plan_content = plan_content;
+        this.title = title;
+        this.content = content;
         this.urgency = urgency;
-        this.plan_date = plan_date;
-        this.plan_ddl = plan_ddl;
-        this.plan_time = plan_time;
+        this.pass = pass;
+        this.finish = finish;
+        this.date = date;
+        this.time = time;
     }
 
     public int getId() {
@@ -27,20 +29,20 @@ public class Plan {
         this.id = id;
     }
 
-    public String getPlan_title() {
-        return plan_title;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPlan_title(String plan_title) {
-        this.plan_title = plan_title;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getPlan_content() {
-        return plan_content;
+    public String getContent() {
+        return content;
     }
 
-    public void setPlan_content(String plan_content) {
-        this.plan_content = plan_content;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public int getUrgency() {
@@ -51,27 +53,35 @@ public class Plan {
         this.urgency = urgency;
     }
 
-    public String getPlan_date() {
-        return plan_date;
+    public String getPass() {
+        return pass;
     }
 
-    public void setPlan_date(String plan_date) {
-        this.plan_date = plan_date;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
-    public String getPlan_ddl() {
-        return plan_ddl;
+    public String getFinish() {
+        return finish;
     }
 
-    public void setPlan_ddl(String plan_ddl) {
-        this.plan_ddl = plan_ddl;
+    public void setFinish(String finish) {
+        this.finish = finish;
     }
 
-    public String getPlan_time() {
-        return plan_time;
+    public String getDate() {
+        return date;
     }
 
-    public void setPlan_time(String plan_time) {
-        this.plan_time = plan_time;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }
