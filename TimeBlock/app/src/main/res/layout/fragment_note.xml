@@ -8,9 +8,16 @@
 <!--    <CalendarView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGray">
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/note_lv"/>
+        android:id="@+id/note_lv"
+        android:dividerHeight="2dp"
+        android:divider="@color/backGray"/>
+    </LinearLayout>
 
 </FrameLayout>

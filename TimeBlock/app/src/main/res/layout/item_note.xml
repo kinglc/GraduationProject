@@ -1,80 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="90dp">
-    <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/round_blue"
-        android:text="啊"
-        android:textColor="#fff"
-        android:textSize="40dp"
-        android:layout_marginRight="5dp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:id="@+id/note_avatar"/>
+    android:layout_height="90dp"
+    android:background="@color/backGray"
+    android:layout_margin="2dp">
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_margin="5dp">
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/radius">
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:textSize="15dp"
-            android:id="@+id/note_title"
-            android:text="主题"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textColor="@color/fontBlack"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:textSize="15dp"
-            android:text="内容"
-            android:textColor="@color/lightFontGray"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:id="@+id/note_content"/>
+            android:layout_marginLeft="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/round_blue"
+            android:text="啊"
+            android:textColor="#fff"
+            android:textSize="40dp"
+            android:layout_marginRight="5dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/note_avatar"/>
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:orientation="horizontal">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_margin="5dp">
             <TextView
-                android:layout_width="80dp"
+                android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:textSize="14dp"
-                android:id="@+id/note_date"
-                android:text="1998-10-15"
-                android:textColor="@color/fontBlack"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:textSize="14dp"
-                android:id="@+id/note_time"
-                android:layout_marginRight="5dp"
-                android:text="11:00"
-                android:textColor="@color/fontBlack"/>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="20dp"
-                android:layout_weight="1"
-                android:textSize="14dp"
-                android:id="@+id/note_place"
+                android:textSize="15dp"
+                android:id="@+id/note_title"
+                android:text="主题"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:textColor="@color/fontBlack"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textSize="15dp"
+                android:text="内容"
+                android:textColor="@color/lightFontGray"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:id="@+id/note_content"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="20dp"
+                    android:textSize="14dp"
+                    android:id="@+id/note_date"
+                    android:text="1998-10-15"
+                    android:textColor="@color/fontBlack"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:textSize="14dp"
+                    android:id="@+id/note_time"
+                    android:layout_marginRight="5dp"
+                    android:text="11:00"
+                    android:textColor="@color/fontBlack"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"
+                    android:layout_weight="1"
+                    android:textSize="14dp"
+                    android:id="@+id/note_place"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textColor="@color/fontBlack"/>
+            </LinearLayout>
         </LinearLayout>
+        <ImageView
+            android:id="@+id/note_edit"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/big_edit" />
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/note_edit"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/big_edit" />
 </LinearLayout>
