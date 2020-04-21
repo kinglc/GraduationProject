@@ -4,18 +4,18 @@ public class Plan {
     int id;
     String plan_title;
     String plan_content;
-    String plan_place;
     int urgency;
     String plan_date;
+    String plan_ddl;
     String plan_time;
 
-    public Plan(int id, String plan_title, String plan_content, String plan_place, int urgency, String plan_date, String plan_time) {
+    public Plan(int id, String plan_title, String plan_content, int urgency, String plan_date, String plan_ddl, String plan_time) {
         this.id = id;
         this.plan_title = plan_title;
         this.plan_content = plan_content;
-        this.plan_place = plan_place;
         this.urgency = urgency;
         this.plan_date = plan_date;
+        this.plan_ddl = plan_ddl;
         this.plan_time = plan_time;
     }
 
@@ -43,14 +43,6 @@ public class Plan {
         this.plan_content = plan_content;
     }
 
-    public String getPlan_place() {
-        return plan_place;
-    }
-
-    public void setPlan_place(String plan_place) {
-        this.plan_place = plan_place;
-    }
-
     public int getUrgency() {
         return urgency;
     }
@@ -65,6 +57,14 @@ public class Plan {
 
     public void setPlan_date(String plan_date) {
         this.plan_date = plan_date;
+    }
+
+    public String getPlan_ddl() {
+        return plan_ddl;
+    }
+
+    public void setPlan_ddl(String plan_ddl) {
+        this.plan_ddl = plan_ddl;
     }
 
     public String getPlan_time() {

@@ -23,7 +23,6 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
     ImageView save;
     TextView plan_title;
     TextView plan_content;
-    TextView plan_place;
     DatePicker plan_date;
     TimePicker plan_time;
     TextView red;
@@ -62,7 +61,6 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
         save = (ImageView)findViewById(R.id.plan_save);
         plan_title = (TextView)findViewById(R.id.plan_title);
         plan_content = (TextView)findViewById(R.id.plan_content);
-        plan_place = (TextView)findViewById(R.id.plan_place);
         plan_date = (DatePicker) findViewById(R.id.plan_date);
         plan_time = (TimePicker)findViewById(R.id.plan_time);
         plan_time.setIs24HourView(true);
@@ -137,7 +135,6 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
         if (id != -1) {
             plan_title.setText(getIntent().getStringExtra("plan_title"));
             plan_content.setText(getIntent().getStringExtra("plan_content"));
-            plan_place.setText(getIntent().getStringExtra("plan_place"));
             urgency = getIntent().getIntExtra("urgency",-1);
             setStyle();
             String date = getIntent().getStringExtra("plan_date");

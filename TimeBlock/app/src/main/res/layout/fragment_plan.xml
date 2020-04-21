@@ -5,10 +5,82 @@
     android:layout_height="match_parent"
     tools:context=".content.PlanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ImageView
+    <!--        android:layout_height="match_parent"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            android:paddingLeft="5dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/plan_title"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:text="11111111"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/plan_content"
+                android:textSize="15dp"
+                android:textColor="@color/lightFontGray"
+                android:layout_gravity="center"
+                android:text="11111111"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:id="@+id/plan_ddl"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:text="11111111"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="100dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:id="@+id/select"
+                android:src="@drawable/pause"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="11:25:15"
+                android:textColor="@color/red"
+                android:maxLines="1"/>
+        </LinearLayout>
+    </LinearLayout>
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/plan_selected"/>
+        android:id="@+id/plan_lv"/>
 
 </FrameLayout>

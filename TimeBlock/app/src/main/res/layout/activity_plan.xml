@@ -68,23 +68,6 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <TextView
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:text="地点"
-            android:paddingRight="10dp"
-            android:gravity="right|center_vertical"/>
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="50dp"
-            android:maxLines="1"
-            android:id="@+id/plan_place"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingRight="50dp">
         <TextView
