@@ -26,7 +26,7 @@
                 android:textSize="20dp"
                 android:textColor="@color/black"
                 android:layout_gravity="center"
-                android:text="11111111"
+                android:text=""
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:textStyle="bold"/>
@@ -38,7 +38,7 @@
                 android:textSize="15dp"
                 android:textColor="@color/lightFontGray"
                 android:layout_gravity="center"
-                android:text="11111111"
+                android:text=""
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:textStyle="bold"/>
@@ -49,8 +49,8 @@
                 android:id="@+id/plan_ddl"
                 android:textSize="20dp"
                 android:textColor="@color/red"
-                android:layout_gravity="center" 
-                android:text="11111111"
+                android:layout_gravity="center"
+                android:text=""
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:textStyle="bold"/>
@@ -59,26 +59,34 @@
             android:layout_width="50dp"
             android:layout_height="100dp">
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:id="@+id/select"
-                android:src="@drawable/pause"/>
+                android:src="@drawable/on"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4">
-            <TextView
+       <!--     <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="30dp"
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:id="@+id/plan_pass"
                 android:text="11:25:15"
                 android:textColor="@color/red"
-                android:maxLines="1"/>
+                android:maxLines="1"/>-->
+            <Chronometer
+            android:id="@+id/plan_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:format="00:00:00"
+            android:gravity="center"
+            android:textSize="30dp" />
         </LinearLayout>
     </LinearLayout>
     <ListView

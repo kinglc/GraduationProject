@@ -10,7 +10,9 @@
             android:layout_width="5dp"
             android:layout_height="match_parent"
             android:background="@color/red"
-            android:layout_margin="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"
             android:id="@+id/urgency"/>
         <LinearLayout
             android:layout_width="0dp"
@@ -59,10 +61,10 @@
                 android:textColor="@color/red"
                 android:maxLines="1"/>
         </LinearLayout>
-<!--        <ImageView-->
-<!--            android:layout_width="30dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:id="@+id/function"-->
-<!--            android:src="@drawable/function"/>-->
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:id="@+id/function"
+            android:src="@drawable/function"/>
     </LinearLayout>
 </LinearLayout>
