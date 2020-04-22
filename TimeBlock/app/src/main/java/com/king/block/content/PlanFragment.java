@@ -44,7 +44,7 @@ public class PlanFragment extends Fragment{
     ImageView select;
     private Chronometer pass;
     int on = 0;//1-暂停 0-计时
-    private long baseTimer;
+    private long nowtime=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -88,63 +88,66 @@ public class PlanFragment extends Fragment{
         plan_content = (TextView)view.findViewById(R.id.plan_content);
         plan_ddl = (TextView)view.findViewById(R.id.plan_ddl);
         pass = (Chronometer) view.findViewById(R.id.plan_pass);
-        pass.setFormat("00:00:00");
+        pass.setFormat("%s");
         select = (ImageView)view.findViewById(R.id.select);
         select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                changeOn(1);
-                pass.setBase(5);
-                pass.start();
+                if(plan_now==null) return;
+                if(on==1){
+                    pass.setBase(pass.getBase() + (SystemClock.elapsedRealtime() - nowtime));
+                    startTime();
+                }else{
+                    stopTime();
+                    nowtime=SystemClock.elapsedRealtime();
+                }
+                on=1-on;
             }
         });
 
     }
 
+    private void startTime(){
+        select.setImageResource(R.drawable.pause);
+        pass.start();
+    }
 
-    private void changeOn(long passtime){
-//        if(plan_now==null) return;
-//        if(on==1){
-//            select.setImageResource(R.drawable.pause);
-//            pass.setBase(passtime);
-//            pass.start();
-//        }else{
-//            select.setImageResource(R.drawable.on);
-//            pass.stop();
-//        }
-//        on=1-on;
+    private void stopTime(){
+        select.setImageResource(R.drawable.on);
+        pass.stop();
     }
 
     private void setNow(){
-//        if(plan_now!=null){
-//            plan_title.setText(plan_now.getTitle());
-//            plan_content.setText(plan_now.getContent());
-//            plan_ddl.setText(plan_now.getDate()+" "+plan_now.getTime());
-////            plan_pass.setText(plan_now.getPass());
-//            on=0;
-//            //未完成-获取on状态
-//            long passtime=5;
-//            changeOn(passtime);
-//            switch (plan_now.getUrgency()){
-//                case 0:
-//                    pass.setTextColor(getContext().getResources().getColor(R.color.red));
-//                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.red));
-//                    break;
-//                case 1:
-//                    pass.setTextColor(getContext().getResources().getColor(R.color.yellow));
-//                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.yellow));
-//                    break;
-//                case 2:
-//                    pass.setTextColor(getContext().getResources().getColor(R.color.green));
-//                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.green));
-//                    break;
-//                case 3:
-//                    pass.setTextColor(getContext().getResources().getColor(R.color.blue));
-//                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.blue));
-//                    break;
-//                default:break;
-//            }
-//        }
+        if(plan_now!=null){
+            plan_title.setText(plan_now.getTitle());
+            plan_content.setText(plan_now.getContent());
+            plan_ddl.setText(plan_now.getDate()+" "+plan_now.getTime());
+//            plan_pass.setText(plan_now.getPass());
+            //未完成-获取on状态
+            on=1;
+            stopTime();
+            nowtime = SystemClock.elapsedRealtime();
+            pass.setBase(nowtime-plan_now.getId()*1000);
+            switch (plan_now.getUrgency()){
+                case 0:
+                    pass.setTextColor(getContext().getResources().getColor(R.color.red));
+                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.red));
+                    break;
+                case 1:
+                    pass.setTextColor(getContext().getResources().getColor(R.color.yellow));
+                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.yellow));
+                    break;
+                case 2:
+                    pass.setTextColor(getContext().getResources().getColor(R.color.green));
+                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.green));
+                    break;
+                case 3:
+                    pass.setTextColor(getContext().getResources().getColor(R.color.blue));
+                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.blue));
+                    break;
+                default:break;
+            }
+        }
 
     }
 

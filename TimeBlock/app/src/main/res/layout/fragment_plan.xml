@@ -84,7 +84,7 @@
             android:id="@+id/plan_pass"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:format="00:00:00"
+            android:format="00:00"
             android:gravity="center"
             android:textSize="30dp" />
         </LinearLayout>
