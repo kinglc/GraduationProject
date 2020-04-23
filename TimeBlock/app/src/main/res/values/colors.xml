@@ -20,4 +20,8 @@
     <color name="backGray">#EBE9E9</color>
     <color name="lightFontGray">#BFBFBF</color>
     <color name="fontBlack">#2C2C2C</color>
+
+    <color name="gold">#FFD700</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="copper">#DAA520</color>
 </resources>
