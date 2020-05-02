@@ -26,6 +26,7 @@ import com.king.block.content.NoteFragment;
 import com.king.block.content.PlanFragment;
 import com.king.block.content.TodoFragment;
 import com.king.block.user.AchieveActivity;
+import com.king.block.user.ChartActivity;
 import com.king.block.user.FriendActivity;
 //import com.king.block.user.HistoryActivity;
 import com.king.block.user.LogActivity;
@@ -46,7 +47,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     private TextView note_txt, todo_txt, plan_txt;
 
     //侧边
-    private LinearLayout friend, log, achieve;
+    private LinearLayout friend, log, achieve, history;
 //    private TextView history_txt;
 //    private String txts[]={"待办","计划","备忘"};
 
@@ -99,7 +100,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 
         //侧边
         friend = (LinearLayout) findViewById(R.id.friend);
-//        history = (LinearLayout) findViewById(R.id.history);
+        history = (LinearLayout) findViewById(R.id.history);
         log = (LinearLayout) findViewById(R.id.log);
         achieve = (LinearLayout) findViewById(R.id.achieve);
 //        history_txt = (TextView)findViewById(R.id.history_txt);
@@ -112,7 +113,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         plan.setOnClickListener(this);
 
         friend.setOnClickListener(this);
-//        history.setOnClickListener(this);
+        history.setOnClickListener(this);
         log.setOnClickListener(this);
         achieve.setOnClickListener(this);
 
@@ -170,6 +171,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 initStyle();
                 todo_pic.setImageResource(R.drawable.todo_selected);
                 todo_txt.setTextColor(getResources().getColor(R.color.commonBlue));
+                history.setVisibility(View.GONE);
                 initFrag();
                 break;
             case R.id.plan:
@@ -177,6 +179,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 initStyle();
                 plan_pic.setImageResource(R.drawable.plan_selected);
                 plan_txt.setTextColor(getResources().getColor(R.color.commonBlue));
+                history.setVisibility(View.VISIBLE);
                 initFrag();
                 break;
             case R.id.note:
@@ -184,6 +187,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 initStyle();
                 note_pic.setImageResource(R.drawable.note_selected);
                 note_txt.setTextColor(getResources().getColor(R.color.commonBlue));
+                history.setVisibility(View.GONE);
                 initFrag();
                 break;
             case R.id.friend:
@@ -191,12 +195,11 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 it.setClass(ContentActivity.this, FriendActivity.class);
                 startActivity(it);
                 break;
-//            case R.id.history:
-//                drawerLayout.closeDrawer(Gravity.RIGHT);
-//                it.setClass(ContentActivity.this, HistoryActivity.class);
-//                it.putExtra("index", index);
-//                startActivity(it);
-//                break;
+            case R.id.history:
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                it.setClass(ContentActivity.this, ChartActivity.class);
+                startActivity(it);
+                break;
             case R.id.log:
                 drawerLayout.closeDrawer(Gravity.RIGHT);
                 it.setClass(ContentActivity.this, LogActivity.class);
