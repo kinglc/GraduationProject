@@ -4,6 +4,32 @@ public class Todo {
     private int id;
     private String title;
     private boolean isChecked;
+    private String date;
+    private String time;//完成时间
+
+    public Todo(int id, String title, boolean isChecked, String date, String time) {
+        this.id = id;
+        this.title = title;
+        this.isChecked = isChecked;
+        this.date = date;
+        this.time = time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public Todo(int id, String title, boolean isChecked) {
         this.id = id;
