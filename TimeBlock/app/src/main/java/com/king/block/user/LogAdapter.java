@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.king.block.R;
@@ -37,24 +38,24 @@ public class LogAdapter extends ArrayAdapter<Log> {
         viewHolder.rank.setText(position+"");
         viewHolder.name.setText(log.getType());
         viewHolder.time.setText(log.getLogId());
-        switch (position){
-            case 0:viewHolder.rank.setTextColor(getContext().getColor(R.color.gold));break;
-            case 1:viewHolder.rank.setTextColor(getContext().getColor(R.color.silver));break;
-            case 2:viewHolder.rank.setTextColor(getContext().getColor(R.color.copper));break;
-            default:viewHolder.rank.setTextColor(getContext().getColor(R.color.backGray));break;
+        switch (log.getType()){
+            case 0:viewHolder.type.setImageResource(R.drawable.copper_plan);break;
+            case 1:viewHolder.type.setImageResource(R.drawable.copper_plan);break;
+            case 2:viewHolder.type.setImageResource(R.drawable.copper_plan);break;
+            default:;break;
         }
         return convertView;
     }
 
     private void initHolder(View v, LogAdapter.ViewHolder vh){
-        vh.rank = (TextView) v.findViewById(R.id.rank);
-        vh.name = (TextView) v.findViewById(R.id.name);
+        vh.type = (ImageView) v.findViewById(R.id.type);
+        vh.content = (TextView) v.findViewById(R.id.content);
         vh.time = (TextView) v.findViewById(R.id.time);
     }
 
     class ViewHolder{
-        TextView rank;
-        TextView name;
+        ImageView type;
+        TextView content;
         TextView time;
     }
 }
