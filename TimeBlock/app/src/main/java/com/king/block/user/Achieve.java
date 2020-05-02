@@ -2,7 +2,7 @@ package com.king.block.user;
 
 public class Achieve {
     int id;
-    int type;//0-金，1-银，2-铜，-1 -无
+    int type;//0-2 金银铜计划，3-5 金银铜待办
     String name;
 
     public Achieve(int id, int type, String name) {
