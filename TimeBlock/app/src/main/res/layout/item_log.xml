@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/content"
-            android:background="@drawable/border_radius"
+            android:background="@drawable/blue_radius"
             android:padding="10dp"
             android:textSize="18dp"
             android:textStyle="bold"
