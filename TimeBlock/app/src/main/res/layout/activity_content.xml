@@ -120,7 +120,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:id="@+id/history_txt"
-                android:text="历史统计"
+                android:text="历史计划"
                 android:textSize="16dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="#000"
