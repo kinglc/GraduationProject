@@ -54,30 +54,41 @@ public class ChartActivity extends AppCompatActivity {
         rb_week = (RadioButton)findViewById(R.id.week);
         rb_month = (RadioButton)findViewById(R.id.month);
         rb_year = (RadioButton)findViewById(R.id.year);
-
         date = (TextView)findViewById(R.id.date);
         minus = (ImageView)findViewById(R.id.minus);
         add = (ImageView)findViewById(R.id.add);
     }
 
-    private void initDate(){
+    private void initDate() {
         c = Calendar.getInstance();
         yYear = mYear = wYear = c.get(Calendar.YEAR);
-        mMonth = wMonth= c.get(Calendar.MONTH)+1;
+        mMonth = wMonth = c.get(Calendar.MONTH) + 1;
+        wDay = c.get(Calendar.DAY_OF_MONTH);
+        int minu = c.get(Calendar.DAY_OF_WEEK);
+        Toast.makeText(ChartActivity.this,""+minu,Toast.LENGTH_SHORT).show();
+        if (minu == 1) {
+            minu = -6;
+        }else {
+            minu -= 2;
+            minu *= -1;
+        }
+        c.add(Calendar.DAY_OF_YEAR, minu);
+        wYear = c.get(Calendar.YEAR);
+        wMonth = c.get(Calendar.MONTH)+1;
         wDay = c.get(Calendar.DAY_OF_MONTH);
         getEndDay();
-        date.setText(wYear + "-" + wMonth + "-" + wDay+" ~ "+wYearEnd + "-" + wMonthEnd + "-" + wDayEnd);
+        date.setText(wYear + "-" + wMonth + "-" + wDay + " ~ " + wYearEnd + "-" + wMonthEnd + "-" + wDayEnd);
         initChart();
     }
 
     private void getEndDay() {
         c.clear();
         c.set(Calendar.YEAR, wYear);
-        c.set(Calendar.MONTH, wMonth);
+        c.set(Calendar.MONTH, wMonth-1);
         c.set(Calendar.DAY_OF_MONTH, wDay);
         c.add(Calendar.DAY_OF_YEAR, 6);
         wYearEnd = c.get(Calendar.YEAR);
-        wMonthEnd = c.get(Calendar.MONTH);
+        wMonthEnd = c.get(Calendar.MONTH)+1;
         wDayEnd = c.get(Calendar.DAY_OF_MONTH);
     }
 
@@ -112,7 +123,7 @@ public class ChartActivity extends AppCompatActivity {
                         type=2;
                         rb_year.setBackgroundColor(getResources().getColor(R.color.commonBlue));
                         rb_year.setTextColor(getResources().getColor(R.color.white));
-                        date.setText(yYear);
+                        date.setText(""+yYear);
                         break;
                 }
             }
@@ -137,22 +148,20 @@ public class ChartActivity extends AppCompatActivity {
         c.clear();
         if(type==0) {
             c.set(Calendar.YEAR, wYear);
-            c.set(Calendar.MONTH, wMonth);
+            c.set(Calendar.MONTH, wMonth-1);
             c.set(Calendar.DAY_OF_MONTH, wDay);
             c.add(Calendar.DAY_OF_YEAR, 7*minu);
             wYear = c.get(Calendar.YEAR);
-            wMonth = c.get(Calendar.MONTH);
+            wMonth = c.get(Calendar.MONTH)+1;
             wDay = c.get(Calendar.DAY_OF_MONTH);
-            if(wMonth==0) wMonth+=minu;
             getEndDay();
             date.setText(wYear + "-" + wMonth + "-" + wDay+" ~ "+wYearEnd + "-" + wMonthEnd + "-" + wDayEnd);
         }else if(type==1){
             c.set(Calendar.YEAR, mYear);
-            c.set(Calendar.MONTH, mMonth);
+            c.set(Calendar.MONTH, mMonth-1);
             c.add(Calendar.MONTH, 1*minu);
             mYear = c.get(Calendar.YEAR);
-            mMonth = c.get(Calendar.MONTH);
-            if(mMonth==0) mMonth+=minu;
+            mMonth = c.get(Calendar.MONTH)+1;
             date.setText(mYear + "-" + mMonth);
         }else if(type==2){
             yYear+=1*minu;
