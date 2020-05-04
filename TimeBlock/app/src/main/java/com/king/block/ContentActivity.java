@@ -125,9 +125,10 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         //  这个方法是得到选择后的 年，月，日，分别对应着三个参数 — year、month、dayOfMonth
+                        month++;
                         date.setText(year + "-" + month + "-" + dayOfMonth + "  ▼");
                     }
-                }, year, month, day).show();   //  弹出日历对话框时，默认显示 年，月，日
+                }, year, month-1, day).show();   //  弹出日历对话框时，默认显示 年，月，日
                 //未完成-通过日期获取数据
 //                getData();
             }
@@ -153,7 +154,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 
         Calendar mcalendar = Calendar.getInstance();     //  获取当前时间    —   年、月、日
         year = mcalendar.get(Calendar.YEAR);         //  得到当前年
-        month = mcalendar.get(Calendar.MONTH);       //  得到当前月
+        month = mcalendar.get(Calendar.MONTH)+1;       //  得到当前月
         day = mcalendar.get(Calendar.DAY_OF_MONTH);  //  得到当前日
         date.setText(year + "-" + month + "-" + day + "  ▼");
 
