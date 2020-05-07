@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".user.ChartActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -79,7 +80,8 @@
     </RadioGroup>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="40dp"
+        android:background="@color/lightGray">
         <ImageView
             android:layout_width="26dp"
             android:layout_height="26dp"
@@ -100,5 +102,23 @@
             android:src="@drawable/add"
             android:id="@+id/add"
             android:layout_margin="7dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
+        android:background="@color/lightGray">
+
+        <lecho.lib.hellocharts.view.PieChartView
+            android:id="@+id/pie_chart"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+
+        <lecho.lib.hellocharts.view.ColumnChartView
+            android:id="@+id/col_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 </LinearLayout>
