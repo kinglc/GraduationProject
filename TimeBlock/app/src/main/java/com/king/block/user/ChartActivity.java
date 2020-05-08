@@ -255,30 +255,22 @@ public class ChartActivity extends AppCompatActivity {
         data.setStacked(true);
         data.setFillRatio(0.75F);
 
-        col_chart.setColumnChartData(data);
-        col_chart.setOnValueTouchListener(new ValueTouchListener(){
-        });
+
 //        col_chart.setValueSelectionEnabled(true);
 //        col_chart.setInteractive(true);
 //        col_chart.setZoomType(ZoomType.HORIZONTAL);
-        Viewport viewport =new Viewport(0,  24,10, 0);
 //        Viewport viewport =new Viewport(0,  col_chart.getMaximumViewport().height()*1.25f,10, 0);
-        col_chart.setCurrentViewport(viewport);
-        col_chart.moveTo(0, 0);
-    }
-
-    private class ValueTouchListener implements ColumnChartOnValueSelectListener {
-
-        @Override
-        public void onValueSelected(int columnIndex, int subcolumnIndex, SubcolumnValue value) {
-//            initPieChart(columnIndex);
+        if(type==0) {
+            Viewport viewport = new Viewport(0, 24, 7, 0);
+            col_chart.setCurrentViewport(viewport);
+            col_chart.setColumnChartData(data);
+            col_chart.moveTo(0, 0);
+        }else{
+            col_chart.setColumnChartData(data);
+            Viewport viewport = new Viewport(0, 24, 7, 0);
+            col_chart.setCurrentViewport(viewport);
+            col_chart.moveTo(0, 0);
         }
-
-        @Override
-        public void onValueDeselected() {
-
-        }
-
     }
 
 }
