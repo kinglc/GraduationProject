@@ -3,6 +3,7 @@ package com.king.block.user;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -44,12 +45,12 @@ public class ChartActivity extends AppCompatActivity {
     private int yYear;//year页
 
     String x[][]={{"周一","周二","周三","周四","周五","周六","周日"},
-            {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"},
-            {"1","2","3","4","5","6","7","8","9","10","11","12"}};
-    PieChartView pie_chart;
-    ColumnChartView col_chart;
-    private List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
-
+            {"1日","2日","3日","4日","5日","6日","7日","8日","9日","10日","11日","12日","13日","14日","15日","16日","17日",
+                    "18日","19日","20日","21日","22日","23日","24日","25日","26日","27日","28日","29日","30日","31日"},
+            {"1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"}};
+    private PieChartView pie_chart;
+    private ColumnChartView col_chart;
+    private List<SubcolumnValue> values;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +84,7 @@ public class ChartActivity extends AppCompatActivity {
         minus = (ImageView)findViewById(R.id.minus);
         add = (ImageView)findViewById(R.id.add);
 
-        pie_chart = (PieChartView)findViewById(R.id.pie_chart);
+//        pie_chart = (PieChartView)findViewById(R.id.pie_chart);
         col_chart = (ColumnChartView)findViewById(R.id.col_chart);
     }
 
@@ -154,6 +155,7 @@ public class ChartActivity extends AppCompatActivity {
                         date.setText(yYear + "年" );
                         break;
                 }
+                initColChart();
             }
         });
 
@@ -195,6 +197,7 @@ public class ChartActivity extends AppCompatActivity {
             yYear+=1*minu;
             date.setText(yYear + "年" );
         }
+        values.clear();
         initColChart();
     }
 
@@ -208,15 +211,15 @@ public class ChartActivity extends AppCompatActivity {
         return maxDate;
     }
 
-    private void initColChart(){
 
-        ColumnChartData data;             //存放柱状图数据的对象
+    private void initColChart(){
+        ColumnChartData data;
         int numColumns;
-        List<AxisValue> axisValues = new ArrayList<AxisValue>();
+        int subColumns=4;
+        List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
         List<Column> columns = new ArrayList<Column>();
-        List<SubcolumnValue> values;
-        int hour[]=new int[32];
-        type=1;
+        int[][] hour = new int[31][4];
+        String[] clr={"#EC2828","#FFEC87","#A6DA8C","#50C9EF"};//红黄绿蓝
 
         //初始化x轴
         if(type==1){
@@ -226,8 +229,13 @@ public class ChartActivity extends AppCompatActivity {
         }
         for (int i = 0; i < numColumns; i++) {
             mAxisXValues.add(new AxisValue(i).setLabel(x[type][i]));
-            hour[i]=i%24;//待删
+            for(int j=0;j<4;j++) {
+                hour[i][j] = (i+j) %7;//待删
+            }
         }
+
+        //获取y轴
+//        String[] axisy
 
         //未完成-获取y数据
         //hour
@@ -235,28 +243,28 @@ public class ChartActivity extends AppCompatActivity {
         //设置每个柱
         for (int i = 0; i < numColumns; ++i) {
             values = new ArrayList<SubcolumnValue>();
-            values.add(new SubcolumnValue(hour[i], ChartUtils.pickColor()));
+            for(int j=0;j<subColumns;j++) {
+                values.add(new SubcolumnValue(hour[i][j], Color.parseColor(clr[j])));
+            }
             columns.add(new Column(values).setHasLabelsOnlyForSelected(true));
         }
 
         data = new ColumnChartData(columns);
-
-        data.setAxisXBottom(new Axis(axisValues).setHasLines(true)
-                .setTextColor(Color.BLACK));
-        data.setAxisYLeft(new Axis().setHasLines(true)
-                .setTextColor(Color.BLACK).setMaxLabelChars(2));
+        data.setAxisXBottom(new Axis(mAxisXValues).setHasLines(false).setTextColor(Color.BLACK));
+        data.setAxisYLeft(new Axis().setHasLines(true).setTextColor(Color.BLACK).setMaxLabelChars(2).setName("时长/h"));
+        data.setStacked(true);
+        data.setFillRatio(0.75F);
 
         col_chart.setColumnChartData(data);
-
-// Set value touch listener that will trigger changes for chartTop.
         col_chart.setOnValueTouchListener(new ValueTouchListener(){
         });
-
-// Set selection mode to keep selected month column highlighted.
-        col_chart.setValueSelectionEnabled(true);
-        col_chart.setInteractive(true);
-        col_chart.setZoomType(ZoomType.HORIZONTAL);
-
+//        col_chart.setValueSelectionEnabled(true);
+//        col_chart.setInteractive(true);
+//        col_chart.setZoomType(ZoomType.HORIZONTAL);
+        Viewport viewport =new Viewport(0,  24,10, 0);
+//        Viewport viewport =new Viewport(0,  col_chart.getMaximumViewport().height()*1.25f,10, 0);
+        col_chart.setCurrentViewport(viewport);
+        col_chart.moveTo(0, 0);
     }
 
     private class ValueTouchListener implements ColumnChartOnValueSelectListener {
