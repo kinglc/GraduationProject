@@ -57,7 +57,7 @@
         android:id="@+id/rl_tool"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:background="@color/colorPrimary">
+        android:background="@color/commonBlue">
 
         <TextView
             android:id="@+id/tv_month_day"
@@ -101,35 +101,13 @@
                 tools:ignore="SmallSp" />
         </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/fl_current"
+        <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="12dp"
-            android:background="@drawable/bg_ripple">
-
-            <ImageView
-                android:id="@+id/ib_calendar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:tint="#000000"
-                android:contentDescription="@string/app_name"
-                android:scaleType="centerInside"
-                android:src="@mipmap/ic_calendar" />
-
-            <TextView
-                android:id="@+id/tv_current_day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="2dp"
-                android:gravity="center"
-                android:text="13"
-                android:textColor="#000000"
-                android:textSize="12sp" />
-        </FrameLayout>
+            android:src="@drawable/menu"/>
     </RelativeLayout>
 
     <com.haibin.calendarview.CalendarLayout
