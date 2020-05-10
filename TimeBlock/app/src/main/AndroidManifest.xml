@@ -18,7 +18,6 @@
         <activity android:name=".content.NoteActivity" />
         <activity android:name=".user.AchieveActivity" />
         <activity android:name=".user.FriendActivity" />
-        <activity android:name=".user.HistoryActivity" />
         <activity android:name=".user.LogActivity" />
         <activity android:name=".ContentActivity" />
         <activity android:name=".MainActivity">

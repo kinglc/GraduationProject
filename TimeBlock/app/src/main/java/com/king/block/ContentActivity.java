@@ -166,6 +166,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         Intent it = new Intent();
+        LinearLayout top = (LinearLayout)findViewById(R.id.top);
         switch (v.getId()) {
             case R.id.todo:
                 index = 0;
@@ -173,6 +174,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 todo_pic.setImageResource(R.drawable.todo_selected);
                 todo_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 history.setVisibility(View.GONE);
+                top.setVisibility(View.VISIBLE);
                 initFrag();
                 break;
             case R.id.plan:
@@ -181,6 +183,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 plan_pic.setImageResource(R.drawable.plan_selected);
                 plan_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 history.setVisibility(View.VISIBLE);
+                top.setVisibility(View.GONE);
                 initFrag();
                 break;
             case R.id.note:
@@ -189,6 +192,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 note_pic.setImageResource(R.drawable.note_selected);
                 note_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 history.setVisibility(View.GONE);
+                top.setVisibility(View.VISIBLE);
                 initFrag();
                 break;
             case R.id.friend:

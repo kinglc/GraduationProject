@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <include layout="@layout/top_content"/>
+        <include android:id="@+id/top" layout="@layout/top_content"/>
         <FrameLayout
             android:id="@+id/contentfrag"
             android:layout_width="match_parent"
