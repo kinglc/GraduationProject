@@ -183,7 +183,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 plan_pic.setImageResource(R.drawable.plan_selected);
                 plan_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 history.setVisibility(View.VISIBLE);
-                top.setVisibility(View.GONE);
+                top.setVisibility(View.VISIBLE);
                 initFrag();
                 break;
             case R.id.note:
@@ -192,7 +192,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 note_pic.setImageResource(R.drawable.note_selected);
                 note_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 history.setVisibility(View.GONE);
-                top.setVisibility(View.VISIBLE);
+                top.setVisibility(View.GONE);
                 initFrag();
                 break;
             case R.id.friend:

@@ -8,11 +8,14 @@ import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.WeekView;
 
 /**
- * 魅族周视图
+ * 多彩周视图
  * Created by huanghaibin on 2017/11/29.
  */
 
 public class ColorfulWeekView extends WeekView {
+
+    private int mRadius;
+
     private Paint mTextPaint = new Paint();
 
     private Paint mSchemeBasicPaint = new Paint();

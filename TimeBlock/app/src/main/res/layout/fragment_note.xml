@@ -53,19 +53,19 @@
 <!--            android:background="@color/content_background" />-->
 
 <!--    </com.haibin.calendarview.CalendarLayout>-->
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rl_tool"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:background="@color/commonBlue">
-
         <TextView
             android:id="@+id/tv_month_day"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:paddingLeft="16dp"
-            android:textColor="#000000"
+            android:text="1月20日"
+            android:textColor="#ffff"
             android:textSize="26sp"
             android:textStyle="bold"
             tools:ignore="RtlSymmetry" />
@@ -87,7 +87,8 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="#000000"
+                android:text="2018"
+                android:textColor="#ffff"
                 android:textSize="10sp" />
 
             <TextView
@@ -96,19 +97,24 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="#000000"
+                android:text="初四"
+                android:textColor="#ffff"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
         </LinearLayout>
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
         <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="12dp"
-            android:src="@drawable/menu"/>
-    </RelativeLayout>
+            android:id="@+id/menu"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/menu" />
+    </LinearLayout>
 
     <com.haibin.calendarview.CalendarLayout
         android:layout_width="match_parent"

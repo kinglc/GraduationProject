@@ -1,4 +1,6 @@
+
 package com.king.block.content;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -25,6 +27,8 @@ public class ColorfulMonthView extends MonthView {
     private float mRadio;
     private int mPadding;
     private float mSchemeBaseLine;
+
+    private int mRadius;
 
     public ColorfulMonthView(Context context) {
         super(context);
@@ -61,8 +65,11 @@ public class ColorfulMonthView extends MonthView {
      */
     @Override
     protected boolean onDrawSelected(Canvas canvas, Calendar calendar, int x, int y, boolean hasScheme) {
-        mSelectedPaint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(x + mPadding, y + mPadding, x + mItemWidth - mPadding, y + mItemHeight - mPadding, mSelectedPaint);
+//        mSelectedPaint.setStyle(Paint.Style.FILL);
+        int cx = x + mItemWidth / 2;
+        int cy = y + mItemHeight / 2;
+        canvas.drawCircle(cx, cy, mRadio, mSelectedPaint);
+//        canvas.drawRect(x + mPadding, y + mPadding, x + mItemWidth - mPadding, y + mItemHeight - mPadding, mSelectedPaint);
         return true;
     }
 
