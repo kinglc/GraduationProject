@@ -3,6 +3,7 @@ package com.king.block.content;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.widget.Toast;
 
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.WeekView;
@@ -42,6 +43,12 @@ public class ColorfulWeekView extends WeekView {
         mSchemeBaseLine = mRadio - metrics.descent + (metrics.bottom - metrics.top) / 2 + dipToPx(getContext(), 1);
     }
 
+
+    @Override
+    protected void onPreviewHook() {
+        mRadius = dipToPx(getContext(),Math.min(mItemWidth, mItemHeight) / 5);
+    }
+
     /**
      * @param canvas    canvas
      * @param calendar  日历日历calendar
@@ -52,8 +59,10 @@ public class ColorfulWeekView extends WeekView {
     @Override
     protected boolean onDrawSelected(Canvas canvas, Calendar calendar, int x, boolean hasScheme) {
         mSelectedPaint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(x + mPadding, mPadding, x + mItemWidth - mPadding, mItemHeight - mPadding, mSelectedPaint);
-        return true;
+        int cx = x + mItemWidth / 2;
+        int cy = mItemHeight / 2;
+        canvas.drawCircle(cx, cy, mRadius, mSelectedPaint);
+        return hasScheme;
     }
 
     @Override
@@ -83,11 +92,10 @@ public class ColorfulWeekView extends WeekView {
             canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
                     mSelectTextPaint);
             canvas.drawText(calendar.getLunar(), cx, mTextBaseLine + mItemHeight / 10, mSelectedLunarTextPaint);
-        } else if (hasScheme) {
-            canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
-                    calendar.isCurrentMonth() && isInRange ? mSchemeTextPaint : mOtherMonthTextPaint);
-
-            canvas.drawText(calendar.getLunar(), cx, mTextBaseLine + mItemHeight / 10, mCurMonthLunarTextPaint);
+//        } else if (hasScheme) {
+//            canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
+//                    calendar.isCurrentMonth() && isInRange ? mSchemeTextPaint : mOtherMonthTextPaint);
+//            canvas.drawText(calendar.getLunar(), cx, mTextBaseLine + mItemHeight / 10, mCurMonthLunarTextPaint);
         } else {
             canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
                     calendar.isCurrentDay() && isInRange ? mCurDayTextPaint :

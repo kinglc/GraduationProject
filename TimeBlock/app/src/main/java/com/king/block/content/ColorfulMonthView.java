@@ -3,6 +3,7 @@ package com.king.block.content;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 
 import com.haibin.calendarview.Calendar;
@@ -44,6 +45,7 @@ public class ColorfulMonthView extends MonthView {
         mSchemeBasicPaint.setFakeBoldText(true);
         mRadio = dipToPx(getContext(), 7);
         mPadding = dipToPx(getContext(), 4);
+
         Paint.FontMetrics metrics = mSchemeBasicPaint.getFontMetrics();
         mSchemeBaseLine = mRadio - metrics.descent + (metrics.bottom - metrics.top) / 2 + dipToPx(getContext(), 1);
 
@@ -51,6 +53,11 @@ public class ColorfulMonthView extends MonthView {
 //        setLayerType(View.LAYER_TYPE_SOFTWARE, mSchemeBasicPaint);
 //        //4.0以上硬件加速会导致无效
 //        mSchemeBasicPaint.setMaskFilter(new BlurMaskFilter(25, BlurMaskFilter.Blur.SOLID));
+    }
+
+    @Override
+    protected void onPreviewHook() {
+        mRadius = dipToPx(getContext(),Math.min(mItemWidth, mItemHeight) / 6);
     }
 
     /**
@@ -65,11 +72,10 @@ public class ColorfulMonthView extends MonthView {
      */
     @Override
     protected boolean onDrawSelected(Canvas canvas, Calendar calendar, int x, int y, boolean hasScheme) {
-//        mSelectedPaint.setStyle(Paint.Style.FILL);
+        mSelectedPaint.setStyle(Paint.Style.FILL);
         int cx = x + mItemWidth / 2;
         int cy = y + mItemHeight / 2;
-        canvas.drawCircle(cx, cy, mRadio, mSelectedPaint);
-//        canvas.drawRect(x + mPadding, y + mPadding, x + mItemWidth - mPadding, y + mItemHeight - mPadding, mSelectedPaint);
+        canvas.drawCircle(cx, cy, mRadius, mSelectedPaint);
         return true;
     }
 
@@ -110,7 +116,7 @@ public class ColorfulMonthView extends MonthView {
     @Override
     protected void onDrawText(Canvas canvas, Calendar calendar, int x, int y, boolean hasScheme, boolean isSelected) {
         int cx = x + mItemWidth / 2;
-        int top = y - mItemHeight / 6;
+        int top = y - mItemHeight / 5;
 
         boolean isInRange = isInRange(calendar);
 
@@ -118,11 +124,6 @@ public class ColorfulMonthView extends MonthView {
             canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
                     mSelectTextPaint);
             canvas.drawText(calendar.getLunar(), cx, mTextBaseLine + y + mItemHeight / 10, mSelectedLunarTextPaint);
-        } else if (hasScheme) {
-            canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
-                    calendar.isCurrentMonth() && isInRange ? mSchemeTextPaint : mOtherMonthTextPaint);
-
-            canvas.drawText(calendar.getLunar(), cx, mTextBaseLine + y + mItemHeight / 10, mCurMonthLunarTextPaint);
         } else {
             canvas.drawText(String.valueOf(calendar.getDay()), cx, mTextBaseLine + top,
                     calendar.isCurrentDay() ? mCurDayTextPaint :

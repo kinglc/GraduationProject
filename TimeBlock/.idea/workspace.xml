@@ -17,11 +17,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/ContentActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/ContentActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,21 +46,69 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="178" column="1" lean-forward="true" selection-start-line="178" selection-start-column="1" selection-end-line="178" selection-end-column="1" />
+            <state relative-caret-position="292">
+              <caret line="164" column="5" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2402#2908#0" expanded="true" />
-                <element signature="e#2907#2908#0" expanded="true" />
-                <element signature="e#3931#3932#0" expanded="true" />
-                <element signature="e#3998#3999#0" expanded="true" />
+                <element signature="e#2658#2776#1" />
+                <element signature="method#getSchemeCalendar#0;class#NoteFragment#0" />
+                <element signature="method#initScheme#0;class#NoteFragment#0" />
+                <element signature="e#5726#5727#0" expanded="true" />
+                <element signature="e#5740#5741#0" expanded="true" />
+                <element signature="e#5767#5768#0" expanded="true" />
+                <element signature="method#onCalendarOutOfRange#0;class#NoteFragment#0" />
                 <element signature="method#initList#0;class#NoteFragment#0" />
-                <element signature="e#4355#4602#0" expanded="true" />
-                <element signature="e#4601#4602#0" expanded="true" />
-                <element signature="e#4932#6651#0" expanded="true" />
+                <element signature="e#6493#6751#0" expanded="true" />
+                <element signature="e#6750#6751#0" expanded="true" />
+                <element signature="e#7064#8783#0" expanded="true" />
                 <element signature="class#6087:6301" />
-                <element signature="e#6650#6651#0" expanded="true" />
+                <element signature="e#8782#8783#0" expanded="true" />
                 <element signature="method#initData#0;class#NoteFragment#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#onDrawScheme#0;class#ColorfulWeekView#0" />
+                <element signature="e#2354#2355#0" expanded="true" />
+                <element signature="e#2405#2406#0" expanded="true" />
+                <element signature="e#2577#2635#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="132" column="72" selection-start-line="132" selection-start-column="72" selection-end-line="132" selection-end-column="72" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2837#2838#0" expanded="true" />
+                <element signature="e#2888#2889#0" expanded="true" />
+                <element signature="e#3350#3408#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="127" column="42" lean-forward="true" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
+              <folding>
+                <element signature="e#568#5337#0" />
+                <element signature="e#2711#4964#0" />
               </folding>
             </state>
           </provider>
@@ -68,51 +117,54 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.haibin/calendarview/3.6.8/c822de73f847c0c602302ad8175b0cdedf3dbd43/calendarview-3.6.8-sources.jar!/com/haibin/calendarview/CalendarView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5">
-              <caret line="300" column="19" selection-start-line="300" selection-start-column="8" selection-end-line="300" selection-end-column="19" />
+            <state relative-caret-position="129">
+              <caret line="869" column="79" selection-start-line="869" selection-start-column="79" selection-end-line="869" selection-end-column="79" />
               <folding>
-                <element signature="e#10190#10191#0" expanded="true" />
-                <element signature="e#10228#10229#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="66" column="32" lean-forward="true" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="97" column="9" lean-forward="true" selection-start-line="1" selection-end-line="97" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2354#2355#0" expanded="true" />
-                <element signature="e#2405#2406#0" expanded="true" />
-                <element signature="e#2412#2470#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1430">
-              <caret line="128" column="72" lean-forward="true" selection-start-line="128" selection-start-column="72" selection-end-line="128" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2837#2838#0" expanded="true" />
-                <element signature="e#2888#2889#0" expanded="true" />
-                <element signature="e#3138#3196#0" expanded="true" />
+                <element signature="e#2270#8470#0" />
+                <element signature="e#8476#8714#0" />
+                <element signature="e#8476#9639#0" />
+                <element signature="e#10235#12214#0" />
+                <element signature="e#12406#12837#0" />
+                <element signature="e#12843#15172#0" />
+                <element signature="e#15282#16451#0" />
+                <element signature="e#17193#17722#0" />
+                <element signature="e#17728#18112#0" />
+                <element signature="e#18692#19826#0" />
+                <element signature="e#19979#20299#0" />
+                <element signature="e#20305#20531#0" />
+                <element signature="e#20538#20759#0" />
+                <element signature="e#20765#20986#0" />
+                <element signature="e#20993#21137#0" />
+                <element signature="e#21143#21292#0" />
+                <element signature="e#21481#21672#0" />
+                <element signature="e#21678#21886#0" />
+                <element signature="e#21892#22089#0" />
+                <element signature="e#22095#22607#0" />
+                <element signature="e#22613#23213#0" />
+                <element signature="e#23220#23559#0" />
+                <element signature="e#23565#23735#0" />
+                <element signature="e#23741#24264#0" />
+                <element signature="e#24271#24623#0" />
+                <element signature="e#24629#24974#0" />
+                <element signature="e#24980#25908#0" />
+                <element signature="e#26650#26848#0" />
+                <element signature="e#26854#27055#0" />
+                <element signature="e#27062#27261#0" />
+                <element signature="e#27819#28050#0" />
+                <element signature="e#28056#28120#0" />
+                <element signature="e#28056#28287#0" />
+                <element signature="e#28293#28627#0" />
+                <element signature="e#28634#29062#0" />
+                <element signature="e#29068#30042#0" />
+                <element signature="e#30048#30541#0" />
+                <element signature="e#30547#30903#0" />
+                <element signature="e#30909#31173#0" />
+                <element signature="e#30909#31865#0" />
+                <element signature="e#31871#34670#0" />
+                <element signature="e#34676#35017#0" />
+                <element signature="e#35128#35129#0" expanded="true" />
+                <element signature="e#35184#35185#0" expanded="true" />
+                <element signature="e#35191#35402#0" />
               </folding>
             </state>
           </provider>
@@ -131,7 +183,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>R.id.list</find>
       <find>todo_update</find>
       <find>plan</find>
       <find>Plan</find>
@@ -158,9 +209,10 @@
       <find>&quot;-&quot;</find>
       <find>textMonth</find>
       <find>tv_</find>
-      <find>Meizu</find>
-      <find>MeiZu</find>
       <find>showSelectL</find>
+      <find>Meizu</find>
+      <find>Listener</find>
+      <find>MeiZu</find>
     </findStrings>
     <replaceStrings>
       <replace>Listener</replace>
@@ -198,7 +250,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_plan.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/radius.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/radius.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/radius.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/Plan.java" />
@@ -235,13 +286,14 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_content.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/ContentActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml" />
       </list>
     </option>
   </component>
@@ -346,6 +398,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Block" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="values" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Block" type="b2602c69:ProjectViewProjectNode" />
@@ -558,7 +619,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Build Variants" order="8" sideWeight="0.5031447" side_tool="true" weight="0.20576407" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.32748538" />
-      <window_info active="true" anchor="bottom" id="Debug" order="1" visible="true" weight="0.2616959" />
+      <window_info anchor="bottom" id="Debug" order="1" visible="true" weight="0.2616959" />
       <window_info anchor="bottom" id="Logcat" order="2" weight="0.21554253" />
       <window_info anchor="bottom" id="Android Profiler" order="3" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32991204" />
@@ -572,7 +633,7 @@
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" weight="0.2416332" />
+      <window_info active="true" anchor="right" id="Preview" order="5" visible="true" weight="0.2416332" />
       <window_info anchor="right" id="Hierarchy" order="6" weight="0.3297587" />
     </layout>
     <layout-to-restore>
@@ -671,27 +732,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="97" column="55" lean-forward="true" selection-start-line="97" selection-start-column="55" selection-end-line="97" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_achieve.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-          <folding>
-            <element signature="e#351#1240#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_achieve.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1014,13 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1062,23 +1095,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="178" column="1" lean-forward="true" selection-start-line="178" selection-start-column="1" selection-end-line="178" selection-end-column="1" />
+        <state relative-caret-position="140">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="90" column="22" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2402#2908#0" expanded="true" />
-            <element signature="e#2907#2908#0" expanded="true" />
-            <element signature="e#3931#3932#0" expanded="true" />
-            <element signature="e#3998#3999#0" expanded="true" />
+            <element signature="method#onDrawScheme#0;class#ColorfulWeekView#0" />
+            <element signature="e#2354#2355#0" expanded="true" />
+            <element signature="e#2405#2406#0" expanded="true" />
+            <element signature="e#2577#2635#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="164" column="5" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2658#2776#1" />
+            <element signature="method#getSchemeCalendar#0;class#NoteFragment#0" />
+            <element signature="method#initScheme#0;class#NoteFragment#0" />
+            <element signature="e#5726#5727#0" expanded="true" />
+            <element signature="e#5740#5741#0" expanded="true" />
+            <element signature="e#5767#5768#0" expanded="true" />
+            <element signature="method#onCalendarOutOfRange#0;class#NoteFragment#0" />
             <element signature="method#initList#0;class#NoteFragment#0" />
-            <element signature="e#4355#4602#0" expanded="true" />
-            <element signature="e#4601#4602#0" expanded="true" />
-            <element signature="e#4932#6651#0" expanded="true" />
+            <element signature="e#6493#6751#0" expanded="true" />
+            <element signature="e#6750#6751#0" expanded="true" />
+            <element signature="e#7064#8783#0" expanded="true" />
             <element signature="class#6087:6301" />
-            <element signature="e#6650#6651#0" expanded="true" />
+            <element signature="e#8782#8783#0" expanded="true" />
             <element signature="method#initData#0;class#NoteFragment#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_note.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.haibin/calendarview/3.6.8/c822de73f847c0c602302ad8175b0cdedf3dbd43/calendarview-3.6.8-sources.jar!/com/haibin/calendarview/CalendarView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="869" column="79" selection-start-line="869" selection-start-column="79" selection-end-line="869" selection-end-column="79" />
+          <folding>
+            <element signature="e#2270#8470#0" />
+            <element signature="e#8476#8714#0" />
+            <element signature="e#8476#9639#0" />
+            <element signature="e#10235#12214#0" />
+            <element signature="e#12406#12837#0" />
+            <element signature="e#12843#15172#0" />
+            <element signature="e#15282#16451#0" />
+            <element signature="e#17193#17722#0" />
+            <element signature="e#17728#18112#0" />
+            <element signature="e#18692#19826#0" />
+            <element signature="e#19979#20299#0" />
+            <element signature="e#20305#20531#0" />
+            <element signature="e#20538#20759#0" />
+            <element signature="e#20765#20986#0" />
+            <element signature="e#20993#21137#0" />
+            <element signature="e#21143#21292#0" />
+            <element signature="e#21481#21672#0" />
+            <element signature="e#21678#21886#0" />
+            <element signature="e#21892#22089#0" />
+            <element signature="e#22095#22607#0" />
+            <element signature="e#22613#23213#0" />
+            <element signature="e#23220#23559#0" />
+            <element signature="e#23565#23735#0" />
+            <element signature="e#23741#24264#0" />
+            <element signature="e#24271#24623#0" />
+            <element signature="e#24629#24974#0" />
+            <element signature="e#24980#25908#0" />
+            <element signature="e#26650#26848#0" />
+            <element signature="e#26854#27055#0" />
+            <element signature="e#27062#27261#0" />
+            <element signature="e#27819#28050#0" />
+            <element signature="e#28056#28120#0" />
+            <element signature="e#28056#28287#0" />
+            <element signature="e#28293#28627#0" />
+            <element signature="e#28634#29062#0" />
+            <element signature="e#29068#30042#0" />
+            <element signature="e#30048#30541#0" />
+            <element signature="e#30547#30903#0" />
+            <element signature="e#30909#31173#0" />
+            <element signature="e#30909#31865#0" />
+            <element signature="e#31871#34670#0" />
+            <element signature="e#34676#35017#0" />
+            <element signature="e#35128#35129#0" expanded="true" />
+            <element signature="e#35184#35185#0" expanded="true" />
+            <element signature="e#35191#35402#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_todo.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="43" column="42" lean-forward="true" selection-start-line="43" selection-start-column="42" selection-end-line="74" selection-end-column="23" />
+          <folding>
+            <element signature="e#1781#3033#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="132" column="72" selection-start-line="132" selection-start-column="72" selection-end-line="132" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2837#2838#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
+            <element signature="e#3350#3408#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1086,44 +1229,11 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="66" column="32" lean-forward="true" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="97" column="9" lean-forward="true" selection-start-line="1" selection-end-line="97" selection-end-column="9" />
+        <state relative-caret-position="226">
+          <caret line="127" column="42" lean-forward="true" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2354#2355#0" expanded="true" />
-            <element signature="e#2405#2406#0" expanded="true" />
-            <element signature="e#2412#2470#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.haibin/calendarview/3.6.8/c822de73f847c0c602302ad8175b0cdedf3dbd43/calendarview-3.6.8-sources.jar!/com/haibin/calendarview/CalendarView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="300" column="19" selection-start-line="300" selection-start-column="8" selection-end-line="300" selection-end-column="19" />
-          <folding>
-            <element signature="e#10190#10191#0" expanded="true" />
-            <element signature="e#10228#10229#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1430">
-          <caret line="128" column="72" lean-forward="true" selection-start-line="128" selection-start-column="72" selection-end-line="128" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2837#2838#0" expanded="true" />
-            <element signature="e#2888#2889#0" expanded="true" />
-            <element signature="e#3138#3196#0" expanded="true" />
+            <element signature="e#568#5337#0" />
+            <element signature="e#2711#4964#0" />
           </folding>
         </state>
       </provider>
