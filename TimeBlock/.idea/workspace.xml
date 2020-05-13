@@ -9,21 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bcd0fd7-b3c7-4c51-99de-039d9dfd9ba5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7bcd0fd7-b3c7-4c51-99de-039d9dfd9ba5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,28 +29,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="164" column="5" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
+            <state relative-caret-position="337">
+              <caret line="225" column="18" lean-forward="true" selection-start-line="225" selection-start-column="18" selection-end-line="225" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#initCalendar#0;class#NoteFragment#0" />
                 <element signature="e#2658#2776#1" />
                 <element signature="method#getSchemeCalendar#0;class#NoteFragment#0" />
                 <element signature="method#initScheme#0;class#NoteFragment#0" />
-                <element signature="e#5726#5727#0" expanded="true" />
-                <element signature="e#5740#5741#0" expanded="true" />
-                <element signature="e#5767#5768#0" expanded="true" />
+                <element signature="e#5416#5476#1" />
                 <element signature="method#onCalendarOutOfRange#0;class#NoteFragment#0" />
+                <element signature="method#onDateSelected#0;class#NoteFragment#0" />
                 <element signature="method#initList#0;class#NoteFragment#0" />
-                <element signature="e#6493#6751#0" expanded="true" />
-                <element signature="e#6750#6751#0" expanded="true" />
-                <element signature="e#7064#8783#0" expanded="true" />
+                <element signature="e#6475#6733#0" expanded="true" />
+                <element signature="e#6732#6733#0" expanded="true" />
+                <element signature="e#6852#7042#0" expanded="true" />
+                <element signature="e#7041#7042#0" expanded="true" />
+                <element signature="e#7394#9113#0" expanded="true" />
                 <element signature="class#6087:6301" />
-                <element signature="e#8782#8783#0" expanded="true" />
-                <element signature="method#initData#0;class#NoteFragment#0" />
+                <element signature="e#9112#9113#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -100,12 +96,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="127" column="42" lean-forward="true" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
+            <state relative-caret-position="160">
+              <caret line="122" column="36" lean-forward="true" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
               <folding>
                 <element signature="e#568#5337#0" />
                 <element signature="e#2711#4964#0" />
@@ -292,12 +288,12 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_note.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulWeekView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/ColorfulMonthView.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -606,11 +602,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1552" height="840" extended-state="0" />
+    <frame x="-8" y="-8" width="1552" height="840" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.20883535" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.20883535" />
       <window_info id="Structure" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2191689" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -619,7 +615,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Build Variants" order="8" sideWeight="0.5031447" side_tool="true" weight="0.20576407" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.32748538" />
-      <window_info anchor="bottom" id="Debug" order="1" visible="true" weight="0.2616959" />
+      <window_info anchor="bottom" id="Debug" order="1" weight="0.2616959" />
       <window_info anchor="bottom" id="Logcat" order="2" weight="0.21554253" />
       <window_info anchor="bottom" id="Android Profiler" order="3" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32991204" />
@@ -633,7 +629,7 @@
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info active="true" anchor="right" id="Preview" order="5" visible="true" weight="0.2416332" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.2416332" />
       <window_info anchor="right" id="Hierarchy" order="6" weight="0.3297587" />
     </layout>
     <layout-to-restore>
@@ -732,14 +728,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_achieve.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_plan.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1116,30 +1104,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="164" column="5" selection-start-line="164" selection-start-column="5" selection-end-line="164" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2658#2776#1" />
-            <element signature="method#getSchemeCalendar#0;class#NoteFragment#0" />
-            <element signature="method#initScheme#0;class#NoteFragment#0" />
-            <element signature="e#5726#5727#0" expanded="true" />
-            <element signature="e#5740#5741#0" expanded="true" />
-            <element signature="e#5767#5768#0" expanded="true" />
-            <element signature="method#onCalendarOutOfRange#0;class#NoteFragment#0" />
-            <element signature="method#initList#0;class#NoteFragment#0" />
-            <element signature="e#6493#6751#0" expanded="true" />
-            <element signature="e#6750#6751#0" expanded="true" />
-            <element signature="e#7064#8783#0" expanded="true" />
-            <element signature="class#6087:6301" />
-            <element signature="e#8782#8783#0" expanded="true" />
-            <element signature="method#initData#0;class#NoteFragment#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_note.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1229,11 +1193,43 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="127" column="42" lean-forward="true" selection-start-line="127" selection-start-column="42" selection-end-line="127" selection-end-column="42" />
+        <state relative-caret-position="160">
+          <caret line="122" column="36" lean-forward="true" selection-start-line="122" selection-start-column="36" selection-end-line="122" selection-end-column="36" />
           <folding>
             <element signature="e#568#5337#0" />
             <element signature="e#2711#4964#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="225" column="18" lean-forward="true" selection-start-line="225" selection-start-column="18" selection-end-line="225" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initCalendar#0;class#NoteFragment#0" />
+            <element signature="e#2658#2776#1" />
+            <element signature="method#getSchemeCalendar#0;class#NoteFragment#0" />
+            <element signature="method#initScheme#0;class#NoteFragment#0" />
+            <element signature="e#5416#5476#1" />
+            <element signature="method#onCalendarOutOfRange#0;class#NoteFragment#0" />
+            <element signature="method#onDateSelected#0;class#NoteFragment#0" />
+            <element signature="method#initList#0;class#NoteFragment#0" />
+            <element signature="e#6475#6733#0" expanded="true" />
+            <element signature="e#6732#6733#0" expanded="true" />
+            <element signature="e#6852#7042#0" expanded="true" />
+            <element signature="e#7041#7042#0" expanded="true" />
+            <element signature="e#7394#9113#0" expanded="true" />
+            <element signature="class#6087:6301" />
+            <element signature="e#9112#9113#0" expanded="true" />
           </folding>
         </state>
       </provider>
