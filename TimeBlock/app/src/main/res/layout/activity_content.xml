@@ -36,26 +36,38 @@
             android:layout_height="100dp"
             android:layout_marginBottom="15dp"
             android:background="#fff">
-        <ImageView
-            android:layout_marginLeft="20dp"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:id="@+id/avatar"
-            android:src="@drawable/avatar"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
                 android:layout_marginLeft="20dp"
-                android:layout_marginBottom="9dp"
-                android:layout_gravity="bottom"
-                android:id="@+id/name"
-                android:textSize="20dp"
-                android:textColor="#000"
-                android:text="用户户户户呼呼呼呼呼呼"
-                android:maxLines="1"
-                android:ellipsize="end"
-                />
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:id="@+id/avatar"
+                android:src="@drawable/avatar"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:textColor="@color/lightFontGray"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="点击头像复制ID"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/name"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:text="用户户户户呼呼呼呼呼呼"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout

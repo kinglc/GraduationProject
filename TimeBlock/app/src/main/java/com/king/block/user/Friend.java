@@ -3,11 +3,13 @@ package com.king.block.user;
 public class Friend {
     private int id;
     private String name;
+    private String avatar;
     private String time;
 
-    public Friend(int id, String name, String time) {
+    public Friend(int id, String name, String avatar, String time) {
         this.id = id;
         this.name = name;
+        this.avatar = avatar;
         this.time = time;
     }
 
@@ -25,6 +27,14 @@ public class Friend {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getTime() {

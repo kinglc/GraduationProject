@@ -46,6 +46,8 @@ public class PlanFragment extends Fragment{
     int on = 0;//1-暂停 0-计时
     private long nowtime=0;
 
+    ImageView add;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container, false);
@@ -89,6 +91,14 @@ public class PlanFragment extends Fragment{
         plan_ddl = (TextView)view.findViewById(R.id.plan_ddl);
         pass = (Chronometer) view.findViewById(R.id.plan_pass);
         pass.setFormat("%s");
+        add= (ImageView) view.findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getContext(), PlanActivity.class);
+                getContext().startActivity(it);
+            }
+        });
         select = (ImageView)view.findViewById(R.id.select);
         select.setOnClickListener(new View.OnClickListener() {
             @Override

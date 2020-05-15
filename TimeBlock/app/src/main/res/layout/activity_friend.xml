@@ -30,6 +30,39 @@
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:id="@+id/friend_lv"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@color/lightGray">
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/todo_add"/>
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/input"
+            android:hint="清输入好友id"
+            android:textSize="16dp"
+            android:textColor="#000000"
+            android:layout_marginLeft="10dp" />
+
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="30dp"
+            android:layout_height="29dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            android:checked="true"
+            android:focusable="false"
+            android:src="@drawable/save_gray" />
+    </LinearLayout>
 </LinearLayout>

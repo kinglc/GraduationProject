@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -29,13 +30,14 @@ public class FriendActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friend);
         initData();
         initTop();
+        initEvent();
         initLv();
     }
 
     private void initData(){
         //未完成 获取数据
         for(int i=0;i<10;i++) {
-            Friend friend = new Friend(i,i+""+i+i+i+i, "123456");
+            Friend friend = new Friend(i,i+""+i+i+i+i, "","123456");
             friend_list.add(friend);
         }
     }
@@ -82,6 +84,17 @@ public class FriendActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FriendActivity.this.finish();
+            }
+        });
+    }
+
+    private void initEvent(){
+        ImageView add = (ImageView)findViewById(R.id.add);
+        EditText input = (EditText)findViewById(R.id.input);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

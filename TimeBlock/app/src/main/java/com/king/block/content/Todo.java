@@ -4,7 +4,7 @@ public class Todo {
     private int id;
     private String title;
     private boolean isChecked;
-    private String date;
+    private String date;//创建日期
     private String time;//完成时间
 
     public Todo(int id, String title, boolean isChecked, String date, String time) {

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/gray"
+    android:paddingTop="1dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/update"
+        android:text="编 辑"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+         android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/lightFontGray"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/delete"
+        android:text="删 除"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/lightFontGray"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/finish"
+        android:text="完 成"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/lightFontGray"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/cancel"
+        android:text="取 消"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/lightFontGray"/>
+</LinearLayout>

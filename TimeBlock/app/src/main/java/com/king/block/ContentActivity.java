@@ -7,6 +7,9 @@ import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -47,7 +50,10 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     private TextView note_txt, todo_txt, plan_txt;
 
     //侧边
+    private ImageView avatar;
+    private TextView name;
     private LinearLayout friend, log, achieve, history;
+    private String id;
 //    private TextView history_txt;
 //    private String txts[]={"待办","计划","备忘"};
 
@@ -71,11 +77,18 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         initEvent();
         initStyle();
         initFrag();
+        initData();
 
         //初始计划页面
         plan_pic.setImageResource(R.drawable.plan_selected);
         plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
 
+    }
+
+    private void initData(){
+        //未完成-获取用户数据
+        id="123456";
+        name.setText("bbb");
     }
 
     //初始化组件
@@ -99,6 +112,9 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         plan_txt = (TextView) findViewById(R.id.plan_txt);
 
         //侧边
+        avatar =(ImageView)findViewById(R.id.avatar);
+        name = (TextView)findViewById(R.id.name);
+
         friend = (LinearLayout) findViewById(R.id.friend);
         history = (LinearLayout) findViewById(R.id.history);
         log = (LinearLayout) findViewById(R.id.log);
@@ -139,6 +155,19 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 drawerLayout.openDrawer(Gravity.RIGHT);/*重点，LEFT是xml布局文件中侧边栏布局所设置的方向*/
+            }
+        });
+
+        avatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //获取剪贴板管理器：
+                ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+// 创建普通字符型ClipData
+                ClipData mClipData = ClipData.newPlainText("id", id);
+// 将ClipData内容放到系统剪贴板里。
+                cm.setPrimaryClip(mClipData);
+                Toast.makeText(ContentActivity.this,"已复制ID至剪贴板",Toast.LENGTH_SHORT).show();
             }
         });
     }

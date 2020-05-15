@@ -17,7 +17,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.king.block.R;
 
 import java.util.List;
@@ -49,45 +51,65 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
             viewHolder.func.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AlertDialog dialog = new AlertDialog.Builder(getContext())
-                            .setTitle("提示")
-                            .setMessage("对此待办项进行？")
-                            .setPositiveButton("删除",new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    int del_id = mList.get(position).getId();
-                                    mList.remove(position);
-                                    notifyDataSetChanged();
+
+                    View bsdv = LayoutInflater.from(getContext()).inflate(R.layout.dialog_plan,null);
+                    final BottomSheetDialog bsd = new BottomSheetDialog(getContext());
+                    bsd.setContentView(bsdv);
+                    //给布局设置透明背景色，让图片突出来
+                    bsd.getDelegate().findViewById(R.id.design_bottom_sheet)
+                            .setBackgroundColor(getContext().getResources().getColor(android.R.color.transparent));
+                    bsd.show();
+
+                    TextView update = (TextView) bsdv.findViewById(R.id.update);
+                    TextView delete= (TextView) bsdv.findViewById(R.id.delete);
+                    TextView finish= (TextView) bsdv.findViewById(R.id.finish);
+                    TextView cancel= (TextView) bsdv.findViewById(R.id.cancel);
+
+                    update.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Plan plan = mList.get(position);
+                            Intent it = new Intent(getContext(), PlanActivity.class);
+                            it.putExtra("id", plan.getId());
+                            it.putExtra("plan_title", plan.getTitle());
+                            it.putExtra("plan_content", plan.getContent());
+                            it.putExtra("urgency", plan.getUrgency());
+                            it.putExtra("plan_date", plan.getDate());
+                            it.putExtra("plan_time", plan.getTime());
+                            getContext().startActivity(it);
+                            bsd.dismiss();
+                        }
+                    });
+
+                    delete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            int del_id = mList.get(position).getId();
+                            mList.remove(position);
+                            notifyDataSetChanged();
 //                                planAdapter.setListView(plan_lv);
 //                                    planAdapter = new PlanAdapter(getActivity(), R.layout.item_plan, mList);
 //                                    mListView.setAdapter(planAdapter);
 //                               未完成-删除数据库
 //                                int delete = DataSupport.deleteAll(Ddl.class, "task = ? and content = ?", del1, del2);
-                                }
-                            })
-                            .setNeutralButton("编辑", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {//未完成-bug
-                                    Plan plan = mList.get(position);
-                                    Intent it = new Intent(getContext(), PlanActivity.class);
-                                    it.putExtra("id",plan.getId());
-                                    it.putExtra("plan_title",plan.getTitle());
-                                    it.putExtra("plan_content",plan.getContent());
-                                    it.putExtra("urgency",plan.getUrgency());
-                                    it.putExtra("plan_date",plan.getDate());
-                                    it.putExtra("plan_time",plan.getTime());
-                                    getContext().startActivity(it);
-                                }
-                            })
-                            .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                }
-                            }).show();
-                    Button pButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
-                    Button nButton = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
-                    pButton.setTextColor(Color.rgb(240,60,80));
-                    nButton.setTextColor(Color.GRAY);
+                            bsd.dismiss();
+                        }
+                    });
+
+                    finish.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //未完成
+                            bsd.dismiss();
+                        }
+                    });
+
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            bsd.dismiss();
+                        }
+                    });
                 }
             });
 
@@ -97,8 +119,8 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         }
         viewHolder.plan_title.setText(plan.getTitle());
         viewHolder.plan_content.setText(plan.getContent());
-        viewHolder.plan_ddl.setText(plan.getDate()+" "+plan.getTime());
-        changeColor(viewHolder,plan.getUrgency());
+        viewHolder.plan_ddl.setText(plan.getDate() + " " + plan.getTime());
+        changeColor(viewHolder, plan.getUrgency());
         return convertView;
     }
 
@@ -130,6 +152,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         vh.plan_content = (TextView) v.findViewById(R.id.plan_content);
         vh.plan_ddl = (TextView) v.findViewById(R.id.plan_ddl);
         vh.func = (ImageView) v.findViewById(R.id.function);
+//        vh.delete = (TextView)v.findViewById(R.id.delete);
     }
 
     public ListView getListView() {
@@ -154,5 +177,6 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         TextView plan_content;
         TextView plan_ddl;
         ImageView func;
+//        TextView delete;
     }
 }

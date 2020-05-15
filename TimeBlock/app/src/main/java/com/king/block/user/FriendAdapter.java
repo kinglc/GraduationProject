@@ -43,6 +43,8 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
         viewHolder.rank.setText(position+"");
         viewHolder.name.setText(friend.getName());
         viewHolder.time.setText(friend.getTime());
+        //未完成
+//        viewHolder.avatar.setImageResource();
         switch (position){
             case 0:viewHolder.rank.setTextColor(getContext().getColor(R.color.gold));break;
             case 1:viewHolder.rank.setTextColor(getContext().getColor(R.color.silver));break;
@@ -56,11 +58,13 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
         vh.rank = (TextView) v.findViewById(R.id.rank);
         vh.name = (TextView) v.findViewById(R.id.name);
         vh.time = (TextView) v.findViewById(R.id.time);
+        vh.avatar = (ImageView) v.findViewById(R.id.avatar);
     }
 
     class ViewHolder{
         TextView rank;
         TextView name;
         TextView time;
+        ImageView avatar;
     }
 }
