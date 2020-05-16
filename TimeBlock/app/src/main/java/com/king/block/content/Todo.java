@@ -5,36 +5,14 @@ public class Todo {
     private String title;
     private boolean isChecked;
     private String date;//创建日期
-    private String time;//完成时间
+    private String finish;//完成时间
 
-    public Todo(int id, String title, boolean isChecked, String date, String time) {
+    public Todo(int id, String title, boolean isChecked, String date, String finish) {
         this.id = id;
         this.title = title;
         this.isChecked = isChecked;
         this.date = date;
-        this.time = time;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public Todo(int id, String title, boolean isChecked) {
-        this.id = id;
-        this.title = title;
-        this.isChecked = isChecked;
+        this.finish = finish;
     }
 
     public int getId() {
@@ -59,5 +37,21 @@ public class Todo {
 
     public void setChecked(boolean checked) {
         isChecked = checked;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getFinish() {
+        return finish;
+    }
+
+    public void setFinish(String finish) {
+        this.finish = finish;
     }
 }
