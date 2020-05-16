@@ -6,17 +6,15 @@ public class Plan {
     String content;
     int urgency;//紧急度 0,1,2,3
     String pass;//进行时间
-    String finish;//完成时间
     String date;
     String time;
 
-    public Plan(int id, String title, String content, int urgency, String pass, String finish, String date, String time) {
+    public Plan(int id, String title, String content, int urgency, String pass, String date, String time) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.urgency = urgency;
         this.pass = pass;
-        this.finish = finish;
         this.date = date;
         this.time = time;
     }
@@ -59,14 +57,6 @@ public class Plan {
 
     public void setPass(String pass) {
         this.pass = pass;
-    }
-
-    public String getFinish() {
-        return finish;
-    }
-
-    public void setFinish(String finish) {
-        this.finish = finish;
     }
 
     public String getDate() {

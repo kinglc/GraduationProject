@@ -3,12 +3,14 @@ package com.king.block.user;
 public class Log {
     int id;
     int type;//0-待办，1-计划，2-成就
-    int logId;//对应事项id
+    String time;
+    String name;
 
-    public Log(int id, int type, int logId) {
+    public Log(int id, int type, String time, String name) {
         this.id = id;
         this.type = type;
-        this.logId = logId;
+        this.time = time;
+        this.name = name;
     }
 
     public int getId() {
@@ -27,11 +29,19 @@ public class Log {
         this.type = type;
     }
 
-    public int getLogId() {
-        return logId;
+    public String getTime() {
+        return time;
     }
 
-    public void setLogId(int logId) {
-        this.logId = logId;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

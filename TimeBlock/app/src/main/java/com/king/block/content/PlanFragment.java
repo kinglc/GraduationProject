@@ -64,7 +64,7 @@ public class PlanFragment extends Fragment{
         //未完成 获取数据
         for(int i=0;i<10;i++) {
             Plan plan = new Plan(i,i+""+i+i+i+i, "间关莺语花底滑，幽咽泉流冰下难",
-                    i%4,"00:00:0"+i,"-1","2011-01-02","01:01");
+                    i%4,"00:00:0"+i,"2011-01-02","01:01");
             plan_list.add(plan);
         }
     }

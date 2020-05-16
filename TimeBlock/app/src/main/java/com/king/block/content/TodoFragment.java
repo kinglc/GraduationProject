@@ -45,7 +45,7 @@ public class TodoFragment extends Fragment {
     private void initData(){
         //未完成 获取数据
         for(int i=0;i<10;i++) {
-            Todo todo = new Todo(i,i+""+i+i+i+i, i%2==0);
+            Todo todo = new Todo(i,i+""+i+i+i+i, i%2==0,"aa");
             todo_list.add(todo);
         }
     }
@@ -114,7 +114,7 @@ public class TodoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 TextView title = (TextView)view.findViewById(R.id.todo_addinput);
-                Todo todo = new Todo(111,title.getText().toString(),false);
+                Todo todo = new Todo(111,title.getText().toString(),false,"aa");
                 todo_list.add(todo);
 //  未完成-提交数据
             }
