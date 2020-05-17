@@ -44,7 +44,7 @@ public class AchieveActivity extends AppCompatActivity {
         // 未完成-初始化数据
         achieve_list = new ArrayList<Achieve>();
         for (int i = 0; i < 30; i++) {
-            achieve_list.add(new Achieve(i, i % 6, "累积计划" + i + "天"));
+//            achieve_list.add(new Achieve(i, i % 6, "累积计划" + i + "天"));
         }
         System.out.println(achieve_list);
     }
@@ -53,6 +53,12 @@ public class AchieveActivity extends AppCompatActivity {
         gv = (GridView) findViewById(R.id.achieve_gv);
         achieveAdapter = new AchieveAdapter(AchieveActivity.this, R.layout.item_achieve, achieve_list);
         gv.setAdapter(achieveAdapter);
+        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(AchieveActivity.this, ""+achieve_list.get(position),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

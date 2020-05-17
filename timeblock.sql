@@ -11,7 +11,7 @@
  Target Server Version : 80020
  File Encoding         : 65001
 
- Date: 17/05/2020 01:44:43
+ Date: 18/05/2020 01:25:30
 */
 
 SET NAMES utf8mb4;
@@ -22,11 +22,28 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `achieve`;
 CREATE TABLE `achieve`  (
-  `achieve_id` int(0) NOT NULL AUTO_INCREMENT,
+  `achieve_id` int(0) NOT NULL AUTO_INCREMENT COMMENT '0-2 金银铜计划，3-5 金银铜待办',
   `type` int(0) NULL DEFAULT NULL,
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `note` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`achieve_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of achieve
+-- ----------------------------
+INSERT INTO `achieve` VALUES (1, 5, '浅尝辄止', '累计完成待办1天');
+INSERT INTO `achieve` VALUES (2, 2, '走马观花', '累计进行计划1小时');
+INSERT INTO `achieve` VALUES (3, 5, '学贵有恒', '累计完成待办7天');
+INSERT INTO `achieve` VALUES (4, 2, '目不转睛', '累计进行计划24小时');
+INSERT INTO `achieve` VALUES (5, 5, '锲而不舍', '累计完成待办30天');
+INSERT INTO `achieve` VALUES (6, 2, '聚精会神', '累计进行计划50小时');
+INSERT INTO `achieve` VALUES (7, 4, '持之以恒', '累计完成待办100天');
+INSERT INTO `achieve` VALUES (8, 1, '全神贯注', '累计进行计划100小时');
+INSERT INTO `achieve` VALUES (9, 4, '细水长流', '累计完成待办500天');
+INSERT INTO `achieve` VALUES (10, 1, '心无旁骛', '累计进行计划500小时');
+INSERT INTO `achieve` VALUES (11, 3, '聚沙成塔', '累计完成待办1000天');
+INSERT INTO `achieve` VALUES (12, 0, '废寝忘食', '累计进行计划1000小时');
 
 -- ----------------------------
 -- Table structure for chart
@@ -82,7 +99,7 @@ CREATE TABLE `plan`  (
   `date` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `time` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`plan_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for todo
