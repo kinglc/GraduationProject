@@ -9,10 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bcd0fd7-b3c7-4c51-99de-039d9dfd9ba5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/Achieve.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/Achieve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="7bcd0fd7-b3c7-4c51-99de-039d9dfd9ba5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -322,7 +319,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="978" />
@@ -587,11 +584,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="782" height="838" extended-state="1" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.43093923" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.20911528" />
       <window_info id="Structure" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2191689" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
