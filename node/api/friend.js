@@ -24,15 +24,17 @@ const conn = mysql.createConnection({
 //         msg:""
 //         data:[]
 
-router.get("/query", (req, res) => {
-    console.log(req);
-    const param = req.query;
+router.post("/query", (req, res) => {
+    const param = req.body;
     const user_id = param.user_id;
     const sqlStr = "select friend from user where user_id = '" + user_id+"'";
     console.log(param);
+    console.log(typeof param);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
             if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
                 return res.json({
                     code: 300,
                     msg: "获取失败",
@@ -63,7 +65,7 @@ router.get("/query", (req, res) => {
 //     msg:""
 // }
 router.post("/delete", (req, res) => {
-    const param = req.query;
+    const param = req.body;
     const user_id = param.user_id;
     const id = param.id;
     console.log(param);
@@ -71,6 +73,8 @@ router.post("/delete", (req, res) => {
     const sqlStr = "select * from user";
     conn.query(sqlStr, (err, result) => {
         if (err) {
+            conn.connect(handleError);
+            conn.on('error', handleError);
             return res.json({
                 code: 300,
                 msg: "获取失败",
@@ -89,3 +93,16 @@ router.post("/delete", (req, res) => {
 });
 
 //添加好友
+
+
+function handleError(err) {
+    if (err) {
+        // 如果是连接异常，自动重新连接
+        console.log('err code:' + err.code);
+        if (err.code === 'PROTOCOL_CONNECTION_LOST' || err.code === 'PROTOCOL_ENQUEUE_AFTER_FATAL_ERROR' || err.code === 'ETIMEDOUT') {
+            connect();
+        } else {
+            console.error(err.stack || err);
+        }
+    }
+}

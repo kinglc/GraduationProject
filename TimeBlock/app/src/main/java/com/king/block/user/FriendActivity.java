@@ -36,64 +36,65 @@ public class FriendActivity extends AppCompatActivity {
     public static List<Friend> friend_list = new ArrayList<>();
     Global global;
 
+    ImageView add;
+    EditText input;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend);
         global = (Global)getApplication();
-        initData();
         initTop();
         initEvent();
+        initData();
         initLv();
     }
 
-    private void initData(){
+
+    private void initData() {
         try {
-            URL url = new URL(global.getURL()+"/friend/delete");
+            URL url = new URL(global.getURL() + "/friend/query");
             // 打开连接
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
             con.setDoOutput(true);
             con.setDoInput(true);
-            con.setRequestMethod("POST");    // 默认是 GET方式
-            con.setUseCaches(false);         // Post 请求不能使用缓存
-            con.setInstanceFollowRedirects(true);   //设置本次连接是否自动重定向
-            con.setRequestProperty("User-Agent", "Mozilla/5.0");
-            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            con.addRequestProperty("Connection","Keep-Alive");//设置与服务器保持连接
-            con.setRequestProperty("Accept-Language", "zh-CN,zh;0.9");
-
-            // 连接
             con.connect();
-//            DataOutputStream out = new DataOutputStream(connection.getOutputStream());
-//
-//            // 正文，正文内容其实跟get的URL中 '? '后的参数字符串一致
-//            String content = "i=" + URLEncoder.encode(global.getUserId(), "utf-8");
-//            out.writeBytes(content);
-//
-//            //流用完记得关
-//            out.flush();
-//            out.close();
-            //获取响应
-//            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-            if(con.getResponseCode()==200){
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "user_id:" + global.getUserId();
+//            String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
                 JSONObject res = global.streamtoJson(con.getInputStream());
                 int code = res.getInt("code");
                 String msg = res.getString("msg");
-                if(code==200){
+                if (code == 200) {
                     JSONArray friends = res.getJSONArray("data");
-                    for(int i=0;i<friends.length();i++){
+                    for (int i = 0; i < friends.length(); i++) {
                         JSONObject jo = friends.getJSONObject(i);
-                        Friend f = new Friend(jo.getInt("id"),jo.getString("name"),jo.getString("avatar"),jo.getString("plan_time"));
+                        Friend f = new Friend(jo.getInt("id"), jo.getString("name"), jo.getString("avatar"), jo.getString("plan_time"));
                         friend_list.add(f);
                     }
+                } else {
+                    Toast.makeText(FriendActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    input.setText(res.getString("err"));
                 }
+            } else {
+                Toast.makeText(FriendActivity.this, con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(FriendActivity.this,"连接错误",Toast.LENGTH_SHORT).show();
+            Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -145,8 +146,8 @@ public class FriendActivity extends AppCompatActivity {
     }
 
     private void initEvent(){
-        ImageView add = (ImageView)findViewById(R.id.add);
-        EditText input = (EditText)findViewById(R.id.input);
+        add = (ImageView)findViewById(R.id.add);
+        input = (EditText)findViewById(R.id.input);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
