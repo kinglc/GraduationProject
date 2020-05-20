@@ -28,8 +28,8 @@ router.post("/query", (req, res) => {
     const param = req.body;
     const user_id = param.user_id;
     const sqlStr = "select friend from user where user_id = '" + user_id+"'";
-    console.log(param);
-    console.log(typeof param);
+    var friends;
+    console.log(user_id);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
             if (err) {
@@ -43,15 +43,35 @@ router.post("/query", (req, res) => {
             }
             else {
                 console.log(result);
-                res.json({
-                    code: 200,
-                    msg: "查询成功",
-                    data: result
-                });
+                friends=result.friend.split(';');
             }
         });
-        pool.releaseConnection(conn) // 释放连接池，等待别的连接使用
-    })
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+    sqlStr = "select friend from user where user_id in '" + user_id+"'";
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                friends=result;
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+    return res.json({
+        code: 200,
+        msg: "查询成功",
+        data: result
+    });
 
 });
 

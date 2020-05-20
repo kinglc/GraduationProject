@@ -22,13 +22,12 @@ public class MainActivity extends AppCompatActivity {
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(getResources().getColor(R.color.gray));
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         Global global = (Global)getApplication();
         global.setUserId("jc");

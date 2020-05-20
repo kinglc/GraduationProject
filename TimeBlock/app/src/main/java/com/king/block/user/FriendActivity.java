@@ -59,28 +59,30 @@ public class FriendActivity extends AppCompatActivity {
             con.setRequestProperty("accept", "*/*");
             con.setRequestProperty("Connection", "Keep-Alive");
             con.setRequestProperty("Cache-Control", "no-cache");
-            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
             con.setRequestMethod("POST");
             con.setDoOutput(true);
             con.setDoInput(true);
             con.connect();
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
-            String content = "user_id:" + global.getUserId();
-//            String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
+//            String content = "user_id:" + global.getUserId();
+            String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
             out.writeBytes(content);
             out.flush();
             out.close();
 
             if (con.getResponseCode() == 200) {
                 JSONObject res = global.streamtoJson(con.getInputStream());
-                int code = res.getInt("code");
-                String msg = res.getString("msg");
+                input.setText(res.toString());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
                 if (code == 200) {
-                    JSONArray friends = res.getJSONArray("data");
+                    String friends = res.optString("data");
                     for (int i = 0; i < friends.length(); i++) {
                         JSONObject jo = friends.getJSONObject(i);
-                        Friend f = new Friend(jo.getInt("id"), jo.getString("name"), jo.getString("avatar"), jo.getString("plan_time"));
+                        Friend f = new Friend(jo.getInt("user_id"), jo.getString("name"), jo.getString("avatar"), jo.getString("plan_time"));
                         friend_list.add(f);
                     }
                 } else {
@@ -94,6 +96,7 @@ public class FriendActivity extends AppCompatActivity {
 
         } catch (Exception e) {
             e.printStackTrace();
+//            input.setText(e.toString());
             Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
         }
 
