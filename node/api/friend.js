@@ -23,11 +23,10 @@ const conn = mysql.createConnection({
 //         code:
 //         msg:""
 //         data:[]
-
 router.post("/query", (req, res) => {
     const param = req.body;
     const user_id = param.user_id;
-    const sqlStr = "select friend from user where user_id = '" + user_id+"'";
+    var sqlStr = "select friend from user where user_id = '" + user_id+"'";
     var friends;
     console.log(user_id);
     pool.getConnection((err, conn) => {
@@ -43,12 +42,32 @@ router.post("/query", (req, res) => {
             }
             else {
                 console.log(result);
-                friends=result.friend.split(';');
+                return res.json({
+                    code: 200,
+                    msg: "查询成功",
+                    data: result
+                });
             }
         });
         pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
     });
-    sqlStr = "select friend from user where user_id in '" + user_id+"'";
+
+});
+
+// 获取好友信息
+//     params{
+//         friends:""
+//     }
+//     return{
+//         code:
+//         msg:""
+//         data:[]
+router.post("/getInfo", (req, res) => {
+    const param = req.body;
+    const ids = param.ids;
+    var sqlStr = "select * from user where user_id in (" + ids+")";
+    console.log('aa');
+    console.log(ids);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
             if (err) {
@@ -62,17 +81,15 @@ router.post("/query", (req, res) => {
             }
             else {
                 console.log(result);
-                friends=result;
+                return res.json({
+                    code: 200,
+                    msg: "查询成功",
+                    data: result
+                });
             }
         });
         pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
     });
-    return res.json({
-        code: 200,
-        msg: "查询成功",
-        data: result
-    });
-
 });
 
 //删除好友

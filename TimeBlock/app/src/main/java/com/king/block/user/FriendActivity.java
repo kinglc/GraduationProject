@@ -50,8 +50,57 @@ public class FriendActivity extends AppCompatActivity {
         initLv();
     }
 
+private void getFriend(String ids) {
+    try {
+        URL url = new URL(global.getURL() + "/friend/getInfo");
+        // 打开连接
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestProperty("accept", "*/*");
+        con.setRequestProperty("Connection", "Keep-Alive");
+        con.setRequestProperty("Cache-Control", "no-cache");
+        con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+        con.setRequestMethod("POST");
+        con.setDoOutput(true);
+        con.setDoInput(true);
+        con.connect();
+
+        DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+        String content = "{\"ids\":\"" + ids + "\"}";
+        out.writeBytes(content);
+        out.flush();
+        out.close();
+
+        if (con.getResponseCode() == 200) {
+            JSONObject res = global.streamtoJson(con.getInputStream());
+            int code = res.optInt("code");
+            String msg = res.optString("msg");
+            if (code == 200) {
+                JSONArray friends = res.getJSONArray("data");
+                input.setText(friends.toString());
+                Toast.makeText(FriendActivity.this,""+friends.length(),Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < friends.length(); i++) {
+                    JSONObject jo = friends.getJSONObject(i);
+                    Friend f = new Friend(jo.getString("user_id"), jo.getString("name"), jo.getString("avatar"), jo.getString("plan_time"));
+                    friend_list.add(f);
+                }
+            } else {
+                Toast.makeText(FriendActivity.this, msg, Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(FriendActivity.this, con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+        }
+        con.disconnect();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
+    }
+}
 
     private void initData() {
+        String ids = "";
         try {
             URL url = new URL(global.getURL() + "/friend/query");
             // 打开连接
@@ -75,19 +124,12 @@ public class FriendActivity extends AppCompatActivity {
 
             if (con.getResponseCode() == 200) {
                 JSONObject res = global.streamtoJson(con.getInputStream());
-                input.setText(res.toString());
                 int code = res.optInt("code");
                 String msg = res.optString("msg");
                 if (code == 200) {
-                    String friends = res.optString("data");
-                    for (int i = 0; i < friends.length(); i++) {
-                        JSONObject jo = friends.getJSONObject(i);
-                        Friend f = new Friend(jo.getInt("user_id"), jo.getString("name"), jo.getString("avatar"), jo.getString("plan_time"));
-                        friend_list.add(f);
-                    }
+                    ids = res.getJSONArray("data").getJSONObject(0).getString("friend");
                 } else {
                     Toast.makeText(FriendActivity.this, msg, Toast.LENGTH_SHORT).show();
-                    input.setText(res.getString("err"));
                 }
             } else {
                 Toast.makeText(FriendActivity.this, con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
@@ -96,10 +138,9 @@ public class FriendActivity extends AppCompatActivity {
 
         } catch (Exception e) {
             e.printStackTrace();
-//            input.setText(e.toString());
             Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
         }
-
+        getFriend(ids);
     }
 
     private void initLv(){
@@ -116,7 +157,7 @@ public class FriendActivity extends AppCompatActivity {
                         .setPositiveButton("确认",new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                int del_id = friend_list.get(position).getId();
+//                                int del_id = friend_list.get(position).getId();
                                 friend_list.remove(position);
 //                                friendAdapter.setListView(friend_lv);
                                 friendAdapter = new FriendAdapter(FriendActivity.this, R.layout.item_friend, friend_list);
