@@ -40,7 +40,7 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
         }else{
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.rank.setText(position+"");
+        viewHolder.rank.setText(position+1+"");
         viewHolder.name.setText(friend.getName());
         viewHolder.time.setText(friend.getTime());
         //未完成

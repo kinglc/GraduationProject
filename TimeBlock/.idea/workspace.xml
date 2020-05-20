@@ -15,10 +15,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/Friend.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/Friend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../node/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../node/api/friend.js" beforeDir="false" afterPath="$PROJECT_DIR$/../node/api/friend.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,20 +81,31 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="160" column="61" lean-forward="true" selection-start-line="160" selection-start-column="61" selection-end-line="160" selection-end-column="61" />
+            <state relative-caret-position="186">
+              <caret line="138" column="31" lean-forward="true" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
               <folding>
-                <element signature="method#initData#0;class#FriendActivity#0" />
-                <element signature="e#1375#3522#0" />
-                <element signature="e#5553#7340#0" expanded="true" />
-                <element signature="e#5972#6760#0" expanded="true" />
-                <element signature="e#6759#6760#0" expanded="true" />
-                <element signature="e#7339#7340#0" expanded="true" />
+                <element signature="method#getFriend#0;class#FriendActivity#0" />
+                <element signature="method#initLv#0;class#FriendActivity#0" />
+                <element signature="e#5829#7625#0" expanded="true" />
+                <element signature="e#6253#7043#0" expanded="true" />
+                <element signature="e#7042#7043#0" expanded="true" />
+                <element signature="e#7624#7625#0" expanded="true" />
                 <element signature="method#initTop#0;class#FriendActivity#0" />
-                <element signature="e#7471#7633#0" expanded="true" />
-                <element signature="e#7632#7633#0" expanded="true" />
+                <element signature="e#7758#7920#0" expanded="true" />
+                <element signature="e#7919#7920#0" expanded="true" />
                 <element signature="method#initEvent#0;class#FriendActivity#0" />
+                <element signature="e#8125#10692#0" expanded="true" />
+                <element signature="e#10691#10692#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -124,9 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Intent</find>
-      <find>note_enter</find>
-      <find>60dp</find>
       <find>gravity=&quot;right&quot;</find>
       <find>note</find>
       <find>#</find>
@@ -154,6 +160,9 @@
       <find />
       <find>add</find>
       <find>input.set</find>
+      <find>ids</find>
+      <find>1</find>
+      <find>length</find>
     </findStrings>
     <replaceStrings>
       <replace>Listener</replace>
@@ -219,7 +228,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_friend.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_friend.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_content.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/ContentActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/Plan.java" />
@@ -235,6 +243,7 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/Friend.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" />
       </list>
     </option>
@@ -277,6 +286,41 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Block" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Block" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="block" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Block" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="block" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Block" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -471,7 +515,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
       <window_info id="Structure" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2191689" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -481,7 +525,7 @@
       <window_info id="Build Variants" order="8" sideWeight="0.5031447" side_tool="true" weight="0.20576407" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.32748538" />
       <window_info anchor="bottom" id="Debug" order="1" weight="0.31085044" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="2" visible="true" weight="0.43255132" />
+      <window_info anchor="bottom" id="Logcat" order="2" visible="true" weight="0.43255132" />
       <window_info anchor="bottom" id="Android Profiler" order="3" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32991204" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32991204" />
@@ -791,13 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_friend.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -1061,14 +1098,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
@@ -1106,21 +1135,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="160" column="61" lean-forward="true" selection-start-line="160" selection-start-column="61" selection-end-line="160" selection-end-column="61" />
+        <state relative-caret-position="186">
+          <caret line="138" column="31" lean-forward="true" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
           <folding>
-            <element signature="method#initData#0;class#FriendActivity#0" />
-            <element signature="e#1375#3522#0" />
-            <element signature="e#5553#7340#0" expanded="true" />
-            <element signature="e#5972#6760#0" expanded="true" />
-            <element signature="e#6759#6760#0" expanded="true" />
-            <element signature="e#7339#7340#0" expanded="true" />
+            <element signature="method#getFriend#0;class#FriendActivity#0" />
+            <element signature="method#initLv#0;class#FriendActivity#0" />
+            <element signature="e#5829#7625#0" expanded="true" />
+            <element signature="e#6253#7043#0" expanded="true" />
+            <element signature="e#7042#7043#0" expanded="true" />
+            <element signature="e#7624#7625#0" expanded="true" />
             <element signature="method#initTop#0;class#FriendActivity#0" />
-            <element signature="e#7471#7633#0" expanded="true" />
-            <element signature="e#7632#7633#0" expanded="true" />
+            <element signature="e#7758#7920#0" expanded="true" />
+            <element signature="e#7919#7920#0" expanded="true" />
             <element signature="method#initEvent#0;class#FriendActivity#0" />
+            <element signature="e#8125#10692#0" expanded="true" />
+            <element signature="e#10691#10692#0" expanded="true" />
           </folding>
         </state>
       </provider>

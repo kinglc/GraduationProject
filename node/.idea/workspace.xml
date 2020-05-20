@@ -44,10 +44,14 @@
       <file leaf-file-name="friend.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/friend.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-537">
-              <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+            <state relative-caret-position="269">
+              <caret line="137" column="34" selection-start-line="137" selection-start-column="34" selection-end-line="137" selection-end-column="34" />
               <folding>
-                <element signature="e#1424#2050#0" />
+                <element signature="e#527#1282#0" />
+                <element signature="e#1490#2277#0" />
+                <element signature="e#2419#3253#0" />
+                <element signature="e#3435#4269#0" />
+                <element signature="n#!!block;n#handleError#0" />
               </folding>
             </state>
           </provider>
@@ -194,7 +198,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14618000" />
+    <option name="totallyTimeSpent" value="17243000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -207,7 +211,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19154558" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
@@ -246,13 +249,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/api/friend.js</url>
-          <line>64</line>
-          <properties lambdaOrdinal="-1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
   </component>
@@ -505,10 +501,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/friend.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-537">
-          <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+        <state relative-caret-position="269">
+          <caret line="137" column="34" selection-start-line="137" selection-start-column="34" selection-end-line="137" selection-end-column="34" />
           <folding>
-            <element signature="e#1424#2050#0" />
+            <element signature="e#527#1282#0" />
+            <element signature="e#1490#2277#0" />
+            <element signature="e#2419#3253#0" />
+            <element signature="e#3435#4269#0" />
+            <element signature="n#!!block;n#handleError#0" />
           </folding>
         </state>
       </provider>

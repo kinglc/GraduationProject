@@ -24,11 +24,8 @@ const conn = mysql.createConnection({
 //         msg:""
 //         data:[]
 router.post("/query", (req, res) => {
-    const param = req.body;
-    const user_id = param.user_id;
-    var sqlStr = "select friend from user where user_id = '" + user_id+"'";
+    const sqlStr = "select friend from user where user_id = '" + req.body.user_id+"'";
     var friends;
-    console.log(user_id);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
             if (err) {
@@ -63,6 +60,42 @@ router.post("/query", (req, res) => {
 //         msg:""
 //         data:[]
 router.post("/getInfo", (req, res) => {
+    var sqlStr = "select * from user where user_id in (" + req.body.ids+")";
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "查询成功",
+                    data: result
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
+//删除好友
+// params{
+//     user_id:""
+//          id:""
+//          ids:""
+// }
+// return{
+//     code:
+//     msg:""
+// }
+router.post("/delete", (req, res) => {
     const param = req.body;
     const ids = param.ids;
     var sqlStr = "select * from user where user_id in (" + ids+")";
@@ -92,45 +125,43 @@ router.post("/getInfo", (req, res) => {
     });
 });
 
-//删除好友
+//添加好友
 // params{
 //     user_id:""
-//         id:""
+//          id:""
+//          ids:""
 // }
 // return{
 //     code:
 //     msg:""
 // }
-router.post("/delete", (req, res) => {
+router.post("/add", (req, res) => {
     const param = req.body;
-    const user_id = param.user_id;
-    const id = param.id;
-    console.log(param);
-    // const sqlStr = "select friend from user where user_id = '" + user_id+"'";
-    const sqlStr = "select * from user";
-    conn.query(sqlStr, (err, result) => {
-        if (err) {
-            conn.connect(handleError);
-            conn.on('error', handleError);
-            return res.json({
-                code: 300,
-                msg: "获取失败",
-                err: err
-            });
-        }
-        else {
-            console.log(result);
-            res.json({
-                code: 200,
-                msg: "查询成功",
-                data: result
-            });
-        }
+    var newids= req.body.ids+",'"+req.body.id+"'";
+    var sqlStr = "update user set friend =\"" +newids+ "\" where user_id in ='" + req.body.user_id+"'";
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "查询成功",
+                    data: newids
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
     });
 });
-
-//添加好友
-
 
 function handleError(err) {
     if (err) {
