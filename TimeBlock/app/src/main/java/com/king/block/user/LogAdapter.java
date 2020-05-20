@@ -38,24 +38,24 @@ public class LogAdapter extends ArrayAdapter<Log> {
             viewHolder = (LogAdapter.ViewHolder) convertView.getTag();
         }
         //未完成-获取对应事项内容及事件
-        int id = log.getLogId();
+//        int id = log.getLogId();
         switch (log.getType()) {
             case 0:
                 viewHolder.type.setImageResource(R.drawable.log_todo);
-                Todo todo = new Todo(1,"aaa",true,"2020-01-01","2020-01-01 01:01");
-                viewHolder.time.setText(todo.getTime());
+                Todo todo = new Todo(1,"aaa",true,"2020-01-01");
+//                viewHolder.time.setText(todo.getTime());
                 viewHolder.content.setText("完成当日待办");
                 break;
             case 1:
                 viewHolder.type.setImageResource(R.drawable.log_plan);
-                Plan plan = new Plan(1,"计划B","111",1,",,","2020-03-03 03:03","111","111");
-                viewHolder.time.setText(plan.getFinish());
+                Plan plan = new Plan(1,"计划B","111",1,",,","2020-03-03 03:03","111");
+//                viewHolder.time.setText(plan.getFinish());
                 viewHolder.content.setText("完成计划"+plan.getTitle());
                 break;
             case 2:
                 viewHolder.type.setImageResource(R.drawable.log_achieve);
                 Achieve achieve = new Achieve(1,1,"成就C","2020-03-03 03:03");
-                viewHolder.time.setText(achieve.getTime());
+//                viewHolder.time.setText(achieve.getTime());
                 viewHolder.content.setText("获得成就"+achieve.getName());
                 break;
             default:break;

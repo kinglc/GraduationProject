@@ -40,8 +40,8 @@ public class LogActivity extends AppCompatActivity {
     private void initData() {
         //未完成 获取数据
         for (int i = 0; i < 10; i++) {
-            Log log = new Log(i, i % 3, i);
-            log_list.add(log);
+//            Log log = new Log(i, i % 3, i);
+//            log_list.add(log);
         }
     }
 

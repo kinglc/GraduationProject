@@ -1,0 +1,91 @@
+const { pool, resJson } = require('../connect')
+
+//全局Express框架
+const express = require("express");
+const mysql  = require('mysql');
+const router = express.Router();
+module.exports = router;
+
+//加载配置文件
+const conn = mysql.createConnection({
+    host     : '140.143.78.135',
+    user     : 'jc',
+    password : 'jc123',
+    port: '3307',
+    database: 'timeblock',
+});
+
+// 获取好友列表
+//     params{
+//         user_id:""
+//     }
+//     return{
+//         code:
+//         msg:""
+//         data:[]
+
+router.get("/query", (req, res) => {
+    console.log(req);
+    const param = req.query;
+    const user_id = param.user_id;
+    const sqlStr = "select friend from user where user_id = '" + user_id+"'";
+    console.log(param);
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                res.json({
+                    code: 200,
+                    msg: "查询成功",
+                    data: result
+                });
+            }
+        });
+        pool.releaseConnection(conn) // 释放连接池，等待别的连接使用
+    })
+
+});
+
+//删除好友
+// params{
+//     user_id:""
+//         id:""
+// }
+// return{
+//     code:
+//     msg:""
+// }
+router.post("/delete", (req, res) => {
+    const param = req.query;
+    const user_id = param.user_id;
+    const id = param.id;
+    console.log(param);
+    // const sqlStr = "select friend from user where user_id = '" + user_id+"'";
+    const sqlStr = "select * from user";
+    conn.query(sqlStr, (err, result) => {
+        if (err) {
+            return res.json({
+                code: 300,
+                msg: "获取失败",
+                err: err
+            });
+        }
+        else {
+            console.log(result);
+            res.json({
+                code: 200,
+                msg: "查询成功",
+                data: result
+            });
+        }
+    });
+});
+
+//添加好友

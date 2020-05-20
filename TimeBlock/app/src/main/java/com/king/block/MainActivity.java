@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.Window;
@@ -23,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
         window.setStatusBarColor(getResources().getColor(R.color.gray));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
+        Global global = (Global)getApplication();
+        global.setUserId("jc");
+        global.setURL("http://10.0.2.2:3000");
 
         Button login = (Button) findViewById(R.id.login);
        

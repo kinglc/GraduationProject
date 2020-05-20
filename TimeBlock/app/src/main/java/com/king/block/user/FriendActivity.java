@@ -6,15 +6,26 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.king.block.Global;
 import com.king.block.R;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,11 +34,13 @@ public class FriendActivity extends AppCompatActivity {
     private ListView friend_lv;
     private FriendAdapter friendAdapter;
     public static List<Friend> friend_list = new ArrayList<>();
+    Global global;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend);
+        global = (Global)getApplication();
         initData();
         initTop();
         initEvent();
@@ -35,11 +48,54 @@ public class FriendActivity extends AppCompatActivity {
     }
 
     private void initData(){
-        //未完成 获取数据
-        for(int i=0;i<10;i++) {
-            Friend friend = new Friend(i,i+""+i+i+i+i, "","123456");
-            friend_list.add(friend);
+        try {
+            URL url = new URL(global.getURL()+"/friend/delete");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.setRequestMethod("POST");    // 默认是 GET方式
+            con.setUseCaches(false);         // Post 请求不能使用缓存
+            con.setInstanceFollowRedirects(true);   //设置本次连接是否自动重定向
+            con.setRequestProperty("User-Agent", "Mozilla/5.0");
+            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            con.addRequestProperty("Connection","Keep-Alive");//设置与服务器保持连接
+            con.setRequestProperty("Accept-Language", "zh-CN,zh;0.9");
+
+            // 连接
+            con.connect();
+//            DataOutputStream out = new DataOutputStream(connection.getOutputStream());
+//
+//            // 正文，正文内容其实跟get的URL中 '? '后的参数字符串一致
+//            String content = "i=" + URLEncoder.encode(global.getUserId(), "utf-8");
+//            out.writeBytes(content);
+//
+//            //流用完记得关
+//            out.flush();
+//            out.close();
+            //获取响应
+//            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+            if(con.getResponseCode()==200){
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.getInt("code");
+                String msg = res.getString("msg");
+                if(code==200){
+                    JSONArray friends = res.getJSONArray("data");
+                    for(int i=0;i<friends.length();i++){
+                        JSONObject jo = friends.getJSONObject(i);
+                        Friend f = new Friend(jo.getInt("id"),jo.getString("name"),jo.getString("avatar"),jo.getString("plan_time"));
+                        friend_list.add(f);
+                    }
+                }
+            }
+            con.disconnect();
+
+        }catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(FriendActivity.this,"连接错误",Toast.LENGTH_SHORT).show();
         }
+
     }
 
     private void initLv(){
