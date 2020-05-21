@@ -14,18 +14,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="achieve.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/achieve.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
-              <folding>
-                <element signature="n#!!block;n#handleError#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/user.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -62,12 +50,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plan.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="plan.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/plan.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
+            <state relative-caret-position="320">
               <caret line="63" selection-start-line="63" selection-end-line="63" />
               <folding>
+                <element signature="e#528#1337#0" />
                 <element signature="n#!!block;n#handleError#0" />
               </folding>
             </state>
@@ -150,7 +139,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="980" />
@@ -241,12 +230,12 @@
       <workItem from="1589817299358" duration="5806000" />
       <workItem from="1589969633404" duration="1273000" />
       <workItem from="1590060815220" duration="2360000" />
-      <workItem from="1590068859839" duration="4784000" />
+      <workItem from="1590068859839" duration="5991000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27353000" />
+    <option name="totallyTimeSpent" value="28560000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -259,16 +248,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19154558" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19154558" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32909605" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32909605" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -505,16 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/plan.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="n#!!block;n#handleError#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/todo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
@@ -542,16 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="47" selection-start-column="47" selection-end-column="47" />
-          <folding>
-            <element signature="e#821#1681#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -564,6 +532,27 @@
         <state relative-caret-position="65">
           <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
           <folding>
+            <element signature="n#!!block;n#handleError#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="47" selection-start-column="47" selection-end-column="47" />
+          <folding>
+            <element signature="e#821#1681#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/plan.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="e#528#1337#0" />
             <element signature="n#!!block;n#handleError#0" />
           </folding>
         </state>

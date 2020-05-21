@@ -11,15 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f229e467-6a86-4b6e-8252-f13f0fc2a9ae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="128" column="5" lean-forward="true" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
+            <state relative-caret-position="297">
+              <caret line="131" column="54" lean-forward="true" selection-start-line="131" selection-start-column="54" selection-end-line="131" selection-end-column="54" />
               <folding>
                 <element signature="e#636#645#0" expanded="true" />
               </folding>
@@ -62,46 +56,60 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/Plan.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="168" column="36" lean-forward="true" selection-start-line="168" selection-start-column="36" selection-end-line="168" selection-end-column="36" />
+            <state relative-caret-position="200">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding>
-                <element signature="method#updateFriend#0;class#FriendActivity#0" />
-                <element signature="method#getInfo#0;class#FriendActivity#0" />
-                <element signature="method#isExist#0;class#FriendActivity#0" />
-                <element signature="method#initData#0;class#FriendActivity#0" />
-                <element signature="method#initLv#0;class#FriendActivity#0" />
-                <element signature="method#initTop#0;class#FriendActivity#0" />
+                <element signature="e#1160#1161#0" expanded="true" />
+                <element signature="e#1187#1188#0" expanded="true" />
+                <element signature="e#1227#1228#0" expanded="true" />
+                <element signature="e#1259#1260#0" expanded="true" />
+                <element signature="e#1290#1291#0" expanded="true" />
+                <element signature="e#1317#1318#0" expanded="true" />
+                <element signature="e#1357#1358#0" expanded="true" />
+                <element signature="e#1389#1390#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="541">
+              <caret line="128" column="22" lean-forward="true" selection-start-line="128" selection-start-column="22" selection-end-line="128" selection-end-column="22" />
+              <folding>
+                <element signature="method#initComp#0;class#PlanActivity#0" />
+                <element signature="method#initStyle#0;class#PlanActivity#0" />
+                <element signature="method#initData#0;class#PlanActivity#0" />
+                <element signature="method#onClick#0;class#PlanActivity#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveAdapter.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="63" column="26" lean-forward="true" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+            <state relative-caret-position="340">
+              <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#onCreateView#0;class#PlanFragment#0" />
+                <element signature="method#initLv#0;class#PlanFragment#0" />
+                <element signature="method#stopTime#0;class#PlanFragment#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/Achieve.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_plan.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="300">
+              <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -119,7 +127,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>MyChronometer.this.</find>
       <find>Ddl</find>
       <find>Todo</find>
       <find>todo</find>
@@ -149,6 +156,7 @@
       <find>ba</find>
       <find>add</find>
       <find>isExist</find>
+      <find>ddl</find>
     </findStrings>
     <replaceStrings>
       <replace>Listener</replace>
@@ -185,7 +193,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/radius.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_plan.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_achieve.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_achieve.xml" />
@@ -215,8 +222,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_friend.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_content.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/ContentActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/Plan.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/Todo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/Log.java" />
@@ -231,6 +236,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_plan.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/Plan.java" />
       </list>
     </option>
   </component>
@@ -298,7 +306,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="block" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Block" type="b2602c69:ProjectViewProjectNode" />
@@ -307,6 +315,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Block" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -500,7 +517,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
       <window_info id="Structure" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2191689" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -509,7 +526,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Build Variants" order="8" sideWeight="0.5031447" side_tool="true" weight="0.20576407" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.32748538" />
-      <window_info active="true" anchor="bottom" id="Debug" order="1" visible="true" weight="0.31085044" />
+      <window_info anchor="bottom" id="Debug" order="1" visible="true" weight="0.31085044" />
       <window_info anchor="bottom" id="Logcat" order="2" weight="0.42961878" />
       <window_info anchor="bottom" id="Android Profiler" order="3" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32991204" />
@@ -633,12 +650,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/app.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/local.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -909,16 +920,6 @@
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/Plan.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="method#Plan#0;class#Plan#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -933,33 +934,6 @@
             <element signature="e#7068#7069#0" expanded="true" />
             <element signature="e#7113#7114#0" expanded="true" />
             <element signature="e#7147#7148#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="133" selection-start-line="133" selection-end-line="133" />
-          <folding>
-            <element signature="method#initComp#0;class#PlanActivity#0" />
-            <element signature="method#initStyle#0;class#PlanActivity#0" />
-            <element signature="method#initData#0;class#PlanActivity#0" />
-            <element signature="method#onClick#0;class#PlanActivity#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#onCreateView#0;class#PlanFragment#0" />
-            <element signature="method#initLv#0;class#PlanFragment#0" />
-            <element signature="method#stopTime#0;class#PlanFragment#0" />
-            <element signature="method#setNow#0;class#PlanFragment#0" />
           </folding>
         </state>
       </provider>
@@ -1109,10 +1083,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="128" column="5" lean-forward="true" selection-start-line="128" selection-start-column="5" selection-end-line="128" selection-end-column="5" />
+        <state relative-caret-position="297">
+          <caret line="131" column="54" lean-forward="true" selection-start-line="131" selection-start-column="54" selection-end-line="131" selection-end-column="54" />
           <folding>
             <element signature="e#636#645#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_plan.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_plan.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="46" column="23" lean-forward="true" selection-start-line="46" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="87" column="30" lean-forward="true" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#onCreateView#0;class#PlanFragment#0" />
+            <element signature="method#initLv#0;class#PlanFragment#0" />
+            <element signature="method#stopTime#0;class#PlanFragment#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/Plan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <element signature="e#1160#1161#0" expanded="true" />
+            <element signature="e#1187#1188#0" expanded="true" />
+            <element signature="e#1227#1228#0" expanded="true" />
+            <element signature="e#1259#1260#0" expanded="true" />
+            <element signature="e#1290#1291#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="128" column="22" lean-forward="true" selection-start-line="128" selection-start-column="22" selection-end-line="128" selection-end-column="22" />
+          <folding>
+            <element signature="method#initComp#0;class#PlanActivity#0" />
+            <element signature="method#initStyle#0;class#PlanActivity#0" />
+            <element signature="method#initData#0;class#PlanActivity#0" />
+            <element signature="method#onClick#0;class#PlanActivity#0" />
           </folding>
         </state>
       </provider>
