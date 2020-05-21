@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.king.block.Global;
 import com.king.block.R;
 
 import java.util.List;
@@ -46,10 +47,16 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
         //未完成
 //        viewHolder.avatar.setImageResource();
         switch (position){
-            case 0:viewHolder.rank.setTextColor(getContext().getColor(R.color.gold));break;
-            case 1:viewHolder.rank.setTextColor(getContext().getColor(R.color.silver));break;
-            case 2:viewHolder.rank.setTextColor(getContext().getColor(R.color.copper));break;
-            default:viewHolder.rank.setTextColor(getContext().getColor(R.color.backGray));break;
+            case 0:
+                viewHolder.rank.setTextColor(getContext().getColor(R.color.gold));
+                viewHolder.time.setTextColor(getContext().getColor(R.color.gold));
+                break;
+            case 1:viewHolder.rank.setTextColor(getContext().getColor(R.color.silver));
+                viewHolder.time.setTextColor(getContext().getColor(R.color.silver));break;
+            case 2:viewHolder.rank.setTextColor(getContext().getColor(R.color.copper));
+                viewHolder.time.setTextColor(getContext().getColor(R.color.copper));break;
+            default:viewHolder.rank.setTextColor(getContext().getColor(R.color.gray));
+                viewHolder.time.setTextColor(getContext().getColor(R.color.gray));break;
         }
         return convertView;
     }

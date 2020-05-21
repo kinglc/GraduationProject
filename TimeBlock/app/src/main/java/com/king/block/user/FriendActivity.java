@@ -51,10 +51,10 @@ public class FriendActivity extends AppCompatActivity {
     }
 
     //接口
-    //调用添加好友
-    private boolean addFriend(String user_id, String ids, String addid) {
+    //调用添加或删除好友
+    private boolean updateFriend(String user_id, String ids, String type) {
         try {
-            URL url = new URL(global.getURL() + "/friend/add");
+            URL url = new URL(global.getURL() + "/friend/update");
             // 打开连接
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestProperty("accept", "*/*");
@@ -68,8 +68,6 @@ public class FriendActivity extends AppCompatActivity {
             con.connect();
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
-//            String content = "user_id:" + global.getUserId();
-            ids = ids + "'" + addid + "',";
             String content = "{\"user_id\":\"" + user_id + "\",\"ids\":\"" + ids + "\"}";
             out.writeBytes(content);
             out.flush();
@@ -85,7 +83,7 @@ public class FriendActivity extends AppCompatActivity {
                     Toast.makeText(FriendActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(FriendActivity.this, "添加好友失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FriendActivity.this, type+"好友失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
         } catch (Exception e) {
@@ -230,6 +228,7 @@ public class FriendActivity extends AppCompatActivity {
         return 404;
     }
 
+
     private void initData() {
         ids = getIds(global.getUserId());
         if (ids != "error") {
@@ -241,7 +240,6 @@ public class FriendActivity extends AppCompatActivity {
         friendAdapter = new FriendAdapter(FriendActivity.this, R.layout.item_friend, friend_list);
         friend_lv = (ListView) findViewById(R.id.friend_lv);
         friend_lv.setAdapter(friendAdapter);
-//        friendAdapter.setListView(friend_lv);
         friend_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -251,13 +249,13 @@ public class FriendActivity extends AppCompatActivity {
                         .setPositiveButton("确认", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-//                                int del_id = friend_list.get(position).getId();
+                                String del_id = friend_list.get(position).getId();
+                                ids = ids.replace("'" + del_id + "',", "");
+                                updateFriend(global.getUserId(), ids, "删除");
+                                updateFriend(del_id, getIds(del_id).replace("'" + global.getUserId() + "',", ""), "删除");
+                                Toast.makeText(FriendActivity.this, "删除成功", Toast.LENGTH_SHORT).show();
                                 friend_list.remove(position);
-//                                friendAdapter.setListView(friend_lv);
-                                friendAdapter = new FriendAdapter(FriendActivity.this, R.layout.item_friend, friend_list);
-                                friend_lv.setAdapter(friendAdapter);
-//                               未完成-删除数据库
-//                                int delete = DataSupport.deleteAll(Ddl.class, "task = ? and content = ?", del1, del2);
+                                friendAdapter.notifyDataSetChanged();
                             }
                         })
                         .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -293,8 +291,9 @@ public class FriendActivity extends AppCompatActivity {
                 if (friendid.length() > 0) {
                     int exist = isExist(friendid);
                     if (exist == 200) {
-                        addFriend(global.getUserId(), ids, friendid);
-                        addFriend(friendid, getIds(friendid), global.getUserId());
+                        ids=ids + "'" + friendid + "',";
+                        updateFriend(global.getUserId(), ids,"添加");
+                        updateFriend(friendid, getIds(friendid)+"'" + global.getUserId() + "'," ,"添加");
                         Toast.makeText(FriendActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
                         getInfo("'"+friendid+"',");
                         friendAdapter.notifyDataSetChanged();

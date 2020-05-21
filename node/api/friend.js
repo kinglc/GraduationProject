@@ -127,58 +127,17 @@ router.post("/isExist", (req, res) => {
     });
 });
 
-//删除好友
+//删除或他添加好友
 // params{
 //     user_id:""
-//          id:""
 //          ids:""
 // }
 // return{
 //     code:
 //     msg:""
 // }
-router.post("/delete", (req, res) => {
-    const param = req.body;
-    const ids = param.ids;
-    var sqlStr = "select * from user where user_id in (" + ids+")";
-    console.log('aa');
-    console.log(ids);
-    pool.getConnection((err, conn) => {
-        conn.query(sqlStr, (err, result) => {
-            if (err) {
-                conn.connect(handleError);
-                conn.on('error', handleError);
-                return res.json({
-                    code: 300,
-                    msg: "获取失败",
-                    err: err.code
-                });
-            }
-            else {
-                console.log(result);
-                return res.json({
-                    code: 200,
-                    msg: "查询成功",
-                    data: result
-                });
-            }
-        });
-        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
-    });
-});
-
-//添加好友
-// params{
-//     user_id:""
-//          id:""
-//          ids:""
-// }
-// return{
-//     code:
-//     msg:""
-// }
-router.post("/add", (req, res) => {
-    console.log("add");
+router.post("/update", (req, res) => {
+    console.log("update");
     var sqlStr = "update user set friend =\"" +req.body.ids+ "\" where user_id = '" + req.body.user_id+"'";
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
@@ -196,7 +155,7 @@ router.post("/add", (req, res) => {
                 console.log(result);
                 return res.json({
                     code: 200,
-                    msg: "添加成功"
+                    msg: "修改成功"
                     // data:
                 });
             }
@@ -204,6 +163,43 @@ router.post("/add", (req, res) => {
         pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
     });
 });
+
+// //添加好友
+// // params{
+// //     user_id:""
+// //          ids:""
+// // }
+// // return{
+// //     code:
+// //     msg:""
+// // }
+// router.post("/add", (req, res) => {
+//     console.log("add");
+//     var sqlStr = "update user set friend =\"" +req.body.ids+ "\" where user_id = '" + req.body.user_id+"'";
+//     console.log(sqlStr);
+//     pool.getConnection((err, conn) => {
+//         conn.query(sqlStr, (err, result) => {
+//             if (err) {
+//                 conn.connect(handleError);
+//                 conn.on('error', handleError);
+//                 return res.json({
+//                     code: 300,
+//                     msg: "获取失败",
+//                     err: err.code
+//                 });
+//             }
+//             else {
+//                 console.log(result);
+//                 return res.json({
+//                     code: 200,
+//                     msg: "添加成功"
+//                     // data:
+//                 });
+//             }
+//         });
+//         pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+//     });
+// });
 
 function handleError(err) {
     if (err) {
