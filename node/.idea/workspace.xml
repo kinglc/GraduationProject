@@ -44,12 +44,12 @@
       <file leaf-file-name="friend.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/friend.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="139" column="23" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
+            <state relative-caret-position="182">
+              <caret line="99" column="38" lean-forward="true" selection-start-line="99" selection-start-column="38" selection-end-line="99" selection-end-column="38" />
               <folding>
                 <element signature="e#527#1323#0" />
                 <element signature="e#1490#2285#0" />
-                <element signature="e#2432#3292#0" />
+                <element signature="e#3451#4268#0" />
                 <element signature="e#5293#5619#0" />
               </folding>
             </state>
@@ -199,12 +199,12 @@
       <workItem from="1589817299358" duration="5806000" />
       <workItem from="1589969633404" duration="1273000" />
       <workItem from="1590060815220" duration="2360000" />
-      <workItem from="1590068859839" duration="2502000" />
+      <workItem from="1590068859839" duration="2762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25071000" />
+    <option name="totallyTimeSpent" value="25331000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -217,6 +217,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19154558" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
@@ -497,12 +498,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/friend.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="139" column="23" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
+        <state relative-caret-position="182">
+          <caret line="99" column="38" lean-forward="true" selection-start-line="99" selection-start-column="38" selection-end-line="99" selection-end-column="38" />
           <folding>
             <element signature="e#527#1323#0" />
             <element signature="e#1490#2285#0" />
-            <element signature="e#2432#3292#0" />
+            <element signature="e#3451#4268#0" />
             <element signature="e#5293#5619#0" />
           </folding>
         </state>

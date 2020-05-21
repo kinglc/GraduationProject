@@ -195,7 +195,7 @@ public class FriendActivity extends AppCompatActivity {
     //201 不存在
     private int isExist(String id) {
         try {
-            URL url = new URL(global.getURL() + "/friend/query");
+            URL url = new URL(global.getURL() + "/friend/isExist");
             // 打开连接
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestProperty("accept", "*/*");
@@ -289,7 +289,9 @@ public class FriendActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String friendid = input.getText().toString();
-                if (friendid.length() > 0) {
+                if(ids.contains("'" + friendid + "',")){
+                    Toast.makeText(FriendActivity.this, "该用户已存在列表中", Toast.LENGTH_SHORT).show();
+                }else if (friendid.length() > 0) {
                     int exist = isExist(friendid);
                     if (exist == 200) {
                         ids=ids + "'" + friendid + "',";
