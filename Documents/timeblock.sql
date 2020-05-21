@@ -11,7 +11,7 @@
  Target Server Version : 80020
  File Encoding         : 65001
 
- Date: 22/05/2020 00:57:36
+ Date: 22/05/2020 02:17:18
 */
 
 SET NAMES utf8mb4;
@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `chart`;
 CREATE TABLE `chart`  (
   `chart_id` int(0) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `date` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `date` date NULL DEFAULT NULL,
   `pass` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`chart_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
@@ -62,7 +62,7 @@ CREATE TABLE `chart`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log`  (
-  `log_id` int(0) NOT NULL AUTO_INCREMENT,
+  `log_id` int(0) UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `type` int(0) NULL DEFAULT NULL,
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -113,6 +113,14 @@ CREATE TABLE `todo`  (
   `isChecked` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`todo_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of todo
+-- ----------------------------
+INSERT INTO `todo` VALUES (1, 'jc', 'todo1', '2020-05-22', 0);
+INSERT INTO `todo` VALUES (2, 'jc', 'todo2', '2020-05-23', 0);
+INSERT INTO `todo` VALUES (3, 'jc', 'todo3', '2020-05-21', 0);
+INSERT INTO `todo` VALUES (4, 'jc', 'todo4', '2020-05-22', 0);
 
 -- ----------------------------
 -- Table structure for user

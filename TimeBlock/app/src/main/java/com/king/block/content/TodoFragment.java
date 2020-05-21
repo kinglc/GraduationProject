@@ -117,8 +117,7 @@ public class TodoFragment extends Fragment {
             }
         });
     }
-
-
+    
     private void initEvent(){
         ImageView repeat = (ImageView)view.findViewById(R.id.todo_repeat);
         ImageView share = (ImageView)view.findViewById(R.id.todo_share);
