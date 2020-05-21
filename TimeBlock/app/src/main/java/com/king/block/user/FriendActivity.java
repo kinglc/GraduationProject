@@ -195,7 +195,7 @@ public class FriendActivity extends AppCompatActivity {
     //201 不存在
     private int isExist(String id) {
         try {
-            URL url = new URL(global.getURL() + "/friend/isExist");
+            URL url = new URL(global.getURL() + "/user/isExist");
             // 打开连接
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestProperty("accept", "*/*");

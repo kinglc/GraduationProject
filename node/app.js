@@ -21,10 +21,10 @@ app.all("*", function (req, res, next) {
 
 //待访问接口API名称
 app.use("/user", require("./api/user"));
-// app.use("/todo", require("./api/todo"));
-// app.use("/plan", require("./api/plan"));
-// app.use("/note", require("./api/note"));
+app.use("/todo", require("./api/todo"));
+app.use("/plan", require("./api/plan"));
+app.use("/note", require("./api/note"));
 app.use("/friend", require("./api/friend"));
-// app.use("/achieve", require("./api/achieve"));
-// app.use("/log", require("./api/log"));
-// app.use("/chart", require("./api/chart"));
+app.use("/achieve", require("./api/achieve"));
+app.use("/log", require("./api/log"));
+app.use("/chart", require("./api/chart"));

@@ -11,20 +11,48 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.haibin.calendarview.MonthView;
+import com.king.block.Global;
 import com.king.block.R;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AchieveActivity extends AppCompatActivity {
 
     private GridView gv;
     private AchieveAdapter achieveAdapter;
     private ArrayList<Achieve> achieve_list = null;
+    Global global;
+    int plan=14,todo=13;
+    private ArrayList<Achieve> all = new ArrayList<Achieve>(Arrays.asList(
+            new Achieve(1,5,"浅尝辄止","累计完成待办1天"),
+            new Achieve(2,2,"走马观花","累计进行计划1小时"),
+            new Achieve(3,5,"学贵有恒","累计完成待办7天"),
+            new Achieve(4,2,"目不转睛","累计进行计划24小时"),
+            new Achieve(5,5,"锲而不舍","累计完成待办30天"),
+            new Achieve(6,2,"聚精会神","累计进行计划50小时"),
+            new Achieve(7,4,"持之以恒","累计完成待办100天"),
+            new Achieve(8,1,"全神贯注","累计进行计划100小时"),
+            new Achieve(9,4,"细水长流","累计完成待办500天"),
+            new Achieve(10,1,"心无旁骛","累计进行计划500小时"),
+            new Achieve(11,3,"聚沙成塔","累计完成待办1000天"),
+            new Achieve(12,0,"废寝忘食","累计进行计划1000小时")
+            ));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achieve);
+        global = (Global)getApplication();
         initTop();
         initData();
         initGv();
@@ -35,18 +63,69 @@ public class AchieveActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                achieve_list.clear();
                 AchieveActivity.this.finish();
             }
         });
     }
 
-    private void initData() {
-        // 未完成-初始化数据
-        achieve_list = new ArrayList<Achieve>();
-        for (int i = 0; i < 30; i++) {
-//            achieve_list.add(new Achieve(i, i % 6, "累积计划" + i + "天"));
+    //调用接口
+    //通过user_id查询成就信息
+    private void getInfo() {
+        try {
+            URL url = new URL(global.getURL() + "/achieve/query");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+            String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    JSONObject prize = res.getJSONArray("data").getJSONObject(0);
+                    plan=prize.getInt("prize_plan");
+                    todo = prize.getInt("prize_todo");
+                } else {
+                    Toast.makeText(AchieveActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(AchieveActivity.this, "刷新成就信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(AchieveActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
         }
-        System.out.println(achieve_list);
+    }
+
+    private void initData() {
+        achieve_list = new ArrayList<Achieve>();
+        getInfo();
+        int maxi = Math.max(plan,todo);
+        int mini  = Math.min(plan,todo);
+        for (int i = maxi; i >mini; i-=2) {
+            achieve_list.add(all.get(i-1));
+        }
+        for (int i = mini; i >0; i--) {
+            achieve_list.add(all.get(i-1));
+        }
     }
 
     private void initGv() {
@@ -56,7 +135,7 @@ public class AchieveActivity extends AppCompatActivity {
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(AchieveActivity.this, ""+achieve_list.get(position),Toast.LENGTH_SHORT).show();
+                Toast.makeText(AchieveActivity.this, achieve_list.get(position).getNote(),Toast.LENGTH_SHORT).show();
             }
         });
     }
