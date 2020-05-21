@@ -57,8 +57,9 @@ public class Global extends Application {
         int min = 0;
         time= time.substring(0, time.length() - 1);
         if (time.indexOf('h') != -1) {
-            min = Integer.parseInt(time.split("h")[0]);
-            time = time.substring(time.indexOf('h')+1);
+            String s[]=time.split("h");
+            min = 60*Integer.parseInt(s[0]);
+            time = s[1];
         }
         min+=Integer.parseInt(time);
         return min;

@@ -24,6 +24,8 @@ import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class FriendActivity extends AppCompatActivity {
@@ -67,7 +69,7 @@ public class FriendActivity extends AppCompatActivity {
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
 //            String content = "user_id:" + global.getUserId();
-            ids = ids + "'" + addid + "'";
+            ids = ids + "'" + addid + "',";
             String content = "{\"user_id\":\"" + user_id + "\",\"ids\":\"" + ids + "\"}";
             out.writeBytes(content);
             out.flush();
@@ -112,7 +114,7 @@ public class FriendActivity extends AppCompatActivity {
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
 //            String content = "user_id:" + global.getUserId();
-            String content = "{\"ids\":\"" + ids + "\"}";
+            String content = "{\"ids\":\"" + ids.substring(0,ids.length()-1) + "\"}";
             out.writeBytes(content);
             out.flush();
             out.close();
@@ -140,6 +142,12 @@ public class FriendActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
         }
+        Collections.sort(friend_list, new Comparator<Friend>() {
+            @Override
+            public int compare(Friend o1, Friend o2) {
+                return global.countTime(o2.getTime())-global.countTime(o1.getTime());
+            }
+        });
     }
 
     //通过user_id获取ids
@@ -225,7 +233,7 @@ public class FriendActivity extends AppCompatActivity {
     private void initData() {
         ids = getIds(global.getUserId());
         if (ids != "error") {
-            getInfo("'"+global.getUserId()+"',"+ids);
+            getInfo(ids);
         }
     }
 
@@ -285,10 +293,12 @@ public class FriendActivity extends AppCompatActivity {
                 if (friendid.length() > 0) {
                     int exist = isExist(friendid);
                     if (exist == 200) {
-                        if (addFriend(global.getUserId(), ids, friendid) && addFriend(friendid, getIds(friendid), global.getUserId())) {
-                            Toast.makeText(FriendActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
-                        }
-                    } else if (exist == 201) {
+                        addFriend(global.getUserId(), ids, friendid);
+                        addFriend(friendid, getIds(friendid), global.getUserId());
+                        Toast.makeText(FriendActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
+                        getInfo("'"+friendid+"',");
+                        friendAdapter.notifyDataSetChanged();
+                    }else if (exist == 201) {
                         Toast.makeText(FriendActivity.this, "该id 不存在", Toast.LENGTH_SHORT).show();
                     }
                 } else {
