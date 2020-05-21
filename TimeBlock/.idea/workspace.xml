@@ -19,8 +19,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_friend.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_friend.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="241" column="44" selection-start-line="241" selection-start-column="44" selection-end-line="241" selection-end-column="44" />
+            <state relative-caret-position="1020">
+              <caret line="278" column="36" selection-start-line="278" selection-start-column="36" selection-end-line="278" selection-end-column="36" />
               <folding>
                 <element signature="method#addFriend#0;class#FriendActivity#0" />
                 <element signature="method#getInfo#0;class#FriendActivity#0" />
@@ -72,11 +70,13 @@
                 <element signature="method#getIds#0;class#FriendActivity#0" />
                 <element signature="method#isExist#0;class#FriendActivity#0" />
                 <element signature="method#initData#0;class#FriendActivity#0" />
+                <element signature="method#initLv#0;class#FriendActivity#0" />
                 <element signature="e#9612#11589#0" expanded="true" />
                 <element signature="e#10036#11007#0" expanded="true" />
                 <element signature="e#11006#11007#0" expanded="true" />
                 <element signature="e#11588#11589#0" expanded="true" />
-                <element signature="method#initTop#0;class#FriendActivity#0" />
+                <element signature="e#11514#11704#0" expanded="true" />
+                <element signature="e#11703#11704#0" expanded="true" />
                 <element signature="method#initEvent#0;class#FriendActivity#0" />
               </folding>
             </state>
@@ -103,21 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_friend.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+            <state relative-caret-position="400">
+              <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -145,7 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Plan_</find>
       <find>urgency.setBackground</find>
       <find>MyChronometer.this.</find>
       <find>Ddl</find>
@@ -175,6 +164,7 @@
       <find>com</find>
       <find>getInfo(</find>
       <find>未完成</find>
+      <find>ba</find>
     </findStrings>
     <replaceStrings>
       <replace>Listener</replace>
@@ -254,9 +244,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/Friend.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_friend.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" />
       </list>
     </option>
   </component>
@@ -533,9 +523,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
       <window_info id="Structure" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2191689" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -558,7 +549,7 @@
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info active="true" anchor="right" id="Preview" order="5" visible="true" weight="0.24128686" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.24128686" />
       <window_info anchor="right" id="Hierarchy" order="6" weight="0.3297587" />
     </layout>
     <layout-to-restore>
@@ -1125,39 +1116,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="241" column="44" selection-start-line="241" selection-start-column="44" selection-end-line="241" selection-end-column="44" />
-          <folding>
-            <element signature="method#addFriend#0;class#FriendActivity#0" />
-            <element signature="method#getInfo#0;class#FriendActivity#0" />
-            <element signature="e#5503#5716#0" expanded="true" />
-            <element signature="e#5715#5716#0" expanded="true" />
-            <element signature="method#getIds#0;class#FriendActivity#0" />
-            <element signature="method#isExist#0;class#FriendActivity#0" />
-            <element signature="method#initData#0;class#FriendActivity#0" />
-            <element signature="e#9612#11589#0" expanded="true" />
-            <element signature="e#10036#11007#0" expanded="true" />
-            <element signature="e#11006#11007#0" expanded="true" />
-            <element signature="e#11588#11589#0" expanded="true" />
-            <element signature="method#initTop#0;class#FriendActivity#0" />
-            <element signature="method#initEvent#0;class#FriendActivity#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/Friend.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
           <caret line="48" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="32" column="43" lean-forward="true" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -1166,6 +1128,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="278" column="36" selection-start-line="278" selection-start-column="36" selection-end-line="278" selection-end-column="36" />
+          <folding>
+            <element signature="method#addFriend#0;class#FriendActivity#0" />
+            <element signature="method#getInfo#0;class#FriendActivity#0" />
+            <element signature="e#5503#5716#0" expanded="true" />
+            <element signature="e#5715#5716#0" expanded="true" />
+            <element signature="method#getIds#0;class#FriendActivity#0" />
+            <element signature="method#isExist#0;class#FriendActivity#0" />
+            <element signature="method#initData#0;class#FriendActivity#0" />
+            <element signature="method#initLv#0;class#FriendActivity#0" />
+            <element signature="e#9612#11589#0" expanded="true" />
+            <element signature="e#10036#11007#0" expanded="true" />
+            <element signature="e#11006#11007#0" expanded="true" />
+            <element signature="e#11588#11589#0" expanded="true" />
+            <element signature="e#11514#11704#0" expanded="true" />
+            <element signature="e#11703#11704#0" expanded="true" />
+            <element signature="method#initEvent#0;class#FriendActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
         </state>
       </provider>
     </entry>

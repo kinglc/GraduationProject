@@ -276,6 +276,7 @@ public class FriendActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                friend_list.clear();
                 FriendActivity.this.finish();
             }
         });
