@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -23,9 +22,7 @@ import org.json.JSONObject;
 
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +35,7 @@ public class FriendActivity extends AppCompatActivity {
 
     ImageView add;
     EditText input;
-    private String ids="";
+    private String ids = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +48,54 @@ public class FriendActivity extends AppCompatActivity {
         initLv();
     }
 
-    private void getFriend(String ids) {
-        if(ids=="") return;
+    //接口
+    //调用添加好友
+    private boolean addFriend(String user_id, String ids, String addid) {
+        try {
+            URL url = new URL(global.getURL() + "/friend/add");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+            ids = ids + "'" + addid + "'";
+            String content = "{\"user_id\":\"" + user_id + "\",\"ids\":\"" + ids + "\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    return true;
+                } else {
+                    Toast.makeText(FriendActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(FriendActivity.this, "添加好友失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+
+    //通过ids获取好友信息
+    private void getInfo(String ids) {
+        if (ids == "") return;
         try {
             URL url = new URL(global.getURL() + "/friend/getInfo");
             // 打开连接
@@ -86,10 +129,10 @@ public class FriendActivity extends AppCompatActivity {
                         friend_list.add(f);
                     }
                 } else {
-                    Toast.makeText(FriendActivity.this, msg+res.getString("err"), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FriendActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(FriendActivity.this, "刷新好友信息失败"+con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FriendActivity.this, "刷新好友信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -99,7 +142,8 @@ public class FriendActivity extends AppCompatActivity {
         }
     }
 
-    private void initData() {
+    //通过user_id获取ids
+    private String getIds(String user_id) {
         try {
             URL url = new URL(global.getURL() + "/friend/query");
             // 打开连接
@@ -115,8 +159,7 @@ public class FriendActivity extends AppCompatActivity {
             con.connect();
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
-//            String content = "user_id:" + global.getUserId();
-            String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
+            String content = "{\"user_id\":\"" + user_id + "\"}";
             out.writeBytes(content);
             out.flush();
             out.close();
@@ -126,19 +169,63 @@ public class FriendActivity extends AppCompatActivity {
                 int code = res.optInt("code");
                 String msg = res.optString("msg");
                 if (code == 200) {
-                    ids = res.getJSONArray("data").getJSONObject(0).getString("friend");
+                    return res.getJSONArray("data").getJSONObject(0).getString("friend");
                 } else {
-                    Toast.makeText(FriendActivity.this, msg+res.getString("err"), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FriendActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(FriendActivity.this, "获取好友列表失败"+con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FriendActivity.this, "获取好友列表失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
-            getFriend(ids);
-
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
+        }
+        return "error";
+    }
+
+    //判断id是否存在
+    //200 存在
+    //201 不存在
+    private int isExist(String id) {
+        try {
+            URL url = new URL(global.getURL() + "/friend/query");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"id\":\"" + id + "\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                return res.optInt("code");
+            } else {
+                Toast.makeText(FriendActivity.this, "获取好友列表失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
+        }
+        return 404;
+    }
+
+    private void initData() {
+        ids = getIds(global.getUserId());
+        if (ids != "error") {
+            getInfo("'"+global.getUserId()+"',"+ids);
         }
     }
 
@@ -194,49 +281,17 @@ public class FriendActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input.getText().length()>0) {
-                    String newids = "";
-                    try {
-                        URL url = new URL(global.getURL() + "/friend/delete");
-                        // 打开连接
-                        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                        con.setRequestProperty("accept", "*/*");
-                        con.setRequestProperty("Connection", "Keep-Alive");
-                        con.setRequestProperty("Cache-Control", "no-cache");
-                        con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-                        con.setRequestMethod("POST");
-                        con.setDoOutput(true);
-                        con.setDoInput(true);
-                        con.connect();
-
-                        DataOutputStream out = new DataOutputStream(con.getOutputStream());
-//            String content = "user_id:" + global.getUserId();
-                        String content = "{\"id\":\"" + input.getText() + "\"}";
-                        out.writeBytes(content);
-                        out.flush();
-                        out.close();
-
-                        if (con.getResponseCode() == 200) {
-                            JSONObject res = global.streamtoJson(con.getInputStream());
-                            int code = res.optInt("code");
-                            String msg = res.optString("msg");
-                            if (code == 200) {
-                                newids = res.getJSONObject("data").getString("newids");
-//                            newids = res.getJSONArray("data").getJSONObject(0).getString("friend");
-                            } else {
-                                Toast.makeText(FriendActivity.this, msg+res.getString("err"), Toast.LENGTH_SHORT).show();
-                            }
-                        } else {
-                            Toast.makeText(FriendActivity.this, "添加好友失败"+con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                String friendid = input.getText().toString();
+                if (friendid.length() > 0) {
+                    int exist = isExist(friendid);
+                    if (exist == 200) {
+                        if (addFriend(global.getUserId(), ids, friendid) && addFriend(friendid, getIds(friendid), global.getUserId())) {
+                            Toast.makeText(FriendActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
                         }
-                        con.disconnect();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
+                    } else if (exist == 201) {
+                        Toast.makeText(FriendActivity.this, "该id 不存在", Toast.LENGTH_SHORT).show();
                     }
-                    getFriend(newids);
-                }else{
+                } else {
                     Toast.makeText(FriendActivity.this, "请输入好友id", Toast.LENGTH_SHORT).show();
                 }
             }

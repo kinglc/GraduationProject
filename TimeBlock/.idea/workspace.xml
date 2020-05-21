@@ -16,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,21 +80,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="138" column="31" lean-forward="true" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
+            <state relative-caret-position="203">
+              <caret line="227" column="46" selection-start-line="227" selection-start-column="46" selection-end-line="227" selection-end-column="46" />
               <folding>
+                <element signature="method#addFriend#0;class#FriendActivity#0" />
                 <element signature="method#getFriend#0;class#FriendActivity#0" />
+                <element signature="method#getIds#0;class#FriendActivity#0" />
+                <element signature="e#5633#7227#0" />
+                <element signature="method#isExist#0;class#FriendActivity#0" />
                 <element signature="method#initLv#0;class#FriendActivity#0" />
-                <element signature="e#5829#7625#0" expanded="true" />
-                <element signature="e#6253#7043#0" expanded="true" />
-                <element signature="e#7042#7043#0" expanded="true" />
-                <element signature="e#7624#7625#0" expanded="true" />
-                <element signature="method#initTop#0;class#FriendActivity#0" />
-                <element signature="e#7758#7920#0" expanded="true" />
-                <element signature="e#7919#7920#0" expanded="true" />
+                <element signature="e#9786#11582#0" expanded="true" />
+                <element signature="e#10210#11000#0" expanded="true" />
+                <element signature="e#10999#11000#0" expanded="true" />
+                <element signature="e#11581#11582#0" expanded="true" />
+                <element signature="e#11715#11877#0" expanded="true" />
+                <element signature="e#11876#11877#0" expanded="true" />
                 <element signature="method#initEvent#0;class#FriendActivity#0" />
-                <element signature="e#8125#10692#0" expanded="true" />
-                <element signature="e#10691#10692#0" expanded="true" />
+                <element signature="e#11790#12693#0" expanded="true" />
+                <element signature="e#12692#12693#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -625,12 +627,6 @@
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java</url>
-          <line>139</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -1152,21 +1148,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="138" column="31" lean-forward="true" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
+        <state relative-caret-position="203">
+          <caret line="227" column="46" selection-start-line="227" selection-start-column="46" selection-end-line="227" selection-end-column="46" />
           <folding>
+            <element signature="method#addFriend#0;class#FriendActivity#0" />
             <element signature="method#getFriend#0;class#FriendActivity#0" />
+            <element signature="method#getIds#0;class#FriendActivity#0" />
+            <element signature="e#5633#7227#0" />
+            <element signature="method#isExist#0;class#FriendActivity#0" />
             <element signature="method#initLv#0;class#FriendActivity#0" />
-            <element signature="e#5829#7625#0" expanded="true" />
-            <element signature="e#6253#7043#0" expanded="true" />
-            <element signature="e#7042#7043#0" expanded="true" />
-            <element signature="e#7624#7625#0" expanded="true" />
-            <element signature="method#initTop#0;class#FriendActivity#0" />
-            <element signature="e#7758#7920#0" expanded="true" />
-            <element signature="e#7919#7920#0" expanded="true" />
+            <element signature="e#9786#11582#0" expanded="true" />
+            <element signature="e#10210#11000#0" expanded="true" />
+            <element signature="e#10999#11000#0" expanded="true" />
+            <element signature="e#11581#11582#0" expanded="true" />
+            <element signature="e#11715#11877#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
             <element signature="method#initEvent#0;class#FriendActivity#0" />
-            <element signature="e#8125#10692#0" expanded="true" />
-            <element signature="e#10691#10692#0" expanded="true" />
+            <element signature="e#11790#12693#0" expanded="true" />
+            <element signature="e#12692#12693#0" expanded="true" />
           </folding>
         </state>
       </provider>

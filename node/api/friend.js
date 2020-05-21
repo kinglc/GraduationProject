@@ -24,6 +24,7 @@ const conn = mysql.createConnection({
 //         msg:""
 //         data:[]
 router.post("/query", (req, res) => {
+    console.log("query");
     const sqlStr = "select friend from user where user_id = '" + req.body.user_id+"'";
     var friends;
     pool.getConnection((err, conn) => {
@@ -60,7 +61,9 @@ router.post("/query", (req, res) => {
 //         msg:""
 //         data:[]
 router.post("/getInfo", (req, res) => {
+    console.log("getinfo");
     var sqlStr = "select * from user where user_id in (" + req.body.ids+")";
+    console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
             if (err) {
@@ -78,6 +81,45 @@ router.post("/getInfo", (req, res) => {
                     code: 200,
                     msg: "查询成功",
                     data: result
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
+
+// 好友是否存在
+//     params{
+//         id:""
+//     }
+//     return{
+//         code:
+//         msg:""
+//
+router.post("/isExist", (req, res) => {
+    console.log("isExist");
+    var sqlStr = "select 1 from user where user_id = '" + req.body.id+"' limit 1";
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else if(result.length==0){
+                return res.json({
+                    code: 201,
+                    msg: "不存在",
+                });
+            }else{
+                return res.json({
+                    code: 200,
+                    msg: "存在",
                 });
             }
         });
@@ -136,9 +178,9 @@ router.post("/delete", (req, res) => {
 //     msg:""
 // }
 router.post("/add", (req, res) => {
-    const param = req.body;
-    var newids= req.body.ids+",'"+req.body.id+"'";
-    var sqlStr = "update user set friend =\"" +newids+ "\" where user_id in ='" + req.body.user_id+"'";
+    console.log("add");
+    var sqlStr = "update user set friend =\"" +req.body.ids+ "\" where user_id = '" + req.body.user_id+"'";
+    console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
             if (err) {
@@ -154,8 +196,8 @@ router.post("/add", (req, res) => {
                 console.log(result);
                 return res.json({
                     code: 200,
-                    msg: "查询成功",
-                    data: newids
+                    msg: "添加成功"
+                    // data:
                 });
             }
         });
