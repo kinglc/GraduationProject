@@ -48,7 +48,7 @@ public class LogAdapter extends ArrayAdapter<Log> {
                 break;
             case 1:
                 viewHolder.type.setImageResource(R.drawable.log_plan);
-                Plan plan = new Plan(1,"计划B","111",1,",,","2020-03-03 03:03","111");
+                Plan plan = new Plan(1,"计划B","111",1,",,");
 //                viewHolder.date.setText(plan.getFinish());
                 viewHolder.content.setText("完成计划"+plan.getTitle());
                 break;

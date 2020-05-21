@@ -35,13 +35,14 @@ import com.king.block.user.FriendActivity;
 import com.king.block.user.LogActivity;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class ContentActivity extends AppCompatActivity implements View.OnClickListener {
 
     //顶部
-    private TextView date;
-    private int year, month, day;
-    private ImageView menu;
+//    private TextView date;
+//    public int year, month, day;
+//    private ImageView menu;
     private DrawerLayout drawerLayout;
 
     //底部
@@ -94,9 +95,9 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     //初始化组件
     private void initComp() {
         //顶部
-        date = (TextView) findViewById(R.id.date);
+//        date = (TextView) findViewById(R.id.date);
+//        menu = (ImageView) findViewById(R.id.menu);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        menu = (ImageView) findViewById(R.id.menu);
 
         //底部
         note = (LinearLayout) findViewById(R.id.note);
@@ -133,30 +134,29 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         log.setOnClickListener(this);
         achieve.setOnClickListener(this);
 
-        //选择日期
-        date.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new DatePickerDialog(ContentActivity.this, new DatePickerDialog.OnDateSetListener() {      //  日期选择对话框
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        //  这个方法是得到选择后的 年，月，日，分别对应着三个参数 — year、month、dayOfMonth
-                        month++;
-                        date.setText(year + "-" + month + "-" + dayOfMonth + "  ▼");
-                    }
-                }, year, month-1, day).show();   //  弹出日历对话框时，默认显示 年，月，日
-                //未完成-通过日期获取数据
-//                getData();
-            }
-        });
+//        //选择日期
+//        date.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                new DatePickerDialog(ContentActivity.this, new DatePickerDialog.OnDateSetListener() {      //  日期选择对话框
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                        //  这个方法是得到选择后的 年，月，日，分别对应着三个参数 — year、month、dayOfMonth
+//                        month++;
+//                        date.setText(year + "-" + month + "-" + dayOfMonth + "  ▼");
+//                    }
+//                }, year, month-1, day).show();   //  弹出日历对话框时，默认显示 年，月，日
+//                setDate();
+//            }
+//        });
 
         //弹出侧边栏
-        menu.setOnClickListener(new View.OnClickListener() {/*重点，点击监听*/
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(Gravity.RIGHT);/*重点，LEFT是xml布局文件中侧边栏布局所设置的方向*/
-            }
-        });
+//        menu.setOnClickListener(new View.OnClickListener() {/*重点，点击监听*/
+//            @Override
+//            public void onClick(View v) {
+//                drawerLayout.openDrawer(Gravity.RIGHT);/*重点，LEFT是xml布局文件中侧边栏布局所设置的方向*/
+//            }
+//        });
 
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,11 +181,11 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         plan_pic.setImageResource(R.drawable.plan);
         plan_txt.setTextColor(getResources().getColor(R.color.fontBlack));
 
-        Calendar mcalendar = Calendar.getInstance();     //  获取当前时间    —   年、月、日
-        year = mcalendar.get(Calendar.YEAR);         //  得到当前年
-        month = mcalendar.get(Calendar.MONTH)+1;       //  得到当前月
-        day = mcalendar.get(Calendar.DAY_OF_MONTH);  //  得到当前日
-        date.setText(year + "-" + month + "-" + day + "  ▼");
+//        Calendar mcalendar = Calendar.getInstance();     //  获取当前时间    —   年、月、日
+//        year = mcalendar.get(Calendar.YEAR);         //  得到当前年
+//        month = mcalendar.get(Calendar.MONTH)+1;       //  得到当前月
+//        day = mcalendar.get(Calendar.DAY_OF_MONTH);  //  得到当前日
+//        date.setText(year + "-" + month + "-" + day + "  ▼");
 
 //        history_txt.setText("历史"+txts[index]);
     }
@@ -195,7 +195,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         Intent it = new Intent();
-        LinearLayout top = (LinearLayout)findViewById(R.id.top);
+//        LinearLayout top = (LinearLayout)findViewById(R.id.top);
         switch (v.getId()) {
             case R.id.todo:
                 index = 0;
@@ -203,7 +203,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 todo_pic.setImageResource(R.drawable.todo_selected);
                 todo_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 history.setVisibility(View.GONE);
-                top.setVisibility(View.VISIBLE);
+//                top.setVisibility(View.VISIBLE);
                 initFrag();
                 break;
             case R.id.plan:
@@ -212,7 +212,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 plan_pic.setImageResource(R.drawable.plan_selected);
                 plan_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 history.setVisibility(View.VISIBLE);
-                top.setVisibility(View.VISIBLE);
+//                top.setVisibility(View.VISIBLE);
                 initFrag();
                 break;
             case R.id.note:
@@ -221,7 +221,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 note_pic.setImageResource(R.drawable.note_selected);
                 note_txt.setTextColor(getResources().getColor(R.color.commonBlue));
                 history.setVisibility(View.GONE);
-                top.setVisibility(View.GONE);
+//                top.setVisibility(View.GONE);
                 initFrag();
                 break;
             case R.id.friend:
@@ -248,6 +248,17 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 break;
         }
     }
+
+//    private void setDate(){
+//        Bundle bundle = new Bundle();
+//        bundle.putString("DATE",year + "-" + month + "-" + day);
+//        switch (index){
+//            case 0:frag_todo.setArguments(bundle);break;
+//            case 1:frag_plan.setArguments(bundle);break;
+//            case 2:frag_note.setArguments(bundle);break;
+//            default:break;
+//        }
+//    }
 
     //初始化fragment
     private void initFrag() {
@@ -283,6 +294,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 break;
         }
         transaction.commit();
+//        setDate();
     }
 
     //隐藏Fragment

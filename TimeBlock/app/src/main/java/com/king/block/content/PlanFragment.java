@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.king.block.R;
 
@@ -40,13 +41,14 @@ public class PlanFragment extends Fragment{
 
     TextView plan_title;
     TextView plan_content;
-    TextView plan_ddl;
+//    TextView plan_ddl;
     ImageView select;
     private Chronometer pass;
     int on = 0;//1-暂停 0-计时
     private long nowtime=0;
 
     ImageView add;
+    private ImageView menu;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -64,7 +66,7 @@ public class PlanFragment extends Fragment{
         //未完成 获取数据
         for(int i=0;i<10;i++) {
             Plan plan = new Plan(i,i+""+i+i+i+i, "间关莺语花底滑，幽咽泉流冰下难",
-                    i%4,"00:00:0"+i,"2011-01-02","01:01");
+                    i%4,"00:00:0");
             plan_list.add(plan);
         }
     }
@@ -88,9 +90,19 @@ public class PlanFragment extends Fragment{
     private void initEvent() {
         plan_title = (TextView)view.findViewById(R.id.plan_title);
         plan_content = (TextView)view.findViewById(R.id.plan_content);
-        plan_ddl = (TextView)view.findViewById(R.id.plan_ddl);
+//        plan_ddl = (TextView)view.findViewById(R.id.plan_ddl);
         pass = (Chronometer) view.findViewById(R.id.plan_pass);
         pass.setFormat("%s");
+
+        menu = (ImageView) view.findViewById(R.id.menu);
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout dl = (DrawerLayout) getActivity().findViewById(R.id.drawerLayout);
+                dl.openDrawer(Gravity.RIGHT);
+            }
+        });
+
         add= (ImageView) view.findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +111,7 @@ public class PlanFragment extends Fragment{
                 getContext().startActivity(it);
             }
         });
+
         select = (ImageView)view.findViewById(R.id.select);
         select.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +127,6 @@ public class PlanFragment extends Fragment{
                 on=1-on;
             }
         });
-
     }
 
     private void startTime(){
@@ -131,7 +143,7 @@ public class PlanFragment extends Fragment{
         if(plan_now!=null){
             plan_title.setText(plan_now.getTitle());
             plan_content.setText(plan_now.getContent());
-            plan_ddl.setText(plan_now.getDate()+" "+plan_now.getTime());
+//            plan_ddl.setText(plan_now.getDate()+" "+plan_now.getTime());
 //            plan_pass.setText(plan_now.getPass());
             //未完成-获取on状态
             on=1;
@@ -141,19 +153,19 @@ public class PlanFragment extends Fragment{
             switch (plan_now.getUrgency()){
                 case 0:
                     pass.setTextColor(getContext().getResources().getColor(R.color.red));
-                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.red));
+//                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.red));
                     break;
                 case 1:
                     pass.setTextColor(getContext().getResources().getColor(R.color.yellow));
-                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.yellow));
+//                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.yellow));
                     break;
                 case 2:
                     pass.setTextColor(getContext().getResources().getColor(R.color.green));
-                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.green));
+//                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.green));
                     break;
                 case 3:
                     pass.setTextColor(getContext().getResources().getColor(R.color.blue));
-                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.blue));
+//                    plan_ddl.setTextColor(getContext().getResources().getColor(R.color.blue));
                     break;
                 default:break;
             }

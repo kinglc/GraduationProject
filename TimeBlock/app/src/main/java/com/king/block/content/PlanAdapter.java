@@ -74,8 +74,8 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
                             it.putExtra("plan_title", plan.getTitle());
                             it.putExtra("plan_content", plan.getContent());
                             it.putExtra("urgency", plan.getUrgency());
-                            it.putExtra("plan_date", plan.getDate());
-                            it.putExtra("plan_time", plan.getTime());
+//                            it.putExtra("plan_date", plan.getDate());
+//                            it.putExtra("plan_time", plan.getTime());
                             getContext().startActivity(it);
                             bsd.dismiss();
                         }
@@ -119,7 +119,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         }
         viewHolder.plan_title.setText(plan.getTitle());
         viewHolder.plan_content.setText(plan.getContent());
-        viewHolder.plan_ddl.setText(plan.getDate() + " " + plan.getTime());
+//        viewHolder.plan_ddl.setText(plan.getDate() + " " + plan.getTime());
         changeColor(viewHolder, plan.getUrgency());
         return convertView;
     }
@@ -128,19 +128,19 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         switch (urgency){
             case 0:
                 vh.urgency.setBackgroundColor(getContext().getResources().getColor(R.color.red));
-                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.red));
+//                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.red));
                 break;
             case 1:
                 vh.urgency.setBackgroundColor(getContext().getResources().getColor(R.color.yellow));
-                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.yellow));
+//                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.yellow));
                 break;
             case 2:
                 vh.urgency.setBackgroundColor(getContext().getResources().getColor(R.color.green));
-                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.green));
+//                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.green));
                 break;
             case 3:
                 vh.urgency.setBackgroundColor(getContext().getResources().getColor(R.color.blue));
-                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.blue));
+//                vh.plan_ddl.setTextColor(getContext().getResources().getColor(R.color.blue));
                 break;
                 default:break;
         }
@@ -150,7 +150,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         vh.urgency = (TextView) v.findViewById(R.id.urgency);
         vh.plan_title = (TextView) v.findViewById(R.id.plan_title);
         vh.plan_content = (TextView) v.findViewById(R.id.plan_content);
-        vh.plan_ddl = (TextView) v.findViewById(R.id.plan_ddl);
+//        vh.plan_ddl = (TextView) v.findViewById(R.id.plan_ddl);
         vh.func = (ImageView) v.findViewById(R.id.function);
 //        vh.delete = (TextView)v.findViewById(R.id.delete);
     }
@@ -175,7 +175,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         TextView urgency;
         TextView plan_title;
         TextView plan_content;
-        TextView plan_ddl;
+//        TextView plan_ddl;
         ImageView func;
 //        TextView delete;
     }

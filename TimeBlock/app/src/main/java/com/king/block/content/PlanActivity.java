@@ -23,8 +23,8 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
     ImageView save;
     TextView plan_title;
     TextView plan_content;
-    DatePicker plan_date;
-    TimePicker plan_time;
+//    DatePicker plan_date;
+//    TimePicker plan_time;
     TextView red;
     TextView yellow;
     TextView green;
@@ -32,12 +32,12 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
 
     int id;
     int urgency;//-1 未选中，0 红，1 黄，2 绿，3 蓝
-    Calendar calendar;
-    int pYear;
-    int pMonth;
-    int pDay;
-    int pHour;
-    int pMinute;
+//    Calendar calendar;
+//    int pYear;
+//    int pMonth;
+//    int pDay;
+//    int pHour;
+//    int pMinute;
     
     
     @Override
@@ -61,9 +61,9 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
         save = (ImageView)findViewById(R.id.plan_save);
         plan_title = (TextView)findViewById(R.id.plan_title);
         plan_content = (TextView)findViewById(R.id.plan_content);
-        plan_date = (DatePicker) findViewById(R.id.plan_date);
-        plan_time = (TimePicker)findViewById(R.id.plan_time);
-        plan_time.setIs24HourView(true);
+//        plan_date = (DatePicker) findViewById(R.id.plan_date);
+//        plan_time = (TimePicker)findViewById(R.id.plan_time);
+//        plan_time.setIs24HourView(true);
         red = (TextView)findViewById(R.id.red);
         yellow = (TextView)findViewById(R.id.yellow);
         green = (TextView)findViewById(R.id.green);
@@ -138,32 +138,33 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
             plan_content.setText(getIntent().getStringExtra("plan_content"));
             urgency = getIntent().getIntExtra("urgency",-1);
             setStyle();
-            String date = getIntent().getStringExtra("plan_date");
-            pYear = Integer.parseInt(date.split("-")[0]);
-            pMonth = Integer.parseInt(date.split("-")[1]);
-            pDay = Integer.parseInt(date.split("-")[2]);
-            String time = getIntent().getStringExtra("plan_time");
-            pHour = Integer.parseInt(time.split(":")[0]);
-            pMinute = Integer.parseInt(time.split(":")[1]);
-        } else {
-            calendar = Calendar.getInstance();
-            pYear = calendar.get(Calendar.YEAR);
-            pMonth = calendar.get(Calendar.MONTH);
-            pDay = calendar.get(Calendar.DAY_OF_MONTH);
-            pHour = calendar.get(Calendar.HOUR_OF_DAY);
-            pMinute = calendar.get(Calendar.MINUTE);
+//            String date = getIntent().getStringExtra("plan_date");
+//            pYear = Integer.parseInt(date.split("-")[0]);
+//            pMonth = Integer.parseInt(date.split("-")[1]);
+//            pDay = Integer.parseInt(date.split("-")[2]);
+//            String time = getIntent().getStringExtra("plan_time");
+//            pHour = Integer.parseInt(time.split(":")[0]);
+//            pMinute = Integer.parseInt(time.split(":")[1]);
         }
-        plan_date.init(pYear, pMonth, pDay, new DatePicker.OnDateChangedListener() {
-            @Override
-            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                pYear=year;
-                pMonth=monthOfYear;
-                pDay=dayOfMonth;
-                Toast.makeText(PlanActivity.this,pYear+""+pMonth+""+pDay,Toast.LENGTH_SHORT).show();
-            }
-        });
-        plan_time.setHour(pHour);
-        plan_time.setMinute(pMinute);
+//        else {
+//            calendar = Calendar.getInstance();
+//            pYear = calendar.get(Calendar.YEAR);
+//            pMonth = calendar.get(Calendar.MONTH);
+//            pDay = calendar.get(Calendar.DAY_OF_MONTH);
+//            pHour = calendar.get(Calendar.HOUR_OF_DAY);
+//            pMinute = calendar.get(Calendar.MINUTE);
+//        }
+//        plan_date.init(pYear, pMonth, pDay, new DatePicker.OnDateChangedListener() {
+//            @Override
+//            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//                pYear=year;
+//                pMonth=monthOfYear;
+//                pDay=dayOfMonth;
+//                Toast.makeText(PlanActivity.this,pYear+""+pMonth+""+pDay,Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        plan_time.setHour(pHour);
+//        plan_time.setMinute(pMinute);
     }
 
     @Override

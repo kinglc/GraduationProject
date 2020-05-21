@@ -1,29 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".content.TodoFragment">
+    tools:context=".content.TodoFragment"
+    android:orientation="vertical"
+    android:background="@color/backGray">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/commonBlue">
 
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#fff"
+            android:text="本周"
+            android:textSize="20dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/menu" />
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:orientation="vertical"
-        android:background="#ffffff">
+        android:background="@drawable/top_radius">
     <!-- TODO: Update blank fragment layout -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="2dp">
             <TextView
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="80dp"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_weight="1"
-                android:text="今日待办"
-                android:gravity="center"
-                android:paddingBottom="2dp"
+                android:text="待办事项"
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="10dp"
                 android:textSize="25dp"/>
             <ImageView
                 android:layout_width="30dp"
@@ -36,7 +64,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/todo_share"
-                android:src="@drawable/todo_repeat"/>
+                android:src="@drawable/todo_repeat"
+                android:layout_marginRight="20dp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -78,4 +107,4 @@
             android:layout_height="match_parent"
             android:id="@+id/todo_lv"/>
     </LinearLayout>
-</FrameLayout>
+</LinearLayout>

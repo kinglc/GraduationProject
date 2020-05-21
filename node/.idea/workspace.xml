@@ -26,6 +26,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="todo.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/todo.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-105">
+              <caret line="27" column="108" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="108" />
+              <folding>
+                <element signature="n#!!block;n#handleError#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="log.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/log.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,25 +62,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plan.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plan.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/plan.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
               <caret line="63" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="e#528#1337#0" />
-                <element signature="n#!!block;n#handleError#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="todo.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/todo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
-              <folding>
                 <element signature="n#!!block;n#handleError#0" />
               </folding>
             </state>
@@ -118,10 +118,10 @@
         <option value="$PROJECT_DIR$/api/log.js" />
         <option value="$PROJECT_DIR$/api/note.js" />
         <option value="$PROJECT_DIR$/api/plan.js" />
-        <option value="$PROJECT_DIR$/api/todo.js" />
         <option value="$PROJECT_DIR$/api/user.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/api/achieve.js" />
+        <option value="$PROJECT_DIR$/api/todo.js" />
       </list>
     </option>
   </component>
@@ -230,12 +230,12 @@
       <workItem from="1589817299358" duration="5806000" />
       <workItem from="1589969633404" duration="1273000" />
       <workItem from="1590060815220" duration="2360000" />
-      <workItem from="1590068859839" duration="5991000" />
+      <workItem from="1590068859839" duration="7205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28560000" />
+    <option name="totallyTimeSpent" value="29774000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -248,6 +248,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19154558" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
@@ -493,16 +494,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/todo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="n#!!block;n#handleError#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/connect.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -553,6 +544,16 @@
           <caret line="63" selection-start-line="63" selection-end-line="63" />
           <folding>
             <element signature="e#528#1337#0" />
+            <element signature="n#!!block;n#handleError#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/todo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="27" column="108" selection-start-line="27" selection-start-column="108" selection-end-line="27" selection-end-column="108" />
+          <folding>
             <element signature="n#!!block;n#handleError#0" />
           </folding>
         </state>
