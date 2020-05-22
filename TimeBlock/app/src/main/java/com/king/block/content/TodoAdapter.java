@@ -17,8 +17,16 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.king.block.Global;
 import com.king.block.R;
 
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -28,10 +36,20 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
     private int newResourceId;
     private int lastEdit=-1;
     private ListView mListView;
+    private List<Todo> todo_list;
 
+    private int notfinish = 0;
+    private boolean clickable = true;
+
+    private Global global;
+
+    public void setGlobal(Global global) {
+        this.global = global;
+    }
 
     public TodoAdapter(Context context, int resourceId, List<Todo> todo_list){
         super(context, resourceId, todo_list);
+        this.todo_list = todo_list;
         newResourceId = resourceId;
     }
 
@@ -49,6 +67,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
             viewHolder.todo_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(!clickable) return;
                     turnOutEdit();
                     turnInEdit(position);
                 }
@@ -56,10 +75,14 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
             viewHolder.todo_save.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(!clickable) return;
                     turnOutEdit();
 
-                    //未完成-更新数据库
-//                    updateTodo(position);
+                    View view = mListView.getChildAt(position - mListView.getFirstVisiblePosition());
+                    ViewHolder holder = (ViewHolder) view.getTag();
+                    initHolder(view,holder);
+                    Todo t = todo_list.get(position);
+                    editTodo(t.getId(),holder.todo_input.getText().toString());
                 }
             });
             viewHolder.todo_checked.setOnClickListener(new View.OnClickListener(){
@@ -68,7 +91,27 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     View view = mListView.getChildAt(position - mListView.getFirstVisiblePosition());
                     ViewHolder holder = (ViewHolder) view.getTag();
                     initHolder(view,holder);
+                    if(!clickable) {
+                        holder.todo_checked.setChecked(!holder.todo_checked.isChecked());
+                        return;
+                    }
                     changeStyle(holder,holder.todo_checked.isChecked());
+
+                    Todo t = todo_list.get(position);
+                    editTodo(t.getId(),holder.todo_checked.isChecked()?1:0);
+                    if(holder.todo_checked.isChecked()){
+                        notfinish--;
+                    }else{
+                        notfinish++;
+                    }
+                    if(notfinish==0){
+                        Date now = new Date();
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        int num = getNum(sdf.format(now));
+                        if(num>0){
+                            Toast.makeText(getContext(),"完成今日全部"+num+"项待办",Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 }
             });
             convertView.setTag(viewHolder);
@@ -120,6 +163,133 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
         lastEdit=-1;
     }
 
+    //调用接口
+    //修改title
+    private void editTodo(int todo_id,String title){
+        try {
+            URL u = new URL(global.getURL() + "/todo/edit");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"todo_id\":" + todo_id +
+                    ",\"title\":\""+title+"\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+//                    Toast.makeText(getContext(), "修改成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //设置check
+    private void editTodo(int todo_id,int check){
+        try {
+            URL u = new URL(global.getURL() + "/todo/check");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"todo_id\":" + todo_id +
+                    ",\"isChecked\":"+check+"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    Toast.makeText(getContext(), "修改成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //获取事项数
+    private int getNum(String date){
+        try {
+            URL u = new URL(global.getURL() + "/todo/number");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() +
+                    "\",\"date\":\""+date+"\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    return res.getJSONArray("data").getJSONObject(0).optInt("count(*)");
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+        return -1;
+    }
 
     private void initHolder(View v, ViewHolder vh){
         vh.todo_edit = (ImageView)v.findViewById(R.id.todo_edit);
@@ -135,6 +305,22 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
 
     public void setListView(ListView mListView) {
         this.mListView = mListView;
+    }
+
+    public void setNotfinish(int notfinish) {
+        this.notfinish = notfinish;
+    }
+
+    public int getNotfinish() {
+        return notfinish;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
+
+    public boolean isClickable() {
+        return clickable;
     }
 
     class ViewHolder{

@@ -124,6 +124,118 @@ router.post("/add", (req, res) => {
         pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
     });
 });
+
+// 编辑
+//     params{
+//          todo_id:
+//          title:
+//     }
+//     return{
+//         code:
+//         msg:""
+//     }
+router.post("/edit", (req, res) => {
+    console.log("edit");
+    var sqlStr = "update todo set title = \"" +req.body.title+ "\" where todo_id = " + req.body.todo_id;
+    console.log(sqlStr);
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "修改成功",
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
+// 选取是否完成
+//     params{
+//          todo_id:
+//          isChecked:
+//     }
+//     return{
+//         code:
+//         msg:""
+//     }
+router.post("/check", (req, res) => {
+    console.log("check");
+    var sqlStr = "update todo set isChecked =" +req.body.isChecked+ " where todo_id = " + req.body.todo_id;
+    console.log(sqlStr);
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "修改成功",
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
+
+// 当日事项数
+//     params{
+//          user_id:
+//          date:
+//     }
+//     return{
+//         code:
+//         msg:""
+//         date:
+//     }
+router.post("/number", (req, res) => {
+    console.log("number");
+    var sqlStr = "select count(*) from todo where user_id =\"" +req.body.user_id+ "\" and date = \"" + req.body.date+"\"";
+    console.log(sqlStr);
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "查询成功",
+                    data:result
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
 function handleError(err) {
     if (err) {
         // 如果是连接异常，自动重新连接

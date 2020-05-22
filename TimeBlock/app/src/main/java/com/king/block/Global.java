@@ -64,4 +64,6 @@ public class Global extends Application {
         min+=Integer.parseInt(time);
         return min;
     }
+
+    public void setLog()
 }

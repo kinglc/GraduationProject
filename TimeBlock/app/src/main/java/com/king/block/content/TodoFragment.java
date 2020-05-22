@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -39,7 +40,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class TodoFragment extends Fragment {
+public class TodoFragment extends Fragment{
     View view;
     Global global;
     private ListView todo_lv;
@@ -64,10 +65,17 @@ public class TodoFragment extends Fragment {
         return view;
     }
 
-
     //调用接口
     //获取当日待办
     private void getTodo(String date){
+        Date d = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");//注意月份是MM
+        try {
+            d = simpleDateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int now = cmpDate(d);
         try {
             URL url = new URL(global.getURL() + "/todo/query");
             // 打开连接
@@ -97,7 +105,11 @@ public class TodoFragment extends Fragment {
                     JSONArray todos = res.getJSONArray("data");
                     for(int i=0;i<todos.length();i++){
                         JSONObject todo = todos.getJSONObject(i);
-                        todo_list.add(new Todo(todo.getInt("todo_id"),todo.getString("title"),todo.getInt("isChecked")==1,todo.getString("date")));
+                        todo_list.add(new Todo(todo.getInt("todo_id"),todo.getString("title"),
+                                todo.getInt("isChecked")==1,todo.getString("date")));
+                        if(now==0&&todo.getInt("isChecked")==0){
+                            todoAdapter.setNotfinish(todoAdapter.getNotfinish()+1);
+                        }
                     }
                 } else {
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
@@ -111,6 +123,7 @@ public class TodoFragment extends Fragment {
             e.printStackTrace();
             Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     //删除
@@ -233,19 +246,25 @@ public class TodoFragment extends Fragment {
         todo_lv =(ListView) view.findViewById(R.id.todo_lv);
         todo_lv.setAdapter(todoAdapter);
         todoAdapter.setListView(todo_lv);
+        todoAdapter.setGlobal(global);
         todo_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                if(!todoAdapter.isClickable()) return;
                 AlertDialog dialog = new AlertDialog.Builder(getContext())
                         .setTitle("提示")
                         .setMessage("确定删除此待办项？")
                         .setPositiveButton("确认",new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                boolean isChecked = todo_list.get(position).isChecked();
                                 int del_id = todo_list.get(position).getId();
                                 deleteTodo(del_id);
                                 todo_list.remove(position);
                                 todoAdapter.notifyDataSetChanged();
+                                if (!isChecked) {
+                                    todoAdapter.setNotfinish(todoAdapter.getNotfinish() - 1);
+                                }
                             }
                         })
                         .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -293,9 +312,11 @@ public class TodoFragment extends Fragment {
                             return ;
                         } else if (cmp==-1) {
                             todo.setVisibility(View.VISIBLE);
+                            todoAdapter.setClickable(false);
                             add_layout.setVisibility(View.GONE);
                         } else {
                             todo.setVisibility(View.VISIBLE);
+                            todoAdapter.setClickable(true);
                             add_layout.setVisibility(View.VISIBLE);
                         }
                         todo_list.clear();
@@ -336,6 +357,7 @@ public class TodoFragment extends Fragment {
             public void onClick(View v) {
                 if(input.getText().length()>0){
                     addTodo();
+                    todoAdapter.setNotfinish(todoAdapter.getNotfinish()+1);
                 }else{
                     Toast.makeText(getContext(),"请输入内容",Toast.LENGTH_SHORT).show();
                 }
