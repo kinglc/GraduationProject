@@ -1,12 +1,9 @@
 package com.king.block.content;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -18,6 +15,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,10 +23,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.king.block.ContentActivity;
 import com.king.block.Global;
 import com.king.block.R;
-import com.king.block.user.AchieveActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -36,6 +32,8 @@ import org.json.JSONObject;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -58,9 +56,9 @@ public class TodoFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_todo, container, false);
 
         global = (Global)getActivity().getApplication();
-        initLv();
         initEvent();
         initDate();
+        initLv();
         getTodo(year + "-" + month + "-" + day);
 
         return view;
@@ -115,6 +113,112 @@ public class TodoFragment extends Fragment {
         }
     }
 
+    //删除
+    private void deleteTodo(int del_id){
+        try {
+            URL url = new URL(global.getURL() + "/todo/delete");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+            String content = "{\"todo_id\":" + del_id + "}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    Toast.makeText(getContext(), "删除成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            input.setText(e.toString());
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //添加
+    private void addTodo(){
+        try {
+            URL url = new URL(global.getURL() + "/todo/add");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() +
+                    "\",\"title\":\""+input.getText()+
+                    "\",\"date\":\""+year+"-"+month+"-"+day+"\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    int id = res.optInt("insertId");
+                    todo_list.add(new Todo(id,input.getText().toString(),false, year+"-"+month+"-"+day));
+                    todoAdapter.notifyDataSetChanged();
+                    input.setText("");
+                    input.clearFocus();
+                    Toast.makeText(getContext(), "添加成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            input.setText(e.toString());
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private int cmpDate(Date d){
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        int nowd = Integer.parseInt(sdf.format(now));
+        int dd = Integer.parseInt(sdf.format(d));
+        if (dd< nowd) {
+            return -1;
+        } else if (dd > nowd) {
+            return 1;
+        }
+        return 0;
+    }
 
     private void initDate(){
         Calendar mcalendar = Calendar.getInstance();     //  获取当前时间    —   年、月、日
@@ -139,13 +243,9 @@ public class TodoFragment extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 int del_id = todo_list.get(position).getId();
+                                deleteTodo(del_id);
                                 todo_list.remove(position);
-//                                todoAdapter.setListView(todo_lv);
-                                todoAdapter.turnOutEdit();
-                                todoAdapter = new TodoAdapter(getActivity(), R.layout.item_todo, todo_list);
-                                todo_lv.setAdapter(todoAdapter);
-//                               未完成-删除数据库
-//                                int delete = DataSupport.deleteAll(Ddl.class, "task = ? and content = ?", del1, del2);
+                                todoAdapter.notifyDataSetChanged();
                             }
                         })
                         .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -165,6 +265,8 @@ public class TodoFragment extends Fragment {
         ImageView repeat = (ImageView)view.findViewById(R.id.todo_repeat);
         ImageView share = (ImageView)view.findViewById(R.id.todo_share);
         ImageView insert = (ImageView)view.findViewById(R.id.todo_insert);
+        final LinearLayout todo = (LinearLayout)view.findViewById(R.id.todo);
+        final LinearLayout add_layout = (LinearLayout)view.findViewById(R.id.add_layout);
         input=(EditText)view.findViewById(R.id.input);
 
         date = (TextView) view.findViewById(R.id.date);
@@ -173,15 +275,34 @@ public class TodoFragment extends Fragment {
             public void onClick(View v) {
                 new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {      //  日期选择对话框
                     @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        //  这个方法是得到选择后的 年，月，日，分别对应着三个参数 — year、month、dayOfMonth
+                    public void onDateSet(DatePicker view, final int year, int month, final int dayOfMonth) {
                         month++;
-                        date.setText(year + "-" + month + "-" + dayOfMonth + "  ▼");
+                        String dateString = year + "-" + month + "-" + dayOfMonth;
+                        Date d = new Date();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");//注意月份是MM
+                        try {
+                            d = simpleDateFormat.parse(dateString);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        date.setText(dateString + "  ▼");
+                        int cmp = cmpDate(d);
+                        if (cmp==1) {
+                            todo.setVisibility(View.GONE);
+                            add_layout.setVisibility(View.GONE);
+                            return ;
+                        } else if (cmp==-1) {
+                            todo.setVisibility(View.VISIBLE);
+                            add_layout.setVisibility(View.GONE);
+                        } else {
+                            todo.setVisibility(View.VISIBLE);
+                            add_layout.setVisibility(View.VISIBLE);
+                        }
                         todo_list.clear();
-                        getTodo(year + "-" + month + "-" + dayOfMonth );
+                        getTodo(year + "-" + month + "-" + dayOfMonth);
                         todoAdapter.notifyDataSetChanged();
                     }
-                }, year, month-1, day).show();   //  弹出日历对话框时，默认显示 年，月，日
+                }, year, month - 1, day).show();   //  弹出日历对话框时，默认显示 年，月，日
             }
         });
 
@@ -213,10 +334,11 @@ public class TodoFragment extends Fragment {
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                TextView title = (TextView)view.findViewById(R.id.todo_addinput);
-//                Todo todo = new Todo(111,title.getText().toString(),false,"aa");
-//                todo_list.add(todo);
-//  未完成-提交数据
+                if(input.getText().length()>0){
+                    addTodo();
+                }else{
+                    Toast.makeText(getContext(),"请输入内容",Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

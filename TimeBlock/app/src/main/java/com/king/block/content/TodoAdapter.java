@@ -57,6 +57,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                 @Override
                 public void onClick(View v) {
                     turnOutEdit();
+
                     //未完成-更新数据库
 //                    updateTodo(position);
                 }
