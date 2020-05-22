@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:id="@+id/todo_addinput"
+                android:id="@+id/input"
                 android:hint="添加待办项"
                 android:textSize="16dp"
                 android:textColor="#000000"
