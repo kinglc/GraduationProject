@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".user.ChartActivity"></activity>
+        <activity android:name=".user.ChartActivity" />
         <activity android:name=".content.PlanActivity" />
         <activity android:name=".content.NoteActivity" />
         <activity android:name=".user.AchieveActivity" />

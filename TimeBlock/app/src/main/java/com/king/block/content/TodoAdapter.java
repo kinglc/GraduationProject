@@ -26,6 +26,7 @@ import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -40,7 +41,8 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
 
     private int notfinish = 0;
     private boolean clickable = true;
-
+    private int tododay=-1;
+    private int prize[]={1,7,30,100,500,1000};
     private Global global;
 
     public void setGlobal(Global global) {
@@ -107,9 +109,24 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     if(notfinish==0){
                         Date now = new Date();
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        int num = getNum(sdf.format(now));
+                        String date = sdf.format(now);
+                        int num = getNum(date);
                         if(num>0){
-                            Toast.makeText(getContext(),"完成今日全部"+num+"项待办",Toast.LENGTH_SHORT).show();
+                            int log_id = isExist(0,date);
+                            if(log_id==-1){
+                                int day = getTododay()+1;
+                                setTododay(day);
+                                global.setLog(0, "完成" + num + "项待办", date);
+                                int  pos= 0;
+                                for(;pos<prize.length;pos++)
+                                    if(prize[pos]==day) break;
+                                if(pos!=prize.length){
+                                    setAchieve(2*pos+1);
+                                    Toast.makeText(getContext(),"获得成就"+global.getAchieve().get(2*pos).getName(),Toast.LENGTH_SHORT).show();
+                                }
+                            }else {
+                                updateLog(log_id,"完成" + num + "项待办");
+                            }
                         }
                     }
                 }
@@ -191,7 +208,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                 int code = res.optInt("code");
                 String msg = res.optString("msg");
                 if (code == 200) {
-//                    Toast.makeText(getContext(), "修改成功", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "修改成功", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
@@ -233,7 +250,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                 int code = res.optInt("code");
                 String msg = res.optString("msg");
                 if (code == 200) {
-                    Toast.makeText(getContext(), "修改成功", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "修改成功", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
@@ -289,6 +306,216 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
             Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
         }
         return -1;
+    }
+
+    //获取tododay
+    private int getTododay(){
+        try {
+            URL u = new URL(global.getURL() + "/user/getday");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    return res.getJSONArray("data").getJSONObject(0).optInt("todo_day");
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+        return -1;
+    }
+
+    //设置tododay
+    private void setTododay(int todo_day){
+        try {
+            URL u = new URL(global.getURL() + "/user/setday");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"todo_day\":"+todo_day+"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    Toast.makeText(getContext(),"完成所有待办！",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //更新todo成就
+    private void setAchieve(int prize_todo){
+        try {
+            URL u = new URL(global.getURL() + "/achieve/todo");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"prize_todo\":"+prize_todo+"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+//                    Toast.makeText(getContext(),"完成所有待办！",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //log是否存在
+    private int isExist(int type,String date){
+        try {
+            URL u = new URL(global.getURL() + "/log/isExist");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"date\":\""+date +"\",\"type\":"+type+"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    return res.getJSONArray("data").getJSONObject(0).optInt("log_id");
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+        return -1;
+    }
+
+    //            java.net.URL u = new URL(global.getURL() + "/log/update");
+//            String content = "{\"log_id\":" + log_id + ",\"name\":\""+name +"\"}";
+
+    //更新log
+    private void updateLog(int log_id, String name){
+        try {
+            URL u = new URL(global.getURL() + "/log/update");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"log_id\":" + log_id + ",\"name\":\""+name +"\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    return ;
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void initHolder(View v, ViewHolder vh){

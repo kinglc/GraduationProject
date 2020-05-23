@@ -52,14 +52,20 @@ public class TodoFragment extends Fragment{
     private ImageView menu;
     private EditText input;
 
+    ImageView repeat;
+    ImageView share;
+    ImageView insert;
+    LinearLayout todo;
+    LinearLayout add_layout;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_todo, container, false);
 
         global = (Global)getActivity().getApplication();
-        initEvent();
+        initComp();
         initDate();
         initLv();
+        initEvent();
         getTodo(year + "-" + month + "-" + day);
 
         return view;
@@ -75,7 +81,7 @@ public class TodoFragment extends Fragment{
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        int now = cmpDate(d);
+        int now = global.cmpDate(d);
         try {
             URL url = new URL(global.getURL() + "/todo/query");
             // 打开连接
@@ -220,17 +226,17 @@ public class TodoFragment extends Fragment{
         }
     }
 
-    private int cmpDate(Date d){
-        Date now = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        int nowd = Integer.parseInt(sdf.format(now));
-        int dd = Integer.parseInt(sdf.format(d));
-        if (dd< nowd) {
-            return -1;
-        } else if (dd > nowd) {
-            return 1;
-        }
-        return 0;
+    private void initComp(){
+        share = (ImageView)view.findViewById(R.id.todo_share);
+        repeat = (ImageView)view.findViewById(R.id.todo_repeat);
+        insert = (ImageView)view.findViewById(R.id.todo_insert);
+        todo = (LinearLayout)view.findViewById(R.id.todo);
+        add_layout = (LinearLayout)view.findViewById(R.id.add_layout);
+        input=(EditText)view.findViewById(R.id.input);
+
+        date = (TextView) view.findViewById(R.id.date);
+        menu = (ImageView) view.findViewById(R.id.menu);
+
     }
 
     private void initDate(){
@@ -281,14 +287,6 @@ public class TodoFragment extends Fragment{
     }
 
     private void initEvent(){
-        ImageView repeat = (ImageView)view.findViewById(R.id.todo_repeat);
-        ImageView share = (ImageView)view.findViewById(R.id.todo_share);
-        ImageView insert = (ImageView)view.findViewById(R.id.todo_insert);
-        final LinearLayout todo = (LinearLayout)view.findViewById(R.id.todo);
-        final LinearLayout add_layout = (LinearLayout)view.findViewById(R.id.add_layout);
-        input=(EditText)view.findViewById(R.id.input);
-
-        date = (TextView) view.findViewById(R.id.date);
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -305,7 +303,7 @@ public class TodoFragment extends Fragment{
                             e.printStackTrace();
                         }
                         date.setText(dateString + "  ▼");
-                        int cmp = cmpDate(d);
+                        int cmp = global.cmpDate(d);
                         if (cmp==1) {
                             todo.setVisibility(View.GONE);
                             add_layout.setVisibility(View.GONE);
@@ -327,7 +325,6 @@ public class TodoFragment extends Fragment{
             }
         });
 
-        menu = (ImageView) view.findViewById(R.id.menu);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
