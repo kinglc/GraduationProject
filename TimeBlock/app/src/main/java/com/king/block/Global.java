@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,7 +67,7 @@ public class Global extends Application {
     }
 
     public JSONObject streamtoJson(InputStream is) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
         String line, s="";
         JSONObject result = null;
         while ((line = reader.readLine()) != null) {
@@ -125,7 +126,7 @@ public class Global extends Application {
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + this.userId + "\",\"type\":"+type+
                     ",\"name\":\""+name+ "\",\"date\":\""+date+"\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 

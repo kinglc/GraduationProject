@@ -69,7 +69,7 @@ public class AchieveActivity extends AppCompatActivity {
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
 //            String content = "user_id:" + global.getUserId();
             String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 

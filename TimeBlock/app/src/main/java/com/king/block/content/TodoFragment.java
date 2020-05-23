@@ -99,7 +99,7 @@ public class TodoFragment extends Fragment{
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
 //            String content = "user_id:" + global.getUserId();
             String content = "{\"user_id\":\"" + global.getUserId() + "\",\"date\":\""+date+"\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -151,7 +151,7 @@ public class TodoFragment extends Fragment{
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
 //            String content = "user_id:" + global.getUserId();
             String content = "{\"todo_id\":" + del_id + "}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -196,7 +196,7 @@ public class TodoFragment extends Fragment{
             String content = "{\"user_id\":\"" + global.getUserId() +
                     "\",\"title\":\""+input.getText()+
                     "\",\"date\":\""+year+"-"+month+"-"+day+"\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 

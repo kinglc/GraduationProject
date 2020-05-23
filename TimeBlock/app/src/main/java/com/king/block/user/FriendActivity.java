@@ -69,7 +69,7 @@ public class FriendActivity extends AppCompatActivity {
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + user_id + "\",\"ids\":\"" + ids + "\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -113,7 +113,7 @@ public class FriendActivity extends AppCompatActivity {
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
 //            String content = "user_id:" + global.getUserId();
             String content = "{\"ids\":\"" + ids.substring(0,ids.length()-1) + "\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -166,7 +166,7 @@ public class FriendActivity extends AppCompatActivity {
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + user_id + "\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -210,7 +210,7 @@ public class FriendActivity extends AppCompatActivity {
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"id\":\"" + id + "\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 

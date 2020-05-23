@@ -20,6 +20,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoFragment.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,23 +41,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="237" column="56" selection-start-line="237" selection-start-column="56" selection-end-line="237" selection-end-column="56" />
+            <state relative-caret-position="161">
+              <caret line="354" column="35" selection-start-line="354" selection-start-column="35" selection-end-line="354" selection-end-column="35" />
               <folding>
+                <element signature="method#onCreateView#0;class#TodoFragment#0" />
                 <element signature="method#getTodo#0;class#TodoFragment#0" />
                 <element signature="method#deleteTodo#0;class#TodoFragment#0" />
                 <element signature="method#addTodo#0;class#TodoFragment#0" />
-                <element signature="e#5978#7770#0" />
+                <element signature="method#initComp#0;class#TodoFragment#0" />
                 <element signature="method#initDate#0;class#TodoFragment#0" />
                 <element signature="method#initLv#0;class#TodoFragment#0" />
                 <element signature="e#9646#11399#0" expanded="true" />
                 <element signature="e#10076#10819#0" expanded="true" />
                 <element signature="e#10818#10819#0" expanded="true" />
                 <element signature="e#11398#11399#0" expanded="true" />
-                <element signature="method#initEvent#0;class#TodoFragment#0" />
                 <element signature="e#12118#13810#0" expanded="true" />
                 <element signature="e#13809#13810#0" expanded="true" />
                 <element signature="e#14187#14317#0" expanded="true" />
@@ -68,37 +69,36 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="465" column="17" lean-forward="true" selection-start-line="465" selection-start-column="17" selection-end-line="465" selection-end-column="17" />
+            <state relative-caret-position="207">
+              <caret line="494" column="82" lean-forward="true" selection-start-line="494" selection-start-column="82" selection-end-line="495" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1185#1186#0" expanded="true" />
                 <element signature="e#1221#1222#0" expanded="true" />
+                <element signature="e#2032#2284#0" expanded="true" />
+                <element signature="e#2283#2284#0" expanded="true" />
                 <element signature="e#2957#5170#0" expanded="true" />
                 <element signature="e#2504#2538#1" />
                 <element signature="e#3472#3529#1" />
                 <element signature="e#5169#5170#0" expanded="true" />
-                <element signature="method#changeStyle#0;class#TodoAdapter#0" />
-                <element signature="method#turnInEdit#0;class#TodoAdapter#0" />
-                <element signature="method#turnOutEdit#0;class#TodoAdapter#0" />
                 <element signature="method#editTodo#0;class#TodoAdapter#0" />
                 <element signature="method#editTodo#1;class#TodoAdapter#0" />
                 <element signature="method#getNum#0;class#TodoAdapter#0" />
                 <element signature="method#getTododay#0;class#TodoAdapter#0" />
                 <element signature="method#setTododay#0;class#TodoAdapter#0" />
                 <element signature="method#setAchieve#0;class#TodoAdapter#0" />
-                <element signature="method#setLog#0;class#TodoAdapter#0" />
-                <element signature="method#updateLog#0;class#TodoAdapter#0" />
+                <element signature="method#isExist#0;class#TodoAdapter#0" />
                 <element signature="method#initHolder#0;class#TodoAdapter#0" />
-                <element signature="e#23528#23529#0" expanded="true" />
-                <element signature="e#23621#23622#0" expanded="true" />
-                <element signature="e#23710#23711#0" expanded="true" />
-                <element signature="e#23775#23776#0" expanded="true" />
-                <element signature="e#23868#23869#0" expanded="true" />
-                <element signature="e#23936#23937#0" expanded="true" />
+                <element signature="e#7654#7687#1" />
+                <element signature="e#21693#21694#0" expanded="true" />
+                <element signature="e#21786#21787#0" expanded="true" />
+                <element signature="e#21875#21876#0" expanded="true" />
+                <element signature="e#21940#21941#0" expanded="true" />
+                <element signature="e#22033#22034#0" expanded="true" />
+                <element signature="e#22101#22102#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="150" selection-end-column="7" />
+            <state relative-caret-position="111">
+              <caret line="69" column="76" lean-forward="true" selection-start-line="69" selection-start-column="76" selection-end-line="69" selection-end-column="76" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1169#1170#0" expanded="true" />
@@ -121,9 +121,9 @@
                 <element signature="e#517#518#0" expanded="true" />
                 <element signature="e#561#562#0" expanded="true" />
                 <element signature="e#597#598#0" expanded="true" />
-                <element signature="method#streamtoJson#0;class#Global#0" />
                 <element signature="method#countTime#0;class#Global#0" />
                 <element signature="method#cmpDate#0;class#Global#0" />
+                <element signature="method#setLog#0;class#Global#0" />
               </folding>
             </state>
           </provider>
@@ -152,10 +152,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>VISI</find>
-      <find>drawerlayout</find>
-      <find>rlayout</find>
-      <find>layout</find>
       <find>VISIBLE</find>
       <find>ca</find>
       <find>top</find>
@@ -165,8 +161,6 @@
       <find>che</find>
       <find>未完成</find>
       <find>onItem</find>
-      <find>save</find>
-      <find>add</find>
       <find>getTodo</find>
       <find>cmpDa</find>
       <find>url</find>
@@ -177,11 +171,17 @@
       <find>cmpD</find>
       <find>Date</find>
       <find>getNum</find>
-      <find>isEx</find>
       <find>String date</find>
       <find>delete</find>
       <find>getResponseC</find>
       <find>draw</find>
+      <find>isEx</find>
+      <find>save</find>
+      <find>add</find>
+      <find>addT</find>
+      <find>setLo</find>
+      <find>out.wr</find>
+      <find>addTodo</find>
     </findStrings>
     <replaceStrings>
       <replace>Listener</replace>
@@ -261,9 +261,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_todo.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoFragment.java" />
       </list>
     </option>
   </component>
@@ -670,31 +670,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java</url>
-          <line>123</line>
+          <line>122</line>
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java</url>
-          <line>120</line>
+          <line>119</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java</url>
-          <line>124</line>
+          <line>125</line>
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java</url>
-          <line>480</line>
-          <properties />
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java</url>
-          <line>452</line>
+          <line>451</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
@@ -1170,8 +1164,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="150" selection-end-column="7" />
+        <state relative-caret-position="111">
+          <caret line="69" column="76" lean-forward="true" selection-start-line="69" selection-start-column="76" selection-end-line="69" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1169#1170#0" expanded="true" />
@@ -1184,69 +1178,68 @@
             <element signature="e#517#518#0" expanded="true" />
             <element signature="e#561#562#0" expanded="true" />
             <element signature="e#597#598#0" expanded="true" />
-            <element signature="method#streamtoJson#0;class#Global#0" />
             <element signature="method#countTime#0;class#Global#0" />
             <element signature="method#cmpDate#0;class#Global#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="237" column="56" selection-start-line="237" selection-start-column="56" selection-end-line="237" selection-end-column="56" />
-          <folding>
-            <element signature="method#getTodo#0;class#TodoFragment#0" />
-            <element signature="method#deleteTodo#0;class#TodoFragment#0" />
-            <element signature="method#addTodo#0;class#TodoFragment#0" />
-            <element signature="e#5978#7770#0" />
-            <element signature="method#initDate#0;class#TodoFragment#0" />
-            <element signature="method#initLv#0;class#TodoFragment#0" />
-            <element signature="e#9646#11399#0" expanded="true" />
-            <element signature="e#10076#10819#0" expanded="true" />
-            <element signature="e#10818#10819#0" expanded="true" />
-            <element signature="e#11398#11399#0" expanded="true" />
-            <element signature="method#initEvent#0;class#TodoFragment#0" />
-            <element signature="e#12118#13810#0" expanded="true" />
-            <element signature="e#13809#13810#0" expanded="true" />
-            <element signature="e#14187#14317#0" expanded="true" />
-            <element signature="e#14316#14317#0" expanded="true" />
-            <element signature="e#14354#14486#0" expanded="true" />
-            <element signature="e#14485#14486#0" expanded="true" />
+            <element signature="method#setLog#0;class#Global#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="465" column="17" lean-forward="true" selection-start-line="465" selection-start-column="17" selection-end-line="465" selection-end-column="17" />
+        <state relative-caret-position="207">
+          <caret line="494" column="82" lean-forward="true" selection-start-line="494" selection-start-column="82" selection-end-line="495" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1185#1186#0" expanded="true" />
             <element signature="e#1221#1222#0" expanded="true" />
+            <element signature="e#2032#2284#0" expanded="true" />
+            <element signature="e#2283#2284#0" expanded="true" />
             <element signature="e#2957#5170#0" expanded="true" />
             <element signature="e#2504#2538#1" />
             <element signature="e#3472#3529#1" />
             <element signature="e#5169#5170#0" expanded="true" />
-            <element signature="method#changeStyle#0;class#TodoAdapter#0" />
-            <element signature="method#turnInEdit#0;class#TodoAdapter#0" />
-            <element signature="method#turnOutEdit#0;class#TodoAdapter#0" />
             <element signature="method#editTodo#0;class#TodoAdapter#0" />
             <element signature="method#editTodo#1;class#TodoAdapter#0" />
             <element signature="method#getNum#0;class#TodoAdapter#0" />
             <element signature="method#getTododay#0;class#TodoAdapter#0" />
             <element signature="method#setTododay#0;class#TodoAdapter#0" />
             <element signature="method#setAchieve#0;class#TodoAdapter#0" />
-            <element signature="method#setLog#0;class#TodoAdapter#0" />
-            <element signature="method#updateLog#0;class#TodoAdapter#0" />
+            <element signature="method#isExist#0;class#TodoAdapter#0" />
             <element signature="method#initHolder#0;class#TodoAdapter#0" />
-            <element signature="e#23528#23529#0" expanded="true" />
-            <element signature="e#23621#23622#0" expanded="true" />
-            <element signature="e#23710#23711#0" expanded="true" />
-            <element signature="e#23775#23776#0" expanded="true" />
-            <element signature="e#23868#23869#0" expanded="true" />
-            <element signature="e#23936#23937#0" expanded="true" />
+            <element signature="e#7654#7687#1" />
+            <element signature="e#21693#21694#0" expanded="true" />
+            <element signature="e#21786#21787#0" expanded="true" />
+            <element signature="e#21875#21876#0" expanded="true" />
+            <element signature="e#21940#21941#0" expanded="true" />
+            <element signature="e#22033#22034#0" expanded="true" />
+            <element signature="e#22101#22102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="354" column="35" selection-start-line="354" selection-start-column="35" selection-end-line="354" selection-end-column="35" />
+          <folding>
+            <element signature="method#onCreateView#0;class#TodoFragment#0" />
+            <element signature="method#getTodo#0;class#TodoFragment#0" />
+            <element signature="method#deleteTodo#0;class#TodoFragment#0" />
+            <element signature="method#addTodo#0;class#TodoFragment#0" />
+            <element signature="method#initComp#0;class#TodoFragment#0" />
+            <element signature="method#initDate#0;class#TodoFragment#0" />
+            <element signature="method#initLv#0;class#TodoFragment#0" />
+            <element signature="e#9646#11399#0" expanded="true" />
+            <element signature="e#10076#10819#0" expanded="true" />
+            <element signature="e#10818#10819#0" expanded="true" />
+            <element signature="e#11398#11399#0" expanded="true" />
+            <element signature="e#12118#13810#0" expanded="true" />
+            <element signature="e#13809#13810#0" expanded="true" />
+            <element signature="e#14187#14317#0" expanded="true" />
+            <element signature="e#14316#14317#0" expanded="true" />
+            <element signature="e#14354#14486#0" expanded="true" />
+            <element signature="e#14485#14486#0" expanded="true" />
           </folding>
         </state>
       </provider>

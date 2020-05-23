@@ -116,8 +116,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                             if(log_id==-1){
                                 int day = getTododay()+1;
                                 setTododay(day);
-                                setLog(0, "完成" + num + "项待办", date);
-//                                global.setLog(0, "完成" + num + "项待办", date);
+                                global.setLog(0, "完成" + num + "项待办", date);
                                 int  pos= 0;
                                 for(;pos<prize.length;pos++)
                                     if(prize[pos]==day) break;
@@ -200,7 +199,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"todo_id\":" + todo_id +
                     ",\"title\":\""+title+"\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -242,7 +241,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"todo_id\":" + todo_id +
                     ",\"isChecked\":"+check+"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -284,7 +283,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + global.getUserId() +
                     "\",\"date\":\""+date+"\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -326,7 +325,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -368,7 +367,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + global.getUserId() + "\",\"todo_day\":"+todo_day+"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -409,7 +408,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + global.getUserId() + "\",\"prize_todo\":"+prize_todo+"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -450,7 +449,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + global.getUserId() + "\",\"date\":\""+date +"\",\"type\":"+type+"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
@@ -477,48 +476,6 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
         return -1;
     }
 
-    private void setLog(int type, String name, String date){
-        try {
-            URL u = new URL(global.getURL() + "/log/isExist");
-            // 打开连接
-            HttpURLConnection con = (HttpURLConnection) u.openConnection();
-            con.setRequestProperty("accept", "*/*");
-            con.setRequestProperty("Connection", "Keep-Alive");
-            con.setRequestProperty("Cache-Control", "no-cache");
-            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-            con.setRequestMethod("POST");
-            con.setDoOutput(true);
-            con.setDoInput(true);
-            con.connect();
-
-            DataOutputStream out = new DataOutputStream(con.getOutputStream());
-            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"type\":"+type+
-                    ",\"name\":\""+name+ "\",\"date\":\""+date+"\"}";
-            out.writeBytes(content);
-            out.flush();
-            out.close();
-
-            if (con.getResponseCode() == 200) {
-                JSONObject res = global.streamtoJson(con.getInputStream());
-                int code = res.optInt("code");
-                String msg = res.optString("msg");
-                if (code == 200) {
-//                    Toast.makeText("完成所有待办！",Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
-                }
-            } else {
-                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
-            }
-            con.disconnect();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
-        }
-    }
-
     //更新log
     private void updateLog(int log_id, String name){
         try {
@@ -536,7 +493,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"log_id\":" + log_id + ",\"name\":\""+name +"\"}";
-            out.writeBytes(content);
+            out.write(content.getBytes());
             out.flush();
             out.close();
 
