@@ -18,6 +18,7 @@ public class LogAdapter extends ArrayAdapter<Log> {
 
     private int resourceId;
     private Log log;
+    private List<Log> log_list;
     private LogAdapter.ViewHolder viewHolder;
     public LogAdapter(Context context, int textViewResourceId, List<Log> objects){
         super(context,textViewResourceId,objects);
@@ -37,41 +38,36 @@ public class LogAdapter extends ArrayAdapter<Log> {
         }else{
             viewHolder = (LogAdapter.ViewHolder) convertView.getTag();
         }
-        //未完成-获取对应事项内容及事件
-//        int id = log.getLogId();
         switch (log.getType()) {
             case 0:
                 viewHolder.type.setImageResource(R.drawable.log_todo);
-                Todo todo = new Todo(1,"aaa",true,"2020-01-01");
-//                viewHolder.date.setText(todo.getDate());
-                viewHolder.content.setText("完成当日待办");
                 break;
             case 1:
                 viewHolder.type.setImageResource(R.drawable.log_plan);
-                Plan plan = new Plan(1,"计划B","111",1,",,");
-//                viewHolder.date.setText(plan.getFinish());
-                viewHolder.content.setText("完成计划"+plan.getTitle());
                 break;
             case 2:
                 viewHolder.type.setImageResource(R.drawable.log_achieve);
-                Achieve achieve = new Achieve(1,1,"成就C","2020-03-03 03:03");
-//                viewHolder.date.setText(achieve.getDate());
-                viewHolder.content.setText("获得成就"+achieve.getName());
                 break;
             default:break;
         }
+        viewHolder.date.setText(log.getDate().split("T")[0]);
+        viewHolder.content.setText(log.getName());
         return convertView;
     }
 
     private void initHolder(View v, LogAdapter.ViewHolder vh){
         vh.type = (ImageView) v.findViewById(R.id.type);
         vh.content = (TextView) v.findViewById(R.id.content);
-        vh.time = (TextView) v.findViewById(R.id.time);
+        vh.date = (TextView) v.findViewById(R.id.date);
+    }
+
+    public void setLog_list(List<Log> log_list) {
+        this.log_list = log_list;
     }
 
     class ViewHolder{
         ImageView type;
         TextView content;
-        TextView time;
+        TextView date;
     }
 }

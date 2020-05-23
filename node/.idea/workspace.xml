@@ -87,10 +87,9 @@
       <file leaf-file-name="log.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/log.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+            <state relative-caret-position="167">
+              <caret line="47" column="11" lean-forward="true" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
               <folding>
-                <element signature="e#528#1337#0" />
                 <element signature="e#2587#3583#0" />
                 <element signature="e#3588#3595#0" />
                 <element signature="e#3631#4475#0" />
@@ -289,7 +288,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50855000" />
+    <option name="totallyTimeSpent" value="50992000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,10 +627,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/log.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+        <state relative-caret-position="167">
+          <caret line="47" column="11" lean-forward="true" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
           <folding>
-            <element signature="e#528#1337#0" />
             <element signature="e#2587#3583#0" />
             <element signature="e#3588#3595#0" />
             <element signature="e#3631#4475#0" />

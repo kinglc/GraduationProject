@@ -24,7 +24,7 @@ const conn = mysql.createConnection({
 //         data:[]
 router.post("/query", (req, res) => {
     console.log("query");
-    var sqlStr = "select plan_time,todo_day from user where user_id = '" + req.body.ids+"'";
+    var sqlStr = "select * from log where user_id = '" + req.body.user_id+"'";
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
