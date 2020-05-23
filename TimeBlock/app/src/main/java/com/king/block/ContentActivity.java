@@ -78,7 +78,6 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         initEvent();
         initStyle();
         initFrag();
-        initData();
 
         //初始计划页面
         plan_pic.setImageResource(R.drawable.plan_selected);
@@ -86,11 +85,6 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    private void initData(){
-        //未完成-获取用户数据
-        id="123456";
-        name.setText("bbb");
-    }
 
     //初始化组件
     private void initComp() {

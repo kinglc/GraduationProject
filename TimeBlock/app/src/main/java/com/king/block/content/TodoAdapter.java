@@ -122,11 +122,14 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                                     if(prize[pos]==day) break;
                                 if(pos!=prize.length){
                                     setAchieve(2*pos+1);
-                                    Toast.makeText(getContext(),"获得成就"+global.getAchieve().get(2*pos).getName(),Toast.LENGTH_SHORT).show();
+                                    String content = "达成成就”"+global.getAchieve().get(2*pos).getName()+"”";
+                                    global.setLog(2, content,date);
+                                    Toast.makeText(getContext(),content,Toast.LENGTH_SHORT).show();
                                 }
                             }else {
                                 updateLog(log_id,"完成" + num + "项待办");
                             }
+                            Toast.makeText(getContext(),"完成所有待办！",Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -376,7 +379,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                 int code = res.optInt("code");
                 String msg = res.optString("msg");
                 if (code == 200) {
-                    Toast.makeText(getContext(),"完成所有待办！",Toast.LENGTH_SHORT).show();
+                    return ;
                 } else {
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }

@@ -205,11 +205,6 @@ public class TodoFragment extends Fragment{
                 int code = res.optInt("code");
                 String msg = res.optString("msg");
                 if (code == 200) {
-                    int id = res.optInt("insertId");
-                    todo_list.add(new Todo(id,input.getText().toString(),false, year+"-"+month+"-"+day));
-                    todoAdapter.notifyDataSetChanged();
-                    input.setText("");
-                    input.clearFocus();
                     Toast.makeText(getContext(), "添加成功", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
@@ -266,7 +261,8 @@ public class TodoFragment extends Fragment{
                                 boolean isChecked = todo_list.get(position).isChecked();
                                 int del_id = todo_list.get(position).getId();
                                 deleteTodo(del_id);
-                                todo_list.remove(position);
+                                todo_list.clear();
+                                getTodo(year + "-" + month + "-" + day);
                                 todoAdapter.notifyDataSetChanged();
                                 if (!isChecked) {
                                     todoAdapter.setNotfinish(todoAdapter.getNotfinish() - 1);
@@ -354,6 +350,9 @@ public class TodoFragment extends Fragment{
             public void onClick(View v) {
                 if(input.getText().length()>0){
                     addTodo();
+                    todo_list.clear();
+                    getTodo(year + "-" + month + "-" + day);
+                    todoAdapter.notifyDataSetChanged();
                     todoAdapter.setNotfinish(todoAdapter.getNotfinish()+1);
                 }else{
                     Toast.makeText(getContext(),"请输入内容",Toast.LENGTH_SHORT).show();
