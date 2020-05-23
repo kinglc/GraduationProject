@@ -108,45 +108,45 @@ public class Global extends Application {
     }
 
     //调用接口 设置log
-//    public void setLog(int type, String name, String date){
-//        try {
-//            URL u = new URL(this.URL + "/log/set");
-//            // 打开连接
-//            HttpURLConnection con = (HttpURLConnection) u.openConnection();
-//            con.setRequestProperty("accept", "*/*");
-//            con.setRequestProperty("Connection", "Keep-Alive");
-//            con.setRequestProperty("Cache-Control", "no-cache");
-//            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-//            con.setRequestMethod("POST");
-//            con.setDoOutput(true);
-//            con.setDoInput(true);
-//            con.connect();
-//
-//            DataOutputStream out = new DataOutputStream(con.getOutputStream());
-//            String content = "{\"user_id\":\"" + this.userId + "\",\"type\":"+type+
-//                    ",\"name\":\""+name+ "\",\"date\":\""+date+"\"}";
-//            out.writeBytes(content);
-//            out.flush();
-//            out.close();
-//
-//            if (con.getResponseCode() == 200) {
-//                JSONObject res = this.streamtoJson(con.getInputStream());
-//                int code = res.optInt("code");
-//                String msg = res.optString("msg");
-//                if (code == 200) {
-////                    Toast.makeText("完成所有待办！",Toast.LENGTH_SHORT).show();
-//                    return;
-//                } else {
-//                    Toast.makeText(Global.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
-//                }
-//            } else {
-//                Toast.makeText(Global.this, "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
-//            }
-//            con.disconnect();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            Toast.makeText(Global.this, "连接错误", Toast.LENGTH_SHORT).show();
-//        }
-//    }
+    public void setLog(int type, String name, String date){
+        try {
+            URL u = new URL(this.URL + "/log/set");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + this.userId + "\",\"type\":"+type+
+                    ",\"name\":\""+name+ "\",\"date\":\""+date+"\"}";
+            out.writeBytes(content);
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = this.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+//                    Toast.makeText("完成所有待办！",Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    Toast.makeText(Global.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(Global.this, "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(Global.this, "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
