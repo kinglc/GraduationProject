@@ -116,11 +116,13 @@ router.post("/isExist", (req, res) => {
                 });
             }
             else if(result.length==0){
+                console.log(result);
                 return res.json({
                     code: 201,
                     msg: "不存在",
                 });
             }else{
+                console.log(result);
                 return res.json({
                     code: 200,
                     msg: "存在",
