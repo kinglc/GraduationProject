@@ -87,6 +87,22 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
             public int compare(Note o1, Note o2) {
                 String c1 = o1.getDate()+o1.getTime();
                 String c2 = o2.getDate()+o2.getTime();
+                Date d1 = null;
+                Date d2 = null;
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    d1 = simpleDateFormat.parse(o1.getDate());
+                    d2 = simpleDateFormat.parse(o2.getDate());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if(global.cmpDate(d1)<0){
+                    c1="3"+c1.substring(1);
+                }
+                if(global.cmpDate(d2)<0){
+                    c2="3"+c2.substring(1);
+                }
+
                 for(int i=0;i<c1.length();i++){
                     int di = c1.charAt(i)-c2.charAt(i);
                     if(di!=0) return di;

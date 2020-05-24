@@ -44,7 +44,7 @@
                 android:layout_height="20dp"
                 android:textSize="15dp"
                 android:text="内容"
-                android:textColor="@color/lightFontGray"
+                android:textColor="@color/gray"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:id="@+id/note_content"/>
@@ -58,7 +58,7 @@
                     android:textSize="14dp"
                     android:id="@+id/note_date"
                     android:text="1998-10-15"
-                    android:textColor="@color/fontBlack"/>
+                    android:textColor="@color/gray"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
@@ -66,7 +66,7 @@
                     android:id="@+id/note_time"
                     android:layout_marginRight="5dp"
                     android:text="11:00"
-                    android:textColor="@color/lightFontGray"/>
+                    android:textColor="@color/black"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="20dp"
@@ -75,7 +75,7 @@
                     android:id="@+id/note_place"
                     android:maxLines="1"
                     android:ellipsize="end"
-                    android:textColor="@color/fontBlack"/>
+                    android:textColor="@color/gray"/>
             </LinearLayout>
         </LinearLayout>
         <ImageView

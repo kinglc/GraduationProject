@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import com.king.block.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class NoteAdapter extends ArrayAdapter<Note> {
@@ -75,6 +77,54 @@ public class NoteAdapter extends ArrayAdapter<Note> {
         viewHolder.note_date.setText(note.getDate());
         viewHolder.note_time.setText(note.getTime());
         viewHolder.note_place.setText(note.getPlace());
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// HH:mm:ss
+        String now[] = sdf.format(new Date(System.currentTimeMillis())).split(" ");
+        int status=0;//0过去，1今天，2未来
+        for(int i=0;i<now[0].length();i++){
+            if(now[0].charAt(i)>note.getDate().charAt(i)){
+                status = 0;
+                break;
+            }else if(now[0].charAt(i)<note.getDate().charAt(i)){
+                status = 2;
+                break;
+            }else if(i==now[0].length()-1){
+                for(int j=0;j<now[1].length();j++){
+                    if(now[1].charAt(j)>note.getTime().charAt(j)){
+                        status = 0;
+                        break;
+                    }else if(now[1].charAt(j)<note.getTime().charAt(j)){
+                        status = 1;
+                        break;
+                    }
+                }
+            }
+        }
+        switch (status){
+            case 0:
+                viewHolder.note_title.setTextColor(getContext().getResources().getColor(R.color.lightFontGray));
+                viewHolder.note_content.setTextColor(getContext().getResources().getColor(R.color.lightFontGray));
+                viewHolder.note_place.setTextColor(getContext().getResources().getColor(R.color.lightFontGray));
+                viewHolder.note_date.setTextColor(getContext().getResources().getColor(R.color.lightFontGray));
+                viewHolder.note_time.setTextColor(getContext().getResources().getColor(R.color.lightFontGray));
+                break;
+            case 1:
+                viewHolder.note_title.setTextColor(getContext().getResources().getColor(R.color.red));
+                viewHolder.note_content.setTextColor(getContext().getResources().getColor(R.color.red));
+                viewHolder.note_place.setTextColor(getContext().getResources().getColor(R.color.red));
+                viewHolder.note_date.setTextColor(getContext().getResources().getColor(R.color.red));
+                viewHolder.note_time.setTextColor(getContext().getResources().getColor(R.color.red));
+                break;
+            case 2:
+                viewHolder.note_title.setTextColor(getContext().getResources().getColor(R.color.black));
+                viewHolder.note_content.setTextColor(getContext().getResources().getColor(R.color.gray));
+                viewHolder.note_place.setTextColor(getContext().getResources().getColor(R.color.black));
+                viewHolder.note_date.setTextColor(getContext().getResources().getColor(R.color.black));
+                viewHolder.note_time.setTextColor(getContext().getResources().getColor(R.color.black));
+                break;
+            default:break;
+        }
+
         return convertView;
     }
 
