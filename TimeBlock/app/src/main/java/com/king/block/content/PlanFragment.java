@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.king.block.Global;
 import com.king.block.R;
 
 import android.widget.AdapterView;
@@ -28,6 +29,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,12 +56,14 @@ public class PlanFragment extends Fragment{
 
     ImageView add;
     private ImageView menu;
+    Global global;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container, false);
+        global = (Global)getActivity().getApplication();
 
-        initData();
+        getPlan();
         initLv();
         initEvent();
         setNow();
@@ -62,20 +71,12 @@ public class PlanFragment extends Fragment{
         return view;
     }
 
-    private void initData(){
-        //未完成 获取数据
-        for(int i=0;i<10;i++) {
-            Plan plan = new Plan(i,i+""+i+i+i+i, "间关莺语花底滑，幽咽泉流冰下难",
-                    i%4,"00:00:0");
-            plan_list.add(plan);
-        }
-    }
-
     private void initLv(){
         planAdapter = new PlanAdapter(getActivity(), R.layout.item_plan, plan_list);
         plan_lv =(ListView) view.findViewById(R.id.plan_lv);
         plan_lv.setAdapter(planAdapter);
         planAdapter.setListView(plan_lv);
+        planAdapter.setGlobal(global);
         planAdapter.setList(plan_list);
         plan_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -173,12 +174,95 @@ public class PlanFragment extends Fragment{
 
     }
 
-    public void Load() {
-        //title.setText("当前时间：\n" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+    //调用接口
+    //获取
+    private void getPlan() {
+        plan_list.clear();
+        try {
+            URL url = new URL(global.getURL() + "/plan/query");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
 
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+            String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    JSONArray plans = res.getJSONArray("data");
+                    for (int i = 0; i < plans.length(); i++) {
+                        JSONObject plan = plans.getJSONObject(i);
+                        plan_list.add(new Plan(plan.getInt("plan_id"), plan.getString("title"), plan.getString("content"),
+                                plan.getInt("urgency"), plan.getString("pass")));
+                    }
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新计划信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
     }
 
+    //进行
+    private void pass(int plan_id,String pass){
+        try {
+            URL url = new URL(global.getURL() + "/plan/delete");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
 
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"plan_id\":" + plan_id  + ",\"pass\":\""+pass+"\"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
 
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+//                    Toast.makeText(getContext(), "删除成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "删除失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
 

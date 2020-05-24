@@ -12,7 +12,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.king.block.ContentActivity;
+import com.king.block.Global;
 import com.king.block.R;
+
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class PlanActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -35,7 +42,7 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
 //    int pDay;
 //    int pHour;
 //    int pMinute;
-    
+    Global global;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,8 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
         window.setStatusBarColor(getResources().getColor(R.color.gray));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan);
+        
+        global = (Global)getApplication(); 
 
         urgency=-1;
         initComp();
@@ -222,13 +231,91 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //调用接口
-    //新建
+    //添加
     private void insert(){
+        try {
+            URL url = new URL(global.getURL() + "/plan/add");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
 
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"title\":\"" + plan_title.getText()+ "\",\"content\":\"" + plan_content.getText()
+                    + "\",\"urgency\":" + urgency+ "}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    Toast.makeText(PlanActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(PlanActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(PlanActivity.this, "添加失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(PlanActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    //修改
+    //更新
     private void update(){
+        try {
+            URL url = new URL(global.getURL() + "/plan/update");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
 
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+            String content = "{\"plan_id\":" + plan_id + ",\"title\":\"" + plan_title.getText()+ "\",\"content\":\"" + plan_content.getText()
+                    + "\",\"urgency\":" + urgency+ "}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    Toast.makeText(PlanActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(PlanActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(PlanActivity.this, "修改失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(PlanActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
+        }
     }
 }

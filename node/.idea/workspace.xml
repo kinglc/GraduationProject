@@ -53,19 +53,20 @@
       <file leaf-file-name="plan.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/plan.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+            <state relative-caret-position="153">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#191#198#0" />
                 <element signature="e#365#1241#0" />
                 <element signature="e#2137#2142#0" />
-                <element signature="e#1386#2286#0" />
                 <element signature="e#2290#2295#0" />
                 <element signature="e#2436#3193#0" />
                 <element signature="e#2290#2295#0" />
                 <element signature="e#2447#3420#0" />
                 <element signature="e#3415#3420#0" />
                 <element signature="e#3635#4537#0" />
+                <element signature="e#5318#5323#0" />
+                <element signature="e#5492#6310#0" />
                 <element signature="n#!!block;n#handleError#0" />
               </folding>
             </state>
@@ -146,7 +147,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-228" />
     <option name="width" value="1347" />
     <option name="height" value="1050" />
@@ -241,7 +242,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64320000" />
+    <option name="totallyTimeSpent" value="66471000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -253,17 +254,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-182" y="0" width="1077" height="840" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27857828" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19154558" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32816902" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32909605" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -593,19 +594,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/plan.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="92" column="37" selection-start-line="92" selection-start-column="37" selection-end-line="92" selection-end-column="37" />
+        <state relative-caret-position="153">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#191#198#0" />
             <element signature="e#365#1241#0" />
             <element signature="e#2137#2142#0" />
-            <element signature="e#1386#2286#0" />
             <element signature="e#2290#2295#0" />
             <element signature="e#2436#3193#0" />
             <element signature="e#2290#2295#0" />
             <element signature="e#2447#3420#0" />
             <element signature="e#3415#3420#0" />
             <element signature="e#3635#4537#0" />
+            <element signature="e#5318#5323#0" />
+            <element signature="e#5492#6310#0" />
             <element signature="n#!!block;n#handleError#0" />
           </folding>
         </state>

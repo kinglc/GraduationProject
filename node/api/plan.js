@@ -55,8 +55,8 @@ router.post("/query", (req, res) => {
 //         data:[]
 router.post("/add", (req, res) => {
     console.log("add");
-    var sqlStr = "insert into plan (user_id, title, content, urgency, pass) values('"+req.body.user_id+"','"+
-        req.body.title+"','"+req.body.content+"',"+req.body.urgency+",0m)";
+    var sqlStr = "insert into plan (user_id, title, content, urgency, pass, finish) values('"+req.body.user_id+"','"+
+        req.body.title+"','"+req.body.content+"',"+req.body.urgency+",'0m',0)";
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {

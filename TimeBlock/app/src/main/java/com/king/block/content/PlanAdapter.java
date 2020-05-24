@@ -20,8 +20,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.king.block.Global;
 import com.king.block.R;
 
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
 
 public class PlanAdapter extends ArrayAdapter<Plan> {
@@ -30,6 +36,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
     private int newResourceId;
     private ListView mListView;
     private List<Plan> mList;
+    Global global;
 
 
     public PlanAdapter(Context context, int resourceId, List<Plan> plan_list) {
@@ -85,13 +92,12 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
                         @Override
                         public void onClick(View v) {
                             int del_id = mList.get(position).getId();
+                            delete(del_id);
                             mList.remove(position);
                             notifyDataSetChanged();
 //                                planAdapter.setListView(plan_lv);
 //                                    planAdapter = new PlanAdapter(getActivity(), R.layout.item_plan, mList);
 //                                    mListView.setAdapter(planAdapter);
-//                               未完成-删除数据库
-//                                int delete = DataSupport.deleteAll(Ddl.class, "task = ? and content = ?", del1, del2);
                             bsd.dismiss();
                         }
                     });
@@ -99,7 +105,10 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
                     finish.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            //未完成
+                            int del_id = mList.get(position).getId();
+                            finish(del_id);
+                            mList.remove(position);
+                            notifyDataSetChanged();
                             bsd.dismiss();
                         }
                     });
@@ -122,6 +131,90 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
 //        viewHolder.plan_ddl.setText(plan.getDate() + " " + plan.getTime());
         changeColor(viewHolder, plan.getUrgency());
         return convertView;
+    }
+
+
+    //调用接口
+    //删除
+    private void delete(int del_id){
+        try {
+            URL url = new URL(global.getURL() + "/plan/delete");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"plan_id\":" + del_id  + "}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    Toast.makeText(getContext(), "删除成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "删除失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //完成
+    private void finish(int plan_id){
+        try {
+            URL url = new URL(global.getURL() + "/plan/finish");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"plan_id\":" + plan_id  + "}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    Toast.makeText(getContext(), "完成计划！", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "删除失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void changeColor(ViewHolder vh,int urgency){
@@ -169,6 +262,10 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
 
     public void setList(List<Plan> mList) {
         this.mList = mList;
+    }
+
+    public void setGlobal(Global global) {
+        this.global = global;
     }
 
     class ViewHolder {
