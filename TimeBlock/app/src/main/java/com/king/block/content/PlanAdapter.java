@@ -28,6 +28,8 @@ import org.json.JSONObject;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class PlanAdapter extends ArrayAdapter<Plan> {
@@ -106,7 +108,9 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
                         @Override
                         public void onClick(View v) {
                             int del_id = mList.get(position).getId();
-                            finish(del_id);
+                            String pass = mList.get(position).getPass();
+                            String title = mList.get(position).getTitle();
+                            finish(del_id,pass,title);
                             mList.remove(position);
                             notifyDataSetChanged();
                             bsd.dismiss();
@@ -177,7 +181,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
     }
 
     //完成
-    private void finish(int plan_id){
+    private void finish(int plan_id,String pass,String title){
         try {
             URL url = new URL(global.getURL() + "/plan/finish");
             // 打开连接
@@ -203,6 +207,14 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
                 String msg = res.optString("msg");
                 if (code == 200) {
                     Toast.makeText(getContext(), "完成计划！", Toast.LENGTH_SHORT).show();
+                    Date now = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String date = sdf.format(now);
+                    if(pass.contains("h")){
+                        pass = pass.replace("h","小时");
+                    }
+                    pass = pass.replace("m","分钟");
+                    global.setLog(0, "经过"+pass+"，完成计划“"+title+"”", date);
                 } else {
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
