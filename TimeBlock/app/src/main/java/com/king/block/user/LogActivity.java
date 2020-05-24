@@ -35,7 +35,6 @@ public class LogActivity extends AppCompatActivity {
         initTop();
         getLog();
         initLv();
-        logAdapter.setLog_list(log_list);
     }
 
     private void initTop() {

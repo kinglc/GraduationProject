@@ -29,7 +29,10 @@ import com.king.block.R;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +48,7 @@ import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class NoteFragment extends Fragment implements CalendarView.OnYearChangeListener, CalendarView.OnMonthChangeListener,CalendarView.OnCalendarSelectListener {
@@ -125,7 +129,6 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
     }
 
     private void initScheme(){
-
             Map<String, Calendar> map = new HashMap<>();
             for(int i=0;i<note_list.size();i++) {
                 String[] d = note_list.get(i).getDate().split("-");
@@ -165,6 +168,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
 
     @Override
     public void onMonthChange(int year, int month) {
+        note_list.clear();
         getNote(year+"-"+month+"-01");
     }
 
@@ -197,6 +201,8 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(getContext(), NoteActivity.class);
+                String date = mCalendarView.getCurYear()+"-"+mCalendarView.getCurMonth()+"-"+mCalendarView.getCurDay();
+                it.putExtra("note_date",date);
                 getContext().startActivity(it);
             }
         });
@@ -256,7 +262,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
 //            String content = "user_id:" + global.getUserId();
-            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"date\":\""+date+"\"}";
+            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"date\":\"" + date + "\"}";
             out.write(content.getBytes());
             out.flush();
             out.close();
@@ -267,10 +273,10 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
                 String msg = res.optString("msg");
                 if (code == 200) {
                     JSONArray notes = res.getJSONArray("data");
-                    for(int i=0;i<notes.length();i++) {
+                    for (int i = 0; i < notes.length(); i++) {
                         JSONObject note = notes.getJSONObject(i);
                         note_list.add(new Note(note.getInt("note_id"), note.getString("title"), note.getString("content"),
-                                note.getString("place"), note.getString("date").split("T")[0], note.getString("time")));
+                                note.getString("place"), note.getString("date"), note.getString("time")));
                     }
                     initScheme();
                 } else {

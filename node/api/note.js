@@ -5,14 +5,6 @@ const mysql  = require('mysql');
 const router = express.Router();
 module.exports = router;
 
-//加载配置文件
-const conn = mysql.createConnection({
-    host     : '140.143.78.135',
-    user     : 'jc',
-    password : 'jc123',
-    port: '3307',
-    database: 'timeblock',
-});
 
 // 获取信息
 //     params{
@@ -45,6 +37,125 @@ router.post("/query", (req, res) => {
                     code: 200,
                     msg: "查询成功",
                     data: result
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
+
+// 删除
+//     params{
+//         note_id:
+//     }
+//     return{
+//         code:
+//         msg:""
+//     }
+router.post("/delete", (req, res) => {
+    console.log("delete");
+    var sqlStr = "delete from note where note_id = " + req.body.note_id;
+    console.log(sqlStr);
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "删除成功",
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
+// 添加
+//     params{
+//          user_id:
+//          title:
+//          content:
+//          place:
+//          date:
+//          time:
+//     }
+//     return{
+//         code:
+//         msg:""
+//     }
+router.post("/add", (req, res) => {
+    console.log("add");
+    var sqlStr = "insert into note (user_id, title, content, place, date, time) values('"+req.body.user_id+"','"+
+        req.body.title+"','"+req.body.content+"','"+req.body.place+"','"+req.body.date+"','"+req.body.time+"')";
+    console.log(sqlStr);
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "添加成功",
+                    data:result.insertId
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
+// 编辑
+//     params{
+//          note_id:
+//          user_id:
+//          title:
+//          content:
+//          place:
+//          date:
+//          time:
+//     }
+//     return{
+//         code:
+//         msg:""
+//     }
+router.post("/edit", (req, res) => {
+    console.log("edit");
+    var sqlStr = "update note set title = \"" +req.body.title+ "\" where note_id = " + req.body.note_id;
+    console.log(sqlStr);
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "修改成功",
                 });
             }
         });

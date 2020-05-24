@@ -27,7 +27,7 @@ public class NoteActivity extends AppCompatActivity {
     Calendar calendar;
     int nHour;
     int nMinute;
-    int id;//-1为新建，其余为更新
+    int note_id;//-1为新建，其余为更新
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,11 +77,10 @@ public class NoteActivity extends AppCompatActivity {
 
     private void initData() {
         note_date.setText(getIntent().getStringExtra("note_date"));
-        id = (getIntent().getIntExtra("id", -1));
-        if (id != -1) {
+        note_id = (getIntent().getIntExtra("note_id", -1));
+        if (note_id != -1) {
             note_title.setText(getIntent().getStringExtra("note_title"));
             note_content.setText(getIntent().getStringExtra("note_content"));
-            note_date.setText(getIntent().getStringExtra("note_date"));
             String time = getIntent().getStringExtra("note_time");
             nHour = Integer.parseInt(time.split(":")[0]);
             nMinute = Integer.parseInt(time.split(":")[1]);

@@ -6,15 +6,6 @@ const mysql  = require('mysql');
 const router = express.Router();
 module.exports = router;
 
-//加载配置文件
-const conn = mysql.createConnection({
-    host     : '140.143.78.135',
-    user     : 'jc',
-    password : 'jc123',
-    port: '3307',
-    database: 'timeblock',
-});
-
 // 获取好友列表
 //     params{
 //         user_id:""
