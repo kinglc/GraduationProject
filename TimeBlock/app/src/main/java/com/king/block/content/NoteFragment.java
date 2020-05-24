@@ -32,6 +32,8 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -79,8 +81,20 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
 
         global = (Global)getActivity().getApplication();
         initCalendar();
-//        initScheme();
         getNote(mCalendarView.getCurYear()+"-"+mCalendarView.getCurMonth()+"-"+mCalendarView.getCurDay());
+        Collections.sort(note_list, new Comparator<Note>() {
+            @Override
+            public int compare(Note o1, Note o2) {
+                String c1 = o1.getDate()+o1.getTime();
+                String c2 = o2.getDate()+o2.getTime();
+                for(int i=0;i<c1.length();i++){
+                    int di = c1.charAt(i)-c2.charAt(i);
+                    if(di!=0) return di;
+                }
+                return 0;
+            }
+        });
+        initScheme();
         initView();
 
         return view;
@@ -128,36 +142,24 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
         return calendar;
     }
 
-    private void initScheme(){
-            Map<String, Calendar> map = new HashMap<>();
-            for(int i=0;i<note_list.size();i++) {
-                String[] d = note_list.get(i).getDate().split("-");
-                String txt = ""+note_list.get(i).getTitle().charAt(0);
-                int year = Integer.parseInt(d[0]);
-                int month = Integer.parseInt(d[1]);
-                int day = Integer.parseInt(d[2]);
-                map.put(getSchemeCalendar(year, month, day, colors[(year+month+day)%6], txt).toString(),
-                        getSchemeCalendar(year, month, day,  colors[(year+month+day)%6], txt));
-            }
-//
-//            map.put(getSchemeCalendar(year, month, 6, 0xFFe69138, "事").toString(),
-//                    getSchemeCalendar(year, month, 6, 0xFFe69138, "事"));
-//            map.put(getSchemeCalendar(year, month, 9, 0xFFdf1356, "议").toString(),
-//                    getSchemeCalendar(year, month, 9, 0xFFdf1356, "议"));
-//            map.put(getSchemeCalendar(year, month, 13, 0xFFedc56d, "记").toString(),
-//                    getSchemeCalendar(year, month, 13, 0xFFedc56d, "记"));
-//            map.put(getSchemeCalendar(year, month, 14, 0xFFedc56d, "记").toString(),
-//                    getSchemeCalendar(year, month, 14, 0xFFedc56d, "记"));
-//            map.put(getSchemeCalendar(year, month, 15, 0xFFaacc44, "假").toString(),
-//                    getSchemeCalendar(year, month, 15, 0xFFaacc44, "假"));
-//            map.put(getSchemeCalendar(year, month, 18, 0xFFbc13f0, "记").toString(),
-//                    getSchemeCalendar(year, month, 18, 0xFFbc13f0, "记"));
-//            map.put(getSchemeCalendar(year, month, 25, 0xFF13acf0, "假").toString(),
-//                    getSchemeCalendar(year, month, 25, 0xFF13acf0, "假"));
-//            map.put(getSchemeCalendar(year, month, 27, 0xFF13acf0, "多").toString(),
-//                    getSchemeCalendar(year, month, 27, 0xFF13acf0, "多"));
-            //此方法在巨大的数据量上不影响遍历性能，推荐使用
-            mCalendarView.setSchemeDate(map);
+    private void initScheme() {
+        boolean flag = true;
+        String date = "";
+        Map<String, Calendar> map = new HashMap<>();
+        for (int i = 0; i < note_list.size(); i++) {
+            String[] d = note_list.get(i).getDate().split("-");
+            if(date.equals(note_list.get(i).getDate())) continue;
+            String txt = "" + note_list.get(i).getTitle().charAt(0);
+            int year = Integer.parseInt(d[0]);
+            int month = Integer.parseInt(d[1]);
+            int day = Integer.parseInt(d[2]);
+            map.put(getSchemeCalendar(year, month, day, colors[(year + month + day) % 6], txt).toString(),
+                    getSchemeCalendar(year, month, day, colors[(year + month + day) % 6], txt));
+            flag=false;
+            date = note_list.get(i).getDate();
+        }
+        //此方法在巨大的数据量上不影响遍历性能，推荐使用
+        mCalendarView.setSchemeDate(map);
 
     }
 
@@ -222,12 +224,10 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 int del_id = note_list.get(position).getId();
+                                delete(del_id);
                                 note_list.remove(position);
-//                                noteAdapter.setListView(note_lv);
-                                noteAdapter = new NoteAdapter(getActivity(), R.layout.item_note, note_list);
-                                note_lv.setAdapter(noteAdapter);
-//                               未完成-删除数据库
-//                                int delete = DataSupport.deleteAll(Ddl.class, "task = ? and content = ?", del1, del2);
+                                initScheme();
+                                noteAdapter.notifyDataSetChanged();
                             }
                         })
                         .setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -278,7 +278,47 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
                         note_list.add(new Note(note.getInt("note_id"), note.getString("title"), note.getString("content"),
                                 note.getString("place"), note.getString("date"), note.getString("time")));
                     }
-                    initScheme();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //删除
+    private void delete(int del_id){
+        try {
+            URL url = new URL(global.getURL() + "/note/delete");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"note_id\":" + del_id  + "}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    Toast.makeText(getContext(), "删除成功", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
