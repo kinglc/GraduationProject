@@ -90,7 +90,7 @@ public class PlanFragment extends Fragment{
     private void initEvent() {
         plan_title = (TextView)view.findViewById(R.id.plan_title);
         plan_content = (TextView)view.findViewById(R.id.plan_content);
-//        plan_ddl = (TextView)view.findViewById(R.id.plan_ddl);
+//        plan_ddl = (TextView)view.findViewById(R.plan_id.plan_ddl);
         pass = (Chronometer) view.findViewById(R.id.plan_pass);
         pass.setFormat("%s");
 

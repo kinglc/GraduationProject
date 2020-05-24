@@ -54,7 +54,7 @@ public class NoteAdapter extends ArrayAdapter<Note> {
                 public void onClick(View v) {
                     Note note = note_list.get(position);
                     Intent it = new Intent(getContext(), NoteActivity.class);
-                    it.putExtra("id",note.getId());
+                    it.putExtra("note_id",note.getId());
                     it.putExtra("note_title",note.getTitle());
                     it.putExtra("note_content",note.getContent());
                     it.putExtra("note_place",note.getPlace());

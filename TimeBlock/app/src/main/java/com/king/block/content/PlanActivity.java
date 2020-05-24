@@ -7,15 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.king.block.ContentActivity;
 import com.king.block.R;
-
-import java.util.Calendar;
 
 public class PlanActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -30,7 +27,7 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
     TextView green;
     TextView blue;
 
-    int id;
+    int plan_id;
     int urgency;//-1 未选中，0 红，1 黄，2 绿，3 蓝
 //    Calendar calendar;
 //    int pYear;
@@ -61,8 +58,8 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
         save = (ImageView)findViewById(R.id.plan_save);
         plan_title = (TextView)findViewById(R.id.plan_title);
         plan_content = (TextView)findViewById(R.id.plan_content);
-//        plan_date = (DatePicker) findViewById(R.id.plan_date);
-//        plan_time = (TimePicker)findViewById(R.id.plan_time);
+//        plan_date = (DatePicker) findViewById(R.plan_id.plan_date);
+//        plan_time = (TimePicker)findViewById(R.plan_id.plan_time);
 //        plan_time.setIs24HourView(true);
         red = (TextView)findViewById(R.id.red);
         yellow = (TextView)findViewById(R.id.yellow);
@@ -86,10 +83,19 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //未完成-上传/更新
-//                note_time.
-//                 date = ;
-//                Note note = new Note(0,note_title.getText(),note_content.getText(),note_time.get)
+                    if(plan_title.getText().toString().length()<=0){
+                        Toast.makeText(PlanActivity.this,"请输入标题",Toast.LENGTH_SHORT).show();
+                        return ;
+                    }
+                    if(urgency==-1){
+                        Toast.makeText(PlanActivity.this,"请选择紧急度",Toast.LENGTH_SHORT).show();
+                        return ;
+                    }
+                    if(plan_id==-1) insert();
+                    else update();
+                    Intent it = new Intent(PlanActivity.this, ContentActivity.class);
+//                    it.putExtra("index",2);
+                    startActivity(it);
                 PlanActivity.this.finish();
             }
         });
@@ -132,8 +138,8 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        id = (getIntent().getIntExtra("id", -1));
-        if (id != -1) {
+        plan_id = (getIntent().getIntExtra("plan_id", -1));
+        if (plan_id != -1) {
             plan_title.setText(getIntent().getStringExtra("plan_title"));
             plan_content.setText(getIntent().getStringExtra("plan_content"));
             urgency = getIntent().getIntExtra("urgency",-1);
@@ -213,5 +219,16 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
+    }
+
+    //调用接口
+    //新建
+    private void insert(){
+
+    }
+
+    //修改
+    private void update(){
+
     }
 }

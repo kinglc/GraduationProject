@@ -183,7 +183,7 @@ public class NoteActivity extends AppCompatActivity {
 
     private void initData() {
         note_date.setText(getIntent().getStringExtra("note_date"));
-        note_id = (getIntent().getIntExtra("id", -1));
+        note_id = (getIntent().getIntExtra("note_id", -1));
         if (note_id != -1) {
             note_title.setText(getIntent().getStringExtra("note_title"));
             note_content.setText(getIntent().getStringExtra("note_content"));

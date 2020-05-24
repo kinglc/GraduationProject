@@ -70,7 +70,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
                         public void onClick(View v) {
                             Plan plan = mList.get(position);
                             Intent it = new Intent(getContext(), PlanActivity.class);
-                            it.putExtra("id", plan.getId());
+                            it.putExtra("plan_id", plan.getId());
                             it.putExtra("plan_title", plan.getTitle());
                             it.putExtra("plan_content", plan.getContent());
                             it.putExtra("urgency", plan.getUrgency());
@@ -150,9 +150,9 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         vh.urgency = (TextView) v.findViewById(R.id.urgency);
         vh.plan_title = (TextView) v.findViewById(R.id.plan_title);
         vh.plan_content = (TextView) v.findViewById(R.id.plan_content);
-//        vh.plan_ddl = (TextView) v.findViewById(R.id.plan_ddl);
+//        vh.plan_ddl = (TextView) v.findViewById(R.plan_id.plan_ddl);
         vh.func = (ImageView) v.findViewById(R.id.function);
-//        vh.delete = (TextView)v.findViewById(R.id.delete);
+//        vh.delete = (TextView)v.findViewById(R.plan_id.delete);
     }
 
     public ListView getListView() {
