@@ -50,7 +50,6 @@ public class NoteAdapter extends ArrayAdapter<Note> {
             viewHolder.note_edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //未完成-bug
                     Note note = note_list.get(position);
                     Intent it = new Intent(getContext(), NoteActivity.class);
                     it.putExtra("id",note.getId());
@@ -59,7 +58,6 @@ public class NoteAdapter extends ArrayAdapter<Note> {
                     it.putExtra("note_place",note.getPlace());
                     it.putExtra("note_date",note.getDate());
                     it.putExtra("note_time",note.getTime());
-//                it.putExtra("11", index);
                     getContext().startActivity(it);
                 }
             });

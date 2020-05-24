@@ -73,7 +73,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 //        String name = getIntent().getStringExtra("name");///////////////////////////////////
 //        String a = getIntent().getStringExtra("a");///////////////////////////////////
 //        Toast.makeText(ContentActivity.this,name+a,Toast.LENGTH_SHORT).show();
-        index = 1;
+        index = getIntent().getIntExtra("index", 1);
         initComp();
         initEvent();
         initStyle();

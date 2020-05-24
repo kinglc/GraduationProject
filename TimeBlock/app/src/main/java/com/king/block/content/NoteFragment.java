@@ -246,6 +246,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
     //调用接口
     //获取
     private void getNote(String date) {
+        note_list.clear();
         try {
             URL url = new URL(global.getURL() + "/note/query");
             // 打开连接
@@ -323,7 +324,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "删除失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 

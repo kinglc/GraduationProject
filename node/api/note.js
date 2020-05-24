@@ -125,7 +125,6 @@ router.post("/add", (req, res) => {
 // 编辑
 //     params{
 //          note_id:
-//          user_id:
 //          title:
 //          content:
 //          place:
@@ -136,9 +135,11 @@ router.post("/add", (req, res) => {
 //         code:
 //         msg:""
 //     }
-router.post("/edit", (req, res) => {
-    console.log("edit");
-    var sqlStr = "update note set title = \"" +req.body.title+ "\" where note_id = " + req.body.note_id;
+router.post("/update", (req, res) => {
+    console.log("update");
+    var sqlStr = "update note set title = \"" +req.body.title+ "\" , content = \""+req.body.content+
+        "\" , place = \""+req.body.place+ "\" , date = \""+req.body.date+
+        "\" , time = \""+req.body.time+"\" where note_id = " + req.body.note_id;
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
