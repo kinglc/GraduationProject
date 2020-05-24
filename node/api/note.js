@@ -16,7 +16,8 @@ const conn = mysql.createConnection({
 
 // 获取信息
 //     params{
-//         user_id:user1,
+//         user_id:,
+//         date
 //     }
 //     return{
 //         code:
@@ -24,7 +25,8 @@ const conn = mysql.createConnection({
 //         data:[]
 router.post("/query", (req, res) => {
     console.log("query");
-    var sqlStr = "select plan_time,todo_day from user where user_id = '" + req.body.ids+"'";
+    var sqlStr = "select * from note where user_id = '" + req.body.user_id+
+        "' and DATE_FORMAT(date,'%Y%m') = DATE_FORMAT('"+req.body.date+"','%Y%m')";
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {

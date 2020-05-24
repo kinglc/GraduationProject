@@ -23,8 +23,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
+import com.king.block.Global;
 import com.king.block.R;
 
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +43,10 @@ import android.widget.Toast;
 import com.haibin.calendarview.Calendar;
 import com.haibin.calendarview.CalendarLayout;
 import com.haibin.calendarview.CalendarView;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class NoteFragment extends Fragment implements CalendarView.OnYearChangeListener, CalendarView.OnMonthChangeListener,CalendarView.OnCalendarSelectListener {
 
     View view;
@@ -54,9 +62,10 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
     TextView mTextLunar;
     CalendarView mCalendarView;
     private int mYear;
+    private int[] colors= {0xFF40db25, 0xFFe69138, 0xFFdf1356,0xFFedc56d,0xFFaacc44,0xFFbc13f0};
 
     RelativeLayout mRelativeTool;
-
+    Global global;
     private CalendarLayout mCalendarLayout;
 
 
@@ -64,9 +73,10 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_note, container, false);
 
+        global = (Global)getActivity().getApplication();
         initCalendar();
-        initScheme();
-        initData(mCalendarView.getCurYear(),mCalendarView.getCurMonth());
+//        initScheme();
+        getNote(mCalendarView.getCurYear()+"-"+mCalendarView.getCurMonth()+"-"+mCalendarView.getCurDay());
         initView();
 
         return view;
@@ -115,28 +125,34 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
     }
 
     private void initScheme(){
-            int year = mCalendarView.getCurYear();
-            int month = mCalendarView.getCurMonth();
 
             Map<String, Calendar> map = new HashMap<>();
-            map.put(getSchemeCalendar(year, month, 3, 0xFF40db25, "假").toString(),
-                    getSchemeCalendar(year, month, 3, 0xFF40db25, "假"));
-            map.put(getSchemeCalendar(year, month, 6, 0xFFe69138, "事").toString(),
-                    getSchemeCalendar(year, month, 6, 0xFFe69138, "事"));
-            map.put(getSchemeCalendar(year, month, 9, 0xFFdf1356, "议").toString(),
-                    getSchemeCalendar(year, month, 9, 0xFFdf1356, "议"));
-            map.put(getSchemeCalendar(year, month, 13, 0xFFedc56d, "记").toString(),
-                    getSchemeCalendar(year, month, 13, 0xFFedc56d, "记"));
-            map.put(getSchemeCalendar(year, month, 14, 0xFFedc56d, "记").toString(),
-                    getSchemeCalendar(year, month, 14, 0xFFedc56d, "记"));
-            map.put(getSchemeCalendar(year, month, 15, 0xFFaacc44, "假").toString(),
-                    getSchemeCalendar(year, month, 15, 0xFFaacc44, "假"));
-            map.put(getSchemeCalendar(year, month, 18, 0xFFbc13f0, "记").toString(),
-                    getSchemeCalendar(year, month, 18, 0xFFbc13f0, "记"));
-            map.put(getSchemeCalendar(year, month, 25, 0xFF13acf0, "假").toString(),
-                    getSchemeCalendar(year, month, 25, 0xFF13acf0, "假"));
-            map.put(getSchemeCalendar(year, month, 27, 0xFF13acf0, "多").toString(),
-                    getSchemeCalendar(year, month, 27, 0xFF13acf0, "多"));
+            for(int i=0;i<note_list.size();i++) {
+                String[] d = note_list.get(i).getDate().split("-");
+                String txt = ""+note_list.get(i).getTitle().charAt(0);
+                int year = Integer.parseInt(d[0]);
+                int month = Integer.parseInt(d[1]);
+                int day = Integer.parseInt(d[2]);
+                map.put(getSchemeCalendar(year, month, day, colors[(year+month+day)%6], txt).toString(),
+                        getSchemeCalendar(year, month, day,  colors[(year+month+day)%6], txt));
+            }
+//
+//            map.put(getSchemeCalendar(year, month, 6, 0xFFe69138, "事").toString(),
+//                    getSchemeCalendar(year, month, 6, 0xFFe69138, "事"));
+//            map.put(getSchemeCalendar(year, month, 9, 0xFFdf1356, "议").toString(),
+//                    getSchemeCalendar(year, month, 9, 0xFFdf1356, "议"));
+//            map.put(getSchemeCalendar(year, month, 13, 0xFFedc56d, "记").toString(),
+//                    getSchemeCalendar(year, month, 13, 0xFFedc56d, "记"));
+//            map.put(getSchemeCalendar(year, month, 14, 0xFFedc56d, "记").toString(),
+//                    getSchemeCalendar(year, month, 14, 0xFFedc56d, "记"));
+//            map.put(getSchemeCalendar(year, month, 15, 0xFFaacc44, "假").toString(),
+//                    getSchemeCalendar(year, month, 15, 0xFFaacc44, "假"));
+//            map.put(getSchemeCalendar(year, month, 18, 0xFFbc13f0, "记").toString(),
+//                    getSchemeCalendar(year, month, 18, 0xFFbc13f0, "记"));
+//            map.put(getSchemeCalendar(year, month, 25, 0xFF13acf0, "假").toString(),
+//                    getSchemeCalendar(year, month, 25, 0xFF13acf0, "假"));
+//            map.put(getSchemeCalendar(year, month, 27, 0xFF13acf0, "多").toString(),
+//                    getSchemeCalendar(year, month, 27, 0xFF13acf0, "多"));
             //此方法在巨大的数据量上不影响遍历性能，推荐使用
             mCalendarView.setSchemeDate(map);
 
@@ -149,7 +165,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
 
     @Override
     public void onMonthChange(int year, int month) {
-        initData(year,month);
+        getNote(year+"-"+month+"-01");
     }
 
     @Override
@@ -221,12 +237,53 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
         });
     }
 
-    private void initData(int year,int month) {
-        Toast.makeText(getContext(), year+" "+month,Toast.LENGTH_SHORT).show();
-        //未完成 获取数据
-        for (int i = 0; i < 10; i++) {
-            Note note = new Note(i, "备忘" + i, "世味年来薄似纱，谁令骑马客京华。小楼一夜听春雨，深巷明朝卖杏花。矮纸斜行闲作草，晴窗细乳戏分茶。", "这里的山路十八弯", "1001-1-" + i, "11:00");
-            note_list.add(note);
+    //调用接口
+    //获取
+    private void getNote(String date) {
+        try {
+            URL url = new URL(global.getURL() + "/note/query");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"date\":\""+date+"\"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    JSONArray notes = res.getJSONArray("data");
+                    for(int i=0;i<notes.length();i++) {
+                        JSONObject note = notes.getJSONObject(i);
+                        note_list.add(new Note(note.getInt("note_id"), note.getString("title"), note.getString("content"),
+                                note.getString("place"), note.getString("date").split("T")[0], note.getString("time")));
+                    }
+                    initScheme();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
         }
     }
 

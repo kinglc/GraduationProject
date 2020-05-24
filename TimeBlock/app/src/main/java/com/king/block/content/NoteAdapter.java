@@ -24,6 +24,13 @@ public class NoteAdapter extends ArrayAdapter<Note> {
     private ListView mListView;
     private List<Note> note_list;
 
+    private int colors[]= {R.drawable.note0,
+            R.drawable.note1,
+            R.drawable.note2,
+            R.drawable.note3,
+            R.drawable.note4,
+            R.drawable.note5};
+
     public NoteAdapter(Context context, int resourceId, List<Note> note_list) {
         super(context, resourceId, note_list);
         newResourceId = resourceId;
@@ -62,6 +69,9 @@ public class NoteAdapter extends ArrayAdapter<Note> {
         }
         String avatar = note.getTitle().charAt(0)+"";
         viewHolder.note_avatar.setText(avatar);
+        String d[] = note.getDate().split("-");
+        int pos = (Integer.parseInt(d[0])+Integer.parseInt(d[1])+Integer.parseInt(d[2]))%6;
+        viewHolder.note_avatar.setBackgroundResource(colors[pos]);
         viewHolder.note_title.setText(note.getTitle());
         viewHolder.note_content.setText(note.getContent());
         viewHolder.note_date.setText(note.getDate());
