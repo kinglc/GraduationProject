@@ -11,7 +11,7 @@
  Target Server Version : 80020
  File Encoding         : 65001
 
- Date: 22/05/2020 02:17:18
+ Date: 26/05/2020 06:06:35
 */
 
 SET NAMES utf8mb4;
@@ -53,9 +53,23 @@ CREATE TABLE `chart`  (
   `chart_id` int(0) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `date` date NULL DEFAULT NULL,
-  `pass` int(0) NULL DEFAULT NULL,
+  `pass_red` int(0) NULL DEFAULT NULL,
+  `pass_yellow` int(0) NULL DEFAULT NULL,
+  `pass_green` int(0) NULL DEFAULT NULL,
+  `pass_blue` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`chart_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of chart
+-- ----------------------------
+INSERT INTO `chart` VALUES (6, 'jc', '2019-01-01', 60, 120, 180, 240);
+INSERT INTO `chart` VALUES (7, 'jc', '2019-02-04', 10, 0, 0, 0);
+INSERT INTO `chart` VALUES (8, 'jc', '2020-01-01', 10, 30, 50, 70);
+INSERT INTO `chart` VALUES (9, 'jc', '2020-01-02', 70, 50, 30, 10);
+INSERT INTO `chart` VALUES (10, 'jc', '2020-05-22', 50, 60, 0, 0);
+INSERT INTO `chart` VALUES (11, 'jc', '2020-05-23', 1, 60, 30, 0);
+INSERT INTO `chart` VALUES (12, 'jc', '2020-05-25', 0, 1, 7, 0);
 
 -- ----------------------------
 -- Table structure for log
@@ -68,7 +82,23 @@ CREATE TABLE `log`  (
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `date` date NULL DEFAULT NULL,
   PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of log
+-- ----------------------------
+INSERT INTO `log` VALUES (8, 'jc', 0, '完成7项待办', '2020-05-23');
+INSERT INTO `log` VALUES (9, 'jc', 2, '达成成就“浅尝辄止”', '2020-05-23');
+INSERT INTO `log` VALUES (10, 'jc', 0, '经过1h30m，完成计划“gg”', '2020-05-24');
+INSERT INTO `log` VALUES (11, 'jc', 0, '经过20m，完成计划“ee”', '2020-05-24');
+INSERT INTO `log` VALUES (12, 'jc', 0, '经过20分钟，完成计划“ee”', '2020-05-25');
+INSERT INTO `log` VALUES (13, 'jc', 2, '达成成就”走马观花”', '2020-05-25');
+INSERT INTO `log` VALUES (14, 'jc', 0, '经过7分钟，完成计划“aa”', '2020-05-25');
+INSERT INTO `log` VALUES (15, 'jc', 0, '经过5分钟，完成计划“cc”', '2020-05-25');
+INSERT INTO `log` VALUES (16, 'jc', 0, '经过7分钟，完成计划“aa”', '2020-05-25');
+INSERT INTO `log` VALUES (17, 'jc', 0, '经过5分钟，完成计划“cc”', '2020-05-25');
+INSERT INTO `log` VALUES (18, 'jc', 0, '经过20分钟，完成计划“ee”', '2020-05-25');
+INSERT INTO `log` VALUES (19, 'jc', 0, '经过7分钟，完成计划“aa”', '2020-05-25');
 
 -- ----------------------------
 -- Table structure for note
@@ -83,7 +113,22 @@ CREATE TABLE `note`  (
   `date` date NULL DEFAULT NULL,
   `time` time(0) NULL DEFAULT NULL,
   PRIMARY KEY (`note_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of note
+-- ----------------------------
+INSERT INTO `note` VALUES (2, 'jc', '春去也', 'bcd', 's', '2020-05-24', '23:35:00');
+INSERT INTO `note` VALUES (3, 'jc', 'ccc', 'cde', 'o', '2020-06-01', '13:35:21');
+INSERT INTO `note` VALUES (4, 'jc', 'ddd', 'def', 'm', '2020-06-25', '13:35:42');
+INSERT INTO `note` VALUES (5, 'jc', 'feeef', 'efg', 'e', '2020-05-01', '13:36:00');
+INSERT INTO `note` VALUES (6, 'jc', 'fff', 'fgh', 'w', '2020-05-31', '13:36:16');
+INSERT INTO `note` VALUES (7, 'jc', 'ggg', 'ghi', 'h', '2020-04-30', '13:36:32');
+INSERT INTO `note` VALUES (8, 'jc', '会议', 'a', '201', '2020-05-14', '14:25:05');
+INSERT INTO `note` VALUES (9, 'jc', 'todo111', '记事', '会议室', '2020-05-23', '14:50:00');
+INSERT INTO `note` VALUES (12, 'jc', '流水', 'a', 'a', '2020-05-24', '23:03:33');
+INSERT INTO `note` VALUES (14, 'jc', 'a', 'b', 'c', '2020-05-24', '00:17:47');
+INSERT INTO `note` VALUES (16, 'jc', 'a', '', '', '2020-05-24', '00:15:57');
 
 -- ----------------------------
 -- Table structure for plan
@@ -96,10 +141,16 @@ CREATE TABLE `plan`  (
   `content` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `urgency` int(0) NULL DEFAULT NULL,
   `pass` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `date` date NULL DEFAULT NULL,
-  `time` time(0) NULL DEFAULT NULL,
+  `finish` int(1) UNSIGNED ZEROFILL NULL DEFAULT NULL,
   PRIMARY KEY (`plan_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of plan
+-- ----------------------------
+INSERT INTO `plan` VALUES (4, 'jc', 'aa', 'bb', 2, '7m', 1);
+INSERT INTO `plan` VALUES (5, 'jc', 'cc', 'dd', 1, '5m', 0);
+INSERT INTO `plan` VALUES (6, 'jc', 'ee', 'ff', 0, '20m', 0);
 
 -- ----------------------------
 -- Table structure for todo
@@ -112,15 +163,24 @@ CREATE TABLE `todo`  (
   `date` date NULL DEFAULT NULL,
   `isChecked` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`todo_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of todo
 -- ----------------------------
-INSERT INTO `todo` VALUES (1, 'jc', 'todo1', '2020-05-22', 0);
-INSERT INTO `todo` VALUES (2, 'jc', 'todo2', '2020-05-23', 0);
-INSERT INTO `todo` VALUES (3, 'jc', 'todo3', '2020-05-21', 0);
-INSERT INTO `todo` VALUES (4, 'jc', 'todo4', '2020-05-22', 0);
+INSERT INTO `todo` VALUES (1, 'jc', 'todo111', '2020-05-21', 0);
+INSERT INTO `todo` VALUES (7, 'jc', 'a', '2020-05-20', 0);
+INSERT INTO `todo` VALUES (9, 'jc', 'a', '2020-05-21', 0);
+INSERT INTO `todo` VALUES (12, 'jc', 'edit', '2020-05-22', 1);
+INSERT INTO `todo` VALUES (13, 'jc', 'addte', '2020-05-22', 1);
+INSERT INTO `todo` VALUES (14, 'jc', 'c', '2020-05-21', 0);
+INSERT INTO `todo` VALUES (22, 'jc', '5', '2020-05-23', 1);
+INSERT INTO `todo` VALUES (23, 'jc', '1', '2020-05-23', 1);
+INSERT INTO `todo` VALUES (24, 'jc', '2', '2020-05-23', 1);
+INSERT INTO `todo` VALUES (26, 'jc', '4', '2020-05-23', 1);
+INSERT INTO `todo` VALUES (27, 'jc', '5', '2020-05-23', 1);
+INSERT INTO `todo` VALUES (28, 'jc', '6', '2020-05-23', 1);
+INSERT INTO `todo` VALUES (29, 'jc', '444', '2020-05-23', 1);
 
 -- ----------------------------
 -- Table structure for user
@@ -137,12 +197,12 @@ CREATE TABLE `user`  (
   `prize_plan` int(0) NULL DEFAULT NULL,
   `prize_todo` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'jc', 'jc', 'a', 30, '20m', '\'jc\',\'jc02\',\'jc01\',\'jc03\',', 12, 5);
+INSERT INTO `user` VALUES (1, 'jc', 'jc', 'a', 1, '14m', '\'jc\',\'jc02\',\'jc01\',\'jc03\',', 0, 1);
 INSERT INTO `user` VALUES (2, 'jc01', 'jc01', 'v', 50, '1h15m', '\'jc01\',\'jc\',', 0, -1);
 INSERT INTO `user` VALUES (3, 'jc02', 'jc02', 'c', 60, '20h0m', '\'jc02\',\'jc\',', 6, 7);
 INSERT INTO `user` VALUES (4, 'jc03', 'jc03', 's', 70, '2h10m', '\'jc03\',\'jc\',', 4, 5);
