@@ -18,8 +18,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-480">
-              <caret line="220" column="69" lean-forward="true" selection-start-line="220" selection-start-column="69" selection-end-line="220" selection-end-column="69" />
+            <state relative-caret-position="989">
+              <caret line="213" column="31" selection-start-line="213" selection-start-column="31" selection-end-line="213" selection-end-column="31" />
               <folding>
                 <element signature="method#initComp#0;class#ChartActivity#0" />
                 <element signature="method#initDate#0;class#ChartActivity#0" />
@@ -69,6 +69,7 @@
                 <element signature="e#4970#6084#0" />
                 <element signature="method#changeDate#0;class#ChartActivity#0" />
                 <element signature="method#getMonthDay#0;class#ChartActivity#0" />
+                <element signature="method#initColChart#0;class#ChartActivity#0" />
               </folding>
             </state>
           </provider>
@@ -77,21 +78,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="187" column="25" lean-forward="true" selection-start-line="187" selection-start-column="25" selection-end-line="187" selection-end-column="25" />
+            <state relative-caret-position="79">
+              <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#onCreateView#0;class#PlanFragment#0" />
+                <element signature="e#1514#2008#0" expanded="true" />
+                <element signature="e#2007#2008#0" expanded="true" />
                 <element signature="e#2207#2610#0" expanded="true" />
                 <element signature="e#2609#2610#0" expanded="true" />
-                <element signature="method#initEvent#0;class#PlanFragment#0" />
+                <element signature="method#startTime#0;class#PlanFragment#0" />
+                <element signature="method#stopTime#0;class#PlanFragment#0" />
                 <element signature="e#5095#5124#0" />
+                <element signature="method#setNow#0;class#PlanFragment#0" />
                 <element signature="method#getPlan#0;class#PlanFragment#0" />
                 <element signature="method#pass#0;class#PlanFragment#0" />
                 <element signature="method#getTime#0;class#PlanFragment#0" />
                 <element signature="method#setTime#0;class#PlanFragment#0" />
                 <element signature="method#setAchieve#0;class#PlanFragment#0" />
                 <element signature="method#isExist#0;class#PlanFragment#0" />
+                <element signature="method#addChart#0;class#PlanFragment#0" />
                 <element signature="method#updateChart#0;class#PlanFragment#0" />
               </folding>
             </state>
@@ -99,20 +104,29 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-85">
-              <caret line="150" column="20" lean-forward="true" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="20" />
+            <state relative-caret-position="569">
+              <caret line="129" column="38" selection-start-line="129" selection-start-column="38" selection-end-line="129" selection-end-column="38" />
               <folding>
-                <element signature="method#updateFriend#0;class#FriendActivity#0" />
-                <element signature="method#getInfo#0;class#FriendActivity#0" />
-                <element signature="e#5524#5737#0" expanded="true" />
-                <element signature="e#5736#5737#0" expanded="true" />
-                <element signature="method#getIds#0;class#FriendActivity#0" />
-                <element signature="method#isExist#0;class#FriendActivity#0" />
-                <element signature="method#initData#0;class#FriendActivity#0" />
-                <element signature="method#initLv#0;class#FriendActivity#0" />
+                <element signature="method#delete#0;class#PlanAdapter#0" />
+                <element signature="method#finish#0;class#PlanAdapter#0" />
+                <element signature="method#changeColor#0;class#PlanAdapter#0" />
+                <element signature="method#initHolder#0;class#PlanAdapter#0" />
+                <element signature="e#11757#11758#0" expanded="true" />
+                <element signature="e#11785#11786#0" expanded="true" />
+                <element signature="class#ViewHolder#0;class#PlanAdapter#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_plan.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -130,9 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>NoteActi</find>
-      <find>getIntent</find>
-      <find>刷新待办</find>
       <find>save</find>
       <find>up</find>
       <find>刷新</find>
@@ -158,8 +169,11 @@
       <find>nItem</find>
       <find>date</find>
       <find>olor</find>
-      <find>Item</find>
       <find>setN</find>
+      <find>Item</find>
+      <find>plan_title</find>
+      <find>pass.set</find>
+      <find>nowtime</find>
     </findStrings>
     <replaceStrings>
       <replace>Listener</replace>
@@ -238,12 +252,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_plan.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_plan.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java" />
       </list>
     </option>
@@ -537,7 +551,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
       <window_info id="Structure" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2191689" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -648,12 +662,6 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java</url>
-          <line>290</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java</url>
           <line>122</line>
           <properties />
@@ -679,13 +687,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java</url>
-          <line>548</line>
+          <line>562</line>
           <properties />
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java</url>
-          <line>502</line>
+          <line>516</line>
           <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
@@ -924,13 +932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/Log.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1084,14 +1085,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_plan.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="47" column="17" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/TodoAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
@@ -1128,42 +1121,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="150" column="20" lean-forward="true" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="20" />
-          <folding>
-            <element signature="method#updateFriend#0;class#FriendActivity#0" />
-            <element signature="method#getInfo#0;class#FriendActivity#0" />
-            <element signature="e#5524#5737#0" expanded="true" />
-            <element signature="e#5736#5737#0" expanded="true" />
-            <element signature="method#getIds#0;class#FriendActivity#0" />
-            <element signature="method#isExist#0;class#FriendActivity#0" />
-            <element signature="method#initData#0;class#FriendActivity#0" />
-            <element signature="method#initLv#0;class#FriendActivity#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/Plan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#434#435#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="234" column="45" selection-start-line="234" selection-start-column="41" selection-end-line="234" selection-end-column="45" />
-          <folding>
-            <element signature="method#delete#0;class#PlanAdapter#0" />
-            <element signature="method#finish#0;class#PlanAdapter#0" />
-            <element signature="method#initHolder#0;class#PlanAdapter#0" />
-            <element signature="class#ViewHolder#0;class#PlanAdapter#0" />
           </folding>
         </state>
       </provider>
@@ -1183,8 +1146,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-480">
-          <caret line="220" column="69" lean-forward="true" selection-start-line="220" selection-start-column="69" selection-end-line="220" selection-end-column="69" />
+        <state relative-caret-position="989">
+          <caret line="213" column="31" selection-start-line="213" selection-start-column="31" selection-end-line="213" selection-end-column="31" />
           <folding>
             <element signature="method#initComp#0;class#ChartActivity#0" />
             <element signature="method#initDate#0;class#ChartActivity#0" />
@@ -1194,27 +1157,82 @@
             <element signature="e#4970#6084#0" />
             <element signature="method#changeDate#0;class#ChartActivity#0" />
             <element signature="method#getMonthDay#0;class#ChartActivity#0" />
+            <element signature="method#initColChart#0;class#ChartActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="639">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/FriendActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="150" column="20" lean-forward="true" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="20" />
+          <folding>
+            <element signature="method#updateFriend#0;class#FriendActivity#0" />
+            <element signature="method#getInfo#0;class#FriendActivity#0" />
+            <element signature="e#5524#5737#0" expanded="true" />
+            <element signature="e#5736#5737#0" expanded="true" />
+            <element signature="method#getIds#0;class#FriendActivity#0" />
+            <element signature="method#isExist#0;class#FriendActivity#0" />
+            <element signature="method#initData#0;class#FriendActivity#0" />
+            <element signature="method#initLv#0;class#FriendActivity#0" />
+            <element signature="method#initTop#0;class#FriendActivity#0" />
+            <element signature="method#initEvent#0;class#FriendActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_plan.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="129" column="38" selection-start-line="129" selection-start-column="38" selection-end-line="129" selection-end-column="38" />
+          <folding>
+            <element signature="method#delete#0;class#PlanAdapter#0" />
+            <element signature="method#finish#0;class#PlanAdapter#0" />
+            <element signature="method#changeColor#0;class#PlanAdapter#0" />
+            <element signature="method#initHolder#0;class#PlanAdapter#0" />
+            <element signature="e#11757#11758#0" expanded="true" />
+            <element signature="e#11785#11786#0" expanded="true" />
+            <element signature="class#ViewHolder#0;class#PlanAdapter#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="187" column="25" lean-forward="true" selection-start-line="187" selection-start-column="25" selection-end-line="187" selection-end-column="25" />
+        <state relative-caret-position="79">
+          <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#onCreateView#0;class#PlanFragment#0" />
+            <element signature="e#1514#2008#0" expanded="true" />
+            <element signature="e#2007#2008#0" expanded="true" />
             <element signature="e#2207#2610#0" expanded="true" />
             <element signature="e#2609#2610#0" expanded="true" />
-            <element signature="method#initEvent#0;class#PlanFragment#0" />
+            <element signature="method#startTime#0;class#PlanFragment#0" />
+            <element signature="method#stopTime#0;class#PlanFragment#0" />
             <element signature="e#5095#5124#0" />
+            <element signature="method#setNow#0;class#PlanFragment#0" />
             <element signature="method#getPlan#0;class#PlanFragment#0" />
             <element signature="method#pass#0;class#PlanFragment#0" />
             <element signature="method#getTime#0;class#PlanFragment#0" />
             <element signature="method#setTime#0;class#PlanFragment#0" />
             <element signature="method#setAchieve#0;class#PlanFragment#0" />
             <element signature="method#isExist#0;class#PlanFragment#0" />
+            <element signature="method#addChart#0;class#PlanFragment#0" />
             <element signature="method#updateChart#0;class#PlanFragment#0" />
           </folding>
         </state>

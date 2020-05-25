@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,15 +37,20 @@ import java.util.List;
 
 public class PlanAdapter extends ArrayAdapter<Plan> {
     private int resourceId;
-    public int now_index = -1;
+    private int on = 1;
+    private int nowId = -1;
+
+
     private int newResourceId;
     private ListView mListView;
     private List<Plan> mList;
     Global global;
 
+    private Handler handler;
 
-    public PlanAdapter(Context context, int resourceId, List<Plan> plan_list) {
+    public PlanAdapter(Context context, int resourceId, List<Plan> plan_list, Handler handler) {
         super(context, resourceId, plan_list);
+        this.handler = handler;
         newResourceId = resourceId;
     }
 
@@ -101,6 +109,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
 //                                    planAdapter = new PlanAdapter(getActivity(), R.layout.item_plan, mList);
 //                                    mListView.setAdapter(planAdapter);
                             bsd.dismiss();
+                            initNow();
                         }
                     });
 
@@ -108,12 +117,17 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
                         @Override
                         public void onClick(View v) {
                             int del_id = mList.get(position).getId();
+                            if(del_id==nowId&&on==0){
+                                Toast.makeText(getContext(),"请先暂停该计划",Toast.LENGTH_SHORT).show();
+                                return ;
+                            }
                             String pass = mList.get(position).getPass();
                             String title = mList.get(position).getTitle();
                             finish(del_id,pass,title);
                             mList.remove(position);
                             notifyDataSetChanged();
                             bsd.dismiss();
+                            initNow();
                         }
                     });
 
@@ -229,6 +243,16 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
         }
     }
 
+    private void initNow(){
+        Message msg = new Message();
+//        msg.what = clickIndex;
+//        msg.arg1 = position;
+        Bundle b = new Bundle();
+//        b.putInt(POSITION, position);
+        msg.setData(b);
+        handler.sendMessage(msg);
+    }
+
     private void changeColor(ViewHolder vh,int urgency){
         switch (urgency){
             case 0:
@@ -278,6 +302,14 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
 
     public void setGlobal(Global global) {
         this.global = global;
+    }
+
+    public void setOn(int on) {
+        this.on = on;
+    }
+
+    public void setNowId(int nowId) {
+        this.nowId = nowId;
     }
 
     class ViewHolder {

@@ -3,6 +3,8 @@ package com.king.block.content;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -56,6 +58,15 @@ public class PlanFragment extends Fragment{
     int pass_red = 0,pass_yellow = 0,pass_green = 0,pass_blue = 0;
     private int prize[]={1,24,50,100,500,1000};
 
+    private Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            plan_now=null;
+            plan_title.setText("");
+            plan_content.setText("");
+            pass.setBase(SystemClock.elapsedRealtime());
+        };
+    };
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container, false);
@@ -70,7 +81,7 @@ public class PlanFragment extends Fragment{
     }
 
     private void initLv(){
-        planAdapter = new PlanAdapter(getActivity(), R.layout.item_plan, plan_list);
+        planAdapter = new PlanAdapter(getActivity(), R.layout.item_plan, plan_list,handler);
         plan_lv =(ListView) view.findViewById(R.id.plan_lv);
         plan_lv.setAdapter(planAdapter);
         planAdapter.setListView(plan_lv);
@@ -86,6 +97,8 @@ public class PlanFragment extends Fragment{
                 }
                 plan_now = plan_list.get(position);
                 setNow();
+                planAdapter.setOn(on);
+                planAdapter.setNowId(plan_now.getId());
             }
         });
     }
@@ -128,6 +141,7 @@ public class PlanFragment extends Fragment{
                     nowtime=SystemClock.elapsedRealtime();
                 }
                 on=1-on;
+                planAdapter.setOn(on);
             }
         });
     }
