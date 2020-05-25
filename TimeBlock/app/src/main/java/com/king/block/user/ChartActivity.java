@@ -52,7 +52,9 @@ public class ChartActivity extends AppCompatActivity {
     private int mYear, mMonth;//month页
     private int yYear;//year页
 
-    String []week = new String[7];
+    int []week = new int[7];
+    String[] weekday = {"周一","周二","周三","周四","周五","周六","周日"};
+
     private PieChartView pie_chart;
     private ColumnChartView col_chart;
     private List<SubcolumnValue> values;
@@ -120,7 +122,7 @@ public class ChartActivity extends AppCompatActivity {
             c.set(Calendar.MONTH, wMonth - 1);
             c.set(Calendar.DAY_OF_MONTH, wDay);
             c.add(Calendar.DAY_OF_YEAR, i);
-            week[i]=c.get(Calendar.DAY_OF_MONTH)+"";
+            week[i]=c.get(Calendar.DAY_OF_MONTH);
         }
         wYearEnd = c.get(Calendar.YEAR);
         wMonthEnd = c.get(Calendar.MONTH)+1;
@@ -161,6 +163,7 @@ public class ChartActivity extends AppCompatActivity {
                         date.setText(yYear + "年" );
                         break;
                 }
+                getCharts();
                 initColChart();
             }
         });
@@ -218,13 +221,21 @@ public class ChartActivity extends AppCompatActivity {
         return maxDate;
     }
 
+    private float[] minToHour(int[] min){
+        float hour[] = new float[4];
+        for(int i=0;i<4;i++){
+            hour[i] = (float) min[0]/60;
+        }
+        return hour;
+    }
+
     private void initColChart(){
         ColumnChartData data;
         int numColumns=7;
         int subColumns=4;
         List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
         List<Column> columns = new ArrayList<Column>();
-        int[][] hour = new int[31][4];
+        float[][] hour = new float[31][4];
         String[] clr={"#EC2828","#FFEC87","#A6DA8C","#50C9EF"};//红黄绿蓝
 
         //初始化x轴
@@ -233,35 +244,49 @@ public class ChartActivity extends AppCompatActivity {
             case 1:numColumns=getMonthDay();break;
             case 2:numColumns=12;break;
         }
+
         for (int i = 0, j = 0; i < numColumns; i++) {
-            int[] time = {0, 0, 0, 0};
-            if (type == 0) {
-                mAxisXValues.add(new AxisValue(i).setLabel(week[i]+"日"));
-                if (j < chart_list.size() && chart_list.get(j).getDate().substring(8).equals(week[i])) {
-                    time = chart_list.get(j).getPass();
+            float[] time = {0, 0, 0, 0};
+            if(type==0) {
+                mAxisXValues.add(new AxisValue(i).setLabel(weekday[i]));
+                if (j < chart_list.size() && Integer.parseInt(chart_list.get(j).getDate().substring(8))==week[i]) {
+                    time = minToHour(chart_list.get(j).getPass());
                     j++;
                 }
-            } else if (type == 1) {
-                mAxisXValues.add(new AxisValue(i).setLabel(i+"日"));
-                if (j < chart_list.size() && chart_list.get(j).getDate().substring(8).equals(i+1+"")) {
-                    time = chart_list.get(j).getPass();
+            }else if (type == 1) {
+                mAxisXValues.add(new AxisValue(i).setLabel(i + 1 + "日"));
+                if (j < chart_list.size() && Integer.parseInt(chart_list.get(j).getDate().substring(8)) == i + 1) {
+                    time = minToHour(chart_list.get(j).getPass());
                     j++;
                 }
-            } else {
-                mAxisXValues.add(new AxisValue(i).setLabel(i+1+"月"));
-                if (j < chart_list.size()) {
-                    int month = Integer.parseInt(chart_list.get(j).getDate().substring(5,7));
-                    while(month==i){
-                        for(int k=0;k<4;k++){
-                            time[k]+=chart_list.get(j).getPass()[k];
+            }else {
+                    mAxisXValues.add(new AxisValue(i).setLabel(i+1+"月"));
+                    if (j < chart_list.size()) {
+                        int month = Integer.parseInt(chart_list.get(j).getDate().substring(5,7));
+                        while(month==i+1){
+                            for(int k=0;k<4;k++){
+                                time[k]+=(float) chart_list.get(j).getPass()[k]/60;
+                            }
+                            j++;
+                            if(j==chart_list.size()) break;
+                            month = Integer.parseInt(chart_list.get(j).getDate().substring(5,7));
                         }
-                        month = Integer.parseInt(chart_list.get(j++).getDate().substring(5,7));
                     }
                 }
+                System.arraycopy(time, 0, hour[i], 0, 4);
             }
-            System.arraycopy(time, 0, hour[i], 0, 4);
-        }
-
+        
+        //初始化Y轴
+//        Axis axisY = new Axis().setHasLines(true);
+//        axisY.setMaxLabelChars(6);//max label length, for example 60
+//        List<AxisValue> axis = new ArrayList<>();
+//        for(int i = 0; i < 24; i+= 10){
+//            AxisValue value = new AxisValue(i);
+//            String label = i+1+"";
+//            value.setLabel(label);
+//            axis.add(value);
+//        }
+//        axisY.setValues(axis);
 
         //设置每个柱
         for (int i = 0; i < numColumns; ++i) {
@@ -322,7 +347,7 @@ public class ChartActivity extends AppCompatActivity {
             }else if(type==1){
                 date = mYear+"-"+mMonth+"-01";
             }else{
-                date = yYear+"-0-101";
+                date = yYear+"-01-01";
             }
             String content = "{\"user_id\":\"" + global.getUserId()
                     +"\",\"date\":\""+date

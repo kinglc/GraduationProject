@@ -57,25 +57,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2">
-              <caret line="220" column="31" lean-forward="true" selection-start-line="220" selection-start-column="31" selection-end-line="220" selection-end-column="31" />
+            <state relative-caret-position="-99">
+              <caret line="277" column="8" selection-start-line="277" selection-start-column="8" selection-end-line="277" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onCreate#0;class#ChartActivity#0" />
                 <element signature="method#initTop#0;class#ChartActivity#0" />
-                <element signature="e#2177#2338#0" expanded="true" />
-                <element signature="e#2337#2338#0" expanded="true" />
+                <element signature="e#2237#2398#0" expanded="true" />
+                <element signature="e#2397#2398#0" expanded="true" />
                 <element signature="method#initComp#0;class#ChartActivity#0" />
                 <element signature="method#initDate#0;class#ChartActivity#0" />
                 <element signature="method#getEndDay#0;class#ChartActivity#0" />
                 <element signature="method#initGroup#0;class#ChartActivity#0" />
                 <element signature="method#initEvent#0;class#ChartActivity#0" />
-                <element signature="e#4787#6160#0" expanded="true" />
-                <element signature="e#6159#6160#0" expanded="true" />
-                <element signature="e#6197#6345#0" expanded="true" />
-                <element signature="e#6344#6345#0" expanded="true" />
-                <element signature="e#6380#6527#0" expanded="true" />
-                <element signature="e#6526#6527#0" expanded="true" />
+                <element signature="e#4762#6164#0" expanded="true" />
+                <element signature="e#6163#6164#0" expanded="true" />
+                <element signature="e#6201#6349#0" expanded="true" />
+                <element signature="e#6348#6349#0" expanded="true" />
+                <element signature="e#6384#6531#0" expanded="true" />
+                <element signature="e#6530#6531#0" expanded="true" />
                 <element signature="method#changeDate#0;class#ChartActivity#0" />
                 <element signature="e#6973#7446#1" />
                 <element signature="e#7462#7746#1" />
@@ -83,6 +83,7 @@
                 <element signature="method#getMonthDay#0;class#ChartActivity#0" />
                 <element signature="e#8381#8392#0" expanded="true" />
                 <element signature="e#8440#8448#0" expanded="true" />
+                <element signature="e#8241#8271#0" />
                 <element signature="method#getCharts#0;class#ChartActivity#0" />
               </folding>
             </state>
@@ -108,33 +109,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="261" column="18" lean-forward="true" selection-start-line="261" selection-start-column="18" selection-end-line="266" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#startTime#0;class#PlanFragment#0" />
-                <element signature="method#stopTime#0;class#PlanFragment#0" />
-                <element signature="method#setNow#0;class#PlanFragment#0" />
-                <element signature="method#pass#0;class#PlanFragment#0" />
-                <element signature="method#getTime#0;class#PlanFragment#0" />
-                <element signature="method#setTime#0;class#PlanFragment#0" />
-                <element signature="method#setAchieve#0;class#PlanFragment#0" />
-                <element signature="method#isExist#0;class#PlanFragment#0" />
-                <element signature="method#addChart#0;class#PlanFragment#0" />
-                <element signature="method#updateChart#0;class#PlanFragment#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
           <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+            <state relative-caret-position="-12">
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -152,8 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cmpD</find>
-      <find>Note</find>
       <find>note</find>
       <find>未完成</find>
       <find>完成</find>
@@ -177,11 +154,13 @@
       <find>setBa</find>
       <find>getContext()</find>
       <find>Plan</find>
-      <find>query</find>
       <find>plan</find>
       <find>getEndDay();</find>
       <find>Toas</find>
       <find>getCharts</find>
+      <find>query</find>
+      <find>rb_week</find>
+      <find>hour</find>
     </findStrings>
     <replaceStrings>
       <replace>Listener</replace>
@@ -209,8 +188,8 @@
       <replace>Plan</replace>
       <replace>ChartActivity.this</replace>
       <replace>Chart</replace>
-      <replace>plan</replace>
       <replace>chart</replace>
+      <replace>plan</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -562,7 +541,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49685535" visible="true" weight="0.19571045" />
       <window_info id="Structure" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2191689" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -571,7 +550,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Build Variants" order="8" sideWeight="0.5031447" side_tool="true" weight="0.20576407" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.32697946" />
-      <window_info anchor="bottom" id="Debug" order="1" weight="0.40762463" />
+      <window_info active="true" anchor="bottom" id="Debug" order="1" visible="true" weight="0.40762463" />
       <window_info anchor="bottom" id="Logcat" order="2" weight="0.42961878" />
       <window_info anchor="bottom" id="Android Profiler" order="3" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32991204" />
@@ -702,19 +681,6 @@
           <properties />
           <option name="timeStamp" value="82" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <condition expression="i==24" language="JAVA" />
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java</url>
-          <line>244</line>
-          <properties />
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java</url>
-          <line>235</line>
-          <properties />
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -726,6 +692,11 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>type==1</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>i==24</expression-string>
         <language-id>JAVA</language-id>
@@ -1162,14 +1133,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -1195,26 +1158,6 @@
             <element signature="method#initData#0;class#FriendActivity#0" />
             <element signature="method#initLv#0;class#FriendActivity#0" />
             <element signature="method#initEvent#0;class#FriendActivity#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="261" column="18" lean-forward="true" selection-start-line="261" selection-start-column="18" selection-end-line="266" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#startTime#0;class#PlanFragment#0" />
-            <element signature="method#stopTime#0;class#PlanFragment#0" />
-            <element signature="method#setNow#0;class#PlanFragment#0" />
-            <element signature="method#pass#0;class#PlanFragment#0" />
-            <element signature="method#getTime#0;class#PlanFragment#0" />
-            <element signature="method#setTime#0;class#PlanFragment#0" />
-            <element signature="method#setAchieve#0;class#PlanFragment#0" />
-            <element signature="method#isExist#0;class#PlanFragment#0" />
-            <element signature="method#addChart#0;class#PlanFragment#0" />
-            <element signature="method#updateChart#0;class#PlanFragment#0" />
           </folding>
         </state>
       </provider>
@@ -1248,27 +1191,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="261" column="18" lean-forward="true" selection-start-line="261" selection-start-column="18" selection-end-line="266" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#startTime#0;class#PlanFragment#0" />
+            <element signature="method#stopTime#0;class#PlanFragment#0" />
+            <element signature="method#setNow#0;class#PlanFragment#0" />
+            <element signature="method#pass#0;class#PlanFragment#0" />
+            <element signature="method#getTime#0;class#PlanFragment#0" />
+            <element signature="method#setTime#0;class#PlanFragment#0" />
+            <element signature="method#setAchieve#0;class#PlanFragment#0" />
+            <element signature="method#isExist#0;class#PlanFragment#0" />
+            <element signature="method#addChart#0;class#PlanFragment#0" />
+            <element signature="method#updateChart#0;class#PlanFragment#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="220" column="31" lean-forward="true" selection-start-line="220" selection-start-column="31" selection-end-line="220" selection-end-column="31" />
+        <state relative-caret-position="-99">
+          <caret line="277" column="8" selection-start-line="277" selection-start-column="8" selection-end-line="277" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#ChartActivity#0" />
             <element signature="method#initTop#0;class#ChartActivity#0" />
-            <element signature="e#2177#2338#0" expanded="true" />
-            <element signature="e#2337#2338#0" expanded="true" />
+            <element signature="e#2237#2398#0" expanded="true" />
+            <element signature="e#2397#2398#0" expanded="true" />
             <element signature="method#initComp#0;class#ChartActivity#0" />
             <element signature="method#initDate#0;class#ChartActivity#0" />
             <element signature="method#getEndDay#0;class#ChartActivity#0" />
             <element signature="method#initGroup#0;class#ChartActivity#0" />
             <element signature="method#initEvent#0;class#ChartActivity#0" />
-            <element signature="e#4787#6160#0" expanded="true" />
-            <element signature="e#6159#6160#0" expanded="true" />
-            <element signature="e#6197#6345#0" expanded="true" />
-            <element signature="e#6344#6345#0" expanded="true" />
-            <element signature="e#6380#6527#0" expanded="true" />
-            <element signature="e#6526#6527#0" expanded="true" />
+            <element signature="e#4762#6164#0" expanded="true" />
+            <element signature="e#6163#6164#0" expanded="true" />
+            <element signature="e#6201#6349#0" expanded="true" />
+            <element signature="e#6348#6349#0" expanded="true" />
+            <element signature="e#6384#6531#0" expanded="true" />
+            <element signature="e#6530#6531#0" expanded="true" />
             <element signature="method#changeDate#0;class#ChartActivity#0" />
             <element signature="e#6973#7446#1" />
             <element signature="e#7462#7746#1" />
@@ -1276,6 +1247,7 @@
             <element signature="method#getMonthDay#0;class#ChartActivity#0" />
             <element signature="e#8381#8392#0" expanded="true" />
             <element signature="e#8440#8448#0" expanded="true" />
+            <element signature="e#8241#8271#0" />
             <element signature="method#getCharts#0;class#ChartActivity#0" />
           </folding>
         </state>
