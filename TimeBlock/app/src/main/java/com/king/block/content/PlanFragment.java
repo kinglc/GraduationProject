@@ -53,7 +53,7 @@ public class PlanFragment extends Fragment{
     private ImageView menu;
     Global global;
 
-    int chart_pass_before;
+    int pass_red = 0,pass_yellow = 0,pass_green = 0,pass_blue = 0;
     private int prize[]={1,24,50,100,500,1000};
 
     @Override
@@ -80,6 +80,10 @@ public class PlanFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                plan_now = getNow();
+                if(on==0) {
+                    on = 1;
+                    stopTime();
+                }
                 plan_now = plan_list.get(position);
                 setNow();
             }
@@ -154,8 +158,15 @@ public class PlanFragment extends Fragment{
         setTime(plan_time);
 
         int chart_id = isExist(date);
-        if(chart_id==-1) addChart(pass_add,date);
-        else updateChart(chart_id, chart_pass_before+pass_add);
+        switch (plan_now.urgency){
+            case 0:pass_red+=pass_add;break;
+            case 1:pass_yellow+=pass_add;break;
+            case 2:pass_green+=pass_add;break;
+            case 3:pass_blue+=pass_add;break;
+            default:break;
+        }
+        if(chart_id==-1) addChart(date);
+        else updateChart(chart_id);
 
         int pos = 0;
         for(;pos<prize.length;pos++) {
@@ -169,6 +180,7 @@ public class PlanFragment extends Fragment{
             Toast.makeText(getContext(), content, Toast.LENGTH_SHORT).show();
         }
 
+        plan_now.setPass(plan_time);
         plan_list.clear();
         getPlan();
     }
@@ -177,10 +189,6 @@ public class PlanFragment extends Fragment{
         if(plan_now!=null){
             plan_title.setText(plan_now.getTitle());
             plan_content.setText(plan_now.getContent());
-            if(on==0) {
-                on = 1;
-                stopTime();
-            }
             nowtime = SystemClock.elapsedRealtime();
             long t = global.countTime(plan_now.getPass());
             pass.setBase(nowtime-t*60*1000);
@@ -448,9 +456,17 @@ public class PlanFragment extends Fragment{
                 int code = res.optInt("code");
                 String msg = res.optString("msg");
                 if (code == 200) {
-                    chart_pass_before = res.getJSONArray("data").getJSONObject(0).optInt("pass");
-                    return res.getJSONArray("data").getJSONObject(0).optInt("chart_id");
+                    JSONObject j =  res.getJSONArray("data").getJSONObject(0);
+                    pass_red =j.optInt("pass_red");
+                    pass_yellow =j.optInt("pass_yellow");
+                    pass_green =j.optInt("pass_green");
+                    pass_blue =j.optInt("pass_blue");
+                    return j.optInt("chart_id");
                 } else if(code==201){
+                    pass_red = 0;
+                    pass_yellow = 0;
+                    pass_green = 0;
+                    pass_blue = 0;
                     return -1;
                 }else{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
@@ -468,7 +484,7 @@ public class PlanFragment extends Fragment{
     }
 
     //新建chart
-    private void addChart(int pass,String date){
+    private void addChart(String date){
         try {
             URL url = new URL(global.getURL() + "/chart/add");
             // 打开连接
@@ -485,7 +501,10 @@ public class PlanFragment extends Fragment{
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + global.getUserId() +
-                    "\",\"pass\":"+pass+
+                    "\",\"pass_red\":"+pass_red+
+                    ",\"pass_yellow\":"+pass_yellow+
+                    ",\"pass_green\":"+pass_green+
+                    ",\"pass_blue\":"+pass_blue+
                     ",\"date\":\""+date+"\"}";
             out.write(content.getBytes());
             out.flush();
@@ -512,7 +531,7 @@ public class PlanFragment extends Fragment{
     }
 
     //更新chart
-    private void updateChart(int chart_id,int pass){
+    private void updateChart(int chart_id){
         try {
             URL u = new URL(global.getURL() + "/chart/update");
             // 打开连接
@@ -527,7 +546,11 @@ public class PlanFragment extends Fragment{
             con.connect();
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
-            String content = "{\"chart_id\":" + chart_id + ",\"pass\":"+pass +"}";
+            String content = "{\"chart_id\":" + chart_id +
+                    ",\"pass_red\":"+pass_red+
+                    ",\"pass_yellow\":"+pass_yellow+
+                    ",\"pass_green\":"+pass_green+
+                    ",\"pass_blue\":"+pass_blue+"}";
             out.write(content.getBytes());
             out.flush();
             out.close();

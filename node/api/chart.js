@@ -131,7 +131,7 @@ router.post("/queryYear", (req, res) => {
 //         data:[]
 router.post("/isExist", (req, res) => {
     console.log("isExist");
-    var sqlStr = "select chart_id, pass from chart where user_id = '" + req.body.user_id+"' and date = '"+req.body.date+"' limit 1";
+    var sqlStr = "select * from chart where user_id = '" + req.body.user_id+"' and date = '"+req.body.date+"' limit 1";
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
@@ -167,7 +167,10 @@ router.post("/isExist", (req, res) => {
 //     params{
 //         user_id:,
 //         date:
-//         pass
+//         pass_red:
+//         pass_yellow:
+//         pass_green:
+//         pass_blue:
 //     }
 //     return{
 //         code:
@@ -175,8 +178,8 @@ router.post("/isExist", (req, res) => {
 //         data:[]
 router.post("/add", (req, res) => {
     console.log("add");
-    var sqlStr = "insert into chart (user_id, date, pass) values('"+req.body.user_id+"','"+
-        req.body.date+"',"+req.body.pass+")";
+    var sqlStr = "insert into chart (user_id, date, pass_red,pass_yellow,pass_green,pass_blue) values('"+req.body.user_id+"','"+
+        req.body.date+"',"+req.body.pass_red+","+req.body.pass_yellow+","+req.body.pass_green+","+req.body.pass_blue+")";
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
@@ -205,7 +208,10 @@ router.post("/add", (req, res) => {
 // 修改
 //     params{
 //         chart_id:,
-//         pass:
+//         pass_red:
+//         pass_yellow:
+//         pass_green:
+//         pass_blue:
 //     }
 //     return{
 //         code:
@@ -213,7 +219,10 @@ router.post("/add", (req, res) => {
 //         data:[]
 router.post("/update", (req, res) => {
     console.log("query");
-    var sqlStr = "update chart set pass = " + req.body.pass+" where chart_id = "+req.body.chart_id;
+    var sqlStr = "update chart set pass_red = " + req.body.pass_red+
+        ", pass_yellow = "+req.body.pass_yellow
+        +", pass_green = "+req.body.pass_green
+        +", pass_blue = "+req.body.pass_blue+" where chart_id = "+req.body.chart_id;
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {

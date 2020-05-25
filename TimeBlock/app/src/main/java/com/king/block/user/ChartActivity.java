@@ -211,7 +211,6 @@ public class ChartActivity extends AppCompatActivity {
         return maxDate;
     }
 
-
     private void initColChart(){
         ColumnChartData data;
         int numColumns;
