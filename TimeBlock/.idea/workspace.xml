@@ -57,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-99">
-              <caret line="277" column="8" selection-start-line="277" selection-start-column="8" selection-end-line="277" selection-end-column="8" />
+            <state relative-caret-position="140">
+              <caret line="289" column="38" lean-forward="true" selection-start-line="289" selection-start-column="38" selection-end-line="289" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onCreate#0;class#ChartActivity#0" />
@@ -81,9 +81,11 @@
                 <element signature="e#7462#7746#1" />
                 <element signature="e#7762#7840#1" />
                 <element signature="method#getMonthDay#0;class#ChartActivity#0" />
+                <element signature="method#minToHout#0;class#ChartActivity#0" />
                 <element signature="e#8381#8392#0" expanded="true" />
                 <element signature="e#8440#8448#0" expanded="true" />
                 <element signature="e#8241#8271#0" />
+                <element signature="e#8634#10113#1" />
                 <element signature="method#getCharts#0;class#ChartActivity#0" />
               </folding>
             </state>
@@ -1221,8 +1223,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-99">
-          <caret line="277" column="8" selection-start-line="277" selection-start-column="8" selection-end-line="277" selection-end-column="8" />
+        <state relative-caret-position="140">
+          <caret line="289" column="38" lean-forward="true" selection-start-line="289" selection-start-column="38" selection-end-line="289" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#ChartActivity#0" />
@@ -1245,9 +1247,11 @@
             <element signature="e#7462#7746#1" />
             <element signature="e#7762#7840#1" />
             <element signature="method#getMonthDay#0;class#ChartActivity#0" />
+            <element signature="method#minToHout#0;class#ChartActivity#0" />
             <element signature="e#8381#8392#0" expanded="true" />
             <element signature="e#8440#8448#0" expanded="true" />
             <element signature="e#8241#8271#0" />
+            <element signature="e#8634#10113#1" />
             <element signature="method#getCharts#0;class#ChartActivity#0" />
           </folding>
         </state>

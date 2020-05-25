@@ -230,7 +230,7 @@ public class ChartActivity extends AppCompatActivity {
     }
 
     private void initColChart(){
-        ColumnChartData data;
+        ColumnChartData data = new ColumnChartData();
         int numColumns=7;
         int subColumns=4;
         List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
@@ -275,18 +275,19 @@ public class ChartActivity extends AppCompatActivity {
                 }
                 System.arraycopy(time, 0, hour[i], 0, 4);
             }
-        
-        //初始化Y轴
+
+//        //初始化Y轴
 //        Axis axisY = new Axis().setHasLines(true);
 //        axisY.setMaxLabelChars(6);//max label length, for example 60
 //        List<AxisValue> axis = new ArrayList<>();
-//        for(int i = 0; i < 24; i+= 10){
+//        for(int i = 0; i < 24; i+= 4){
 //            AxisValue value = new AxisValue(i);
 //            String label = i+1+"";
 //            value.setLabel(label);
 //            axis.add(value);
 //        }
 //        axisY.setValues(axis);
+//        data.setAxisYLeft(axisY);
 
         //设置每个柱
         for (int i = 0; i < numColumns; ++i) {
@@ -315,7 +316,7 @@ public class ChartActivity extends AppCompatActivity {
             col_chart.moveTo(0, 0);
         }else{
             col_chart.setColumnChartData(data);
-            Viewport viewport = new Viewport(0, 24, 7, 0);
+            Viewport viewport = new Viewport(0, 24, 12, 0);
             col_chart.setCurrentViewport(viewport);
             col_chart.moveTo(0, 0);
         }
