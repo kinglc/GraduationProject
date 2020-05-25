@@ -1,13 +1,8 @@
 package com.king.block.content;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.os.SystemClock;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,7 +16,6 @@ import com.king.block.Global;
 import com.king.block.R;
 
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -35,8 +29,9 @@ import org.json.JSONObject;
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PlanFragment extends Fragment{
@@ -51,12 +46,15 @@ public class PlanFragment extends Fragment{
 //    TextView plan_ddl;
     ImageView select;
     private Chronometer pass;
-    int on = 0;//1-暂停 0-计时
+    int on = 1;//1-暂停 0-计时
     private long nowtime=0;
 
     ImageView add;
     private ImageView menu;
     Global global;
+
+    int chart_pass_before;
+    private int prize[]={1,24,50,100,500,1000};
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -138,19 +136,54 @@ public class PlanFragment extends Fragment{
     private void stopTime(){
         select.setImageResource(R.drawable.on);
         pass.stop();
+        String now_t = pass.getText().toString();
+        now_t = now_t.substring(0,now_t.length()-3)+"m";
+        now_t= now_t.replace(":","h");
+        if(now_t.charAt(0)=='0') now_t = now_t.replace("0h","");
+        if(now_t=="00m") return;
+        if(now_t.charAt(0)=='0') now_t=now_t.substring(1);
+        pass(plan_now.getId(),now_t);
+
+        String date = new SimpleDateFormat("yyyy-MM-dd").format( new Date());
+
+        int user_pass_before = global.countTime(getTime());
+        int pass_add = global.countTime(now_t)-global.countTime(plan_now.getPass());
+
+        int user_pass_now = user_pass_before + pass_add;
+        String plan_time = global.timeToString(user_pass_now);
+        setTime(plan_time);
+
+        int chart_id = isExist(date);
+        if(chart_id==-1) addChart(pass_add,date);
+        else updateChart(chart_id, chart_pass_before+pass_add);
+
+        int pos = 0;
+        for(;pos<prize.length;pos++) {
+            if (user_pass_before < prize[pos]*60 && prize[pos]*60<=user_pass_now)
+                break;
+        }
+        if(pos!=prize.length) {
+            setAchieve(2 * pos);
+            String content = "达成成就”" + global.getAchieve().get(2 * pos+1).getName() + "”";
+            global.setLog(2, content, date);
+            Toast.makeText(getContext(), content, Toast.LENGTH_SHORT).show();
+        }
+
+        plan_list.clear();
+        getPlan();
     }
 
     private void setNow(){
         if(plan_now!=null){
             plan_title.setText(plan_now.getTitle());
             plan_content.setText(plan_now.getContent());
-//            plan_ddl.setText(plan_now.getDate()+" "+plan_now.getTime());
-//            plan_pass.setText(plan_now.getPass());
-            //未完成-获取on状态
-            on=1;
-            stopTime();
+            if(on==0) {
+                on = 1;
+                stopTime();
+            }
             nowtime = SystemClock.elapsedRealtime();
-            pass.setBase(nowtime-plan_now.getId()*1000);
+            long t = global.countTime(plan_now.getPass());
+            pass.setBase(nowtime-t*60*1000);
             switch (plan_now.getUrgency()){
                 case 0:
                     pass.setTextColor(getContext().getResources().getColor(R.color.red));
@@ -227,7 +260,7 @@ public class PlanFragment extends Fragment{
     //进行
     private void pass(int plan_id,String pass){
         try {
-            URL url = new URL(global.getURL() + "/plan/delete");
+            URL url = new URL(global.getURL() + "/plan/pass");
             // 打开连接
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestProperty("accept", "*/*");
@@ -256,6 +289,260 @@ public class PlanFragment extends Fragment{
                 }
             } else {
                 Toast.makeText(getContext(), "删除失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //获取plan_time
+    private String getTime(){
+        try {
+            URL u = new URL(global.getURL() + "/user/getTime");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() + "\"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    return res.getJSONArray("data").getJSONObject(0).optString("plan_time");
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+        return "";
+    }
+
+    //更新plan_time
+    private void setTime(String plan_time){
+        try {
+            URL u = new URL(global.getURL() + "/user/setTime");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"plan_time\":\""+plan_time+"\"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    return ;
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //更新achieve
+    private void setAchieve(int prize_plan){
+        try {
+            URL u = new URL(global.getURL() + "/achieve/plan");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"prize_plan\":"+prize_plan+"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+//                    Toast.makeText(getContext(),"完成所有待办！",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //chart是否存在
+    private int isExist(String date){
+        try {
+            URL u = new URL(global.getURL() + "/chart/isExist");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() + "\",\"date\":\""+date +"\"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    chart_pass_before = res.getJSONArray("data").getJSONObject(0).optInt("pass");
+                    return res.getJSONArray("data").getJSONObject(0).optInt("chart_id");
+                } else if(code==201){
+                    return -1;
+                }else{
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+        return -1;
+    }
+
+    //新建chart
+    private void addChart(int pass,String date){
+        try {
+            URL url = new URL(global.getURL() + "/chart/add");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"user_id\":\"" + global.getUserId() +
+                    "\",\"pass\":"+pass+
+                    ",\"date\":\""+date+"\"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+//                    Toast.makeText(getContext(), "添加成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //更新chart
+    private void updateChart(int chart_id,int pass){
+        try {
+            URL u = new URL(global.getURL() + "/chart/update");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) u.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"chart_id\":" + chart_id + ",\"pass\":"+pass +"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    return ;
+                } else {
+                    Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 

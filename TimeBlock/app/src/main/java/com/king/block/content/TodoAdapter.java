@@ -314,7 +314,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
     //获取tododay
     private int getTododay(){
         try {
-            URL u = new URL(global.getURL() + "/user/getday");
+            URL u = new URL(global.getURL() + "/user/getDay");
             // 打开连接
             HttpURLConnection con = (HttpURLConnection) u.openConnection();
             con.setRequestProperty("accept", "*/*");
@@ -356,7 +356,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
     //设置tododay
     private void setTododay(int todo_day){
         try {
-            URL u = new URL(global.getURL() + "/user/setday");
+            URL u = new URL(global.getURL() + "/user/setDay");
             // 打开连接
             HttpURLConnection con = (HttpURLConnection) u.openConnection();
             con.setRequestProperty("accept", "*/*");

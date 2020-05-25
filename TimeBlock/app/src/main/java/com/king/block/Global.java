@@ -95,6 +95,14 @@ public class Global extends Application {
         return min;
     }
 
+    public String timeToString(int time) {
+        int h = time/60;
+        int min = time%60;
+        String s = min+"m";
+        if(h!=0) s=h+"h"+s;
+        return s;
+    }
+
     //比较日期
     public int cmpDate(Date d){
         Date now = new Date();
