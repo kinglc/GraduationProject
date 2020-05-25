@@ -62,7 +62,9 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     private TodoFragment frag_todo;
     private PlanFragment frag_plan;
     private NoteFragment frag_note;
-    private int index;//0-待办，1-计划，2-备忘录
+    private int index;//0-待办，1-计划，2-备忘录\
+
+    Global global;
 
 
     @Override
@@ -70,6 +72,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
+        global = (Global)getApplication();
 //        String name = getIntent().getStringExtra("name");///////////////////////////////////
 //        String a = getIntent().getStringExtra("a");///////////////////////////////////
 //        Toast.makeText(ContentActivity.this,name+a,Toast.LENGTH_SHORT).show();
@@ -158,7 +161,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
                 //获取剪贴板管理器：
                 ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
 // 创建普通字符型ClipData
-                ClipData mClipData = ClipData.newPlainText("id", id);
+                ClipData mClipData = ClipData.newPlainText("id", global.getUserId());
 // 将ClipData内容放到系统剪贴板里。
                 cm.setPrimaryClip(mClipData);
                 Toast.makeText(ContentActivity.this,"已复制ID至剪贴板",Toast.LENGTH_SHORT).show();
