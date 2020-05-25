@@ -12,9 +12,16 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.king.block.Global;
 import com.king.block.R;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
 import java.lang.reflect.Array;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -27,7 +34,6 @@ import lecho.lib.hellocharts.model.Column;
 import lecho.lib.hellocharts.model.ColumnChartData;
 import lecho.lib.hellocharts.model.SubcolumnValue;
 import lecho.lib.hellocharts.model.Viewport;
-import lecho.lib.hellocharts.util.ChartUtils;
 import lecho.lib.hellocharts.view.ColumnChartView;
 import lecho.lib.hellocharts.view.PieChartView;
 
@@ -36,6 +42,8 @@ public class ChartActivity extends AppCompatActivity {
     RadioGroup radiogroup;
     RadioButton rb_week, rb_month,rb_year;
     int type = 0;//0-周，1-月，2-年
+    List<Chart> chart_list = new ArrayList<>();
+    Global global;
 
     Calendar c;
     ImageView minus,add;
@@ -44,10 +52,7 @@ public class ChartActivity extends AppCompatActivity {
     private int mYear, mMonth;//month页
     private int yYear;//year页
 
-    String x[][]={{"周一","周二","周三","周四","周五","周六","周日"},
-            {"1日","2日","3日","4日","5日","6日","7日","8日","9日","10日","11日","12日","13日","14日","15日","16日","17日",
-                    "18日","19日","20日","21日","22日","23日","24日","25日","26日","27日","28日","29日","30日","31日"},
-            {"1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"}};
+    String []week = new String[7];
     private PieChartView pie_chart;
     private ColumnChartView col_chart;
     private List<SubcolumnValue> values;
@@ -55,13 +60,11 @@ public class ChartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
+        global = (Global)getApplication();
         initTop();
         initComp();
         initDate();
         initEvent();
-
-//        initX();
-//        initPoint();
     }
 
     private void initTop(){
@@ -94,7 +97,6 @@ public class ChartActivity extends AppCompatActivity {
         mMonth = wMonth = c.get(Calendar.MONTH) + 1;
         wDay = c.get(Calendar.DAY_OF_MONTH);
         int minu = c.get(Calendar.DAY_OF_WEEK);
-        Toast.makeText(ChartActivity.this, "" + minu, Toast.LENGTH_SHORT).show();
         if (minu == 1) {
             minu = -6;
         } else {
@@ -107,15 +109,19 @@ public class ChartActivity extends AppCompatActivity {
         wDay = c.get(Calendar.DAY_OF_MONTH);
         getEndDay();
         date.setText(wYear + "年" + wMonth + "月" + wDay + "日 ~ " + wYearEnd + "年" +wMonthEnd + "月" +  wDayEnd + "日");
+        getCharts();
         initColChart();
     }
 
     private void getEndDay() {
-        c.clear();
-        c.set(Calendar.YEAR, wYear);
-        c.set(Calendar.MONTH, wMonth-1);
-        c.set(Calendar.DAY_OF_MONTH, wDay);
-        c.add(Calendar.DAY_OF_YEAR, 6);
+        for(int i=0;i<7;i++) {
+            c.clear();
+            c.set(Calendar.YEAR, wYear);
+            c.set(Calendar.MONTH, wMonth - 1);
+            c.set(Calendar.DAY_OF_MONTH, wDay);
+            c.add(Calendar.DAY_OF_YEAR, i);
+            week[i]=c.get(Calendar.DAY_OF_MONTH)+"";
+        }
         wYearEnd = c.get(Calendar.YEAR);
         wMonthEnd = c.get(Calendar.MONTH)+1;
         wDayEnd = c.get(Calendar.DAY_OF_MONTH);
@@ -198,6 +204,7 @@ public class ChartActivity extends AppCompatActivity {
             date.setText(yYear + "年" );
         }
         values.clear();
+        getCharts();
         initColChart();
     }
 
@@ -213,7 +220,7 @@ public class ChartActivity extends AppCompatActivity {
 
     private void initColChart(){
         ColumnChartData data;
-        int numColumns;
+        int numColumns=7;
         int subColumns=4;
         List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
         List<Column> columns = new ArrayList<Column>();
@@ -221,23 +228,40 @@ public class ChartActivity extends AppCompatActivity {
         String[] clr={"#EC2828","#FFEC87","#A6DA8C","#50C9EF"};//红黄绿蓝
 
         //初始化x轴
-        if(type==1){
-            numColumns=getMonthDay();
-        } else {
-            numColumns = x[type].length;
+        switch (type){
+            case 0:numColumns=7;break;
+            case 1:numColumns=getMonthDay();break;
+            case 2:numColumns=12;break;
         }
-        for (int i = 0; i < numColumns; i++) {
-            mAxisXValues.add(new AxisValue(i).setLabel(x[type][i]));
-            for(int j=0;j<4;j++) {
-                hour[i][j] = (i+j) %7;//待删
+        for (int i = 0, j = 0; i < numColumns; i++) {
+            int[] time = {0, 0, 0, 0};
+            if (type == 0) {
+                mAxisXValues.add(new AxisValue(i).setLabel(week[i]+"日"));
+                if (j < chart_list.size() && chart_list.get(j).getDate().substring(8).equals(week[i])) {
+                    time = chart_list.get(j).getPass();
+                    j++;
+                }
+            } else if (type == 1) {
+                mAxisXValues.add(new AxisValue(i).setLabel(i+"日"));
+                if (j < chart_list.size() && chart_list.get(j).getDate().substring(8).equals(i+1+"")) {
+                    time = chart_list.get(j).getPass();
+                    j++;
+                }
+            } else {
+                mAxisXValues.add(new AxisValue(i).setLabel(i+1+"月"));
+                if (j < chart_list.size()) {
+                    int month = Integer.parseInt(chart_list.get(j).getDate().substring(5,7));
+                    while(month==i){
+                        for(int k=0;k<4;k++){
+                            time[k]+=chart_list.get(j).getPass()[k];
+                        }
+                        month = Integer.parseInt(chart_list.get(j++).getDate().substring(5,7));
+                    }
+                }
             }
+            System.arraycopy(time, 0, hour[i], 0, 4);
         }
 
-        //获取y轴
-//        String[] axisy
-
-        //未完成-获取y数据
-        //hour
 
         //设置每个柱
         for (int i = 0; i < numColumns; ++i) {
@@ -271,5 +295,66 @@ public class ChartActivity extends AppCompatActivity {
             col_chart.moveTo(0, 0);
         }
     }
+
+    //调用接口
+    //获取
+    private void getCharts(){
+        chart_list.clear();
+        try {
+            URL url = new URL(global.getURL() + "/chart/query");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+            String date="";
+            if(type==0) {
+                date = wYear+"-"+wMonth+"-"+wDay;
+            }else if(type==1){
+                date = mYear+"-"+mMonth+"-01";
+            }else{
+                date = yYear+"-0-101";
+            }
+            String content = "{\"user_id\":\"" + global.getUserId()
+                    +"\",\"date\":\""+date
+                    +"\",\"type\":"+type+"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                JSONObject res = global.streamtoJson(con.getInputStream());
+                int code = res.optInt("code");
+                String msg = res.optString("msg");
+                if (code == 200) {
+                    JSONArray charts = res.getJSONArray("data");
+                    for (int i = 0; i < charts.length(); i++) {
+                        JSONObject chart = charts.getJSONObject(i);
+                        chart_list.add(new Chart(chart.getString("date"), new int[]{chart.getInt("pass_red"), chart.getInt("pass_yellow"),
+                                chart.getInt("pass_green"),chart.getInt("pass_blue")}));
+                    }
+                } else {
+                    Toast.makeText(ChartActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(ChartActivity.this, "刷新计划信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(ChartActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
 }
