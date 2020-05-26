@@ -55,7 +55,8 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     private TextView name;
     private LinearLayout friend, log, achieve, history;
     private String nickname;
-    private String avatarUrl;
+    private TextView copy_id;
+//    private String avatarUrl;
 //    private TextView history_txt;
 //    private String txts[]={"待办","计划","备忘"};
 
@@ -75,13 +76,14 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_content);
         global = (Global)getApplication();
         nickname = getIntent().getStringExtra("name");
-        avatarUrl = getIntent().getStringExtra("avatar");
+//        avatarUrl = getIntent().getStringExtra("avatar");
         index = getIntent().getIntExtra("index", 1);
         initComp();
         initEvent();
         initStyle();
         initFrag();
 
+        name.setText(nickname);
         //初始计划页面
         plan_pic.setImageResource(R.drawable.plan_selected);
         plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
@@ -113,6 +115,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         avatar =(ImageView)findViewById(R.id.avatar);
         name = (TextView)findViewById(R.id.name);
         name.setText(nickname);
+        copy_id = (TextView)findViewById(R.id.copy_id);
 //        avatar.setImageURI(avatarUrl);
 
         friend = (LinearLayout) findViewById(R.id.friend);
@@ -157,7 +160,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
 //            }
 //        });
 
-        avatar.setOnClickListener(new View.OnClickListener() {
+        copy_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //获取剪贴板管理器：
