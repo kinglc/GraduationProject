@@ -5,18 +5,43 @@ const mysql  = require('mysql');
 const router = express.Router();
 module.exports = router;
 
-//登录
-router.get("/query", (req, res) => {
+//注册
+//     params{
+//         user_id:""
+//         name:""
+//     }
+//     return{
+//         code:
+//         msg:""
+//
+router.post("/register", (req, res) => {
     // 定义SQL语句
-    const id = req.body.id || req.query.id;
-    const sqlStr = "select * from achieve";
+    console.log('register');
+    var sqlStr = "insert into user (user_id, name, todo_day, plan_time, " +
+        "friend, prize_todo, prize_plan)" +" values('"+req.body.user_id+"','"+
+        req.body.name+"',0,'0m',\"'"+req.body.user_id+"',\",-1,0)";
+    console.log(sqlStr);
 
-    conn.query(sqlStr, id, (err, data) => {
-        if (err) return res.json({code: 404, data: "获取失败",msg:err});
-        res.json({
-            code: 0, data: data
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "注册成功",
+                });
+            }
         });
-        console.log(data);
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
     });
 });
 
