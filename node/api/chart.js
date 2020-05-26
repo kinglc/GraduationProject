@@ -6,7 +6,6 @@ const router = express.Router();
 module.exports = router;
 
 
-
 // 获取信息
 //     params{
 //         user_id:,

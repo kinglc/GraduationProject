@@ -18,13 +18,25 @@
             android:layout_gravity="center"
             android:src="@drawable/logo"/>
 
+<!--        <Button-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="登  录"-->
+<!--            android:background="#0086f1"-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            android:textColor="#fff"-->
+<!--            android:textSize="18dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:id="@+id/login"-->
+<!--            />-->
+
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="使用支付宝账号登录"
-            android:background="#0086f1"
+            android:text="登  录"
+            android:background=""
             android:layout_marginTop="100dp"
-            android:textColor="#fff"
+            android:textColor="#0086f1"
             android:textSize="18dp"
             android:layout_gravity="center"
             android:id="@+id/login"

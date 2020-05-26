@@ -5,7 +5,6 @@ const mysql  = require('mysql');
 const router = express.Router();
 module.exports = router;
 
-
 //登录
 router.get("/query", (req, res) => {
     // 定义SQL语句
