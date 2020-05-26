@@ -13,10 +13,15 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button regi;
+    Global global;
+    String user_id;
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Window window = getWindow();
@@ -29,23 +34,46 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Global global = (Global)getApplication();
-        global.setUserId("jc");
+        global = (Global)getApplication();
         global.setURL("http://10.0.2.2:3000");
+        regi = (Button) findViewById(R.id.regi);
+        initEvent();
+        if(getUser()){
+            login();
+        }
+    }
 
-        Button login = (Button) findViewById(R.id.login);
-       
-        login.setOnClickListener(new Button.OnClickListener(){
+    //从本地获取user_id及name
+    private boolean getUser(){
+        return true;
+    }
+    
+    private void setUser(){
+
+    }
+
+    private void initEvent(){
+        regi.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent it = new Intent(MainActivity.this, ContentActivity.class);
-                //未完成-登录
-//                it.putExtra("name","xiazdong");///////////////////////////////////////////////////////////////
-//                it.putExtra("age",20);
-                startActivity(it);
-                MainActivity.this.finish();
+               register();
+               setUser();
             }
         });
+    }
+
+    private void login(){
+        global.setUserId(user_id);
+        Intent it = new Intent(MainActivity.this, ContentActivity.class);
+        it.putExtra("name",name);
+        startActivity(it);
+        MainActivity.this.finish();
+    }
+
+    //调用接口
+    //注册
+    private void register(){
+
     }
 }
 

@@ -18,29 +18,18 @@
             android:layout_gravity="center"
             android:src="@drawable/logo"/>
 
-<!--        <Button-->
-<!--            android:layout_width="200dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="登  录"-->
-<!--            android:background="#0086f1"-->
-<!--            android:layout_marginTop="100dp"-->
-<!--            android:textColor="#fff"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:id="@+id/login"-->
-<!--            />-->
-
         <Button
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="登  录"
-            android:background="#fff"
+            android:text="一 键 注 册"
+            android:background="#0086f1"
             android:layout_marginTop="100dp"
-            android:textColor="#0086f1"
+            android:textColor="#fff"
             android:textSize="18dp"
             android:layout_gravity="center"
-            android:id="@+id/login"
+            android:id="@+id/regi"
             />
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
