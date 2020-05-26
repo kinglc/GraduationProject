@@ -65,13 +65,13 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
         vh.rank = (TextView) v.findViewById(R.id.rank);
         vh.name = (TextView) v.findViewById(R.id.name);
         vh.time = (TextView) v.findViewById(R.id.time);
-        vh.avatar = (ImageView) v.findViewById(R.id.avatar);
+//        vh.avatar = (ImageView) v.findViewById(R.id.avatar);
     }
 
     class ViewHolder{
         TextView rank;
         TextView name;
         TextView time;
-        ImageView avatar;
+//        ImageView avatar;
     }
 }

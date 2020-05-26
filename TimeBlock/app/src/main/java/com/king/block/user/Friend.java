@@ -5,13 +5,12 @@ import com.king.block.Global;
 public class Friend{
     private String id;
     private String name;
-    private String avatar;
+//    private String avatar;
     private String time;
 
-    public Friend(String id, String name, String avatar, String time) {
+    public Friend(String id, String name, String time) {
         this.id = id;
         this.name = name;
-        this.avatar = avatar;
         this.time = time;
     }
 
@@ -31,13 +30,13 @@ public class Friend{
         this.name = name;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
+//    public String getAvatar() {
+//        return avatar;
+//    }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
+//    public void setAvatar(String avatar) {
+//        this.avatar = avatar;
+//    }
 
     public String getTime() {
         return time;

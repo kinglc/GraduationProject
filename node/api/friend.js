@@ -91,7 +91,7 @@ router.post("/update", (req, res) => {
 //         data:[]
 router.post("/getInfo", (req, res) => {
     console.log("getinfo");
-    var sqlStr = "select user_id,name,avatar,plan_time from user where user_id in (" + req.body.ids+")";
+    var sqlStr = "select user_id,name,plan_time from user where user_id in (" + req.body.ids+")";
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {

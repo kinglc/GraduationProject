@@ -52,7 +52,7 @@ public class FriendActivity extends AppCompatActivity {
 
     //接口
     //调用添加或删除好友
-    private boolean updateFriend(String user_id, String ids, String type) {
+    private void updateFriend(String user_id, String ids, String type) {
         try {
             URL url = new URL(global.getURL() + "/friend/update");
             // 打开连接
@@ -78,7 +78,7 @@ public class FriendActivity extends AppCompatActivity {
                 int code = res.optInt("code");
                 String msg = res.optString("msg");
                 if (code == 200) {
-                    return true;
+                    return;
                 } else {
                     Toast.makeText(FriendActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
@@ -90,12 +90,11 @@ public class FriendActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(FriendActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
         }
-        return false;
     }
 
     //通过ids获取好友信息
     private void getInfo(String ids) {
-        if (ids == "") return;
+        if (ids.equals("")) return;
         try {
             URL url = new URL(global.getURL() + "/friend/getInfo");
             // 打开连接
@@ -125,7 +124,7 @@ public class FriendActivity extends AppCompatActivity {
                     JSONArray friends = res.getJSONArray("data");
                     for (int i = 0; i < friends.length(); i++) {
                         JSONObject jo = friends.getJSONObject(i);
-                        Friend f = new Friend(jo.getString("user_id"), jo.getString("name"), jo.getString("avatar"), jo.getString("plan_time"));
+                        Friend f = new Friend(jo.getString("user_id"), jo.getString("name"), jo.getString("plan_time"));
                         friend_list.add(f);
                     }
                 } else {
