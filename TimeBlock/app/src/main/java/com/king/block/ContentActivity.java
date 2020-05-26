@@ -54,7 +54,8 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
     private ImageView avatar;
     private TextView name;
     private LinearLayout friend, log, achieve, history;
-    private String id;
+    private String nickname;
+    private String avatarUrl;
 //    private TextView history_txt;
 //    private String txts[]={"待办","计划","备忘"};
 
@@ -73,9 +74,8 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
         global = (Global)getApplication();
-//        String name = getIntent().getStringExtra("name");///////////////////////////////////
-//        String a = getIntent().getStringExtra("a");///////////////////////////////////
-//        Toast.makeText(ContentActivity.this,name+a,Toast.LENGTH_SHORT).show();
+        nickname = getIntent().getStringExtra("name");
+        avatarUrl = getIntent().getStringExtra("avatar");
         index = getIntent().getIntExtra("index", 1);
         initComp();
         initEvent();
@@ -112,6 +112,8 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         //侧边
         avatar =(ImageView)findViewById(R.id.avatar);
         name = (TextView)findViewById(R.id.name);
+        name.setText(nickname);
+//        avatar.setImageURI(avatarUrl);
 
         friend = (LinearLayout) findViewById(R.id.friend);
         history = (LinearLayout) findViewById(R.id.history);
@@ -177,6 +179,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         todo_txt.setTextColor(getResources().getColor(R.color.fontBlack));
         plan_pic.setImageResource(R.drawable.plan);
         plan_txt.setTextColor(getResources().getColor(R.color.fontBlack));
+
 
 //        Calendar mcalendar = Calendar.getInstance();     //  获取当前时间    —   年、月、日
 //        year = mcalendar.get(Calendar.YEAR);         //  得到当前年
