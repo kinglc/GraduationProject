@@ -50,15 +50,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12dp"
-                    android:id="@+id/copy_id"
-                    android:textColor="@color/lightFontGray"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="30dp"
-                    android:text="点击此处复制ID"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:id="@+id/name"
                     android:textSize="20dp"
@@ -67,6 +59,14 @@
                     android:maxLines="1"
                     android:ellipsize="end"
                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:id="@+id/copy_id"
+                    android:textColor="@color/lightFontGray"
+                    android:layout_marginLeft="20dp"
+                    android:text="点击此处复制ID"/>
             </LinearLayout>
         </LinearLayout>
 
