@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 
-const port = 3000;
+const port = 8080;
 app.listen(port, () => {
-    console.log(`http://127.0.0.1:${port}`);
+    // console.log(`http://127.0.0.1:${port}`);
 });//打印一下接口用例地址
 app.use(require("body-parser").json());
 app.use(require("body-parser").urlencoded({extended: false}));

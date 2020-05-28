@@ -63,7 +63,7 @@ public class Global extends Application {
     @Override
     public void onCreate() {
         userId = "jc";
-        URL = "http://127.0.0.1:3000";
+        URL = "http://140.143.78.135:8080";
         super.onCreate();
     }
 
