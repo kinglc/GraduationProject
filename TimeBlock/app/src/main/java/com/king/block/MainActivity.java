@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         global = (Global)getApplication();
-        global.setURL("http://10.0.2.2:8080");
-//        global.setURL("http://140.143.78.135:8080");
+//        global.setURL("http://10.0.2.2:8080");
+        global.setURL("http://140.143.78.135:8080");
 
         regi = (Button) findViewById(R.id.regi);
         input = (EditText)findViewById(R.id.input);
