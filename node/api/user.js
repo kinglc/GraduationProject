@@ -46,17 +46,58 @@ router.post("/register", (req, res) => {
     });
 });
 
-// 用户是否存在
+// 用户名是否存在
 //     params{
-//         id:""
+//         name:""
 //     }
 //     return{
 //         code:
 //         msg:""
 //
-router.post("/isExist", (req, res) => {
-    console.log("isExist");
-    var sqlStr = "select 1 from user where user_id = '" + req.body.id+"' limit 1";
+router.post("/isNameExist", (req, res) => {
+    console.log("isNameExist");
+    var sqlStr = "select 1 from user where name = '" + req.body.name+"' limit 1";
+    console.log(sqlStr);
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else if(result.length===0){
+                return res.json({
+                    code: 200,
+                    msg: "不存在",
+                });
+            }else{
+                console.log(result);
+                console.log('存在');
+                return res.json({
+                    code: 201,
+                    msg: "存在",
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
+// 用户id是否存在
+//     params{
+//         user_id:""
+//     }
+//     return{
+//         code:
+//         msg:""
+//
+router.post("/isIdExist", (req, res) => {
+    console.log("isIdExist");
+    var sqlStr = "select 1 from user where user_id = '" + req.body.user_id+"' limit 1";
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
             if (err) {
@@ -83,7 +124,6 @@ router.post("/isExist", (req, res) => {
         pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
     });
 });
-
 
 // 获取用户累计天数
 //     params{

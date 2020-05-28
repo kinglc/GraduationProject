@@ -54,12 +54,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         global = (Global)getApplication();
-        global.setURL("http://140.143.78.135:8080");
+        global.setURL("http://10.0.2.2:8080");
+//        global.setURL("http://140.143.78.135:8080");
 
         regi = (Button) findViewById(R.id.regi);
         input = (EditText)findViewById(R.id.input);
 
-//        deleteFile("user.txt");
+        deleteFile("user.txt");
         initEvent();
         if(getUser()){
             login();
@@ -114,8 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this,"请输入50字符以内昵称",Toast.LENGTH_SHORT).show();
                     }else {
                         name = input.getText().toString();
-                        setUser();
-                        register();
+                        isExist();
                     }
                 }
             }
@@ -171,6 +171,48 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
             input.setText(e.toString());
+            Toast.makeText(MainActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //判断name是否存在
+    //200 存在
+    //201 不存在
+    private void isExist() {
+        try {
+            URL url = new URL(global.getURL() + "/user/isNameExist");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+            String content = "{\"name\":\"" + name + "\"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+                int code = global.streamtoJson(con.getInputStream()).optInt("code");
+                if (code == 200) {
+                    setUser();
+                    register();
+                } else if (code == 201) {
+                    Toast.makeText(MainActivity.this, "该用户名已存在", Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(MainActivity.this, "获取用户名信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
             Toast.makeText(MainActivity.this, "连接错误", Toast.LENGTH_SHORT).show();
         }
     }

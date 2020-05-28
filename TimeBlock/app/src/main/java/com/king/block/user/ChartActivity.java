@@ -233,6 +233,7 @@ public class ChartActivity extends AppCompatActivity {
         ColumnChartData data = new ColumnChartData();
         int numColumns=7;
         int subColumns=4;
+        int beg=0;
         List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
         List<Column> columns = new ArrayList<Column>();
         float[][] hour = new float[31][4];
@@ -250,18 +251,21 @@ public class ChartActivity extends AppCompatActivity {
             if(type==0) {
                 mAxisXValues.add(new AxisValue(i).setLabel(weekday[i]));
                 if (j < chart_list.size() && Integer.parseInt(chart_list.get(j).getDate().substring(8))==week[i]) {
+                    if(beg==0) beg=i;
                     time = minToHour(chart_list.get(j).getPass());
                     j++;
                 }
             }else if (type == 1) {
                 mAxisXValues.add(new AxisValue(i).setLabel(i + 1 + "日"));
                 if (j < chart_list.size() && Integer.parseInt(chart_list.get(j).getDate().substring(8)) == i + 1) {
+                    if(beg==0) beg=i;
                     time = minToHour(chart_list.get(j).getPass());
                     j++;
                 }
             }else {
                     mAxisXValues.add(new AxisValue(i).setLabel(i+1+"月"));
                     if (j < chart_list.size()) {
+                        if(beg==0) beg=i;
                         int month = Integer.parseInt(chart_list.get(j).getDate().substring(5,7));
                         while(month==i+1){
                             for(int k=0;k<4;k++){
@@ -313,12 +317,12 @@ public class ChartActivity extends AppCompatActivity {
             Viewport viewport = new Viewport(0, 24, 7, 0);
             col_chart.setCurrentViewport(viewport);
             col_chart.setColumnChartData(data);
-            col_chart.moveTo(0, 0);
+            col_chart.moveTo(beg, 0);
         }else{
             col_chart.setColumnChartData(data);
             Viewport viewport = new Viewport(0, 24, 12, 0);
             col_chart.setCurrentViewport(viewport);
-            col_chart.moveTo(0, 0);
+            col_chart.moveTo(beg, 0);
         }
     }
 

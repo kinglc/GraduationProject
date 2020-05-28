@@ -14,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
@@ -23,14 +23,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="345">
+              <caret line="78" column="34" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
               <folding>
-                <element signature="e#552#561#0" />
-                <element signature="e#694#1554#0" />
+                <element signature="e#190#194#0" />
+                <element signature="e#230#548#0" />
                 <element signature="e#1734#1745#0" />
                 <element signature="e#1904#2709#0" />
                 <element signature="e#2715#2726#0" />
@@ -183,8 +183,8 @@
         <option value="$PROJECT_DIR$/api/plan.js" />
         <option value="$PROJECT_DIR$/api/chart.js" />
         <option value="$PROJECT_DIR$/api/friend.js" />
-        <option value="$PROJECT_DIR$/api/user.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/api/user.js" />
       </list>
     </option>
   </component>
@@ -297,7 +297,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89984000" />
+    <option name="totallyTimeSpent" value="91229000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -319,7 +319,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32909605" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32909605" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -622,25 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#552#561#0" />
-            <element signature="e#694#1554#0" />
-            <element signature="e#1734#1745#0" />
-            <element signature="e#1904#2709#0" />
-            <element signature="e#2715#2726#0" />
-            <element signature="e#2924#3763#0" />
-            <element signature="e#3516#3527#0" />
-            <element signature="e#3686#4491#0" />
-            <element signature="e#4497#4508#0" />
-            <element signature="e#4671#5467#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/plan.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -673,6 +654,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="42" lean-forward="true" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="78" column="34" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+          <folding>
+            <element signature="e#190#194#0" />
+            <element signature="e#230#548#0" />
+            <element signature="e#1734#1745#0" />
+            <element signature="e#1904#2709#0" />
+            <element signature="e#2715#2726#0" />
+            <element signature="e#2924#3763#0" />
+            <element signature="e#3516#3527#0" />
+            <element signature="e#3686#4491#0" />
+            <element signature="e#4497#4508#0" />
+            <element signature="e#4671#5467#0" />
+          </folding>
         </state>
       </provider>
     </entry>
