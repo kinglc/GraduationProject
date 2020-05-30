@@ -76,6 +76,7 @@ public class TodoFragment extends Fragment{
     //调用接口
     //获取当日待办
     private void getTodo(String date){
+        todoAdapter.setNotfinish(0);
         Date d = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");//注意月份是MM
         try {
@@ -363,7 +364,9 @@ public class TodoFragment extends Fragment{
                     todo_list.clear();
                     getTodo(year + "-" + month + "-" + day);
                     todoAdapter.notifyDataSetChanged();
-                    todoAdapter.setNotfinish(todoAdapter.getNotfinish()+1);
+                    input.setText("");
+                    input.clearFocus();
+//                    todoAdapter.setNotfinish(todoAdapter.getNotfinish()+1);
                 }else{
                     Toast.makeText(getContext(),"请输入内容",Toast.LENGTH_SHORT).show();
                 }
