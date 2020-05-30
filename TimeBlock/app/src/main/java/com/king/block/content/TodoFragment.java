@@ -343,7 +343,7 @@ public class TodoFragment extends Fragment{
                 for(int i=0;i<todo_list.size();i++){
                     addTodo(todo_list.get(i).getTitle(),date);
                 }
-                Toast.makeText(getContext(),"已将今日待办添加至"+date,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"已将今日待办复制至"+date,Toast.LENGTH_SHORT).show();
             }
         });
 
