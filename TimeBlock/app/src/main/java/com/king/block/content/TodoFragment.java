@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -49,6 +50,7 @@ public class TodoFragment extends Fragment{
 
     private TextView date;
     public int year, month, day;
+    private int nYear,nMonth,nDay;
     private ImageView menu;
     private EditText input;
 
@@ -177,7 +179,7 @@ public class TodoFragment extends Fragment{
     }
 
     //添加
-    private void addTodo(){
+    private void addTodo(String title,String date){
         try {
             URL url = new URL(global.getURL() + "/todo/add");
             // 打开连接
@@ -194,8 +196,8 @@ public class TodoFragment extends Fragment{
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             String content = "{\"user_id\":\"" + global.getUserId() +
-                    "\",\"title\":\""+input.getText()+
-                    "\",\"date\":\""+year+"-"+month+"-"+day+"\"}";
+                    "\",\"title\":\""+title+
+                    "\",\"date\":\""+date+"\"}";
             out.write(content.getBytes());
             out.flush();
             out.close();
@@ -205,7 +207,7 @@ public class TodoFragment extends Fragment{
                 int code = res.optInt("code");
                 String msg = res.optString("msg");
                 if (code == 200) {
-                    Toast.makeText(getContext(), "添加成功", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "添加成功", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
@@ -236,9 +238,9 @@ public class TodoFragment extends Fragment{
 
     private void initDate(){
         Calendar mcalendar = Calendar.getInstance();     //  获取当前时间    —   年、月、日
-        year = mcalendar.get(Calendar.YEAR);         //  得到当前年
-        month = mcalendar.get(Calendar.MONTH)+1;       //  得到当前月
-        day = mcalendar.get(Calendar.DAY_OF_MONTH);  //  得到当前日
+        nYear = year = mcalendar.get(Calendar.YEAR);         //  得到当前年
+        nMonth = month = mcalendar.get(Calendar.MONTH)+1;       //  得到当前月
+        nDay = day = mcalendar.get(Calendar.DAY_OF_MONTH);  //  得到当前日
         date.setText(year + "-" + month + "-" + day + "  ▼");
     }
 
@@ -332,8 +334,16 @@ public class TodoFragment extends Fragment{
         repeat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//  未完成-重复当日
+                Calendar c = Calendar.getInstance();
+                c.set(Calendar.YEAR, nYear);
+                c.set(Calendar.MONTH, nMonth - 1);
+                c.set(Calendar.DAY_OF_MONTH, nDay);
+                c.add(Calendar.DAY_OF_YEAR, 1);
+                String date = c.get(Calendar.YEAR) +"-"+ (c.get(Calendar.MONTH) + 1) +"-"+ c.get(Calendar.DAY_OF_MONTH);
+                for(int i=0;i<todo_list.size();i++){
+                    addTodo(todo_list.get(i).getTitle(),date);
+                }
+                Toast.makeText(getContext(),"已将今日待办添加至"+date,Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -349,7 +359,7 @@ public class TodoFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 if(input.getText().length()>0){
-                    addTodo();
+                    addTodo(input.getText().toString(),year+"-"+month+"-"+day);
                     todo_list.clear();
                     getTodo(year + "-" + month + "-" + day);
                     todoAdapter.notifyDataSetChanged();
