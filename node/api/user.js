@@ -98,6 +98,7 @@ router.post("/isNameExist", (req, res) => {
 router.post("/isIdExist", (req, res) => {
     console.log("isIdExist");
     var sqlStr = "select 1 from user where user_id = '" + req.body.user_id+"' limit 1";
+    console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {
             if (err) {
@@ -110,6 +111,7 @@ router.post("/isIdExist", (req, res) => {
                 });
             }
             else if(result.length==0){
+                console.log(result)
                 return res.json({
                     code: 201,
                     msg: "不存在",

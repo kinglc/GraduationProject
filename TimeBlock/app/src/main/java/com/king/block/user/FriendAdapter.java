@@ -20,6 +20,14 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
     private int resourceId;
     public int selectIndex = -1;
     private ListView mListView;
+    private Global global;
+    private int prize[]={1,24,50,100,500};
+    private int clr[]={R.drawable.note5,
+            R.drawable.note4,
+            R.drawable.note3,
+            R.drawable.note2,
+            R.drawable.note1,
+            R.drawable.note0};
 
     private Friend friend;
     private ViewHolder viewHolder;
@@ -44,8 +52,14 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
         viewHolder.rank.setText(position+1+"");
         viewHolder.name.setText(friend.getName());
         viewHolder.time.setText(friend.getTime());
-        //未完成
-//        viewHolder.avatar.setImageResource();
+        viewHolder.avatar.setText(friend.getName().charAt(0)+"");
+        int t = this.global.countTime(friend.getTime());
+        int pos=0;
+        for(;pos<prize.length;pos++){
+            if(t<60*prize[pos]) break;
+        }
+        viewHolder.avatar.setBackgroundResource(clr[pos]);
+
         switch (position){
             case 0:
                 viewHolder.rank.setTextColor(getContext().getColor(R.color.gold));
@@ -61,17 +75,21 @@ public class FriendAdapter extends ArrayAdapter<Friend>{
         return convertView;
     }
 
+    public void setGlobal(Global global) {
+        this.global = global;
+    }
+
     private void initHolder(View v, ViewHolder vh){
         vh.rank = (TextView) v.findViewById(R.id.rank);
         vh.name = (TextView) v.findViewById(R.id.name);
         vh.time = (TextView) v.findViewById(R.id.time);
-//        vh.avatar = (ImageView) v.findViewById(R.id.avatar);
+        vh.avatar = (TextView) v.findViewById(R.id.avatar);
     }
 
     class ViewHolder{
         TextView rank;
         TextView name;
         TextView time;
-//        ImageView avatar;
+        TextView avatar;
     }
 }

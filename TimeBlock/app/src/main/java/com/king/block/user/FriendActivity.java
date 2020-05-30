@@ -208,7 +208,7 @@ public class FriendActivity extends AppCompatActivity {
             con.connect();
 
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
-            String content = "{\"id\":\"" + id + "\"}";
+            String content = "{\"user_id\":\"" + id + "\"}";
             out.write(content.getBytes());
             out.flush();
             out.close();
@@ -237,6 +237,7 @@ public class FriendActivity extends AppCompatActivity {
 
     private void initLv() {
         friendAdapter = new FriendAdapter(FriendActivity.this, R.layout.item_friend, friend_list);
+        friendAdapter.setGlobal(global);
         friend_lv = (ListView) findViewById(R.id.friend_lv);
         friend_lv.setAdapter(friendAdapter);
         friend_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
