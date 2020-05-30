@@ -16,7 +16,7 @@ module.exports = router;
 //         data:[]
 router.post("/query", (req, res) => {
     console.log("query");
-    var sqlStr = "select * from log where user_id = '" + req.body.user_id+"'";
+    var sqlStr = "select * from log where user_id = '" + req.body.user_id+"' order by log_id desc";
     console.log(sqlStr);
     pool.getConnection((err, conn) => {
         conn.query(sqlStr, (err, result) => {

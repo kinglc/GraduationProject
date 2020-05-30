@@ -36,7 +36,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="todo.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="log.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/api/log.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="76" lean-forward="true" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="todo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/todo.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
@@ -284,12 +293,12 @@
       <workItem from="1590060815220" duration="2360000" />
       <workItem from="1590068859839" duration="25733000" />
       <workItem from="1590814439442" duration="741000" />
-      <workItem from="1590856943378" duration="80000" />
+      <workItem from="1590856943378" duration="1318000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92832000" />
+    <option name="totallyTimeSpent" value="94070000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -511,13 +520,6 @@
     <entry file="file://$PROJECT_DIR$/connect.js" />
     <entry file="file://$PROJECT_DIR$/router/login.js" />
     <entry file="file://$PROJECT_DIR$/api/package.json" />
-    <entry file="file://$PROJECT_DIR$/api/log.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/achieve.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -597,6 +599,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/todo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="92" column="106" selection-start-line="92" selection-start-column="106" selection-end-line="92" selection-end-column="106" />
+          <folding>
+            <element signature="e#191#198#0" />
+            <element signature="e#365#1192#0" />
+            <element signature="e#1196#1201#0" />
+            <element signature="e#1342#2099#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -608,16 +623,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/todo.js">
+    <entry file="file://$PROJECT_DIR$/api/log.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="92" column="106" selection-start-line="92" selection-start-column="106" selection-end-line="92" selection-end-column="106" />
-          <folding>
-            <element signature="e#191#198#0" />
-            <element signature="e#365#1192#0" />
-            <element signature="e#1196#1201#0" />
-            <element signature="e#1342#2099#0" />
-          </folding>
+        <state relative-caret-position="306">
+          <caret line="18" column="76" lean-forward="true" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
         </state>
       </provider>
     </entry>
