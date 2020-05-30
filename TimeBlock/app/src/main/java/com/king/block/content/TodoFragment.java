@@ -179,6 +179,42 @@ public class TodoFragment extends Fragment{
         }
     }
 
+    //删除全部
+    private void deleteAll(String date){
+        try {
+            URL url = new URL(global.getURL() + "/todo/deleteAll");
+            // 打开连接
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestProperty("accept", "*/*");
+            con.setRequestProperty("Connection", "Keep-Alive");
+            con.setRequestProperty("Cache-Control", "no-cache");
+            con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+            con.setDoInput(true);
+            con.connect();
+
+            DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//            String content = "user_id:" + global.getUserId();
+            String content = "{\"user_id\":\"" + global.getUserId() +"\",\"date\":\""+date + "\"}";
+            out.write(content.getBytes());
+            out.flush();
+            out.close();
+
+            if (con.getResponseCode() == 200) {
+//                ;
+            } else {
+                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+            }
+            con.disconnect();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            input.setText(e.toString());
+            Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
+        }}
+
     //添加
     private void addTodo(String title,String date){
         try {
@@ -341,6 +377,7 @@ public class TodoFragment extends Fragment{
                 c.set(Calendar.DAY_OF_MONTH, nDay);
                 c.add(Calendar.DAY_OF_YEAR, 1);
                 String date = c.get(Calendar.YEAR) +"-"+ (c.get(Calendar.MONTH) + 1) +"-"+ c.get(Calendar.DAY_OF_MONTH);
+                deleteAll(date);
                 for(int i=0;i<todo_list.size();i++){
                     addTodo(todo_list.get(i).getTitle(),date);
                 }

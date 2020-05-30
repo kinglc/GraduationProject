@@ -78,6 +78,43 @@ router.post("/delete", (req, res) => {
     });
 });
 
+
+// 删除某日期全部
+//     params{
+//         user_id:
+//         date:
+//     }
+//     return{
+//         code:
+//         msg:""
+//     }
+router.post("/deleteAll", (req, res) => {
+    console.log("deleteAll");
+    var sqlStr = "delete from todo where user_id = '" + req.body.user_id+"' and date = '"+req.body.date+"'";
+    console.log(sqlStr);
+    pool.getConnection((err, conn) => {
+        conn.query(sqlStr, (err, result) => {
+            if (err) {
+                conn.connect(handleError);
+                conn.on('error', handleError);
+                return res.json({
+                    code: 300,
+                    msg: "获取失败",
+                    err: err.code
+                });
+            }
+            else {
+                console.log(result);
+                return res.json({
+                    code: 200,
+                    msg: "删除成功",
+                });
+            }
+        });
+        pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
+    });
+});
+
 // 添加
 //     params{
 //          user_id:
