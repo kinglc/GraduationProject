@@ -40,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/api/log.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="18" column="76" lean-forward="true" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
+              <caret line="18" column="92" selection-start-line="18" selection-start-column="92" selection-end-line="18" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -176,7 +176,6 @@
         <option value="$PROJECT_DIR$/route.js" />
         <option value="$PROJECT_DIR$/api/achieve.js" />
         <option value="$PROJECT_DIR$/connect.js" />
-        <option value="$PROJECT_DIR$/api/log.js" />
         <option value="$PROJECT_DIR$/api/note.js" />
         <option value="$PROJECT_DIR$/api/plan.js" />
         <option value="$PROJECT_DIR$/api/chart.js" />
@@ -184,6 +183,7 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/api/user.js" />
         <option value="$PROJECT_DIR$/api/todo.js" />
+        <option value="$PROJECT_DIR$/api/log.js" />
       </list>
     </option>
   </component>
@@ -201,10 +201,11 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-475" />
-    <option name="width" value="1510" />
-    <option name="height" value="1055" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -293,12 +294,12 @@
       <workItem from="1590060815220" duration="2360000" />
       <workItem from="1590068859839" duration="25733000" />
       <workItem from="1590814439442" duration="741000" />
-      <workItem from="1590856943378" duration="1318000" />
+      <workItem from="1590856943378" duration="1932000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94070000" />
+    <option name="totallyTimeSpent" value="94684000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -310,10 +311,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="782" height="838" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19154558" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.38873994" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -626,7 +627,7 @@
     <entry file="file://$PROJECT_DIR$/api/log.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="76" lean-forward="true" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
+          <caret line="18" column="92" selection-start-line="18" selection-start-column="92" selection-end-line="18" selection-end-column="92" />
         </state>
       </provider>
     </entry>
