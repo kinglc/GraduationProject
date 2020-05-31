@@ -85,22 +85,25 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
         Collections.sort(note_list, new Comparator<Note>() {
             @Override
             public int compare(Note o1, Note o2) {
-                String c1 = o1.getDate()+o1.getTime();
-                String c2 = o2.getDate()+o2.getTime();
-                Date d1 = null;
-                Date d2 = null;
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                try {
-                    d1 = simpleDateFormat.parse(o1.getDate());
-                    d2 = simpleDateFormat.parse(o2.getDate());
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                if(global.cmpDate(d1)<0){
-                    c1="3"+c1.substring(1);
-                }
-                if(global.cmpDate(d2)<0){
-                    c2="3"+c2.substring(1);
+                Date now = new Date();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+                String nowt = sdf.format(now);
+                String c1 = (o1.getDate()+o1.getTime()).replace("-","").replace(":","");
+                String c2 = (o2.getDate()+o2.getTime()).replace("-","").replace(":","");
+                int flag1=0,flag2=0;
+                for(int i=0;i<nowt.length();i++){
+                    if(flag1==0&&c1.charAt(i)<nowt.charAt(i)){
+                        c1=c1.charAt(0)+1+c1.substring(1);
+                        flag1=1;
+                    }else if(flag1==0&&c1.charAt(i)>nowt.charAt(i)){
+                        flag1=1;
+                    }
+                    if(flag2==0&&c2.charAt(i)<nowt.charAt(i)){
+                        c2=c2.charAt(0)+1+c2.substring(1);
+                        flag2=1;
+                    }else if(flag2==0&&c2.charAt(i)>nowt.charAt(i)){
+                        flag2=1;
+                    }
                 }
 
                 for(int i=0;i<c1.length();i++){
@@ -219,7 +222,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
             @Override
             public void onClick(View v) {
                 Intent it = new Intent(getContext(), NoteActivity.class);
-                String date = mCalendarView.getCurYear()+"-"+mCalendarView.getCurMonth()+"-"+mCalendarView.getCurDay();
+                String date = mTextYear.getText().toString()+"-"+mTextMonthDay.getText().toString().replace("月","-").replace("日","");
                 it.putExtra("note_date",date);
                 getContext().startActivity(it);
             }

@@ -112,7 +112,7 @@ public class NoteActivity extends AppCompatActivity {
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
 //            String content = "user_id:" + global.getUserId();
             String content = "{\"user_id\":\"" + global.getUserId() + "\",\"title\":\"" + note_title.getText()+ "\",\"content\":\"" + note_content.getText()
-                    + "\",\"place\":\"" + note_place.getText()+ "\",\"date\":\"" + note_date.getText()+ "\",\"time\":\"" + note_time.getHour()+note_time.getMinute()+ "\"}";
+                    + "\",\"place\":\"" + note_place.getText()+ "\",\"date\":\"" + note_date.getText()+ "\",\"time\":\"" + note_time.getHour()+":"+note_time.getMinute()+ "\"}";
             out.write(content.getBytes());
             out.flush();
             out.close();
