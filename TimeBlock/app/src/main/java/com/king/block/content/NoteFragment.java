@@ -68,7 +68,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
     TextView mTextLunar;
     CalendarView mCalendarView;
     private int mYear;
-    private int[] colors= {0xFF40db25, 0xFFe69138, 0xFFdf1356,0xFFedc56d,0xFFaacc44,0xFFbc13f0};
+    private int[] colors= {0xFFdf1356, 0xFFbc13f0, 0xFF40db25,0xFFaacc44,0xFFedc56d,0xFFe69138};
 
     RelativeLayout mRelativeTool;
     Global global;
