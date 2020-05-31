@@ -14,16 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/user.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
@@ -36,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="log.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/log.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -122,8 +113,8 @@
       <file leaf-file-name="achieve.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/achieve.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
+            <state relative-caret-position="238">
+              <caret line="136" column="33" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="33" />
               <folding>
                 <element signature="e#366#373#0" />
                 <element signature="e#529#1345#0" />
@@ -131,7 +122,6 @@
                 <element signature="e#1543#2374#0" />
                 <element signature="e#2378#2391#0" />
                 <element signature="e#2572#3403#0" />
-                <element signature="n#!!block;n#handleError#0" />
               </folding>
             </state>
           </provider>
@@ -158,6 +148,7 @@
       <find>note</find>
       <find>date_</find>
       <find>avatar</find>
+      <find>a</find>
     </findStrings>
     <replaceStrings>
       <replace>note</replace>
@@ -202,8 +193,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+    <option name="x" value="-98" />
     <option name="width" value="978" />
     <option name="height" value="1048" />
   </component>
@@ -294,12 +284,12 @@
       <workItem from="1590060815220" duration="2360000" />
       <workItem from="1590068859839" duration="25733000" />
       <workItem from="1590814439442" duration="741000" />
-      <workItem from="1590856943378" duration="2472000" />
+      <workItem from="1590856943378" duration="3090000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95224000" />
+    <option name="totallyTimeSpent" value="95842000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -311,10 +301,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="782" height="838" extended-state="0" />
+    <frame x="-78" y="0" width="782" height="838" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.38873994" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20375335" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -521,22 +511,6 @@
     <entry file="file://$PROJECT_DIR$/connect.js" />
     <entry file="file://$PROJECT_DIR$/router/login.js" />
     <entry file="file://$PROJECT_DIR$/api/package.json" />
-    <entry file="file://$PROJECT_DIR$/api/achieve.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="35" />
-          <folding>
-            <element signature="e#366#373#0" />
-            <element signature="e#529#1345#0" />
-            <element signature="e#1349#1362#0" />
-            <element signature="e#1543#2374#0" />
-            <element signature="e#2378#2391#0" />
-            <element signature="e#2572#3403#0" />
-            <element signature="n#!!block;n#handleError#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/note.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -582,13 +556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/friend.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -613,6 +580,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/api/log.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="92" selection-start-line="18" selection-start-column="92" selection-end-line="18" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/achieve.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="136" column="33" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="33" />
+          <folding>
+            <element signature="e#366#373#0" />
+            <element signature="e#529#1345#0" />
+            <element signature="e#1349#1362#0" />
+            <element signature="e#1543#2374#0" />
+            <element signature="e#2378#2391#0" />
+            <element signature="e#2572#3403#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/api/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -621,13 +617,6 @@
             <element signature="e#190#194#0" />
             <element signature="e#1431#2392#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/log.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="92" selection-start-line="18" selection-start-column="92" selection-end-line="18" selection-end-column="92" />
         </state>
       </provider>
     </entry>
