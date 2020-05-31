@@ -243,6 +243,7 @@ public class FriendActivity extends AppCompatActivity {
         friend_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                if(friend_list.get(position).getId().equals(global.getUserId())) return;
                 AlertDialog dialog = new AlertDialog.Builder(FriendActivity.this)
                         .setTitle("提示")
                         .setMessage("确定删除好友" + friend_list.get(position).getName() + "?")
