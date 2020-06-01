@@ -14,7 +14,7 @@ module.exports = router;
 //         code:
 //         msg:""
 //         data:[]
-router.get("/query", (req, res) => {
+router.post("/query", (req, res) => {
     console.log("query");
     var sqlStr = "select * from plan where user_id = '" + req.body.user_id+"' and finish = 0";
     console.log(sqlStr);
@@ -52,7 +52,6 @@ router.get("/query", (req, res) => {
 //     return{
 //         code:
 //         msg:""
-//         data:[]
 router.post("/add", (req, res) => {
     console.log("add");
     var sqlStr = "insert into plan (user_id, title, content, urgency, pass, finish) values('"+req.body.user_id+"','"+
@@ -74,7 +73,6 @@ router.post("/add", (req, res) => {
                 return res.json({
                     code: 200,
                     msg: "添加成功",
-                    data: result
                 });
             }
         });

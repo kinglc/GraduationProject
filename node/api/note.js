@@ -15,7 +15,7 @@ module.exports = router;
 //         code:
 //         msg:""
 //         data:[]
-router.get("/query", (req, res) => {
+router.post("/query", (req, res) => {
     console.log("query");
     var sqlStr = "select * from note where user_id = '" + req.body.user_id+
         "' and DATE_FORMAT(date,'%Y%m') = DATE_FORMAT('"+req.body.date+"','%Y%m')";
@@ -114,7 +114,6 @@ router.post("/add", (req, res) => {
                 return res.json({
                     code: 200,
                     msg: "添加成功",
-                    data:result.insertId
                 });
             }
         });

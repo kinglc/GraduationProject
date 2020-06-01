@@ -15,7 +15,7 @@ module.exports = router;
 //         code:
 //         msg:""
 //         data:[]
-router.get("/query", (req, res) => {
+router.post("/query", (req, res) => {
     console.log("query");
     var sqlStr = "select * from todo where user_id = '" + req.body.user_id+"' and date = '"+req.body.date+"'";
     console.log(sqlStr);
@@ -235,7 +235,7 @@ router.post("/check", (req, res) => {
 //         msg:""
 //         date:
 //     }
-router.get("/number", (req, res) => {
+router.post("/number", (req, res) => {
     console.log("number");
     var sqlStr = "select count(*) from todo where user_id =\"" +req.body.user_id+ "\" and date = \"" + req.body.date+"\"";
     console.log(sqlStr);

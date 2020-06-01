@@ -23,7 +23,7 @@ const conn = mysql.createConnection({
 //         code:
 //         msg:""
 //         data:[]
-router.get("/query", (req, res) => {
+router.post("/query", (req, res) => {
     console.log("query");
     var sqlStr = "select prize_plan,prize_todo from user where user_id = '" + req.body.user_id+"'";
     console.log(sqlStr);

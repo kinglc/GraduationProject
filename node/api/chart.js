@@ -16,7 +16,7 @@ module.exports = router;
 //         code:
 //         msg:""
 //         data:[]
-router.get("/query", (req, res) => {
+router.post("/query", (req, res) => {
     console.log("query");
     let sqlStr;
     console.log(req.body);

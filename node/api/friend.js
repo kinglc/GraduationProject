@@ -14,7 +14,7 @@ module.exports = router;
 //         code:
 //         msg:""
 //         data:[]
-router.get("/query", (req, res) => {
+router.post("/query", (req, res) => {
     console.log("query");
     const sqlStr = "select friend from user where user_id = '" + req.body.user_id+"'";
     var friends;
@@ -89,7 +89,7 @@ router.post("/update", (req, res) => {
 //         code:
 //         msg:""
 //         data:[]
-router.get("/getInfo", (req, res) => {
+router.post("/getInfo", (req, res) => {
     console.log("getinfo");
     var sqlStr = "select user_id,name,plan_time from user where user_id in (" + req.body.ids+")";
     console.log(sqlStr);

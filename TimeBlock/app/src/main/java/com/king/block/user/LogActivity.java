@@ -60,7 +60,7 @@ public class LogActivity extends AppCompatActivity {
             con.setRequestProperty("Cache-Control", "no-cache");
             con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 //            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-            con.setRequestMethod("GET");
+            con.setRequestMethod("POST");
             con.setDoOutput(true);
             con.setDoInput(true);
             con.connect();
