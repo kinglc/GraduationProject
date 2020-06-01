@@ -97,7 +97,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-9" />
     <option name="width" value="863" />
     <option name="height" value="1048" />
@@ -194,7 +194,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101669000" />
+    <option name="totallyTimeSpent" value="102267000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -206,7 +206,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="690" height="838" extended-state="0" />
+    <frame x="-7" y="0" width="690" height="838" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2324159" />
