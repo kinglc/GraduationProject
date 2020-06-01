@@ -59,7 +59,6 @@ router.post("/query", (req, res) => {
 //     return{
 //         code:
 //         msg:""
-//         date:
 //     }
 router.post("/todo", (req, res) => {
     console.log("todo");
@@ -81,7 +80,6 @@ router.post("/todo", (req, res) => {
                 return res.json({
                     code: 200,
                     msg: "更新成功",
-                    data:result
                 });
             }
         });
@@ -97,7 +95,6 @@ router.post("/todo", (req, res) => {
 //     return{
 //         code:
 //         msg:""
-//         date:
 //     }
 router.post("/plan", (req, res) => {
     console.log("plan");
@@ -118,8 +115,7 @@ router.post("/plan", (req, res) => {
                 console.log(result);
                 return res.json({
                     code: 200,
-                    msg: "查询成功",
-                    data:result
+                    msg: "更新成功",
                 });
             }
         });

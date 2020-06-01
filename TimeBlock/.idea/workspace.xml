@@ -49,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-433">
-              <caret line="284" column="59" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="59" />
+            <state relative-caret-position="281">
+              <caret line="250" column="35" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1541#1780#0" expanded="true" />
@@ -62,6 +62,20 @@
                 <element signature="method#stopTime#0;class#PlanFragment#0" />
                 <element signature="method#setNow#0;class#PlanFragment#0" />
                 <element signature="method#updateChart#0;class#PlanFragment#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="225" column="29" selection-start-line="225" selection-start-column="29" selection-end-line="225" selection-end-column="29" />
+              <folding>
+                <element signature="method#changeColor#0;class#PlanAdapter#0" />
+                <element signature="method#initHolder#0;class#PlanAdapter#0" />
+                <element signature="class#ViewHolder#0;class#PlanAdapter#0" />
               </folding>
             </state>
           </provider>
@@ -973,18 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="237" column="29" selection-start-line="237" selection-start-column="29" selection-end-line="237" selection-end-column="29" />
-          <folding>
-            <element signature="method#changeColor#0;class#PlanAdapter#0" />
-            <element signature="method#initHolder#0;class#PlanAdapter#0" />
-            <element signature="class#ViewHolder#0;class#PlanAdapter#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/Todo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -1157,8 +1159,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-433">
-          <caret line="284" column="59" selection-start-line="284" selection-start-column="54" selection-end-line="284" selection-end-column="59" />
+        <state relative-caret-position="281">
+          <caret line="250" column="35" selection-start-line="250" selection-start-column="35" selection-end-line="250" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1541#1780#0" expanded="true" />
@@ -1167,6 +1169,18 @@
             <element signature="method#stopTime#0;class#PlanFragment#0" />
             <element signature="method#setNow#0;class#PlanFragment#0" />
             <element signature="method#updateChart#0;class#PlanFragment#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="225" column="29" selection-start-line="225" selection-start-column="29" selection-end-line="225" selection-end-column="29" />
+          <folding>
+            <element signature="method#changeColor#0;class#PlanAdapter#0" />
+            <element signature="method#initHolder#0;class#PlanAdapter#0" />
+            <element signature="class#ViewHolder#0;class#PlanAdapter#0" />
           </folding>
         </state>
       </provider>
