@@ -14,36 +14,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="log.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="log.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/log.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+            <state relative-caret-position="75">
+              <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
               <folding>
-                <element signature="e#191#198#0" />
                 <element signature="e#354#1170#0" />
-                <element signature="e#1174#1182#0" />
                 <element signature="e#1372#2216#0" />
                 <element signature="e#2221#2227#0" />
                 <element signature="e#2420#3490#0" />
-                <element signature="e#3495#3502#0" />
                 <element signature="e#3652#4453#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="achieve.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/achieve.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-              <folding>
-                <element signature="e#529#1345#0" />
-                <element signature="e#1349#1362#0" />
-                <element signature="e#1543#2374#0" />
-                <element signature="e#2378#2391#0" />
-                <element signature="e#2572#3403#0" />
               </folding>
             </state>
           </provider>
@@ -91,14 +72,14 @@
         <option value="$PROJECT_DIR$/route.js" />
         <option value="$PROJECT_DIR$/connect.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/api/log.js" />
-        <option value="$PROJECT_DIR$/api/achieve.js" />
         <option value="$PROJECT_DIR$/api/friend.js" />
         <option value="$PROJECT_DIR$/api/todo.js" />
         <option value="$PROJECT_DIR$/api/user.js" />
         <option value="$PROJECT_DIR$/api/note.js" />
         <option value="$PROJECT_DIR$/api/plan.js" />
         <option value="$PROJECT_DIR$/api/chart.js" />
+        <option value="$PROJECT_DIR$/api/achieve.js" />
+        <option value="$PROJECT_DIR$/api/log.js" />
       </list>
     </option>
   </component>
@@ -213,7 +194,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100124000" />
+    <option name="totallyTimeSpent" value="101669000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -545,33 +526,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/log.js">
+    <entry file="file://$PROJECT_DIR$/api/achieve.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        <state relative-caret-position="841">
+          <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
           <folding>
-            <element signature="e#191#198#0" />
-            <element signature="e#354#1170#0" />
-            <element signature="e#1174#1182#0" />
-            <element signature="e#1372#2216#0" />
-            <element signature="e#2221#2227#0" />
-            <element signature="e#2420#3490#0" />
-            <element signature="e#3495#3502#0" />
-            <element signature="e#3652#4453#0" />
+            <element signature="e#529#1345#0" />
+            <element signature="e#1543#2374#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/achieve.js">
+    <entry file="file://$PROJECT_DIR$/api/log.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        <state relative-caret-position="75">
+          <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
           <folding>
-            <element signature="e#529#1345#0" />
-            <element signature="e#1349#1362#0" />
-            <element signature="e#1543#2374#0" />
-            <element signature="e#2378#2391#0" />
-            <element signature="e#2572#3403#0" />
+            <element signature="e#354#1170#0" />
+            <element signature="e#1372#2216#0" />
+            <element signature="e#2221#2227#0" />
+            <element signature="e#2420#3490#0" />
+            <element signature="e#3652#4453#0" />
           </folding>
         </state>
       </provider>
