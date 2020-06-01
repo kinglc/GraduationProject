@@ -94,7 +94,7 @@ public class TodoFragment extends Fragment{
             con.setRequestProperty("Cache-Control", "no-cache");
             con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 //            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-            con.setRequestMethod("POST");
+            con.setRequestMethod("GET");
             con.setDoOutput(true);
             con.setDoInput(true);
             con.connect();
@@ -124,7 +124,7 @@ public class TodoFragment extends Fragment{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "获取失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -168,7 +168,7 @@ public class TodoFragment extends Fragment{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "删除失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -205,7 +205,7 @@ public class TodoFragment extends Fragment{
             if (con.getResponseCode() == 200) {
 //                ;
             } else {
-                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "删除失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -213,7 +213,8 @@ public class TodoFragment extends Fragment{
             e.printStackTrace();
             input.setText(e.toString());
             Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
-        }}
+        }
+    }
 
     //添加
     private void addTodo(String title,String date){
@@ -249,7 +250,7 @@ public class TodoFragment extends Fragment{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "添加失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 

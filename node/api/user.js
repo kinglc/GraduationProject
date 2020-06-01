@@ -136,7 +136,7 @@ router.post("/isIdExist", (req, res) => {
 //         msg:""
 //         date:
 //     }
-router.post("/getDay", (req, res) => {
+router.get("/getDay", (req, res) => {
     console.log("getday");
     var sqlStr = "select todo_day from user where user_id =\"" +req.body.user_id + "\"";
     console.log(sqlStr);
@@ -211,7 +211,7 @@ router.post("/setDay", (req, res) => {
 //         msg:""
 //         date:
 //     }
-router.post("/getTime", (req, res) => {
+router.get("/getTime", (req, res) => {
     console.log("getTime");
     var sqlStr = "select plan_time from user where user_id =\"" +req.body.user_id + "\"";
     console.log(sqlStr);

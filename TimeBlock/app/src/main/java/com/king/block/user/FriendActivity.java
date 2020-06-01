@@ -104,7 +104,7 @@ public class FriendActivity extends AppCompatActivity {
             con.setRequestProperty("Cache-Control", "no-cache");
             con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 //            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-            con.setRequestMethod("POST");
+            con.setRequestMethod("GET");
             con.setDoOutput(true);
             con.setDoInput(true);
             con.connect();
@@ -131,7 +131,7 @@ public class FriendActivity extends AppCompatActivity {
                     Toast.makeText(FriendActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(FriendActivity.this, "刷新好友信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FriendActivity.this, "获取失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -158,7 +158,7 @@ public class FriendActivity extends AppCompatActivity {
             con.setRequestProperty("Cache-Control", "no-cache");
             con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 //            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-            con.setRequestMethod("POST");
+            con.setRequestMethod("GET");
             con.setDoOutput(true);
             con.setDoInput(true);
             con.connect();
@@ -217,7 +217,7 @@ public class FriendActivity extends AppCompatActivity {
                 JSONObject res = global.streamtoJson(con.getInputStream());
                 return res.optInt("code");
             } else {
-                Toast.makeText(FriendActivity.this, "获取好友列表失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FriendActivity.this, "获取失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
         } catch (Exception e) {

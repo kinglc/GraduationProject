@@ -339,7 +339,7 @@ public class ChartActivity extends AppCompatActivity {
             con.setRequestProperty("Cache-Control", "no-cache");
             con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 //            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-            con.setRequestMethod("POST");
+            con.setRequestMethod("GET");
             con.setDoOutput(true);
             con.setDoInput(true);
             con.connect();
@@ -376,7 +376,7 @@ public class ChartActivity extends AppCompatActivity {
                     Toast.makeText(ChartActivity.this, msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(ChartActivity.this, "刷新计划信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChartActivity.this, "获取失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 

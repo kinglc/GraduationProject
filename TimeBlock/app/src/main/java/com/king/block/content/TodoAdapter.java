@@ -216,7 +216,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "修改失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -258,7 +258,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "修改失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -278,7 +278,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
             con.setRequestProperty("Connection", "Keep-Alive");
             con.setRequestProperty("Cache-Control", "no-cache");
             con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-            con.setRequestMethod("POST");
+            con.setRequestMethod("GET");
             con.setDoOutput(true);
             con.setDoInput(true);
             con.connect();
@@ -300,7 +300,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新待办信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "获取失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -321,7 +321,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
             con.setRequestProperty("Connection", "Keep-Alive");
             con.setRequestProperty("Cache-Control", "no-cache");
             con.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-            con.setRequestMethod("POST");
+            con.setRequestMethod("GET");
             con.setDoOutput(true);
             con.setDoInput(true);
             con.connect();
@@ -342,7 +342,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "获取失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -425,7 +425,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "更新成就失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -468,7 +468,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "获取失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 
@@ -510,7 +510,7 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "刷新信息失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "更新失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 

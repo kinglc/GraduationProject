@@ -15,7 +15,7 @@ module.exports = router;
 //         code:
 //         msg:""
 //         data:[]
-router.post("/query", (req, res) => {
+router.get("/query", (req, res) => {
     console.log("query");
     var sqlStr = "select * from note where user_id = '" + req.body.user_id+
         "' and DATE_FORMAT(date,'%Y%m') = DATE_FORMAT('"+req.body.date+"','%Y%m')";

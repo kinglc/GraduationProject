@@ -233,7 +233,7 @@ public class PlanAdapter extends ArrayAdapter<Plan> {
                     Toast.makeText(getContext(), msg + res.getString("err"), Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getContext(), "删除失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "勾选失败" + con.getErrorStream().toString(), Toast.LENGTH_SHORT).show();
             }
             con.disconnect();
 

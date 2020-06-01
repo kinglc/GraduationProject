@@ -14,7 +14,7 @@ module.exports = router;
 //         code:
 //         msg:""
 //         data:[]
-router.post("/query", (req, res) => {
+router.get("/query", (req, res) => {
     console.log("query");
     var sqlStr = "select * from plan where user_id = '" + req.body.user_id+"' and finish = 0";
     console.log(sqlStr);

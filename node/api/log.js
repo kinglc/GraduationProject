@@ -14,7 +14,7 @@ module.exports = router;
 //         code:
 //         msg:""
 //         data:[]
-router.post("/query", (req, res) => {
+router.get("/query", (req, res) => {
     console.log("query");
     var sqlStr = "select * from log where user_id = '" + req.body.user_id+"' order by log_id desc";
     console.log(sqlStr);

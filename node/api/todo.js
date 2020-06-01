@@ -15,7 +15,7 @@ module.exports = router;
 //         code:
 //         msg:""
 //         data:[]
-router.post("/query", (req, res) => {
+router.get("/query", (req, res) => {
     console.log("query");
     var sqlStr = "select * from todo where user_id = '" + req.body.user_id+"' and date = '"+req.body.date+"'";
     console.log(sqlStr);
@@ -77,7 +77,6 @@ router.post("/delete", (req, res) => {
         pool.releaseConnection(conn); // 释放连接池，等待别的连接使用
     });
 });
-
 
 // 删除某日期全部
 //     params{
@@ -236,7 +235,7 @@ router.post("/check", (req, res) => {
 //         msg:""
 //         date:
 //     }
-router.post("/number", (req, res) => {
+router.get("/number", (req, res) => {
     console.log("number");
     var sqlStr = "select count(*) from todo where user_id =\"" +req.body.user_id+ "\" and date = \"" + req.body.date+"\"";
     console.log(sqlStr);
