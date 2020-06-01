@@ -20,13 +20,13 @@ router.post("/query", (req, res) => {
     console.log("query");
     let sqlStr;
     console.log(req.body);
-    if(req.body.type===0) {
+    if(req.body.type==0) {
         sqlStr = "select date,pass_red,pass_yellow,pass_green,pass_blue from chart where user_id = '" + req.body.user_id +
             "' and YEARWEEK(date_format(date,'%Y-%m-%d'),1) = YEARWEEK(date_format('" + req.body.date + "','%Y-%m-%d'),1)";
-    }else if(req.body.type===1) {
+    }else if(req.body.type==1) {
         sqlStr = "select date,pass_red,pass_yellow,pass_green,pass_blue from chart where user_id = '" + req.body.user_id +
             "' and DATE_FORMAT(date,'%Y%m') = DATE_FORMAT('" + req.body.date + "','%Y%m')";
-    }else if(req.body.type===2){
+    }else if(req.body.type==2){
         sqlStr = "select date,pass_red,pass_yellow,pass_green,pass_blue from chart where user_id = '" + req.body.user_id +
             "' and DATE_FORMAT(date,'%Y') = DATE_FORMAT('" + req.body.date + "','%Y')";
     }

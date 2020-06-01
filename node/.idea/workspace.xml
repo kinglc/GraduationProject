@@ -17,40 +17,31 @@
       <file leaf-file-name="log.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/log.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
+            <state relative-caret-position="19">
               <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plan.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/plan.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
               <folding>
                 <element signature="e#191#198#0" />
-                <element signature="e#349#1160#0" />
-                <element signature="e#1164#1169#0" />
-                <element signature="e#1367#2246#0" />
-                <element signature="e#2250#2255#0" />
-                <element signature="e#2396#3153#0" />
-                <element signature="e#3157#3162#0" />
-                <element signature="e#3376#4278#0" />
-                <element signature="e#4456#5274#0" />
-                <element signature="e#5278#5283#0" />
-                <element signature="e#5436#6234#0" />
+                <element signature="e#354#1170#0" />
+                <element signature="e#1174#1182#0" />
+                <element signature="e#1372#2216#0" />
+                <element signature="e#2221#2227#0" />
+                <element signature="e#2420#3490#0" />
+                <element signature="e#3495#3502#0" />
+                <element signature="e#3652#4453#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chart.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="chart.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/chart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-40">
-              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+            <state relative-caret-position="135">
+              <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
               <folding>
+                <element signature="e#2097#3125#0" />
+                <element signature="e#3390#4355#0" />
+                <element signature="e#4607#5572#0" />
                 <element signature="e#5602#5928#0" />
               </folding>
             </state>
@@ -60,8 +51,8 @@
       <file leaf-file-name="achieve.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/achieve.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
-              <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+            <state relative-caret-position="238">
+              <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
               <folding>
                 <element signature="e#366#373#0" />
                 <element signature="e#529#1345#0" />
@@ -117,13 +108,13 @@
         <option value="$PROJECT_DIR$/connect.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/api/log.js" />
-        <option value="$PROJECT_DIR$/api/chart.js" />
         <option value="$PROJECT_DIR$/api/achieve.js" />
         <option value="$PROJECT_DIR$/api/friend.js" />
         <option value="$PROJECT_DIR$/api/todo.js" />
         <option value="$PROJECT_DIR$/api/user.js" />
-        <option value="$PROJECT_DIR$/api/plan.js" />
         <option value="$PROJECT_DIR$/api/note.js" />
+        <option value="$PROJECT_DIR$/api/plan.js" />
+        <option value="$PROJECT_DIR$/api/chart.js" />
       </list>
     </option>
   </component>
@@ -238,7 +229,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97878000" />
+    <option name="totallyTimeSpent" value="99489000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -253,14 +244,14 @@
     <frame x="-7" y="0" width="690" height="838" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2324159" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2324159" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32909605" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32909605" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -491,31 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/chart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-40">
-          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-          <folding>
-            <element signature="e#5602#5928#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/achieve.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
-          <folding>
-            <element signature="e#366#373#0" />
-            <element signature="e#529#1345#0" />
-            <element signature="e#1349#1362#0" />
-            <element signature="e#1543#2374#0" />
-            <element signature="e#2378#2391#0" />
-            <element signature="e#2572#3403#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/friend.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
@@ -524,13 +490,6 @@
             <element signature="e#191#200#0" />
             <element signature="n#!!block;n#handleError#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/log.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -572,8 +531,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/plan.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="156" lean-forward="true" selection-start-line="156" selection-end-line="156" />
+        <state relative-caret-position="436">
+          <caret line="213" column="13" lean-forward="true" selection-start-line="213" selection-start-column="13" selection-end-line="213" selection-end-column="13" />
           <folding>
             <element signature="e#191#198#0" />
             <element signature="e#349#1160#0" />
@@ -583,9 +542,53 @@
             <element signature="e#2396#3153#0" />
             <element signature="e#3157#3162#0" />
             <element signature="e#3376#4278#0" />
+            <element signature="e#4282#4287#0" />
             <element signature="e#4456#5274#0" />
-            <element signature="e#5278#5283#0" />
-            <element signature="e#5436#6234#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/log.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding>
+            <element signature="e#191#198#0" />
+            <element signature="e#354#1170#0" />
+            <element signature="e#1174#1182#0" />
+            <element signature="e#1372#2216#0" />
+            <element signature="e#2221#2227#0" />
+            <element signature="e#2420#3490#0" />
+            <element signature="e#3495#3502#0" />
+            <element signature="e#3652#4453#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/achieve.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+          <folding>
+            <element signature="e#366#373#0" />
+            <element signature="e#529#1345#0" />
+            <element signature="e#1349#1362#0" />
+            <element signature="e#1543#2374#0" />
+            <element signature="e#2378#2391#0" />
+            <element signature="e#2572#3403#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/chart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding>
+            <element signature="e#2097#3125#0" />
+            <element signature="e#3390#4355#0" />
+            <element signature="e#4607#5572#0" />
+            <element signature="e#5602#5928#0" />
           </folding>
         </state>
       </provider>
