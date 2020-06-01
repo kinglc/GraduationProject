@@ -163,7 +163,6 @@ router.post("/update", (req, res) => {
 //     return{
 //         code:
 //         msg:""
-//         data:[]
 router.post("/pass", (req, res) => {
     console.log("pass");
     var sqlStr = "update plan set pass = \"" +req.body.pass+ "\" where plan_id = " + req.body.plan_id;
@@ -183,8 +182,7 @@ router.post("/pass", (req, res) => {
                 console.log(result);
                 return res.json({
                     code: 200,
-                    msg: "查询成功",
-                    data: result
+                    msg: "修改成功"
                 });
             }
         });
@@ -199,7 +197,6 @@ router.post("/pass", (req, res) => {
 //     return{
 //         code:
 //         msg:""
-//         data:[]
 router.post("/finish", (req, res) => {
     console.log("pass");
     var sqlStr = "update plan set finish = 1 where plan_id = " + req.body.plan_id;
@@ -219,8 +216,7 @@ router.post("/finish", (req, res) => {
                 console.log(result);
                 return res.json({
                     code: 200,
-                    msg: "查询成功",
-                    data: result
+                    msg: "修改成功"
                 });
             }
         });
