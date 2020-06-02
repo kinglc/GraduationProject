@@ -290,6 +290,10 @@ public class FriendActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String friendid = input.getText().toString();
+                if(friendid.length()==0){
+                    Toast.makeText(FriendActivity.this, "请输入用户id", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(ids.contains("'" + friendid + "',")){
                     Toast.makeText(FriendActivity.this, "该用户已存在列表中", Toast.LENGTH_SHORT).show();
                 }else if (friendid.length() > 0) {
