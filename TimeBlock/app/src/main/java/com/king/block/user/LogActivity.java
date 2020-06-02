@@ -42,7 +42,6 @@ public class LogActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                log_list.clear();
                 LogActivity.this.finish();
             }
         });
@@ -51,6 +50,7 @@ public class LogActivity extends AppCompatActivity {
     //调用接口
     //获取数据
     private void getLog() {
+        log_list.clear();
         try {
             URL url = new URL(global.getURL() + "/log/query");
             // 打开连接
