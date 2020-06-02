@@ -33,6 +33,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -277,6 +279,15 @@ public class PlanFragment extends Fragment{
             e.printStackTrace();
             Toast.makeText(getContext(), "连接错误", Toast.LENGTH_SHORT).show();
         }
+        Collections.sort(plan_list, new Comparator<Plan>() {
+            @Override
+            public int compare(Plan o1, Plan o2) {
+                if(o1.getUrgency()==o2.getUrgency()){
+                    return o1.getId()-o2.getId();
+                }
+                return o1.getUrgency()-o2.getUrgency();
+            }
+        });
     }
 
     //进行
