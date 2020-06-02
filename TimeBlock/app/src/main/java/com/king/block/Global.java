@@ -25,6 +25,7 @@ import java.util.Date;
 public class Global extends Application {
     private String userId;
     private String URL;
+    private String name;
     private ArrayList<Achieve> achieve = new ArrayList<Achieve>(Arrays.asList(
             new Achieve(1,5,"浅尝辄止","累计完成待办1天"),
             new Achieve(2,2,"走马观花","累计进行计划1小时"),
@@ -60,12 +61,21 @@ public class Global extends Application {
         this.userId = userId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public void onCreate() {
-        userId = "jc";
-        URL = "http://140.143.78.135:8080";
         super.onCreate();
+        this.name="";
     }
+
+
 
     public JSONObject streamtoJson(InputStream is) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));

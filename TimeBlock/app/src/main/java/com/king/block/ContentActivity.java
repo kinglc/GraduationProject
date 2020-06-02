@@ -75,7 +75,11 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
         global = (Global)getApplication();
-        nickname = getIntent().getStringExtra("name");
+        if(global.getName().length()>0) {
+            nickname = global.getName();
+        }else{
+            nickname = getIntent().getStringExtra("name");
+        }
 //        avatarUrl = getIntent().getStringExtra("avatar");
         index = getIntent().getIntExtra("index", 1);
         initComp();
@@ -84,10 +88,6 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         initFrag();
 
         name.setText(nickname);
-        //初始计划页面
-        plan_pic.setImageResource(R.drawable.plan_selected);
-        plan_txt.setTextColor(Color.parseColor("#3FC1EB"));
-
     }
 
 
@@ -183,6 +183,24 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
         plan_pic.setImageResource(R.drawable.plan);
         plan_txt.setTextColor(getResources().getColor(R.color.fontBlack));
 
+        switch (index){
+            case 0:
+                todo_pic.setImageResource(R.drawable.todo_selected);
+                todo_txt.setTextColor(getResources().getColor(R.color.commonBlue));
+                history.setVisibility(View.GONE);
+                break;
+            case 1:
+                plan_pic.setImageResource(R.drawable.plan_selected);
+                plan_txt.setTextColor(getResources().getColor(R.color.commonBlue));
+                history.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                note_pic.setImageResource(R.drawable.note_selected);
+                note_txt.setTextColor(getResources().getColor(R.color.commonBlue));
+                history.setVisibility(View.GONE);
+                break;
+                default:break;
+        }
 
 //        Calendar mcalendar = Calendar.getInstance();     //  获取当前时间    —   年、月、日
 //        year = mcalendar.get(Calendar.YEAR);         //  得到当前年
@@ -203,27 +221,27 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.todo:
                 index = 0;
                 initStyle();
-                todo_pic.setImageResource(R.drawable.todo_selected);
-                todo_txt.setTextColor(getResources().getColor(R.color.commonBlue));
-                history.setVisibility(View.GONE);
+//                todo_pic.setImageResource(R.drawable.todo_selected);
+//                todo_txt.setTextColor(getResources().getColor(R.color.commonBlue));
+//                history.setVisibility(View.GONE);
 //                top.setVisibility(View.VISIBLE);
                 initFrag();
                 break;
             case R.id.plan:
                 index = 1;
                 initStyle();
-                plan_pic.setImageResource(R.drawable.plan_selected);
-                plan_txt.setTextColor(getResources().getColor(R.color.commonBlue));
-                history.setVisibility(View.VISIBLE);
+//                plan_pic.setImageResource(R.drawable.plan_selected);
+//                plan_txt.setTextColor(getResources().getColor(R.color.commonBlue));
+//                history.setVisibility(View.VISIBLE);
 //                top.setVisibility(View.VISIBLE);
                 initFrag();
                 break;
             case R.id.note:
                 index = 2;
                 initStyle();
-                note_pic.setImageResource(R.drawable.note_selected);
-                note_txt.setTextColor(getResources().getColor(R.color.commonBlue));
-                history.setVisibility(View.GONE);
+//                note_pic.setImageResource(R.drawable.note_selected);
+//                note_txt.setTextColor(getResources().getColor(R.color.commonBlue));
+//                history.setVisibility(View.GONE);
 //                top.setVisibility(View.GONE);
                 initFrag();
                 break;
