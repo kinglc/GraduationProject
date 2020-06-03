@@ -18,13 +18,10 @@
         <entry file="file://$PROJECT_DIR$/api/log.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
               <folding>
                 <element signature="e#354#1170#0" />
                 <element signature="e#1372#2216#0" />
-                <element signature="e#2221#2227#0" />
-                <element signature="e#2420#3490#0" />
-                <element signature="e#3652#4453#0" />
               </folding>
             </state>
           </provider>
@@ -97,10 +94,10 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-9" />
-    <option name="width" value="863" />
-    <option name="height" value="1048" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-10" />
+    <option name="width" value="864" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -190,11 +187,12 @@
       <workItem from="1590068859839" duration="25733000" />
       <workItem from="1590814439442" duration="741000" />
       <workItem from="1590856943378" duration="4805000" />
+      <workItem from="1591201192667" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102267000" />
+    <option name="totallyTimeSpent" value="102278000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -206,36 +204,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="690" height="838" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="0" width="691" height="839" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2324159" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23206107" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32909605" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32863188" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23348695" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32909605" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32909605" />
-      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,10 +438,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="91" column="11" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
-          <folding>
-            <element signature="e#191#200#0" />
-            <element signature="n#!!block;n#handleError#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -462,9 +445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
           <caret line="237" column="11" selection-start-line="237" selection-start-column="11" selection-end-line="237" selection-end-column="11" />
-          <folding>
-            <element signature="e#191#198#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -472,15 +452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
           <caret line="199" column="42" lean-forward="true" selection-start-line="199" selection-start-column="42" selection-end-line="199" selection-end-column="42" />
-          <folding>
-            <element signature="e#190#194#0" />
-            <element signature="e#353#1278#0" />
-            <element signature="e#1282#1292#0" />
-            <element signature="e#1431#2392#0" />
-            <element signature="e#2396#2407#0" />
-            <element signature="e#2547#3475#0" />
-            <element signature="e#3479#3490#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -488,9 +459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="106" column="30" lean-forward="true" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
-          <folding>
-            <element signature="e#191#198#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -498,18 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
           <caret line="213" column="13" lean-forward="true" selection-start-line="213" selection-start-column="13" selection-end-line="213" selection-end-column="13" />
-          <folding>
-            <element signature="e#191#198#0" />
-            <element signature="e#349#1160#0" />
-            <element signature="e#1164#1169#0" />
-            <element signature="e#1367#2246#0" />
-            <element signature="e#2250#2255#0" />
-            <element signature="e#2396#3153#0" />
-            <element signature="e#3157#3162#0" />
-            <element signature="e#3376#4278#0" />
-            <element signature="e#4282#4287#0" />
-            <element signature="e#4456#5274#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -517,12 +473,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="113" column="34" lean-forward="true" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
-          <folding>
-            <element signature="e#191#198#0" />
-            <element signature="e#383#1916#0" />
-            <element signature="e#4607#5572#0" />
-            <element signature="e#5602#5928#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -530,23 +480,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="841">
           <caret line="117" column="28" selection-start-line="117" selection-start-column="28" selection-end-line="117" selection-end-column="28" />
-          <folding>
-            <element signature="e#529#1345#0" />
-            <element signature="e#1543#2374#0" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/api/log.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
           <folding>
             <element signature="e#354#1170#0" />
             <element signature="e#1372#2216#0" />
-            <element signature="e#2221#2227#0" />
-            <element signature="e#2420#3490#0" />
-            <element signature="e#3652#4453#0" />
           </folding>
         </state>
       </provider>
