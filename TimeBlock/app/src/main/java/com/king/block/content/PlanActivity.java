@@ -92,11 +92,16 @@ public class PlanActivity extends AppCompatActivity implements View.OnClickListe
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if(plan_title.getText().toString().length()<=0){
+                    if(plan_title.getText().toString().length()==0){
                         Toast.makeText(PlanActivity.this,"请输入标题",Toast.LENGTH_SHORT).show();
                         return ;
-                    }
-                    if(urgency==-1){
+                    }else if(plan_title.getText().toString().length()>100){
+                        Toast.makeText(PlanActivity.this, "主题不得超过100字符", Toast.LENGTH_SHORT).show();
+                        return ;
+                    }else if(plan_content.getText().toString().length()>400){
+                        Toast.makeText(PlanActivity.this, "内容不得超过400字符", Toast.LENGTH_SHORT).show();
+                        return ;
+                    }else if(urgency==-1){
                         Toast.makeText(PlanActivity.this,"请选择紧急度",Toast.LENGTH_SHORT).show();
                         return ;
                     }

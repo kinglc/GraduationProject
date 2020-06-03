@@ -322,7 +322,7 @@ public class TodoFragment extends Fragment{
         });
     }
 
-    private void initEvent(){
+    private void initEvent() {
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -340,11 +340,11 @@ public class TodoFragment extends Fragment{
                         }
                         date.setText(dateString + "  ▼");
                         int cmp = global.cmpDate(d);
-                        if (cmp==1) {
+                        if (cmp == 1) {
                             todo.setVisibility(View.GONE);
                             add_layout.setVisibility(View.GONE);
-                            return ;
-                        } else if (cmp==-1) {
+                            return;
+                        } else if (cmp == -1) {
                             todo.setVisibility(View.VISIBLE);
                             todoAdapter.setClickable(false);
                             add_layout.setVisibility(View.GONE);
@@ -377,12 +377,12 @@ public class TodoFragment extends Fragment{
                 c.set(Calendar.MONTH, nMonth - 1);
                 c.set(Calendar.DAY_OF_MONTH, nDay);
                 c.add(Calendar.DAY_OF_YEAR, 1);
-                String date = c.get(Calendar.YEAR) +"-"+ (c.get(Calendar.MONTH) + 1) +"-"+ c.get(Calendar.DAY_OF_MONTH);
+                String date = c.get(Calendar.YEAR) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.DAY_OF_MONTH);
                 deleteAll(date);
-                for(int i=0;i<todo_list.size();i++){
-                    addTodo(todo_list.get(i).getTitle(),date);
+                for (int i = 0; i < todo_list.size(); i++) {
+                    addTodo(todo_list.get(i).getTitle(), date);
                 }
-                Toast.makeText(getContext(),"已将今日待办复制至"+date,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "已将今日待办复制至" + date, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -397,16 +397,18 @@ public class TodoFragment extends Fragment{
         insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(input.getText().length()>0){
-                    addTodo(input.getText().toString(),year+"-"+month+"-"+day);
+                if (input.getText().toString().length() == 0) {
+                    Toast.makeText(getContext(), "请输入内容", Toast.LENGTH_SHORT).show();
+                } else if (input.getText().toString().length() > 100) {
+                    addTodo(input.getText().toString(), year + "-" + month + "-" + day);
                     todo_list.clear();
                     getTodo(year + "-" + month + "-" + day);
                     todoAdapter.notifyDataSetChanged();
                     input.setText("");
                     input.clearFocus();
 //                    todoAdapter.setNotfinish(todoAdapter.getNotfinish()+1);
-                }else{
-                    Toast.makeText(getContext(),"请输入内容",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "不得超过100字符", Toast.LENGTH_SHORT).show();
                 }
             }
         });

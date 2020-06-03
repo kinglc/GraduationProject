@@ -48,15 +48,15 @@ public class NoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
-        global = (Global)getApplication();
+        global = (Global) getApplication();
 
-        back = (ImageView)findViewById(R.id.back);
-        save = (ImageView)findViewById(R.id.note_save);
-        note_title = (TextView)findViewById(R.id.note_title);
-        note_content = (TextView)findViewById(R.id.note_content);
-        note_place = (TextView)findViewById(R.id.note_place);
-        note_date = (TextView)findViewById(R.id.note_date);
-        note_time = (TimePicker)findViewById(R.id.note_time);
+        back = (ImageView) findViewById(R.id.back);
+        save = (ImageView) findViewById(R.id.note_save);
+        note_title = (TextView) findViewById(R.id.note_title);
+        note_content = (TextView) findViewById(R.id.note_content);
+        note_place = (TextView) findViewById(R.id.note_place);
+        note_date = (TextView) findViewById(R.id.note_date);
+        note_time = (TimePicker) findViewById(R.id.note_time);
         note_time.setIs24HourView(true);
 
         initData();
@@ -79,14 +79,23 @@ public class NoteActivity extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(note_title.getText().toString().length()<=0){
-                    Toast.makeText(NoteActivity.this,"请输入标题",Toast.LENGTH_SHORT).show();
-                    return ;
+                if (note_title.getText().toString().length() <= 0) {
+                    Toast.makeText(NoteActivity.this, "请输入标题", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (note_title.getText().toString().length() > 100) {
+                    Toast.makeText(NoteActivity.this, "标题不得超过100字符", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (note_content.getText().toString().length() > 400) {
+                    Toast.makeText(NoteActivity.this, "内容不得超过400字符", Toast.LENGTH_SHORT).show();
+                    return;
+                } else if (note_place.getText().toString().length() > 100) {
+                    Toast.makeText(NoteActivity.this, "地点不得超过100字符", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                if(note_id==-1) insert();
+                if (note_id == -1) insert();
                 else update();
                 Intent it = new Intent(NoteActivity.this, ContentActivity.class);
-                it.putExtra("index",2);
+                it.putExtra("index", 2);
                 startActivity(it);
             }
         });
