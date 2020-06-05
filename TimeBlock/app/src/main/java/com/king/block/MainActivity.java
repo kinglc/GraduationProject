@@ -84,18 +84,16 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    //存储用户信息至本地
     private void setUser(){
-        UUID id = UUID.randomUUID();
+        UUID id = UUID.randomUUID();//生成唯一用户id
         String FILENAME = "user.txt";
-        user_id = id.toString().replace("-","");
+        user_id = id.toString().replace("-","");//将id转成纯数字字母组合
         FileOutputStream fos = null;
         try {
             fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-            fos.write((user_id+";"+name).getBytes());
-            this.getFilesDir();
+            fos.write((user_id+";"+name).getBytes());//写入信息
             fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
