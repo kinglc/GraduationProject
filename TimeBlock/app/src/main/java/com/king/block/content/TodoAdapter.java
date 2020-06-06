@@ -97,41 +97,15 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
                         holder.todo_checked.setChecked(!holder.todo_checked.isChecked());
                         return;
                     }
-                    changeStyle(holder,holder.todo_checked.isChecked());
-
+                    changeStyle(holder,holder.todo_checked.isChecked());//修改样式
                     Todo t = todo_list.get(position);
-                    editTodo(t.getId(),holder.todo_checked.isChecked()?1:0);
+                    editTodo(t.getId(),holder.todo_checked.isChecked()?1:0);//更新Todo信息
                     if(holder.todo_checked.isChecked()){
                         notfinish--;
                     }else{
                         notfinish++;
                     }
-                    if(notfinish==0){
-                        Date now = new Date();
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        String date = sdf.format(now);
-                        int num = getNum(date);
-                        if(num>0){
-                            int log_id = isExist(0,date);
-                            if(log_id==-1){
-                                int day = getTododay()+1;
-                                setTododay(day);
-                                global.setLog(0, "完成" + num + "项待办", date);
-                                int  pos= 0;
-                                for(;pos<prize.length;pos++)
-                                    if(prize[pos]==day) break;
-                                if(pos!=prize.length){
-                                    setAchieve(2*pos+1);
-                                    String content = "达成成就”"+global.getAchieve().get(2*pos).getName()+"”";
-                                    global.setLog(2, content,date);
-                                    Toast.makeText(getContext(),content,Toast.LENGTH_SHORT).show();
-                                }
-                            }else {
-                                updateLog(log_id,"完成" + num + "项待办");
-                            }
-                            Toast.makeText(getContext(),"完成所有待办！",Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                    finish();
                 }
             });
             convertView.setTag(viewHolder);
@@ -181,6 +155,35 @@ public class TodoAdapter extends ArrayAdapter<Todo>{
         holder.todo_input.setVisibility(View.GONE);
         holder.todo_save.setVisibility(View.GONE);
         lastEdit=-1;
+    }
+
+    public void finish(){
+        if(notfinish==0){//若不存在未完成待办
+            Date now = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(now);
+            int num = getNum(date);
+            if(num>0){//当前存在待办事项
+                int log_id = isExist(0,date);
+                if(log_id==-1){//首次完成所有待办，历程未创建
+                    int day = getTododay()+1;
+                    setTododay(day);//用户信息更新完成待办他减数
+                    global.setLog(0, "完成" + num + "项待办", date);//创建完成待办历程
+                    int  pos= 0;
+                    for(;pos<prize.length;pos++)
+                        if(prize[pos]==day) break;
+                    if(pos!=prize.length){//完成待办天数达到获取成就标准
+                        setAchieve(2*pos+1);//更新用户成就信息
+                        String content = "达成成就”"+global.getAchieve().get(2*pos).getName()+"”";
+                        global.setLog(2, content,date);//创建获得成就历程
+                        Toast.makeText(getContext(),content,Toast.LENGTH_SHORT).show();
+                    }
+                }else {//非首次完成
+                    updateLog(log_id,"完成" + num + "项待办");//更新历程
+                }
+                Toast.makeText(getContext(),"完成所有待办！",Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     //调用接口

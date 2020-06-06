@@ -306,6 +306,7 @@ public class TodoFragment extends Fragment{
                                 todoAdapter.notifyDataSetChanged();
                                 if (!isChecked) {
                                     todoAdapter.setNotfinish(todoAdapter.getNotfinish() - 1);
+                                    todoAdapter.finish();
                                 }
                             }
                         })

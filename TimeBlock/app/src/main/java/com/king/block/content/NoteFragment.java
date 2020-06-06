@@ -162,7 +162,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
     }
 
     private void initScheme() {
-        boolean flag = true;
+//        boolean flag = true;
         String date = "";
         Map<String, Calendar> map = new HashMap<>();
         for (int i = 0; i < note_list.size(); i++) {
@@ -174,12 +174,11 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
             int day = Integer.parseInt(d[2]);
             map.put(getSchemeCalendar(year, month, day, colors[(year + month + day) % 6], txt).toString(),
                     getSchemeCalendar(year, month, day, colors[(year + month + day) % 6], txt));
-            flag=false;
+//            flag=false;
             date = note_list.get(i).getDate();
         }
         //此方法在巨大的数据量上不影响遍历性能，推荐使用
         mCalendarView.setSchemeDate(map);
-
     }
 
     @Override
