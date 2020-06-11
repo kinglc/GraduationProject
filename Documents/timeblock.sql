@@ -11,7 +11,7 @@
  Target Server Version : 80020
  File Encoding         : 65001
 
- Date: 02/06/2020 15:54:09
+ Date: 08/06/2020 21:56:45
 */
 
 SET NAMES utf8mb4;
@@ -58,7 +58,7 @@ CREATE TABLE `chart`  (
   `pass_green` int(0) NULL DEFAULT NULL,
   `pass_blue` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`chart_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of chart
@@ -70,7 +70,11 @@ INSERT INTO `chart` VALUES (9, 'jc', '2020-01-02', 70, 50, 30, 10);
 INSERT INTO `chart` VALUES (10, 'jc', '2020-05-22', 50, 60, 0, 0);
 INSERT INTO `chart` VALUES (11, 'jc', '2020-05-23', 1, 60, 30, 0);
 INSERT INTO `chart` VALUES (12, 'jc', '2020-05-25', 0, 1, 7, 0);
-INSERT INTO `chart` VALUES (13, 'fe42887edbd24a3ab800b5e0bf599248', '2020-06-02', 0, 0, 0, 0);
+INSERT INTO `chart` VALUES (13, 'fe42887edbd24a3ab800b5e0bf599248', '2020-05-01', 60, 0, 0, 0);
+INSERT INTO `chart` VALUES (14, '1d6c2fd7c1cb40b09999a9b4de75f523', '2020-06-10', 60, 20, 30, 40);
+INSERT INTO `chart` VALUES (15, '1d6c2fd7c1cb40b09999a9b4de75f523', '2020-06-21', 0, 10, 0, 0);
+INSERT INTO `chart` VALUES (16, 'fe42887edbd24a3ab800b5e0bf599248', '2020-05-14', 120, 60, 60, 60);
+INSERT INTO `chart` VALUES (17, 'fe42887edbd24a3ab800b5e0bf599248', '2020-06-17', 56, 12, 0, 0);
 
 -- ----------------------------
 -- Table structure for log
@@ -83,7 +87,7 @@ CREATE TABLE `log`  (
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `date` date NULL DEFAULT NULL,
   PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of log
@@ -101,6 +105,12 @@ INSERT INTO `log` VALUES (20, '1d6c2fd7c1cb40b09999a9b4de75f523', 0, '完成2项
 INSERT INTO `log` VALUES (21, '1d6c2fd7c1cb40b09999a9b4de75f523', 2, '达成成就”浅尝辄止”', '2020-05-30');
 INSERT INTO `log` VALUES (22, '413192b4ed8744c380fdc68c5c6804c4', 0, '完成10项待办', '2020-05-30');
 INSERT INTO `log` VALUES (23, '413192b4ed8744c380fdc68c5c6804c4', 2, '达成成就”浅尝辄止”', '2020-05-30');
+INSERT INTO `log` VALUES (24, 'fe42887edbd24a3ab800b5e0bf599248', 0, '完成3项待办', '2020-06-01');
+INSERT INTO `log` VALUES (25, 'fe42887edbd24a3ab800b5e0bf599248', 2, '达成成就”浅尝辄止”', '2020-06-01');
+INSERT INTO `log` VALUES (26, 'fe42887edbd24a3ab800b5e0bf599248', 1, '经过1小时2分钟，完成计划“系统bug”', '2020-06-02');
+INSERT INTO `log` VALUES (27, 'fe42887edbd24a3ab800b5e0bf599248', 2, '达成成就”走马观花”', '2020-06-02');
+INSERT INTO `log` VALUES (28, 'fe42887edbd24a3ab800b5e0bf599248', 0, '完成1项待办', '2020-06-03');
+INSERT INTO `log` VALUES (29, 'fe42887edbd24a3ab800b5e0bf599248', 0, '完成2项待办', '2020-06-06');
 
 -- ----------------------------
 -- Table structure for note
@@ -170,7 +180,7 @@ INSERT INTO `plan` VALUES (11, '413192b4ed8744c380fdc68c5c6804c4', '三', '记�
 INSERT INTO `plan` VALUES (12, 'fe42887edbd24a3ab800b5e0bf599248', '系统bug', '主页', 1, '0m', 0);
 INSERT INTO `plan` VALUES (13, 'fe42887edbd24a3ab800b5e0bf599248', '格式整理', '外文翻译', 3, '0m', 0);
 INSERT INTO `plan` VALUES (14, 'fe42887edbd24a3ab800b5e0bf599248', '论文', '参考文献', 2, '0m', 0);
-INSERT INTO `plan` VALUES (15, 'fe42887edbd24a3ab800b5e0bf599248', '论文', '设计部分', 0, '0m', 0);
+INSERT INTO `plan` VALUES (15, 'fe42887edbd24a3ab800b5e0bf599248', '论文', '设计部分', 0, '2m', 1);
 
 -- ----------------------------
 -- Table structure for todo
@@ -183,7 +193,7 @@ CREATE TABLE `todo`  (
   `date` date NULL DEFAULT NULL,
   `isChecked` int(0) NULL DEFAULT NULL,
   PRIMARY KEY (`todo_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of todo
@@ -208,7 +218,9 @@ INSERT INTO `todo` VALUES (60, '1d6c2fd7c1cb40b09999a9b4de75f523', '3', '2020-06
 INSERT INTO `todo` VALUES (61, '1d6c2fd7c1cb40b09999a9b4de75f523', '9', '2020-05-31', 0);
 INSERT INTO `todo` VALUES (62, 'fe42887edbd24a3ab800b5e0bf599248', '幸福北理打卡', '2020-06-02', 1);
 INSERT INTO `todo` VALUES (63, 'fe42887edbd24a3ab800b5e0bf599248', '练琴', '2020-06-02', 1);
-INSERT INTO `todo` VALUES (64, 'fe42887edbd24a3ab800b5e0bf599248', '接放学', '2020-06-02', 0);
+INSERT INTO `todo` VALUES (64, 'fe42887edbd24a3ab800b5e0bf599248', '接放学', '2020-06-02', 1);
+INSERT INTO `todo` VALUES (65, 'fe42887edbd24a3ab800b5e0bf599248', '123', '2020-06-03', 1);
+INSERT INTO `todo` VALUES (66, 'fe42887edbd24a3ab800b5e0bf599248', '1', '2020-06-06', 1);
 
 -- ----------------------------
 -- Table structure for user
@@ -234,6 +246,6 @@ INSERT INTO `user` VALUES (10, '413192b4ed8744c380fdc68c5c6804c4', 'jc', 1, '1h1
 INSERT INTO `user` VALUES (16, '785340f8c7b241e19108b26660ebc9e6', 'kingc', 0, '101h3m', '\'785340f8c7b241e19108b26660ebc9e6\',\'fe42887edbd24a3ab800b5e0bf599248\',', 2, -1);
 INSERT INTO `user` VALUES (17, '2d5d4d184e4f4fc0ac460250281ef169', '金晨', 0, '30h0m', '\'2d5d4d184e4f4fc0ac460250281ef169\',\'jc01\',\'jc02\',\'1d6c2fd7c1cb40b09999a9b4de75f523\',\'fe42887edbd24a3ab800b5e0bf599248\',', 3, -1);
 INSERT INTO `user` VALUES (18, '1d6c2fd7c1cb40b09999a9b4de75f523', 'test', 1, '0m', '\'1d6c2fd7c1cb40b09999a9b4de75f523\',\'f48078a86be1452a8754db80361d50ec\',\'2d5d4d184e4f4fc0ac460250281ef169\',\'413192b4ed8744c380fdc68c5c6804c4\',\'fe42887edbd24a3ab800b5e0bf599248\',', 0, 1);
-INSERT INTO `user` VALUES (19, 'fe42887edbd24a3ab800b5e0bf599248', '临安雨霁', 0, '0m', '\'fe42887edbd24a3ab800b5e0bf599248\',\'f48078a86be1452a8754db80361d50ec\',\'413192b4ed8744c380fdc68c5c6804c4\',\'2d5d4d184e4f4fc0ac460250281ef169\',\'1d6c2fd7c1cb40b09999a9b4de75f523\',\'785340f8c7b241e19108b26660ebc9e6\',', 0, -1);
+INSERT INTO `user` VALUES (19, 'fe42887edbd24a3ab800b5e0bf599248', '临安雨霁', 3, '2m', '\'fe42887edbd24a3ab800b5e0bf599248\',\'f48078a86be1452a8754db80361d50ec\',\'413192b4ed8744c380fdc68c5c6804c4\',\'2d5d4d184e4f4fc0ac460250281ef169\',\'1d6c2fd7c1cb40b09999a9b4de75f523\',\'785340f8c7b241e19108b26660ebc9e6\',', 12, 3);
 
 SET FOREIGN_KEY_CHECKS = 1;

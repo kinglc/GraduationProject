@@ -10,7 +10,21 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f229e467-6a86-4b6e-8252-f13f0fc2a9ae" name="Default Changelist" comment="" />
+    <list default="true" id="f229e467-6a86-4b6e-8252-f13f0fc2a9ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Documents/2020届本科毕业设计（论文）模板及打印装订要求/~$理工大学本科生毕业设计（论文）模板（2020年4月）.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/timeblock.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Documents/timeblock.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/论文/1120161943_金晨_游戏化个人管理Android App的设计与实现.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/论文/~$20112113_王璐_MOOC平台设计模式的研究与实现.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/附件7：毕业设计（论文）评优申请表.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="995">
-              <caret line="198" column="36" lean-forward="true" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+            <state relative-caret-position="2460">
+              <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onCreateView#0;class#PlanFragment#0" />
@@ -57,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-280">
-              <caret line="337" lean-forward="true" selection-start-line="337" selection-end-line="337" />
+            <state relative-caret-position="1800">
+              <caret line="337" selection-start-line="337" selection-end-line="337" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onCreate#0;class#ChartActivity#0" />
@@ -79,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="42" column="73" lean-forward="true" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+            <state relative-caret-position="500">
+              <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -88,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="147" column="42" lean-forward="true" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
+            <state relative-caret-position="2260">
+              <caret line="147" column="42" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1765#1766#0" expanded="true" />
@@ -102,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="313">
-              <caret line="145" column="26" lean-forward="true" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="26" />
+              <caret line="145" column="26" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getUser#0;class#MainActivity#0" />
@@ -118,10 +132,22 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="156" column="21" lean-forward="true" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/Log.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-20">
+            <state relative-caret-position="40">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
@@ -130,8 +156,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/LogActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="74" column="75" lean-forward="true" selection-start-line="74" selection-start-column="75" selection-end-line="74" selection-end-column="75" />
+            <state relative-caret-position="1080">
+              <caret line="74" column="75" selection-start-line="74" selection-start-column="75" selection-end-line="74" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -139,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/LogAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="280">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -296,18 +322,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="Block" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="C:\Software\android_project\GraduationProject\TimeBlock" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -381,6 +395,18 @@
               <item name="Block" type="b2602c69:ProjectViewProjectNode" />
               <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="gradle" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="Block" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Software\android_project\GraduationProject\TimeBlock" type="442cc68d:ScopeViewTreeModel$RootNode" />
             </path>
           </expand>
           <select />
@@ -583,7 +609,7 @@
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32991204" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32844576" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3235725" />
-      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.49865952" weight="0.30058652" />
+      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.49865952" visible="true" weight="0.30058652" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5013405" weight="0.28947368" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.3297587" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -786,20 +812,20 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_note.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="25" selection-end-column="41" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_note.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/note_add.png">
       <provider selected="true" editor-type-id="images" />
@@ -838,20 +864,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_friend.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_todo.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="61" column="53" lean-forward="true" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-29/android/app/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -924,12 +950,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_friend.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/ContentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -962,20 +988,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_plan.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="109" column="41" lean-forward="true" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_plan.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.lecho/hellocharts-library/1.5.8/51798d4793c333553a68292ee3a47b4758c2ec47/hellocharts-library-1.5.8-sources.jar!/lecho/lib/hellocharts/model/Axis.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -992,7 +1018,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
           <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
@@ -1005,6 +1030,7 @@
           </folding>
         </state>
       </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1093,19 +1119,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="51" column="32" selection-start-line="51" selection-start-column="28" selection-end-line="51" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1632#2323#0" expanded="true" />
-            <element signature="e#2322#2323#0" expanded="true" />
-            <element signature="class#ViewHolder#0;class#NoteAdapter#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -1162,8 +1175,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="995">
-          <caret line="198" column="36" lean-forward="true" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+        <state relative-caret-position="2460">
+          <caret line="198" column="36" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onCreateView#0;class#PlanFragment#0" />
@@ -1184,8 +1197,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/ChartActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="337" lean-forward="true" selection-start-line="337" selection-end-line="337" />
+        <state relative-caret-position="1800">
+          <caret line="337" selection-start-line="337" selection-end-line="337" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onCreate#0;class#ChartActivity#0" />
@@ -1204,36 +1217,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/AchieveAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="42" column="73" lean-forward="true" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-20">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/LogActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="74" column="75" lean-forward="true" selection-start-line="74" selection-start-column="75" selection-end-line="74" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/LogAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="500">
+          <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/Global.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="147" column="42" lean-forward="true" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
+        <state relative-caret-position="2260">
+          <caret line="147" column="42" selection-start-line="147" selection-start-column="42" selection-end-line="147" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1765#1766#0" expanded="true" />
@@ -1245,16 +1237,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/LogActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="74" column="75" selection-start-line="74" selection-start-column="75" selection-end-line="74" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/user/LogAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
-          <caret line="145" column="26" lean-forward="true" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="26" />
+          <caret line="145" column="26" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getUser#0;class#MainActivity#0" />
             <element signature="method#setUser#0;class#MainActivity#0" />
             <element signature="method#initEvent#0;class#MainActivity#0" />
             <element signature="method#isExist#0;class#MainActivity#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/NoteAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="156" column="21" lean-forward="true" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
