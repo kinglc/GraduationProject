@@ -243,7 +243,7 @@ router.post("/getTime", (req, res) => {
 // 设置用户累计时间
 //     params{
 //          user_id:
-//          plan_day:
+//          plan_time:
 //     }
 //     return{
 //         code:
