@@ -341,11 +341,7 @@ public class TodoFragment extends Fragment{
                         }
                         date.setText(dateString + "  ▼");
                         int cmp = global.cmpDate(d);
-                        if (cmp == 1) {
-                            todo.setVisibility(View.GONE);
-                            add_layout.setVisibility(View.GONE);
-                            return;
-                        } else if (cmp == -1) {
+                        if (cmp != 0) {
                             todo.setVisibility(View.VISIBLE);
                             todoAdapter.setClickable(false);
                             add_layout.setVisibility(View.GONE);
@@ -354,6 +350,19 @@ public class TodoFragment extends Fragment{
                             todoAdapter.setClickable(true);
                             add_layout.setVisibility(View.VISIBLE);
                         }
+//                        if (cmp == 1) {
+//                            todo.setVisibility(View.GONE);
+//                            add_layout.setVisibility(View.GONE);
+//                            return;
+//                        } else if (cmp == -1) {
+//                            todo.setVisibility(View.VISIBLE);
+//                            todoAdapter.setClickable(false);
+//                            add_layout.setVisibility(View.GONE);
+//                        } else {
+//                            todo.setVisibility(View.VISIBLE);
+//                            todoAdapter.setClickable(true);
+//                            add_layout.setVisibility(View.VISIBLE);
+//                        }
                         todo_list.clear();
                         getTodo(year + "-" + month + "-" + dayOfMonth);
                         todoAdapter.notifyDataSetChanged();
@@ -400,7 +409,7 @@ public class TodoFragment extends Fragment{
             public void onClick(View v) {
                 if (input.getText().toString().length() == 0) {
                     Toast.makeText(getContext(), "请输入内容", Toast.LENGTH_SHORT).show();
-                } else if (input.getText().toString().length() > 100) {
+                } else if (input.getText().toString().length() <= 100) {
                     addTodo(input.getText().toString(), year + "-" + month + "-" + day);
                     todo_list.clear();
                     getTodo(year + "-" + month + "-" + day);

@@ -100,7 +100,7 @@ public class AchieveActivity extends AppCompatActivity {
         getInfo();
         int maxi = Math.max(plan,todo);
         int mini  = Math.min(plan,todo);
-        for (int i = maxi; i >mini; i-=2) {
+        for (int i = maxi; i >mini&&i>0; i-=2) {
             achieve_list.add(global.getAchieve().get(i-1));
         }
         for (int i = mini; i >0; i--) {

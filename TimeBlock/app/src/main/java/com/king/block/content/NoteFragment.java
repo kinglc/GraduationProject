@@ -189,6 +189,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
     @Override
     public void onMonthChange(int year, int month) {
         note_list.clear();
+        noteAdapter.notifyDataSetChanged();
         getNote(year+"-"+month+"-01");
     }
 
