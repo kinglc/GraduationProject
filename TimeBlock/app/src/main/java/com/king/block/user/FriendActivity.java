@@ -95,6 +95,7 @@ public class FriendActivity extends AppCompatActivity {
     //通过ids获取好友信息
     private void getInfo(String ids) {
         if (ids.equals("")) return;
+        friend_list.clear();
         try {
             URL url = new URL(global.getURL() + "/friend/getInfo");
             // 打开连接

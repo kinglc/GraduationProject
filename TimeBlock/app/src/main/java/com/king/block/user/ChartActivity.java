@@ -235,7 +235,7 @@ public class ChartActivity extends AppCompatActivity {
         ColumnChartData data = new ColumnChartData();
         int numColumns=7;
         int subColumns=4;
-        int beg=0;
+        int beg=-1;
         List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
         List<Column> columns = new ArrayList<Column>();
         float[][] hour = new float[31][4];
@@ -253,7 +253,7 @@ public class ChartActivity extends AppCompatActivity {
             if(type==0) {
                 mAxisXValues.add(new AxisValue(i).setLabel(weekday[i]));
                 if (j < chart_list.size() && Integer.parseInt(chart_list.get(j).getDate().substring(8))==week[i]) {
-                    if(beg==0) beg=i;
+                    if(beg==-1) beg=i;
                     time = minToHour(chart_list.get(j).getPass());
 //                    time = chart_list.get(j).getPass();
                     j++;
@@ -261,7 +261,7 @@ public class ChartActivity extends AppCompatActivity {
             }else if (type == 1) {
                 mAxisXValues.add(new AxisValue(i).setLabel(i + 1 + "日"));
                 if (j < chart_list.size() && Integer.parseInt(chart_list.get(j).getDate().substring(8)) == i + 1) {
-                    if(beg==0) beg=i;
+                    if(beg==-1) beg=i;
                     time = minToHour(chart_list.get(j).getPass());
 //                    time = chart_list.get(j).getPass();
                     j++;
@@ -269,7 +269,7 @@ public class ChartActivity extends AppCompatActivity {
             }else {
                     mAxisXValues.add(new AxisValue(i).setLabel(i+1+"月"));
                     if (j < chart_list.size()) {
-                        if(beg==0) beg=i;
+                        if(beg==-1) beg=i;
                         int month = Integer.parseInt(chart_list.get(j).getDate().substring(5,7));
                         while(month==i+1){
                             for(int k=0;k<4;k++){
@@ -314,26 +314,18 @@ public class ChartActivity extends AppCompatActivity {
         data.setFillRatio(0.75F);
 
 
-//        col_chart.setValueSelectionEnabled(true);
-//        col_chart.setInteractive(true);
-//        col_chart.setZoomType(ZoomType.HORIZONTAL);
+        col_chart.setValueSelectionEnabled(true);
+        col_chart.setInteractive(true);
+        col_chart.setZoomType(ZoomType.HORIZONTAL);
+        col_chart.setColumnChartData(data);
 //        Viewport viewport =new Viewport(0,  col_chart.getMaximumViewport().height()*1.25f,10, 0);
 
-        if(type==0) {
-            Viewport viewport = new Viewport(0, 24, 7, 0);
-            col_chart.setCurrentViewport(viewport);
-            col_chart.setColumnChartData(data);
-            col_chart.moveTo(beg, 0);
-        }else{
-            col_chart.setColumnChartData(data);
-            Viewport viewport = new Viewport(0, 24, 12, 0);
-            col_chart.setCurrentViewport(viewport);
-            col_chart.moveTo(beg, 0);
-        }
         Viewport v = col_chart.getCurrentViewport();
         v.top = 25;
         col_chart.setMaximumViewport(v);
+        v.right=(type==0)?7:12;
         col_chart.setCurrentViewport(v);
+        col_chart.moveTo(beg, 0);
     }
 
     //调用接口
