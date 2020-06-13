@@ -191,6 +191,7 @@ public class NoteFragment extends Fragment implements CalendarView.OnYearChangeL
         note_list.clear();
         noteAdapter.notifyDataSetChanged();
         getNote(year+"-"+month+"-01");
+        initScheme();
     }
 
     @Override
