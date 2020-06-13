@@ -95,7 +95,6 @@ public class FriendActivity extends AppCompatActivity {
     //通过ids获取好友信息
     private void getInfo(String ids) {
         if (ids.equals("")) return;
-        friend_list.clear();
         try {
             URL url = new URL(global.getURL() + "/friend/getInfo");
             // 打开连接
@@ -231,8 +230,8 @@ public class FriendActivity extends AppCompatActivity {
 
     private void initData() {
         ids = getIds(global.getUserId());
-        if (ids != "error") {
-            getInfo(ids);
+        if (ids != "error" && friend_list.size()==0){
+                getInfo(ids);
         }
     }
 
@@ -306,6 +305,7 @@ public class FriendActivity extends AppCompatActivity {
                         Toast.makeText(FriendActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
                         getInfo("'"+friendid+"',");
                         friendAdapter.notifyDataSetChanged();
+                        input.setText("");
                     }else if (exist == 201) {
                         Toast.makeText(FriendActivity.this, "该id 不存在", Toast.LENGTH_SHORT).show();
                     }

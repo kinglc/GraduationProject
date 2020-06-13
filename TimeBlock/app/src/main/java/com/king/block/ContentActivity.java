@@ -79,6 +79,7 @@ public class ContentActivity extends AppCompatActivity implements View.OnClickLi
             nickname = global.getName();
         }else{
             nickname = getIntent().getStringExtra("name");
+            global.setName(nickname);
         }
 //        avatarUrl = getIntent().getStringExtra("avatar");
         index = getIntent().getIntExtra("index", 1);
