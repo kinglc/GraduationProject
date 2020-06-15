@@ -11,28 +11,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f229e467-6a86-4b6e-8252-f13f0fc2a9ae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Documents/0/1120161943_金晨_开题报告.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/0/~$论文.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/0/周志.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/0/外文原文a defense of narrative centric game design.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/0/外文翻译.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/0/查重报告.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/0/论文.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/timeblock.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Documents/timeblock.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/答辩相关文件/2020届本科毕业设计（论文）模板及打印装订要求-教务部/~$评语表.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/答辩相关文件/软件工程专业答辩相关材料/~$工程专业答辩应准备的材料 - 远程答辩.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Documents/论文/游戏化个人管理Android App的设计与实现.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../Documents/论文/游戏化个人管理Android App的设计与实现.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/10软件工程专业毕业设计答辩评分表.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/11外文原文a defense of narrative centric game design.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/11外文翻译.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/13金晨_展示视频.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/15中期报告.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/1A任务书.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/1A评语表.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/1B论文+封面.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/2开题报告.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/3毕业要求达成度、质量跟踪评价表-教师学生用.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/4论文查重报告简表.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/5软件验收表.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/6形式审查表（一）.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/8毕业设计及论文检查登记表.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/9周志.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/0/金晨_1120161943_源代码.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/答辩相关文件.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../Documents/答辩相关文件.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Documents/答辩相关文件/软件工程专业答辩相关材料/~$工程专业毕业设计及论文检查登记表.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../node/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../node/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +121,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2000">
+            <state relative-caret-position="1960">
               <caret line="175" column="36" selection-start-line="175" selection-start-column="36" selection-end-line="175" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -309,7 +308,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="980" />
@@ -324,6 +323,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -361,7 +361,36 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Block" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="block" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Block" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="block" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Block" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TimeBlock" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="block" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Block" type="b2602c69:ProjectViewProjectNode" />
@@ -372,7 +401,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -564,10 +592,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5048077" side_tool="true" weight="0.20308311" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49519232" visible="true" weight="0.20308311" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49519232" visible="true" weight="0.22989276" />
       <window_info id="Structure" order="2" sideWeight="0.5010352" side_tool="true" weight="0.2191689" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -583,9 +611,9 @@
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32991204" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32844576" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32210836" />
-      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.49865952" weight="0.3900293" />
+      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.49865952" visible="true" weight="0.36857563" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5013405" weight="0.2888563" />
-      <window_info active="true" anchor="bottom" id="Statistic" order="10" visible="true" weight="0.52492666" />
+      <window_info anchor="bottom" id="Statistic" order="10" weight="0.524031" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.3297587" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
@@ -844,20 +872,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_friend.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_todo.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="61" column="53" lean-forward="true" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-29/android/app/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -923,12 +951,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_friend.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="54" column="39" lean-forward="true" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-29/android/widget/Chronometer.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -948,20 +976,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_plan.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="109" column="41" lean-forward="true" selection-start-line="109" selection-start-column="41" selection-end-line="109" selection-end-column="41" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_plan.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.lecho/hellocharts-library/1.5.8/51798d4793c333553a68292ee3a47b4758c2ec47/hellocharts-library-1.5.8-sources.jar!/lecho/lib/hellocharts/model/Axis.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -978,6 +1006,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_chart.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="79">
           <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
@@ -990,7 +1019,6 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1230,7 +1258,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/king/block/content/PlanFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2000">
+        <state relative-caret-position="1960">
           <caret line="175" column="36" selection-start-line="175" selection-start-column="36" selection-end-line="175" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
