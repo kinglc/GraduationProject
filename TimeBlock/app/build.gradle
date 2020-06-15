@@ -28,6 +28,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.haibin:calendarview:3.6.8'
     compile(name:'alipaySdk-15.6.4-20190624155522',ext:'aar')
+    compile(name:'alipaySdk-15.6.4-20190624155522',ext:'aar')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
